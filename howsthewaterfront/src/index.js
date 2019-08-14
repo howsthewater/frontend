@@ -21,8 +21,8 @@ const config = {
       "profile",
       "aws.cognito.signin.user.admin"
     ],
-    redirectSignIn: process.env.REACT_APP_REDIRECTSIGNIN,
-    redirectSignOut: process.env.REACT_APP_REDIRECTSIGNOUT,
+    redirectSignIn: "http://localhost:3000/",
+    redirectSignOut: "http://localhost:3000/",
     responseType: "code"
   },
   federationTarget: "COGNITO_USER_POOLS"
