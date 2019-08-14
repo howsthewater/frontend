@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"howsthewaterfront2d755cae": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

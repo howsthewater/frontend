@@ -1,0 +1,21 @@
+{
+    "local": {
+        "awscloudformation": {
+            "AuthRoleName": "howsthewaterfront-local-20190814024731-authRole",
+            "UnauthRoleArn": "arn:aws:iam::746257933290:role/howsthewaterfront-local-20190814024731-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::746257933290:role/howsthewaterfront-local-20190814024731-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "howsthewaterfront-local-20190814024731-deployment",
+            "UnauthRoleName": "howsthewaterfront-local-20190814024731-unauthRole",
+            "StackName": "howsthewaterfront-local-20190814024731",
+            "StackId": "arn:aws:cloudformation:us-west-2:746257933290:stack/howsthewaterfront-local-20190814024731/889b8fc0-be78-11e9-914c-02759da24116"
+        },
+        "categories": {
+            "auth": {
+                "howsthewaterfront2d755cae": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"902830448427-bk21061ricnp17hbv1anq9unvco3djp4.apps.googleusercontent.com\",\"client_secret\":\"6KgyrzbU5PpPV57YrJoxfo07\"}]"
+                }
+            }
+        }
+    }
+}

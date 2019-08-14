@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import LoginState from "./context/LoginState";
 import PrivateRoute from "./authentication/PrivateRoute";
 import Landing from "./landing/Landing";
@@ -12,12 +12,9 @@ const App = () => {
     <div className="App">
       <LoginState>
         <h1>How's The Water</h1>
-
         <Router>
-          <Switch>
-            <Route path="/landing" component={Landing} />
-            <PrivateRoute path="/home" component={AppComponents} />
-          </Switch>
+          <Route path="/" component={Landing} />
+          <PrivateRoute path="/home" component={AppComponents} />
         </Router>
       </LoginState>
     </div>
