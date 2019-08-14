@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { Redirect } from "react-router-dom";
 import LoginContext from "../context/LoginContext";
-// import AwsCognitoComponent from "../aws/AwsCognitoComponent";
 import { Auth } from "aws-amplify";
 
 const Landing = () => {
   const loginContext = useContext(LoginContext);
-  const logInFunc = () => {
-    // loginContext.setLogin(true);
-  };
+  // const logInFunc = () => {
+  // loginContext.setLogin(true);
+  // };
   return (
     <div>
       <h1>Not Logged In</h1>
