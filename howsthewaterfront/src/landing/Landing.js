@@ -8,6 +8,7 @@ const Landing = () => {
   // const logInFunc = () => {
   // loginContext.setLogin(true);
   // };
+  Auth.currentAuthenticatedUser().then(user => console.log(user));
   return (
     <div>
       <h1>Not Logged In</h1>
