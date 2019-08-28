@@ -25,7 +25,7 @@ const SearchInput = styled.input`
   font-weight: 500;
   font-size: 16px;
   border-radius: 0px 2px 2px 0px;
-  border: #ffffff;
+  border: 1px solid #2d728f
   padding-left: 10px;
   line-height: 18px;
   letter-spacing: 0.1em;
@@ -33,9 +33,9 @@ const SearchInput = styled.input`
 const SearchButton = styled.button`
   cursor: pointer;
   width: 78px;
-  height: 50px;
+  height: 52px;
   background: #2d728f;
-  border: #2d728f;
+  border: 1px solid #2d728f;
   border-radius: 0px 2px 2px 0px;
   color: #ffffff;
   font-family: Ubuntu;
@@ -58,7 +58,9 @@ const AdvancedSearchToggle = styled.button`
   font-size: 16px;
   line-height: 18px;
   letter-spacing: 0.3em;
-  color: #ffffff;
+  color: #2d728f;
+  background: #ffffff;
+  border: 1px solid #2d728f;
 `;
 const AdvancedSearchContainer = styled.div`
   width: 722px;
@@ -74,7 +76,7 @@ const AdvancedSearchForm = styled.form`
   align-items: center
   background: #ffffff;
   border-radius: 0px 2px 2px 0px;
-  border: #ffffff;
+  border: 1px solid #2d728f;
 `;
 const Icons = styled.img`
   height: 75%;
@@ -95,8 +97,10 @@ const CheckboxLabel = styled.label`
 
   input: checked ~span {
     background: #2d728f;
+    color: #ffffff;
   }
   span {
+      color: #ffffff
     position: absolute;
     height: 12px;
     width: 12px;
