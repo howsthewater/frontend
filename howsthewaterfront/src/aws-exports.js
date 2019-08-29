@@ -1,12 +1,12 @@
 const awsmobile = {
-  aws_project_region: "us-east-2",
+  aws_project_region: "us-east-1",
   aws_cognito_identity_pool_id:
-    "us-east-2:f2bb91e8-4f54-486a-9e5c-9aa7fc044478",
-  aws_cognito_region: "us-east-2",
-  aws_user_pools_id: "us-east-2_4MVc3pg1Z",
-  aws_user_pools_web_client_id: "3o1or7fct0bb9otberjkq03o2d",
+    "us-east-1:94fae9d4-f478-4baf-81f5-2c5be8fc7e79",
+  aws_cognito_region: "us-east-1",
+  aws_user_pools_id: "us-east-1_rc036Clrl",
+  aws_user_pools_web_client_id: "1d3m78p4gj7vma1mfr4bgehl9m",
   oauth: {
-    domain: "frontend5e1c038e-5e1c038e-dev.auth.us-east-2.amazoncognito.com",
+    domain: "howsthewater.auth.us-east-1.amazoncognito.com",
     scope: [
       "phone",
       "email",
@@ -16,7 +16,7 @@ const awsmobile = {
     ],
     redirectSignIn: "http://localhost:3000/home",
     redirectSignOut: "http://localhost:3000/",
-    responseType: "token"
+    responseType: "code"
   },
   federationTarget: "COGNITO_USER_POOLS"
 };
