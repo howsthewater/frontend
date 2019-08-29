@@ -15,7 +15,7 @@ const LandingContainer = styled.div`
 
 const LandingJumbo = styled.div`
 background-image: url(${WaveBackground});
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
   width: 100%;
   height: 108.1rem;
   display: flex;
@@ -97,6 +97,9 @@ const CardContainerDiv = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
 `;
 
 const Card0 = styled.div`
@@ -110,18 +113,44 @@ const Card0 = styled.div`
   align-items:center
   justify-content: space-around;
   color: #ffffff;
+  @media(max-width:992px){
+    width: 98%
+    height: 20rem
+    flex-direction:row
+    margin: 2rem;
+  }
+  @media(max-width: 576px){
+    margin: 0rem;
+    height: 27rem;
+  }
   h1{
     font-size: 4rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      font-size:3rem;
+    }
   }
   p{
     margin: 0 4rem;
     font-size: 2rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      width: 40%
+      margin: 0 1rem;
+      font-size:1.6rem;
+    }
   }
   h2{
     font-size: 2.5rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      font-size: 2rem;
+    }
+    @media(max-width: 576px){
+      position: relative
+      bottom: 4rem;
+      left: 4.5rem;
+    }
   }
   button{
     margin-bottom: 2.5rem;
@@ -146,31 +175,68 @@ const Card0 = styled.div`
     justify-content: center
     font-weight: 700
     cursor: pointer
+    @media(max-width:992px){
+      margin-bottom: 0rem;
+      height: 5.2rem
+      10rem;
+      font-size: 1.6rem
+    }
+    @media(max-width: 576px){
+      position: relative
+      top: 3rem;
+      right: 2.5rem;
+    }
   }
     `;
 const Card1 = styled.div`
-    z-index: 1;
-    width: 48.2rem;
-    height: 64rem;
-    background: linear-gradient(180deg, #ffffff 0%, #8fcbaf 100%);
-    box-shadow: 0px 4px 10px #5b9279;
+  z-index: 1;
+  width: 48.2rem;
+  height: 64rem;
+  background: linear-gradient(180deg, #ffffff 0%, #8fcbaf 100%);
+  box-shadow: 0px 4px 10px #5b9279;
   display:flex;
   flex-direction:column;
   align-items:center
   justify-content: space-around;
   color: #ffffff
+  @media(max-width:992px){
+    width: 98%
+    height: 20rem
+    flex-direction:row
+    margin: 2rem
+  }
+  @media(max-width: 576px){
+    margin: 0rem;
+    height: 27rem;
+  }
   h1{
     font-size: 4rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      font-size:3rem;
+    }
   }
   p{
     margin: 0 4rem;
     font-size: 2rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      width: 40%
+      margin: 0 1rem;
+      font-size:1.6rem;
+    }
   }
   h2{
     font-size: 2.5rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      font-size: 2rem;
+    }
+    @media(max-width: 576px){
+      position: relative
+      bottom: 4rem;
+      left: 4.5rem;
+    }
   }
   button{
     margin-bottom: 2.5rem;
@@ -195,6 +261,17 @@ const Card1 = styled.div`
     justify-content: center
     font-weight: 700
     cursor: pointer
+    @media(max-width:992px){
+      margin-bottom: 0rem;
+      height: 5.2rem
+      10rem;
+      font-size: 1.6rem
+    }
+    @media(max-width: 576px){
+      position: relative
+      top: 3rem;
+      right: 2.5rem;
+    }
   }
 `;
 const Card2 = styled.div`
@@ -208,18 +285,44 @@ const Card2 = styled.div`
   align-items:center
   justify-content: space-around;
   color: #ffffff
+  @media(max-width:992px){
+    width: 98%
+    height: 20rem
+    flex-direction:row
+    margin: 2rem
+  }
+  @media(max-width: 576px){
+    margin: 0rem;
+    height: 27rem;
+  }
   h1{
     font-size: 4rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      font-size:3rem;
+    }
   }
   p{
     margin: 0 4rem;
     font-size: 2rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      width: 40%
+      margin: 0 1rem;
+      font-size:1.6rem;
+    }
   }
   h2{
     font-size: 2.5rem;
     letter-spacing: 0.1rem;
+    @media(max-width:992px){
+      font-size: 2rem;
+    }
+    @media(max-width: 576px){
+      position: relative
+      bottom: 4rem;
+      left: 3.5rem;
+    }
   }
   button{
     margin-bottom: 2.5rem;
@@ -244,6 +347,17 @@ const Card2 = styled.div`
     justify-content: center
     font-weight: 700
     cursor: pointer 
+    @media(max-width:992px){
+      margin-bottom: 0rem;
+      height: 5.2rem
+      10rem;
+      font-size: 1.6rem
+    }
+    @media(max-width: 576px){
+      position: relative
+      top: 3rem;
+      right: 2.7rem;
+    }
   }
     `;
 
