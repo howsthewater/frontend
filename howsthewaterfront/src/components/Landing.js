@@ -78,14 +78,14 @@ const Dot2 = styled(Dot0)`
 const Dot3 = styled(Dot0)`
   width: 300px;
   height: 300px;
-  left: 900px;
+  left: 1100px;
   top: 1815px;
 `;
 
 const Dot4 = styled(Dot0)`
   width: 300px;
   height: 300px;
-  left: 1500px;
+  left: 1600px;
   top: 1211px;
 `;
 
@@ -111,22 +111,72 @@ const Card0 = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center
-  justify-content:space-around;
+  justify-content: center;
   color: #ffffff
-  padding: 10px
-`;
+  h3{
+    width:80%
+  }
+  button{
+    width: 115px;
+    height: 57.5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    background: #0FB2B2;
+    border: 0
+    border-radius: 5px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-align: center
+    display: flex;
+    justify-content: center
+    font-weight: 700
+    cursor: pointer
+  }
+    `;
 const Card1 = styled.div`
-  z-index: 1;
-  width: 482px;
-  height: 640px;
-  background: linear-gradient(180deg, #ffffff 0%, #8fcbaf 100%);
-  box-shadow: 0px 4px 10px #5b9279;
+    z-index: 1;
+    width: 482px;
+    height: 640px;
+    background: linear-gradient(180deg, #ffffff 0%, #8fcbaf 100%);
+    box-shadow: 0px 4px 10px #5b9279;
   display:flex;
   flex-direction:column;
   align-items:center
-  justify-content:space-around;
+  justify-content: center;
   color: #ffffff
-  padding: 10px
+  h3{
+    width:80%
+  }
+  button{
+    width: 115px;
+    height: 57.5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    background: #5B9279;
+    border: 0
+    border-radius: 5px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-align: center
+    display: flex;
+    justify-content: center
+    font-weight: 700
+    cursor: pointer
+  }
 `;
 const Card2 = styled.div`
   z-index:1
@@ -137,10 +187,35 @@ const Card2 = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center
-  justify-content:space-around;
+  justify-content:center;
   color: #ffffff
-  padding: 10px
-`;
+  h3{
+    width:80%
+  }
+  button{
+    width: 115px;
+    height: 62px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    background: #2D728F;
+    border: 0
+    border-radius: 5px;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-align: center
+    display: flex;
+    justify-content: center
+    font-weight: 700
+    cursor: pointer 
+  }
+    `;
 
 const AboutUs = styled.div`
   display: flex;
@@ -170,7 +245,7 @@ const AboutUsTextAndTeam = styled.div`
   width: 70%;
 
   p {
-    margin: 5% 0 0 0;
+    margin: 7% 0 0 0;
     line-height: 2rem;
     color: #ffffff;
   }
@@ -178,7 +253,22 @@ const AboutUsTextAndTeam = styled.div`
   div {
     display: flex;
     justify-content: space-between;
+    margin: 5% 0 0 0;
   }
+`;
+
+const MemberDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const TeamPlaceholder = styled.span`
+  background: rgba(255, 255, 255, 1);
+  border-radius: 200px;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0px 4px 50px #215c74;
 `;
 
 const Landing = () => {
@@ -202,22 +292,22 @@ const Landing = () => {
           <Card0>
             <img src={CoreIcon} alt="core" />
             <h1>Core</h1>
-            <p>Everything you need to have a complete shopping experience.</p>
-            <h3>Free</h3>
+            <h3>Everything you need to have a complete shopping experience.</h3>
+            <h2>Free</h2>
             <button>Included</button>
           </Card0>
           <Card1>
             <img src={LoginIcon} alt="login" />
             <h1>Login</h1>
-            <p>Everything you need to have a complete shopping experience.</p>
-            <h3>Free</h3>
+            <h3>Everything you need to have a complete shopping experience.</h3>
+            <h2>Free</h2>
             <button>Sign Up</button>
           </Card1>
           <Card2>
             <img src={PremiumIcon} alt="Premium" />
             <h1>Premium</h1>
-            <p>Everything you need to have a complete shopping experience.</p>
-            <h3>$100</h3>
+            <h3>Everything you need to have a complete shopping experience.</h3>
+            <h2>$100</h2>
             <button>Sign Up</button>
           </Card2>
         </CardContainerDiv>
@@ -242,7 +332,30 @@ const Landing = () => {
             water’ Lorem Ipsum
           </p>
           <div>
-            <img src={PremiumIcon} />
+            <MemberDiv>
+              <TeamPlaceholder />
+              <p>Team Member</p>
+            </MemberDiv>
+            <MemberDiv>
+              <TeamPlaceholder />
+              <p>Team Member</p>
+            </MemberDiv>
+            <MemberDiv>
+              <TeamPlaceholder />
+              <p>Team Member</p>
+            </MemberDiv>
+            <MemberDiv>
+              <TeamPlaceholder />
+              <p>Team Member</p>
+            </MemberDiv>
+            <MemberDiv>
+              <TeamPlaceholder />
+              <p>Team Member</p>
+            </MemberDiv>
+            <MemberDiv>
+              <TeamPlaceholder />
+              <p>Team Member</p>
+            </MemberDiv>
           </div>
         </AboutUsTextAndTeam>
       </AboutUs>
