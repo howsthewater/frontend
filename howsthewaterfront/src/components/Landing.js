@@ -17,83 +17,79 @@ const LandingJumbo = styled.div`
 background-image: url(${WaveBackground});
   background-repeat: no-repeat;
   width: 100%;
-  height: 1081px;
+  height: 108.1rem;
   display: flex;
   flex-direction column;
   align-items: center
   justify-content:center
   margin: auto
   `;
+const FandPDiv = styled.div`
+  width: 100%;
+  height: 108.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const FandPText = styled.div`
-  position: absolute;
-  width: 335px;
-  height: 90px;
-  left: 792px;
-  top: 1167px;
+  margin-top: 10rem;
   font-family: Ubuntu;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
-  line-height: 41px;
+  font-size: 3.6rem;
+  line-height: 4.1rem;
   display: flex;
   align-items: center;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.05rem;
   color: #2d728f;
 `;
 
 const Line = styled.div`
-  position: absolute;
-  width: 315px;
-  height: 0px;
-  left: 787px;
-  top: 1243px;
+  width: 31.5rem;
+  margin-top: 1rem;
+  margin-bottom: 10rem;
+  height: 0rem;
   border: 1px solid #2d728f;
 `;
+
 const Dot0 = styled.span`
   z-index: 1;
   position: absolute;
   background: rgba(0, 191, 191, 0.2);
   border-radius: 200px;
-  width: 400px;
-  height: 400px;
-  left: -82px;
-  top: 1754px;
+  width: 40rem;
+  height: 40rem;
+  right: 160rem
+  top: 175.4rem;
 `;
 
 const Dot1 = styled(Dot0)`
-  width: 200px;
-  height: 200px;
-  left: 577px;
-  top: 1628px;
+  width: 20rem;
+  height: 20rem;
+  right: 115rem
+  top: 162.8rem;
 `;
 
 const Dot2 = styled(Dot0)`
-  width: 100px;
-  height: 100px;
-  left: 1149px;
-  top: 1375px;
+  width: 10rem;
+  height: 10rem;
+  right: 65rem;
+  top: 137.5rem;
 `;
 
 const Dot3 = styled(Dot0)`
-  width: 300px;
-  height: 300px;
-  left: 1100px;
-  top: 1815px;
+  width: 30rem;
+  height: 30rem;
+  right: 50rem;
+  top: 181.5rem;
 `;
 
 const Dot4 = styled(Dot0)`
-  width: 300px;
+  width: 30rem;
   height: 300px;
-  left: 1600px;
-  top: 1211px;
-`;
-
-const FandPDiv = styled.div`
-  width: 100%;
-  height: 1081px;
-  display: flex;
-  align-items: center;
+  right: 3rem;
+  top: 121.1rem;
 `;
 
 const CardContainerDiv = styled.div`
@@ -102,23 +98,35 @@ const CardContainerDiv = styled.div`
   justify-content: space-around;
   width: 100%;
 `;
+
 const Card0 = styled.div`
   z-index: 1
-  width: 482px;
-  height: 640px;
+  width: 48.2rem;
+  height: 64rem;
   background: linear-gradient(180deg, #ffffff 0%, #00bfbf 100%);
-  box-shadow: 0px 4px 10px #215c74;
+  box-shadow: 0rem .4rem 1rem #215c74;
   display:flex;
   flex-direction:column;
   align-items:center
-  justify-content: center;
-  color: #ffffff
-  h3{
-    width:80%
+  justify-content: space-around;
+  color: #ffffff;
+  h1{
+    font-size: 4rem;
+    letter-spacing: 0.1rem;
+  }
+  p{
+    margin: 0 4rem;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+  h2{
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
   }
   button{
-    width: 115px;
-    height: 57.5px;
+    margin-bottom: 2.5rem;
+    width: 11.5rem;
+    height: 5.75rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     background: #0FB2B2;
     border: 0
@@ -126,12 +134,12 @@ const Card0 = styled.div`
     font-family: Ubuntu;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 18px;
+    font-size: 2rem;
+    line-height: 1.8rem;
     display: flex;
     align-items: center;
     text-align: center;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1rem;
     color: #FFFFFF;
     text-align: center
     display: flex;
@@ -142,21 +150,32 @@ const Card0 = styled.div`
     `;
 const Card1 = styled.div`
     z-index: 1;
-    width: 482px;
-    height: 640px;
+    width: 48.2rem;
+    height: 64rem;
     background: linear-gradient(180deg, #ffffff 0%, #8fcbaf 100%);
     box-shadow: 0px 4px 10px #5b9279;
   display:flex;
   flex-direction:column;
   align-items:center
-  justify-content: center;
+  justify-content: space-around;
   color: #ffffff
-  h3{
-    width:80%
+  h1{
+    font-size: 4rem;
+    letter-spacing: 0.1rem;
+  }
+  p{
+    margin: 0 4rem;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+  h2{
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
   }
   button{
-    width: 115px;
-    height: 57.5px;
+    margin-bottom: 2.5rem;
+    width: 11.5rem;
+    height: 5.75rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     background: #5B9279;
     border: 0
@@ -164,12 +183,12 @@ const Card1 = styled.div`
     font-family: Ubuntu;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 18px;
+    font-size: 2rem;
+    line-height: 1.8rem;
     display: flex;
     align-items: center;
     text-align: center;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1rem;
     color: #FFFFFF;
     text-align: center
     display: flex;
@@ -180,21 +199,32 @@ const Card1 = styled.div`
 `;
 const Card2 = styled.div`
   z-index:1
-  width: 482px;
-  height: 640px;
+  width: 48.2rem;
+  height: 64rem;
   background: linear-gradient(180deg, #ffffff 0%, #357c9a 100%);
   box-shadow: 0px 4px 10px #215c74;
   display:flex;
   flex-direction:column;
   align-items:center
-  justify-content:center;
+  justify-content: space-around;
   color: #ffffff
-  h3{
-    width:80%
+  h1{
+    font-size: 4rem;
+    letter-spacing: 0.1rem;
+  }
+  p{
+    margin: 0 4rem;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+  h2{
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
   }
   button{
-    width: 115px;
-    height: 62px;
+    margin-bottom: 2.5rem;
+    width: 11.5rem;
+    height: 6.2rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     background: #2D728F;
     border: 0
@@ -202,12 +232,12 @@ const Card2 = styled.div`
     font-family: Ubuntu;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 18px;
+    font-size: 2rem;
+    line-height: 1.8rem;
     display: flex;
     align-items: center;
     text-align: center;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.1rem;
     color: #FFFFFF;
     text-align: center
     display: flex;
@@ -222,7 +252,7 @@ const AboutUs = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 1081px;
+  height: 100%;
   background-color: #86d4d4;
 `;
 
@@ -231,9 +261,9 @@ const AboutUsBanner = styled.span`
   justify-content: center;
   align-items: center;
   margin: 7% 0 0 0;
-  font-size: 2rem;
+  font-size: 3.5rem;
   width: 100%;
-  height: 10%;
+  height: 30%;
   color: #47839d;
   background-color: #c2e9e9;
 `;
@@ -246,7 +276,8 @@ const AboutUsTextAndTeam = styled.div`
 
   p {
     margin: 7% 0 0 0;
-    line-height: 2rem;
+    font-size: 1.6rem;
+    line-height: 3rem;
     color: #ffffff;
   }
 
@@ -254,6 +285,14 @@ const AboutUsTextAndTeam = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 5% 0 0 0;
+
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 992px) {
+    width: 60%;
   }
 `;
 
@@ -266,9 +305,15 @@ const MemberDiv = styled.div`
 const TeamPlaceholder = styled.span`
   background: rgba(255, 255, 255, 1);
   border-radius: 200px;
-  width: 150px;
-  height: 150px;
-  box-shadow: 0px 4px 50px #215c74;
+  width: 15rem;
+  height: 15rem;
+  box-shadow: 0rem 0.4rem 5rem #215c74;
+
+  @media (max-width: 768px) {
+    width: 12rem;
+    height: 12rem;
+    box-shadow: 0rem 0.4rem 2rem #215c74;
+  }
 `;
 
 const Landing = () => {
@@ -287,32 +332,30 @@ const Landing = () => {
         <Dot2 />
         <Dot3 />
         <Dot4 />
-
         <CardContainerDiv>
           <Card0>
             <img src={CoreIcon} alt="core" />
             <h1>Core</h1>
-            <h3>Everything you need to have a complete shopping experience.</h3>
+            <p>Everything you need to have a complete shopping experience.</p>
             <h2>Free</h2>
             <button>Included</button>
           </Card0>
           <Card1>
             <img src={LoginIcon} alt="login" />
             <h1>Login</h1>
-            <h3>Everything you need to have a complete shopping experience.</h3>
+            <p>Everything you need to have a complete shopping experience.</p>
             <h2>Free</h2>
             <button>Sign Up</button>
           </Card1>
           <Card2>
             <img src={PremiumIcon} alt="Premium" />
             <h1>Premium</h1>
-            <h3>Everything you need to have a complete shopping experience.</h3>
+            <p>Everything you need to have a complete shopping experience.</p>
             <h2>$100</h2>
             <button>Sign Up</button>
           </Card2>
         </CardContainerDiv>
       </FandPDiv>
-
       <AboutUs>
         <AboutUsBanner>About Us</AboutUsBanner>
         <AboutUsTextAndTeam>
