@@ -11,7 +11,7 @@ import picnicIcon from "../assets/icons8-picnic-table-50.png";
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 60vw;
 `;
 const SearchForm = styled.form`
   display: flex;
@@ -43,6 +43,50 @@ const SearchButton = styled.button`
   font-size: 1.6rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
+  @media (max-width: 992px) {
+    width: 20%;
+  }
+`;
+const SearchButtonAdvanced = styled.button`
+  cursor: pointer;
+  width: 10%;
+  height: 5rem;
+  background: #2d728f;
+  border: 0.1rem solid #2d728f;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  color: #ffffff;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  @media (max-width: 992px) {
+    display: none;
+  }
+`;
+const SearchButtonGrid = styled.button`
+  cursor: pointer;
+  width: 10%;
+  height: 5rem;
+  background: #2d728f;
+  border: 0.1rem solid #2d728f;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  color: #ffffff;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  display: none;
+  @media (max-width: 992px) {
+    display: block;
+    width: 95%;
+    height: 2.5rem;
+    grid-column-start: 7;
+    grid-column-end: 9;
+  }
 `;
 const AdvancedSearchToggle = styled.button`
   cursor: pointer;
@@ -60,6 +104,9 @@ const AdvancedSearchToggle = styled.button`
   color: #2d728f;
   background: #ffffff;
   border: 0.1rem solid #2d728f;
+  @media (max-width: 992px) {
+    width: 40%;
+  }
 `;
 const AdvancedSearchContainer = styled.div`
   width: 100%;
@@ -67,6 +114,7 @@ const AdvancedSearchContainer = styled.div`
   display: flex;
   margin-top: 3rem;
 `;
+
 const AdvancedSearchForm = styled.form`
   width: 90%;
   height: 5rem;
@@ -76,6 +124,13 @@ const AdvancedSearchForm = styled.form`
   background: #ffffff;
   border-radius: 0rem .2rem .2rem 0rem;
   border: .1rem solid #2d728f;
+  @media (max-width:992px){
+    width: 100%
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 10rem;
+    padding-left: 2rem;
+  }
 `;
 const Icons = styled.img`
   height: 75%;
@@ -91,6 +146,7 @@ const CheckboxLabel = styled.label`
     height: 2rem;
     width: 2rem;
     border: .2rem solid #2d728f;
+    
   }
   input: checked ~span {
     background: #2d728f;
@@ -106,6 +162,7 @@ const CheckboxLabel = styled.label`
     line-height: 1.2;
     text-align: center
   }
+  
 `;
 //
 const Search = () => {
@@ -245,13 +302,19 @@ const Search = () => {
             <span>√</span>
           </CheckboxLabel>
           <Icons src={picnicIcon} />
+          <SearchButtonGrid
+            onClick={searchSubmit}
+            style={{ display: !advancedSearch ? "none" : "" }}
+          >
+            Search
+          </SearchButtonGrid>
         </AdvancedSearchForm>
-        <SearchButton
+        <SearchButtonAdvanced
           onClick={searchSubmit}
           style={{ display: !advancedSearch ? "none" : "" }}
         >
           Search
-        </SearchButton>
+        </SearchButtonAdvanced>
       </AdvancedSearchContainer>
     </SearchContainer>
   );
