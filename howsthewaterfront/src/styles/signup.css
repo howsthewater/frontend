@@ -15,6 +15,10 @@
   border-radius: 10px;
   width: 30.5%;
   height: 48rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 /* Shared */
@@ -22,8 +26,8 @@
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
-  margin: 0.2em;
-  padding: 0 15px 0 46px;
+  /* margin: 50px 0 10px 0; */
+  padding: 0 50px 0 46px;
   border: none;
   text-align: left;
   line-height: 34px;
@@ -54,6 +58,7 @@
   background-image: linear-gradient(#4c69ba, #3b55a0);
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
   text-shadow: 0 -1px 0 #354c8c;
+  margin: 50px 0 10px 0;
 }
 .loginBtn--facebook:before {
   border-right: #364e92 1px solid;
@@ -70,7 +75,8 @@
 .loginBtn--google {
   /*font-family: "Roboto", Roboto, arial, sans-serif;*/
   background: #dd4b39;
-  padding: 0 25px 0 50px;
+  padding: 0 60px 0 50px;
+  margin: 20px 0 10px 0;
 }
 .loginBtn--google:before {
   border-right: #bb3f30 1px solid;
@@ -80,4 +86,60 @@
 .loginBtn--google:hover,
 .loginBtn--google:focus {
   background: #e74b37;
+}
+
+.hr_bar {
+  width: 135px;
+  height: 20px;
+  border-bottom: 0.5px solid #000000;
+  margin-bottom: 20px;
+}
+
+.signup-btn {
+  width: 180px;
+  height: 50px;
+  background-color: #2d728f;
+  margin-right: 10px;
+  margin-top: 25px;
+  margin-left: 10px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-indent: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.input-txt {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  width: 160%;
+  height: 4.5rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  border-radius: 5px;
+  font-family: "Ubuntu", sans-serif;
+  letter-spacing: 5px;
+  padding-left: 3px;
+}
+
+.divider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+
+.divider-text {
+  margin: 0px 30px;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

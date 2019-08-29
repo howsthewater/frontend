@@ -5,7 +5,53 @@ import "../styles/signup.css";
 const SignUp = () => {
   return (
     <div className="signup-body">
-      <div className="signup-content">Sign Up Page</div>
+      <div className="signup-content">
+        <div>
+          <button
+            className="loginBtn loginBtn--facebook"
+            onClick={() => Auth.federatedSignIn({ provider: "Facebook" })}
+          >
+            Login with Facebook
+          </button>
+        </div>
+        <div>
+          <button
+            className="loginBtn loginBtn--google"
+            onClick={() => Auth.federatedSignIn({ provider: "Google" })}
+          >
+            Login with Google
+          </button>
+        </div>
+        <div className="divider">
+          <div className="hr_bar" />
+          <div className="divider-text">OR</div>
+          <div className="hr_bar" />
+        </div>
+        <form className="input-form">
+          <input
+            className="input-txt"
+            type="text"
+            name="fullname"
+            placeholder="Full Name"
+          />
+
+          <input
+            className="input-txt"
+            type="text"
+            name="email"
+            placeholder="Email Address"
+          />
+
+          <input
+            className="input-txt"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+
+          <button className="signup-btn">Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 };
