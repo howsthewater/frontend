@@ -11,7 +11,7 @@ const SignUp = () => {
             className="loginBtn loginBtn--facebook"
             onClick={() => Auth.federatedSignIn({ provider: "Facebook" })}
           >
-            Login with Facebook
+            Sign-up with Facebook
           </button>
         </div>
         <div>
@@ -19,7 +19,7 @@ const SignUp = () => {
             className="loginBtn loginBtn--google"
             onClick={() => Auth.federatedSignIn({ provider: "Google" })}
           >
-            Login with Google
+            Sign-up with Google
           </button>
         </div>
         <div className="divider">
