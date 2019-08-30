@@ -374,39 +374,38 @@ const AboutUsBanner = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 7% 0 0 0;
+  margin: 5% 0 0 0;
   font-size: 3.5rem;
   width: 100%;
-  height: 30%;
+  height: 10rem;
   color: #47839d;
   background-color: #c2e9e9;
 `;
 
-const AboutUsTextAndTeam = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 70%;
-
+const AboutUsText = styled.div`
+  width: 90%;
+  margin: 3%;
   p {
-    margin: 7% 0 0 0;
+    margin: 0 2% 0% 2%;
     font-size: 1.6rem;
-    line-height: 3rem;
+    line-height: 5rem;
     color: #ffffff;
   }
+`;
 
-  div {
-    display: flex;
-    justify-content: space-between;
-    margin: 5% 0 0 0;
-
-    @media (max-width: 992px) {
-      flex-wrap: wrap;
-    }
-  }
-
-  @media (max-width: 992px) {
-    width: 60%;
+const MemberContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 85%
+  flex-wrap: wrap
+  margin-bottom: 2rem;
+  p{
+    margin-top: 1.6rem
+    font-size: 1.6rem;
+    text-align: center
+    line-height: 2rem;
+    color: #2d728f
   }
 `;
 
@@ -414,6 +413,7 @@ const MemberDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 2rem;
 `;
 
 const TeamPlaceholder = styled.span`
@@ -472,7 +472,7 @@ const Landing = () => {
       </FandPDiv>
       <AboutUs>
         <AboutUsBanner>About Us</AboutUsBanner>
-        <AboutUsTextAndTeam>
+        <AboutUsText>
           <p>
             ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s
             the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the
@@ -488,33 +488,51 @@ const Landing = () => {
             the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the
             water’ Lorem Ipsum
           </p>
-          <div>
-            <MemberDiv>
-              <TeamPlaceholder />
-              <p>Team Member</p>
-            </MemberDiv>
-            <MemberDiv>
-              <TeamPlaceholder />
-              <p>Team Member</p>
-            </MemberDiv>
-            <MemberDiv>
-              <TeamPlaceholder />
-              <p>Team Member</p>
-            </MemberDiv>
-            <MemberDiv>
-              <TeamPlaceholder />
-              <p>Team Member</p>
-            </MemberDiv>
-            <MemberDiv>
-              <TeamPlaceholder />
-              <p>Team Member</p>
-            </MemberDiv>
-            <MemberDiv>
-              <TeamPlaceholder />
-              <p>Team Member</p>
-            </MemberDiv>
-          </div>
-        </AboutUsTextAndTeam>
+        </AboutUsText>
+        <MemberContainer>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+          <MemberDiv>
+            <TeamPlaceholder />
+            <p>
+              Team <br /> Member
+            </p>
+          </MemberDiv>
+        </MemberContainer>
       </AboutUs>
     </LandingContainer>
   );
