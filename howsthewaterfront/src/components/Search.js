@@ -11,99 +11,158 @@ import picnicIcon from "../assets/icons8-picnic-table-50.png";
 const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 722px;
+  width: 60vw;
 `;
 const SearchForm = styled.form`
   display: flex;
-  width: 722px;
-  height: 50px;
+  width: 100%;
+  height: 5rem;
 `;
 const SearchInput = styled.input`
-  height: 48px;
-  font-family: Ubuntu;
+  height: 5rem;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  border-radius: 0px 2px 2px 0px;
-  border: #ffffff;
-  padding-left: 10px;
-  line-height: 18px;
-  letter-spacing: 0.1em;
+  font-size: 1.6rem;
+  border-radius: 0rem .2rem .2rem 0rem;
+  border: .1rem solid #2d728f
+  padding-left: 1rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
 `;
 const SearchButton = styled.button`
   cursor: pointer;
-  width: 78px;
-  height: 50px;
+  width: 10%;
+  height: 5rem;
   background: #2d728f;
-  border: #2d728f;
-  border-radius: 0px 2px 2px 0px;
+  border: 0.1rem solid #2d728f;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
   color: #ffffff;
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: 0.1em;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  @media (max-width: 992px) {
+    width: 20%;
+  }
+`;
+const SearchButtonAdvanced = styled.button`
+  cursor: pointer;
+  width: 10%;
+  height: 5rem;
+  background: #2d728f;
+  border: 0.1rem solid #2d728f;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  color: #ffffff;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  @media (max-width: 992px) {
+    display: none;
+  }
+`;
+const SearchButtonGrid = styled.button`
+  cursor: pointer;
+  width: 10%;
+  height: 5rem;
+  background: #2d728f;
+  border: 0.1rem solid #2d728f;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  color: #ffffff;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  display: none;
+  @media (max-width: 992px) {
+    display: block;
+    width: 95%;
+    height: 2.5rem;
+    grid-column-start: 7;
+    grid-column-end: 9;
+  }
 `;
 const AdvancedSearchToggle = styled.button`
   cursor: pointer;
-  width: 214px;
-  height: 34px;
-  margin-top: 30px;
+  width: 25%;
+  height: 4.5rem;
+  margin-top: 3rem;
   background: none;
   border: none;
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 18px;
-  letter-spacing: 0.3em;
-  color: #ffffff;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.3rem;
+  color: #2d728f;
+  background: #ffffff;
+  border: 0.1rem solid #2d728f;
+  @media (max-width: 992px) {
+    width: 40%;
+  }
 `;
 const AdvancedSearchContainer = styled.div`
-  width: 722px;
-  height: 50px;
+  width: 100%;
+  height: 5rem;
   display: flex;
-  margin-top: 30px;
+  margin-top: 3rem;
 `;
+
 const AdvancedSearchForm = styled.form`
-  width: 638px;
-  height: 50px;
+  width: 90%;
+  height: 5rem;
   display: flex;
   justify-content: space-around;
   align-items: center
   background: #ffffff;
-  border-radius: 0px 2px 2px 0px;
-  border: #ffffff;
+  border-radius: 0rem .2rem .2rem 0rem;
+  border: .1rem solid #2d728f;
+  @media (max-width:992px){
+    width: 100%
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 10rem;
+    padding-left: 2rem;
+  }
 `;
 const Icons = styled.img`
   height: 75%;
 `;
 const CheckboxLabel = styled.label`
-  margin-right: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 2rem;
   input {
     margin: 0;
     position: absolute;
     opacity: 0;
     z-index: 1;
     cursor: pointer;
-    height: 16px;
-    width: 16px;
-    border: 2px solid #2d728f;
+    height: 2rem;
+    width: 2rem;
+    border: .2rem solid #2d728f;
+    
   }
-
   input: checked ~span {
     background: #2d728f;
+    color: #ffffff;
   }
   span {
+    color: #ffffff
     position: absolute;
-    height: 12px;
-    width: 12px;
-    border: 2px solid #2d728f;
-    font-weight: 700;
-    line-height: 0.7;
+    height: 2rem;
+    width: 2rem;
+    border: .2rem solid #2d728f;
+    font-size: 1.5rem
+    line-height: 1.2;
+    text-align: center
   }
+  
 `;
 //
 const Search = () => {
@@ -159,7 +218,7 @@ const Search = () => {
           onChange={searchInputHandler}
           value={values.textInput}
           placeholder="Seach by beach name"
-          style={{ width: advancedSearch ? "722px" : "638px" }}
+          style={{ width: advancedSearch ? "100%" : "90%" }}
         />
         <SearchButton
           type="submit"
@@ -243,13 +302,19 @@ const Search = () => {
             <span>√</span>
           </CheckboxLabel>
           <Icons src={picnicIcon} />
+          <SearchButtonGrid
+            onClick={searchSubmit}
+            style={{ display: !advancedSearch ? "none" : "" }}
+          >
+            Search
+          </SearchButtonGrid>
         </AdvancedSearchForm>
-        <SearchButton
+        <SearchButtonAdvanced
           onClick={searchSubmit}
           style={{ display: !advancedSearch ? "none" : "" }}
         >
           Search
-        </SearchButton>
+        </SearchButtonAdvanced>
       </AdvancedSearchContainer>
     </SearchContainer>
   );
