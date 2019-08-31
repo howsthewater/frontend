@@ -5,6 +5,7 @@ import LoginForm from "./Login";
 import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
+import Settings from "./Settings";
 import Routes from "./Routes";
 
 class App extends React.Component {
@@ -25,11 +26,11 @@ class App extends React.Component {
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
+        <Route exact path="/settings" component={Settings} />
         <Routes childProps={childProps} />
       </Router>
     );
   }
 }
-
 
 export default App;
