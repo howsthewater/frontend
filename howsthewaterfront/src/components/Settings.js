@@ -15,7 +15,6 @@ const SettingsDiv = styled.div`
   justify-content: center;
 `;
 const Dot0 = styled.span`
-  z-index: 1;
   position: absolute;
   background: rgba(0, 191, 191, 0.2);
   border-radius: 200px;
@@ -25,7 +24,6 @@ const Dot0 = styled.span`
   top: 0rem;
 `;
 const Dot1 = styled.span`
-  z-index: 1;
   position: absolute;
   background: rgba(0, 191, 191, 0.2);
   border-radius: 200px;
@@ -46,12 +44,13 @@ const TextDiv = styled.div`
   }
 `;
 const SettingsForm = styled.form`
+  z-index: 1
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 70rem;
-  height: 88.8rem;
+  width: 40%;
+  height: 88rem;
   border: .1rem solid #215C74
   background: #FFFFFF;
   border-radius: 1rem;
@@ -59,7 +58,6 @@ const SettingsForm = styled.form`
 const InputLabel = styled.label`
   margin: 1rem 4rem;
   align-self: flex-start
-  height: 29px;
   font-weight: 500;
   font-size: 16px;
   line-height: 25px;
@@ -67,7 +65,7 @@ const InputLabel = styled.label`
   color: #215c74;
 `;
 const InputField = styled.input`
-  width: 63.8rem;
+  width: 90%;
   height: 4rem;
   background: #ffffff;
   border: 1px solid #215c74;
@@ -81,7 +79,7 @@ const InputField = styled.input`
   padding-left: 1rem;
 `;
 const SelectField = styled.select`
-  width: 63.8rem;
+  width: 90%;
   height: 4rem;
   background: #ffffff;
   border: 1px solid #215c74;
@@ -93,6 +91,48 @@ const SelectField = styled.select`
   letter-spacing: 0.1rem;
   color: #215c74;
   padding-left: 1rem;
+`;
+const ImageField = styled.input`
+  width: 90%;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  padding-left: 1rem;
+`;
+const ButtonsDiv = styled.div`
+  width: 80%
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 9rem 0 0 0;
+  flex-wrap: wrap;
+  @media(max-width: 768px){
+      margin: 1rem 0 0 0;
+  }
+  button {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    text-align: center
+    width: 14rem;
+    height: 4.5rem;
+    font-weight:500;
+    font-size:1.6rem;
+    line-height: 1.8rem;
+    letter-spacing: .1rem;
+    background: #2D728F
+    color: #FFFFFF
+    border: 0
+    cursor: pointer
+    margin: 1rem;
+  }
 `;
 //
 const dummyRegionData = [
@@ -127,6 +167,14 @@ const Settings = () => {
   const formChangeHandler = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+  };
+  const imageHandler = e => {
+    let imageFile = e.target.files[0];
+    if (imageFile.type.match(/image.*/)) {
+      setValues({ ...values, imageInput: imageFile });
+    } else {
+      return alert("Image file must be image");
+    }
   };
   console.log(values);
   return (
@@ -188,6 +236,12 @@ const Settings = () => {
               </option>
             ))}
           </SelectField>
+          <InputLabel>Upload your picture: </InputLabel>
+          <ImageField type="file" name="imageInput" onChange={imageHandler} />
+          <ButtonsDiv>
+            <button>Update</button>
+            <button>Cancel</button>
+          </ButtonsDiv>
         </SettingsForm>
       </SettingsDiv>
     </SettingsContainer>
