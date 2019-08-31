@@ -3,6 +3,7 @@ import { Auth } from "aws-amplify";
 import "../styles/signup.css";
 import Header from "./Header";
 import Search from "./Search";
+import Footer from "./Footer";
 
 const SignUp = () => {
   return (
@@ -58,6 +59,9 @@ const SignUp = () => {
 
             <button className="signup-btn">Sign Up</button>
           </form>
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </div>
