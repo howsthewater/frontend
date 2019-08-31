@@ -37,13 +37,13 @@ const Dot1 = styled.span`
 const TextDiv = styled.div`
   margin: 8rem auto;
   width: 75%;
-    p{
-        font-size: 1.6rem;
-        font-weight: 500;
-        letter-spaceing: 0.1rem;
-        color: #215C74
-        line-height: 2.5rem
-    }
+  p{
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spaceing: 0.1rem;
+      color: #215C74
+      line-height: 2.5rem
+  }
 `;
 const SettingsForm = styled.form`
   display: flex;
@@ -55,6 +55,44 @@ const SettingsForm = styled.form`
   border: .1rem solid #215C74
   background: #FFFFFF;
   border-radius: 1rem;
+`;
+const InputLabel = styled.label`
+  margin: 1rem 4rem;
+  align-self: flex-start
+  height: 29px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+  color: #215c74;
+`;
+const InputField = styled.input`
+  width: 63.8rem;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  padding-left: 1rem;
+`;
+const SelectField = styled.select`
+  width: 63.8rem;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  padding-left: 1rem;
 `;
 //
 const dummyRegionData = [
@@ -80,9 +118,9 @@ const Settings = () => {
   const [values, setValues] = useState({
     nameInput: "",
     phoneInput: "",
-    regionInput: "",
-    beachInput: "",
-    surferInput: "",
+    regionInput: dummyRegionData[0],
+    beachInput: dummyBeachData[0],
+    surferInput: dummySurferData[0],
     imageInput: null
   });
 
@@ -107,17 +145,17 @@ const Settings = () => {
           </p>
         </TextDiv>
         <SettingsForm>
-          <label for="nInput">Full Name*: </label>
-          <input
+          <InputLabel>Full Name*: </InputLabel>
+          <InputField
             id="nInput"
             name="nameInput"
             type="text"
             onChange={formChangeHandler}
             value={values.nameInput}
-            placeholder="name input"
+            placeholder="Name Input..."
           />
-          <label for="pInput">Mobile Number: </label>
-          <input
+          <InputLabel>Mobile Number: </InputLabel>
+          <InputField
             id="pInput"
             name="phoneInput"
             type="tel"
@@ -126,6 +164,30 @@ const Settings = () => {
             placeholder="xxx-xxx-xxxx"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           />
+          <InputLabel>Base beach spot/ surf spot in California*: </InputLabel>
+          <SelectField name="regionInput" onChange={formChangeHandler}>
+            {dummyRegionData.map(region => (
+              <option value={region} key={Math.random()}>
+                {region}
+              </option>
+            ))}
+          </SelectField>
+          <InputLabel>Base beach spot/ surf spot in California*: </InputLabel>
+          <SelectField name="beachInput" onChange={formChangeHandler}>
+            {dummyBeachData.map(beach => (
+              <option value={beach} key={Math.random()}>
+                {beach}
+              </option>
+            ))}
+          </SelectField>
+          <InputLabel>Choose your persona*: </InputLabel>
+          <SelectField name="surferInput" onChange={formChangeHandler}>
+            {dummySurferData.map(surfer => (
+              <option value={surfer} key={Math.random()}>
+                {surfer}
+              </option>
+            ))}
+          </SelectField>
         </SettingsForm>
       </SettingsDiv>
     </SettingsContainer>
