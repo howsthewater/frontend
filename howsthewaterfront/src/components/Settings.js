@@ -66,6 +66,7 @@ const InputLabel = styled.label`
 `;
 const InputField = styled.input`
   width: 90%;
+  margin-bottom: 1rem;
   height: 4rem;
   background: #ffffff;
   border: 1px solid #215c74;
@@ -80,6 +81,7 @@ const InputField = styled.input`
 `;
 const SelectField = styled.select`
   width: 90%;
+  margin-bottom: 1rem;
   height: 4rem;
   background: #ffffff;
   border: 1px solid #215c74;
@@ -94,6 +96,7 @@ const SelectField = styled.select`
 `;
 const ImageField = styled.input`
   width: 90%;
+  margin-bottom: 1rem;
   height: 4rem;
   background: #ffffff;
   border: 1px solid #215c74;
@@ -107,11 +110,11 @@ const ImageField = styled.input`
   padding-left: 1rem;
 `;
 const ButtonsDiv = styled.div`
-  width: 80%
+  width: 70%
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 9rem 0 0 0;
+  margin: 8rem 0 0 0;
   flex-wrap: wrap;
   @media(max-width: 768px){
       margin: 1rem 0 0 0;
