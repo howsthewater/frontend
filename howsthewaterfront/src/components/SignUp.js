@@ -8,7 +8,9 @@ const SignUp = () => {
   return (
     <div>
       <Header />
-      <div className="search-body"></div>
+      <div className="search-body">
+        <Search />
+      </div>
       <div className="signup-body">
         <div className="signup-content">
           <div>

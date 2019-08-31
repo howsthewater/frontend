@@ -12,7 +12,6 @@ const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 60vw;
-  border: 1px solid green;
 `;
 const SearchForm = styled.form`
   display: flex;
