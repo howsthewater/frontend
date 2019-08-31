@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // styling
 const SettingsContainer = styled.div`
@@ -46,6 +46,10 @@ const TextDiv = styled.div`
     }
 `;
 const SettingsForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 70rem;
   height: 88.8rem;
   border: .1rem solid #215C74
@@ -53,7 +57,40 @@ const SettingsForm = styled.form`
   border-radius: 1rem;
 `;
 //
+const dummyRegionData = [
+  "Northern California",
+  "Central California",
+  "Southern California"
+];
+const dummyBeachData = [
+  "La Jolla",
+  "Santa Monica",
+  "Coronado",
+  "Carmel City",
+  "Moonstone",
+  "Salt Creek",
+  "Sand Dollar",
+  "McClures",
+  "Pebble",
+  "San Gregorio"
+];
+const dummySurferData = ["Hardcore", "Hungry", "Half-hearted", "Hopeless"];
+//
 const Settings = () => {
+  const [values, setValues] = useState({
+    nameInput: "",
+    phoneInput: "",
+    regionInput: "",
+    beachInput: "",
+    surferInput: "",
+    imageInput: null
+  });
+
+  const formChangeHandler = e => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
+  console.log(values);
   return (
     <SettingsContainer>
       <SettingsDiv>
@@ -69,7 +106,27 @@ const Settings = () => {
             your persona for easy search. Items marked (*) are mandatory.
           </p>
         </TextDiv>
-        <SettingsForm></SettingsForm>
+        <SettingsForm>
+          <label for="nInput">Full Name*: </label>
+          <input
+            id="nInput"
+            name="nameInput"
+            type="text"
+            onChange={formChangeHandler}
+            value={values.nameInput}
+            placeholder="name input"
+          />
+          <label for="pInput">Mobile Number: </label>
+          <input
+            id="pInput"
+            name="phoneInput"
+            type="tel"
+            onChange={formChangeHandler}
+            value={values.phoneInput}
+            placeholder="xxx-xxx-xxxx"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          />
+        </SettingsForm>
       </SettingsDiv>
     </SettingsContainer>
   );
