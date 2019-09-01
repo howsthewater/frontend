@@ -4,8 +4,14 @@ import "../styles/signup.css";
 import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
+import useForm from "../components/helper/useForm";
 
 function SignUp() {
+  const handleSignUp = () => {
+    console.log("SIGN UP CLICKED");
+  };
+  const { values, handleChange, handleSubmit } = useForm(handleSignUp);
+
   return (
     <div>
       <Header />
@@ -35,19 +41,23 @@ function SignUp() {
             <div className="divider-text">OR</div>
             <div className="hr_bar" />
           </div>
-          <form className="input-form">
+          <form noValidate className="input-form" onSubmit={handleSubmit}>
             <input
               className="input-txt"
               type="text"
               name="fullname"
               placeholder="Full Name"
+              value={values.fullname}
+              onChange={handleChange}
             />
 
             <input
               className="input-txt"
-              type="text"
+              type="email"
               name="email"
               placeholder="Email Address"
+              value={values.email}
+              onChange={handleChange}
             />
 
             <input
@@ -55,6 +65,8 @@ function SignUp() {
               type="password"
               name="password"
               placeholder="Password"
+              value={values.password}
+              onChange={handleChange}
             />
 
             <button className="signup-btn">Sign Up</button>
