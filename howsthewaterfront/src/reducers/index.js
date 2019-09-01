@@ -1,20 +1,17 @@
 import {
-  LOGIN_FAILED,
-  LOGIN_START,
-  LOGIN_SUCCESS,
+  // LOGIN_FAILED,
+  // LOGIN_START,
+  // LOGIN_SUCCESS,
   SIGNUP_FAILED,
   SIGNUP_START,
   SIGNUP_SUCCESS,
   LOGOUT_START,
-  LOGOUT_SUCCESS,
-  IS_FEDERATED_SIGNIN_START,
-  IS_FEDERATED_SIGNIN_SUCCESS
+  LOGOUT_SUCCESS
 } from "../actions";
 
 const initialState = {
   isAuthenticated: false,
   isAuthenticating: false,
-  isFederatedSignIn: false,
   user: {}
 };
 
@@ -27,8 +24,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: "",
         isAuthenticated: false,
-        isAuthenticating: true,
-        isFederatedSignIn: true
+        isAuthenticating: true
       };
     case SIGNUP_SUCCESS:
       console.log(
@@ -73,22 +69,6 @@ const reducer = (state = initialState, action) => {
         isAuthenticated: false,
         isFederatedSignIn: false,
         user: null
-      };
-    case IS_FEDERATED_SIGNIN_START:
-      console.log(
-        `REDUCERS :: IS FEDERATED SIGNIN START :: ${JSON.stringify(state)}`
-      );
-      return {
-        ...state,
-        isFederatedSignIn: false
-      };
-    case IS_FEDERATED_SIGNIN_SUCCESS:
-      console.log(
-        `REDUCERS :: IS_FEDERATED_SIGNIN_SUCCESS :: ${JSON.stringify(state)}`
-      );
-      return {
-        ...state,
-        isFederatedSignIn: true
       };
     default:
       return state;

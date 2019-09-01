@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/App.css";
-import { Route, Redirect, withRouter } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import LoginForm from "./Login";
 import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
@@ -12,24 +12,25 @@ import { setUserData } from "../actions";
 
 class App extends React.Component {
   componentDidMount() {
-    console.log(
-      `APP :: CDM :: before :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
-    );
-    //await this.props.setUserData(this.props.isFederatedSignIn);
+    console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
 
     Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
         case "signIn":
-          //this.setState({ user: data });
           console.log(`APP::CDM::HUB LISTEN:: ${data}`);
-          this.props.setUserData(data);
-          this.props.history.push("/home");
-          return (
-            <>
-              <Redirect to="/home" />
-            </>
-          );
-        //break;
+          Auth.currentAuthenticatedUser()
+            .then(user => {
+              console.log(user);
+              this.props.setUserData({
+                name: user.attributes.name,
+                email: user.attributes.email,
+                username: user.username,
+                cognitoUser: user
+              });
+              this.props.history.push("/home");
+            })
+            .catch(() => console.log("Not signed in"));
+          break;
         case "signOut":
           this.setState({ user: null });
           break;
@@ -38,20 +39,7 @@ class App extends React.Component {
       }
     });
 
-    Auth.currentAuthenticatedUser()
-      .then(user => this.setState({ user }))
-      .catch(() => console.log("Not signed in"));
-
-    console.log(
-      `APP :: CDM :: after :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
-    );
-  }
-  componentDidUpdate() {
-    console.log(
-      `APP :: CDU :: local storage is ${localStorage.getItem(
-        "amplify-signin-with-hostedUI"
-      )}`
-    );
+    console.log(`APP :: CDM :: after :: HUB AUTH LISTENER`);
   }
 
   render() {

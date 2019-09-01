@@ -1,5 +1,3 @@
-import { Auth } from "aws-amplify";
-
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILED = "LOGIN_FAILED";
@@ -31,13 +29,4 @@ export const logout = () => dispatch => {
   dispatch({ type: LOGOUT_START });
   dispatch({ type: LOGOUT_SUCCESS });
   window.location.reload();
-};
-
-export const IS_FEDERATED_SIGNIN_START = "IS_FEDERATED_SIGNIN_START";
-export const IS_FEDERATED_SIGNIN_SUCCESS = "IS_FEDERATED_SIGNIN_SUCCESS";
-
-export const setFederatedSignIn = () => dispatch => {
-  console.log(`ACTIONS :: SET FEDERATED SIGN IN :: `);
-  dispatch({ type: IS_FEDERATED_SIGNIN_START });
-  dispatch({ type: IS_FEDERATED_SIGNIN_SUCCESS });
 };
