@@ -101,19 +101,6 @@ const ImageDiv = styled.div`
   display: flex;
 `;
 const ImageField = styled.input`
-  // width: 90%;
-  // margin-bottom: 1rem;
-  // height: 4rem;
-  // background: #ffffff;
-  // border: 1px solid #215c74;
-  // box-sizing: border-box;
-  // font-weight: 500;
-  // font-weight: 500;
-  // font-size: 1.6rem;
-  // line-height: 2.5rem;
-  // letter-spacing: 0.1rem;
-  // color: #215c74;
-  // padding-left: 1rem;
   opacity: 0;
   position: absolute:
   height: 0
@@ -129,21 +116,20 @@ const ShowImageField = styled.div`
   font-weight: 500;
   font-weight: 500;
   font-size: 1.6rem;
-  line-height: 3rem;
+  line-height: 3.8rem;
   letter-spacing: 0.1rem;
   color: #215c74;
-  padding-left: 1rem;
+  padding-left: 1.2rem;
+  text-overflow: ellipsis
+  white-space: nowrap;
+	overflow: hidden
 `;
 const ImageInputLabel = styled.label`
   cursor: pointer
   background-image: url(${folderIcon});
-  // background-repeat: no-repeat;
   width: 5.2rem;
   height: 5.2rem;
   display: block;
-  // flex-direction column;
-  // align-items: center
-  // justify-content:center
   margin: auto;
   margin-top: -1rem;
 `;
@@ -205,7 +191,7 @@ const Settings = () => {
     surferInput: dummySurferData[0],
     imageInput: null
   });
-  const [imageReaderValue, setImageReaderValue] = useState("");
+  const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
 
   const formChangeHandler = e => {
     const { name, value } = e.target;
@@ -215,15 +201,16 @@ const Settings = () => {
     let imageFile = e.target.files[0];
     if (!imageFile) {
       setValues({ ...values, imageInput: null });
+      setImageReaderValue("No file chosen");
       return;
     }
     if (imageFile.type.match(/image.*/)) {
       setValues({ ...values, imageInput: imageFile });
+      setImageReaderValue(`${imageFile.name}`);
     } else {
       alert("Image file must be image, no image set");
     }
   };
-
   console.log(values);
   return (
     <SettingsContainer>
@@ -286,7 +273,7 @@ const Settings = () => {
           </SelectField>
           <InputLabel>Upload your picture: </InputLabel>
           <ImageDiv>
-            <ShowImageField>Something</ShowImageField>
+            <ShowImageField>{imageReaderValue}</ShowImageField>
             <ImageInputLabel htmlFor="iInput" />
             <ImageField
               id="iInput"
