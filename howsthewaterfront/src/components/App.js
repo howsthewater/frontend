@@ -6,6 +6,9 @@ import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
 import Routes from "./Routes";
+import { connect } from "react-redux";
+import { Auth } from "aws-amplify";
+import { setUserData } from "../actions";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,10 +18,21 @@ class App extends React.Component {
       isAuthenticating: true
     };
   }
+  componentDidMount() {
+    this.props.setUserData();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("*******************************" + nextProps.isAuthenticated);
+  }
+
   render() {
     const childProps = {
-      isAuthenticated: this.state.isAuthenticated
+      isAuthenticated: this.props.isAuthenticated
     };
+    console.log(
+      "value of isAuthenticated in child props is " + childProps.isAuthenticated
+    );
     return (
       <Router>
         <Route exact path="/" component={LandingForm} />
@@ -31,5 +45,16 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  console.log("::MAP STATE TO PROPS :: STATE :: " + state.isAuthenticated);
+  return {
+    isAuthenticated: state.isAuthenticated,
+    isAuthenticating: state.isAuthenticating,
+    user: state.user
+  };
+};
 
-export default App;
+export default connect(
+  mapStateToProps,
+  { setUserData }
+)(App);
