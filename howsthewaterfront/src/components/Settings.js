@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import folderIcon from "../assets/icons8-folder-52.png";
 // styling
 const SettingsContainer = styled.div`
   display: flex;
@@ -94,8 +95,32 @@ const SelectField = styled.select`
   color: #215c74;
   padding-left: 1rem;
 `;
-const ImageField = styled.input`
+//
+const ImageDiv = styled.div`
   width: 90%;
+  display: flex;
+`;
+const ImageField = styled.input`
+  // width: 90%;
+  // margin-bottom: 1rem;
+  // height: 4rem;
+  // background: #ffffff;
+  // border: 1px solid #215c74;
+  // box-sizing: border-box;
+  // font-weight: 500;
+  // font-weight: 500;
+  // font-size: 1.6rem;
+  // line-height: 2.5rem;
+  // letter-spacing: 0.1rem;
+  // color: #215c74;
+  // padding-left: 1rem;
+  opacity: 0;
+  position: absolute:
+  height: 0
+  width: 0
+`;
+const ShowImageField = styled.div`
+  width: 75%;
   margin-bottom: 1rem;
   height: 4rem;
   background: #ffffff;
@@ -104,11 +129,25 @@ const ImageField = styled.input`
   font-weight: 500;
   font-weight: 500;
   font-size: 1.6rem;
-  line-height: 2.5rem;
+  line-height: 3rem;
   letter-spacing: 0.1rem;
   color: #215c74;
   padding-left: 1rem;
 `;
+const ImageInputLabel = styled.label`
+  cursor: pointer
+  background-image: url(${folderIcon});
+  // background-repeat: no-repeat;
+  width: 5.2rem;
+  height: 5.2rem;
+  display: block;
+  // flex-direction column;
+  // align-items: center
+  // justify-content:center
+  margin: auto;
+  margin-top: -1rem;
+`;
+//
 const ButtonsDiv = styled.div`
   width: 70%
   display: flex;
@@ -166,6 +205,7 @@ const Settings = () => {
     surferInput: dummySurferData[0],
     imageInput: null
   });
+  const [imageReaderValue, setImageReaderValue] = useState("");
 
   const formChangeHandler = e => {
     const { name, value } = e.target;
@@ -173,12 +213,17 @@ const Settings = () => {
   };
   const imageHandler = e => {
     let imageFile = e.target.files[0];
+    if (!imageFile) {
+      setValues({ ...values, imageInput: null });
+      return;
+    }
     if (imageFile.type.match(/image.*/)) {
       setValues({ ...values, imageInput: imageFile });
     } else {
-      return alert("Image file must be image");
+      alert("Image file must be image, no image set");
     }
   };
+
   console.log(values);
   return (
     <SettingsContainer>
@@ -240,7 +285,16 @@ const Settings = () => {
             ))}
           </SelectField>
           <InputLabel>Upload your picture: </InputLabel>
-          <ImageField type="file" name="imageInput" onChange={imageHandler} />
+          <ImageDiv>
+            <ShowImageField>Something</ShowImageField>
+            <ImageInputLabel htmlFor="iInput" />
+            <ImageField
+              id="iInput"
+              type="file"
+              name="imageInput"
+              onChange={imageHandler}
+            />
+          </ImageDiv>
           <ButtonsDiv>
             <button>Update</button>
             <button>Cancel</button>
