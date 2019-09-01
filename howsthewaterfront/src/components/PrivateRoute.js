@@ -23,15 +23,13 @@ import { Route, Redirect } from "react-router-dom";
 // );
 
 const PrivateRoute = ({ component: C, props: cProps, ...rest }) => {
-  console.log(
-    "PRIVATE ROUTE INVOKED " +
-      localStorage.getItem("amplify-signin-with-hostedUI")
-  );
+  console.log("PRIVATE ROUTE INVOKED " + cProps.isAuthenticated);
 
   return (
     <Route
       {...rest}
       render={props =>
+        cProps.isAuthenticated ||
         localStorage.getItem("amplify-signin-with-hostedUI") ? (
           <C {...props} {...cProps} />
         ) : (

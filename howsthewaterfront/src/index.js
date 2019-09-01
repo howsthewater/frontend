@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import reducer from "./reducers";
 import Amplify from "aws-amplify";
 import config from "./aws-exports";
+import { BrowserRouter as Router } from "react-router-dom";
 
 Amplify.configure(config);
 
@@ -21,7 +22,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

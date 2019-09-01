@@ -7,27 +7,20 @@ export const SIGNUP_START = "SIGNUP_START";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAILED = "SIGNUP_FAILED";
 
-export const setUserData = isFederatedSignIn => async dispatch => {
-  console.log(
-    `ACTIONS :: SET USER DATA :: value of isFederatedSignIn is ${isFederatedSignIn}`
-  );
-
-  const data = await localStorage.getItem("amplify-signin-with-hostedUI");
-  console.log(`ACTIONS :: SET USER DATA :: LOCAL STORAGE value is ${data}`);
-  try {
-    const user = await Auth.currentAuthenticatedUser();
+export const setUserData = user => dispatch => {
+  console.log(`ACTIONS :: SET USER DATA :: value of user is ${user}`);
+  let data = false;
+  if (user) {
+    data = true;
     dispatch({ type: SIGNUP_START, payload: { data: data, user: user } });
     dispatch({ type: SIGNUP_SUCCESS, payload: { data: data, user: user } });
-  } catch (error) {
-    console.log(`ACTIONS :: SET USER DATA :: ERROR is ${error}`);
-    if (isFederatedSignIn) {
-      console.log(
-        `ACTIONS :: SET USER DATA :: isFederatedSignIn value IN ERROR is ${isFederatedSignIn}`
-      );
-      window.location.reload();
-    } else {
-      dispatch({ type: SIGNUP_FAILED, payload: { data: data, error: error } });
-    }
+  } else {
+    console.log(`ACTIONS :: SET USER DATA :: NO USER`);
+
+    dispatch({
+      type: SIGNUP_FAILED,
+      payload: { data: data, error: "EMPTY USER" }
+    });
   }
 };
 

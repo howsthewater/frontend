@@ -1,21 +1,47 @@
 import React from "react";
 import "../styles/App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route, Redirect, withRouter } from "react-router-dom";
 import LoginForm from "./Login";
 import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
 import Routes from "./Routes";
 import { connect } from "react-redux";
-import { Auth } from "aws-amplify";
+import { Auth, Hub } from "aws-amplify";
 import { setUserData } from "../actions";
 
 class App extends React.Component {
-  async componentDidMount() {
+  componentDidMount() {
     console.log(
       `APP :: CDM :: before :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
     );
-    await this.props.setUserData(this.props.isFederatedSignIn);
+    //await this.props.setUserData(this.props.isFederatedSignIn);
+
+    Hub.listen("auth", ({ payload: { event, data } }) => {
+      switch (event) {
+        case "signIn":
+          //this.setState({ user: data });
+          console.log(`APP::CDM::HUB LISTEN:: ${data}`);
+          this.props.setUserData(data);
+          this.props.history.push("/home");
+          return (
+            <>
+              <Redirect to="/home" />
+            </>
+          );
+        //break;
+        case "signOut":
+          this.setState({ user: null });
+          break;
+        case "customOAuthState":
+          this.setState({ customState: data });
+      }
+    });
+
+    Auth.currentAuthenticatedUser()
+      .then(user => this.setState({ user }))
+      .catch(() => console.log("Not signed in"));
+
     console.log(
       `APP :: CDM :: after :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
     );
@@ -36,13 +62,13 @@ class App extends React.Component {
       `APP :: RENDER :: isAuthenticated value is ${childProps.isAuthenticated}`
     );
     return (
-      <Router>
+      <>
         <Route exact path="/" component={LandingForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Routes childProps={childProps} />
-      </Router>
+      </>
     );
   }
 }
@@ -61,7 +87,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { setUserData }
-)(App);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { setUserData }
+  )(App)
+);
