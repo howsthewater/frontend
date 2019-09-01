@@ -4,8 +4,19 @@ import "../styles/signup.css";
 import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
+import { setFederatedSignIn } from "../actions";
+import { connect } from "react-redux";
 
 class SignUp extends React.Component {
+  componentDidMount() {
+    console.log(
+      `SIGNUP :: CDM :: BEFORE :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
+    );
+    this.props.setFederatedSignIn();
+    console.log(
+      `SIGNUP :: CDM :: AFTER :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
+    );
+  }
   render() {
     return (
       <div>
@@ -70,4 +81,16 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+  console.log(
+    `SIGNUP :: MAP STATE TO PROPS :: isFederatedSignIn value is ${state.isFederatedSignIn}`
+  );
+  return {
+    isFederatedSignIn: state.isFederatedSignIn
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { setFederatedSignIn }
+)(SignUp);

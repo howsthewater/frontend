@@ -11,19 +11,21 @@ import { Auth } from "aws-amplify";
 import { setUserData } from "../actions";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAuthenticated: false,
-      isAuthenticating: true
-    };
+  async componentDidMount() {
+    console.log(
+      `APP :: CDM :: before :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
+    );
+    await this.props.setUserData(this.props.isFederatedSignIn);
+    console.log(
+      `APP :: CDM :: after :: isFederatedSignIn value is ${this.props.isFederatedSignIn}`
+    );
   }
-  componentDidMount() {
-    this.props.setUserData();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log("*******************************" + nextProps.isAuthenticated);
+  componentDidUpdate() {
+    console.log(
+      `APP :: CDU :: local storage is ${localStorage.getItem(
+        "amplify-signin-with-hostedUI"
+      )}`
+    );
   }
 
   render() {
@@ -31,7 +33,7 @@ class App extends React.Component {
       isAuthenticated: this.props.isAuthenticated
     };
     console.log(
-      "value of isAuthenticated in child props is " + childProps.isAuthenticated
+      `APP :: RENDER :: isAuthenticated value is ${childProps.isAuthenticated}`
     );
     return (
       <Router>
@@ -46,10 +48,15 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("::MAP STATE TO PROPS :: STATE :: " + state.isAuthenticated);
+  console.log(
+    `APP :: MAP STATE TO PROPS :: state value of isFederatedSignIn ${JSON.stringify(
+      state
+    )}`
+  );
   return {
     isAuthenticated: state.isAuthenticated,
     isAuthenticating: state.isAuthenticating,
+    isFederatedSignIn: state.isFederatedSignIn,
     user: state.user
   };
 };
