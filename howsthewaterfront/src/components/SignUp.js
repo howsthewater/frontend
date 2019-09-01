@@ -5,12 +5,16 @@ import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
+import validate from "../components/helper/validateSignup";
 
 function SignUp() {
   const handleSignUp = () => {
     console.log("SIGN UP CLICKED");
   };
-  const { values, handleChange, handleSubmit } = useForm(handleSignUp);
+  const { values, handleChange, handleSubmit, errors } = useForm(
+    handleSignUp,
+    validate
+  );
 
   return (
     <div>
@@ -42,6 +46,7 @@ function SignUp() {
             <div className="hr_bar" />
           </div>
           <form noValidate className="input-form" onSubmit={handleSubmit}>
+            {errors.fullname && <div className="error">{errors.fullname}</div>}
             <input
               className="input-txt"
               type="text"
@@ -51,6 +56,7 @@ function SignUp() {
               onChange={handleChange}
             />
 
+            {errors.email && <div className="error">{errors.email}</div>}
             <input
               className="input-txt"
               type="email"
@@ -59,7 +65,7 @@ function SignUp() {
               value={values.email}
               onChange={handleChange}
             />
-
+            {errors.password && <div className="error">{errors.password}</div>}
             <input
               className="input-txt"
               type="password"
