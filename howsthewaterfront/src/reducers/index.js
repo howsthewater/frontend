@@ -12,7 +12,8 @@ import {
 const initialState = {
   isAuthenticated: false,
   isAuthenticating: false,
-  user: {}
+  user: {},
+  userConfirmation: false
 };
 
 const reducer = (state = initialState, action) => {

@@ -6,8 +6,9 @@ import Search from "./Search";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateSignup";
+import { withRouter } from "react-router-dom";
 
-function SignUp() {
+function SignUp(props) {
   const handleSignUp = async () => {
     console.log("SIGN UP CLICKED");
     try {
@@ -20,6 +21,7 @@ function SignUp() {
         }
       });
       console.log(signUpResponse);
+      props.history.push("/login");
     } catch (error) {
       console.log("Error is " + error.message);
     }
@@ -100,4 +102,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default withRouter(SignUp);

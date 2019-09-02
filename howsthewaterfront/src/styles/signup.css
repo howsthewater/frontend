@@ -170,3 +170,16 @@
   letter-spacing: 0.1em;
   color: #eb1212;
 }
+
+.signin-content {
+  margin-top: 4rem;
+  border: 1px solid #215c74;
+  box-shadow: 0px 4px 4px #215c74;
+  border-radius: 10px;
+  width: 440px;
+  height: 45rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

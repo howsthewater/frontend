@@ -39,7 +39,7 @@ class App extends React.Component {
           console.log("APP :: CDM :: HUB :: CUSTOME OATUH STATE");
           break;
         default:
-          console.log("APP:: CDM :: HUM :: DEFAULT CASE");
+          console.log("APP:: CDM :: HUB :: DEFAULT CASE");
       }
     });
 
