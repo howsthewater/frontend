@@ -17,19 +17,26 @@ class App extends React.Component {
     Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
         case "signIn":
-          console.log(`APP::CDM::HUB LISTEN:: ${data}`);
+          console.log(`APP::CDM::HUB SIGN IN :: LISTEN:: ${data}`);
           Auth.currentAuthenticatedUser()
             .then(user => {
               console.log(user);
+              let name = "";
+              if (user.attributes.name) {
+                name = user.attributes.name;
+              } else if (user.attributes["custom:full_name"]) {
+                name = user.attributes["custom:full_name"];
+              }
+              console.log(`APP :: CDM :: NAME IS :: ${name}`);
               this.props.setUserData({
-                name: user.attributes.name,
+                name: name,
                 email: user.attributes.email,
                 username: user.username,
                 cognitoUser: user
               });
               this.props.history.push("/home");
             })
-            .catch(() => console.log("Not signed in"));
+            .catch(error => console.log("Not signed in" + error.message));
           break;
         // case "signOut":
         //   this.setState({ user: null });

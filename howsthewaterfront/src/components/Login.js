@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import "../styles/signup.css";
 import Header from "./Header";
@@ -9,26 +9,23 @@ import validate from "../components/helper/validateSignIn";
 import { withRouter } from "react-router-dom";
 
 function Login(props) {
-  const handleSignUp = async () => {
-    console.log("SIGN UP CLICKED");
-    // try {
-    //   const signUpResponse = await Auth.signUp({
-    //     username: values.email,
-    //     password: values.password,
-    //     attributes: {
-    //       email: values.email,
-    //       "custom:full_name": values.fullname
-    //     }
-    //   });
-    //   console.log(signUpResponse);
-    //   props.history.push("/login");
-    // } catch (error) {
-    //   console.log("Error is " + error.message);
-    // }
+  const [emailVerifyError, setEmailVerifyError] = useState("");
+  const handleSignIn = async () => {
+    console.log("SIGN IN CLICKED");
+    try {
+      const user = await Auth.signIn(values.email, values.password);
+      console.log(user);
+      props.history.push("/home");
+    } catch (error) {
+      console.log("Error is " + error.message);
+      if (error.message === "User is not confirmed.") {
+        setEmailVerifyError("Please verify your email address.");
+      }
+    }
   };
 
   const { values, handleChange, handleSubmit, errors } = useForm(
-    handleSignUp,
+    handleSignIn,
     validate
   );
 
@@ -62,6 +59,9 @@ function Login(props) {
             <div className="hr_bar" />
           </div>
           <form noValidate className="input-form" onSubmit={handleSubmit}>
+            {emailVerifyError && (
+              <div className="error">{emailVerifyError}</div>
+            )}
             {errors.email && <div className="error">{errors.email}</div>}
             <input
               className="input-txt"
