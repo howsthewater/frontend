@@ -8,9 +8,23 @@ import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateSignup";
 
 function SignUp() {
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     console.log("SIGN UP CLICKED");
+    try {
+      const signUpResponse = await Auth.signUp({
+        username: values.email,
+        password: values.password,
+        attributes: {
+          email: values.email,
+          "custom:full_name": values.fullname
+        }
+      });
+      console.log(signUpResponse);
+    } catch (error) {
+      console.log("Error is " + error.message);
+    }
   };
+
   const { values, handleChange, handleSubmit, errors } = useForm(
     handleSignUp,
     validate
