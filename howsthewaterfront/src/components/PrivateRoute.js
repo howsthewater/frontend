@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 
 const PrivateRoute = ({ component: C, props: cProps, ...rest }) => {
   console.log(
-    `PRIVATE ROUTE :: IS AUTHENTICATED IS  ${cProps.isAuthenticated})`
+    `PRIVATE ROUTE :: IS AUTHENTICATED IS  ${cProps.isAuthenticated}`
   );
 
   return (

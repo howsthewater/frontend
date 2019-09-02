@@ -38,11 +38,7 @@ class App extends React.Component {
             })
             .catch(error => console.log("Not signed in" + error.message));
           break;
-        // case "signOut":
-        //   this.setState({ user: null });
-        //   break;
         case "customOAuthState":
-          //this.setState({ customState: data });
           console.log("APP :: CDM :: HUB :: CUSTOME OATUH STATE");
           break;
         default:
