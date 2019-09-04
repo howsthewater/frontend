@@ -11,6 +11,42 @@ import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
 import { setUserData } from "../actions";
 
+import ApolloClient, { gql } from "apollo-boost";
+import { ApolloProvider, useQuery } from "@apollo/react-hooks";
+
+const client = new ApolloClient({
+  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
+});
+
+// Sample query that gets COUNTY, ID, NAME, and LOCATION filtered by PARKING = NO
+function GetBeaches() {
+  const { loading, error, data } = useQuery(gql`
+    {
+      filter(
+        filter: { PARKING: { EQ: "No" } }
+        sort: { LATITUDE: ASC }
+        pagination: { limit: 10 }
+      ) {
+        COUNTY
+        ID
+        NameMobileWeb
+        LocationMobileWeb
+      }
+    }
+  `);
+
+  if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error :({error.message}</p>;
+
+  return data.filter.map(({ COUNTY, ID, NameMobileWeb, LocationMobileWeb }) => (
+    <div key={ID}>
+      <p>{ID}</p>
+      <p>{COUNTY}:</p>
+      <p>{NameMobileWeb}</p>
+      <p>{LocationMobileWeb}</p>
+    </div>
+  ));
+}
 class App extends React.Component {
   componentDidMount() {
     console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
@@ -59,12 +95,17 @@ class App extends React.Component {
     );
     return (
       <>
-        <Route exact path="/" component={LandingForm} />
-        <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/signup" component={SignUpForm} />
-        <Route exact path="/searchresult" component={SearchResultForm} />
-        <Route exact path="/settings" component={Settings} />
-        <Routes childProps={childProps} />
+        <ApolloProvider client={client}>
+          <Route exact path="/" component={LandingForm} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/searchresult" component={SearchResultForm} />
+          <Route exact path="/settings" component={Settings} />
+          <Routes childProps={childProps} />
+          {/* Test to make sure apollo is fetching data as expected, will change in future to 
+          display the data appropriately 
+          <GetBeaches /> */}
+        </ApolloProvider>
       </>
     );
   }
