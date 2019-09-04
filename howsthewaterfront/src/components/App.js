@@ -5,6 +5,7 @@ import LoginForm from "./Login";
 import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
+import Settings from "./Settings";
 import Routes from "./Routes";
 import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
@@ -62,11 +63,13 @@ class App extends React.Component {
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
+        <Route exact path="/settings" component={Settings} />
         <Routes childProps={childProps} />
       </>
     );
   }
 }
+
 
 const mapStateToProps = state => {
   console.log(
@@ -88,3 +91,4 @@ export default withRouter(
     { setUserData }
   )(App)
 );
+
