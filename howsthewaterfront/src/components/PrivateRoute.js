@@ -1,19 +1,24 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
-// export default ({ component: C, props: cProps, ...rest }) => (
-//   <Route {...rest} render={props => <C {...props} {...cProps} />} />
-// );
+const PrivateRoute = ({ component: C, props: cProps, ...rest }) => {
+  console.log(
+    `PRIVATE ROUTE :: IS AUTHENTICATED IS  ${cProps.isAuthenticated}`
+  );
 
-export default ({ component: C, props: cProps, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      cProps.isAuthenticated ? (
-        <C {...props} {...cProps} />
-      ) : (
-        <Redirect to={`/login`} />
-      )
-    }
-  />
-);
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        cProps.isAuthenticated ||
+        localStorage.getItem("amplify-signin-with-hostedUI") ? (
+          <C {...props} {...cProps} />
+        ) : (
+          <Redirect to={`/login`} />
+        )
+      }
+    />
+  );
+};
+
+export default PrivateRoute;

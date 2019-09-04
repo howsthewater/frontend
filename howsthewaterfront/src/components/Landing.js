@@ -5,14 +5,13 @@ import WaveBackground from "../assets/background-flip.png";
 import CoreIcon from "../assets/core_icon.png";
 import LoginIcon from "../assets/login_icon.png";
 import PremiumIcon from "../assets/icon-premium.png";
-
+// styling
 const LandingContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
-
 const LandingJumbo = styled.div`
 background-image: url(${WaveBackground});
   // background-repeat: no-repeat;
@@ -31,7 +30,6 @@ const FandPDiv = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
 const FandPText = styled.div`
   margin-top: 10rem;
   font-family: Ubuntu;
@@ -44,7 +42,6 @@ const FandPText = styled.div`
   letter-spacing: 0.05rem;
   color: #2d728f;
 `;
-
 const Line = styled.div`
   width: 31.5rem;
   margin-top: 1rem;
@@ -52,7 +49,6 @@ const Line = styled.div`
   height: 0rem;
   border: 1px solid #2d728f;
 `;
-
 const Dot0 = styled.span`
   z-index: 1;
   position: absolute;
@@ -63,35 +59,30 @@ const Dot0 = styled.span`
   right: 160rem
   top: 175.4rem;
 `;
-
 const Dot1 = styled(Dot0)`
   width: 20rem;
   height: 20rem;
   right: 115rem
   top: 162.8rem;
 `;
-
 const Dot2 = styled(Dot0)`
   width: 10rem;
   height: 10rem;
   right: 65rem;
   top: 137.5rem;
 `;
-
 const Dot3 = styled(Dot0)`
   width: 30rem;
   height: 30rem;
   right: 50rem;
   top: 181.5rem;
 `;
-
 const Dot4 = styled(Dot0)`
   width: 30rem;
   height: 300px;
   right: 3rem;
   top: 121.1rem;
 `;
-
 const CardContainerDiv = styled.div`
   display: flex;
   flex-direction: row;
@@ -101,7 +92,6 @@ const CardContainerDiv = styled.div`
     flex-direction: column;
   }
 `;
-
 const Card0 = styled.div`
   z-index: 1
   width: 48.2rem;
@@ -360,7 +350,6 @@ const Card2 = styled.div`
     }
   }
     `;
-
 const AboutUs = styled.div`
   display: flex;
   flex-direction: column;
@@ -369,7 +358,6 @@ const AboutUs = styled.div`
   height: 100%;
   background-color: #86d4d4;
 `;
-
 const AboutUsBanner = styled.span`
   display: flex;
   justify-content: center;
@@ -381,7 +369,6 @@ const AboutUsBanner = styled.span`
   color: #47839d;
   background-color: #c2e9e9;
 `;
-
 const AboutUsText = styled.div`
   width: 90%;
   margin: 3%;
@@ -392,7 +379,6 @@ const AboutUsText = styled.div`
     color: #ffffff;
   }
 `;
-
 const MemberContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -408,14 +394,12 @@ const MemberContainer = styled.div`
     color: #2d728f
   }
 `;
-
 const MemberDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2rem;
 `;
-
 const TeamPlaceholder = styled.span`
   background: rgba(255, 255, 255, 1);
   border-radius: 200px;
@@ -429,7 +413,7 @@ const TeamPlaceholder = styled.span`
     box-shadow: 0rem 0.4rem 2rem #215c74;
   }
 `;
-
+//
 const Landing = () => {
   return (
     <LandingContainer>
@@ -437,7 +421,6 @@ const Landing = () => {
       <LandingJumbo>
         <Search />
       </LandingJumbo>
-
       <FandPDiv>
         <FandPText>Features & Pricing</FandPText>
         <Line />
