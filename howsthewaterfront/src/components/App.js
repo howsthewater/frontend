@@ -11,12 +11,8 @@ import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
 import { setUserData } from "../actions";
 
-import ApolloClient, { gql } from "apollo-boost";
-import { ApolloProvider, useQuery } from "@apollo/react-hooks";
-
-const client = new ApolloClient({
-  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
-});
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 
 // Sample query that gets COUNTY, ID, NAME, and LOCATION filtered by PARKING = NO
 function GetBeaches() {
@@ -95,7 +91,6 @@ class App extends React.Component {
     );
     return (
       <>
-        <ApolloProvider client={client}>
           <Route exact path="/" component={LandingForm} />
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/signup" component={SignUpForm} />
@@ -103,9 +98,8 @@ class App extends React.Component {
           <Route exact path="/settings" component={Settings} />
           <Routes childProps={childProps} />
           {/* Test to make sure apollo is fetching data as expected, will change in future to 
-          display the data appropriately 
-          <GetBeaches /> */}
-        </ApolloProvider>
+          display the data appropriately */}
+          <GetBeaches />
       </>
     );
   }

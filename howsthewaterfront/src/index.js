@@ -11,6 +11,13 @@ import Amplify from "aws-amplify";
 import config from "./aws-exports";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+
+const client = new ApolloClient({
+  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
+});
+
 Amplify.configure(config);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -22,9 +29,11 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <App />
+      </Router>
+    </ApolloProvider>
   </Provider>,
   document.getElementById("root")
 );
