@@ -1,0 +1,48 @@
+.footerDiv {
+  display: flex;
+  width: 100%;
+  margin: 5% 0 2% 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: #2d728f;
+}
+.copyright {
+  font-size: 1.6rem;
+}
+.textContainer {
+  display: flex;
+  font-size: 1.6rem;
+}
+.line {
+  margin: 0 5px 0 5px;
+}
+.line .first {
+  font-size: 1.6rem;
+}
+.textA {
+  text-decoration: none;
+  color: #2d728f;
+}
+.textA:hover {
+  color: #26bcd7;
+}
+@media (max-width: 992px) {
+  .footerDiv {
+    width: 70%;
+    flex-direction: column;
+  }
+  .copyright {
+    margin-bottom: 1%;
+  }
+  .first {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  .copyright {
+    width: 100%;
+  }
+}
