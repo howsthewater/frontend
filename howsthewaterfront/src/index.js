@@ -10,11 +10,11 @@ import reducer from "./reducers";
 import Amplify from "aws-amplify";
 //import config from "./aws-exports";
 import { BrowserRouter as Router } from "react-router-dom";
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 require("dotenv").config();
 
 
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
