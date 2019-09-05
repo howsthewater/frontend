@@ -53,11 +53,17 @@ const CopyrightFooter = () => {
       </p>
       <div className="textContainer">
         <p className="line first">|</p>
-        <a href="">Terms + Conditions</a>
+        <a className="textA" href="">
+          Terms + Conditions
+        </a>
         <p className="line">|</p>
-        <a href="">Privacy Policy</a>
+        <a className="textA" href="">
+          Privacy Policy
+        </a>
         <p className="line">|</p>
-        <a href="">Legal Statement</a>
+        <a className="textA" href="">
+          Legal Statement
+        </a>
       </div>
     </div>
   );
