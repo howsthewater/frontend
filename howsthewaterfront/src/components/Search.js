@@ -246,7 +246,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={toiletIcon} />
+          <img className="icons" src={toiletIcon} alt="ttIcon" />
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
@@ -257,7 +257,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={parkingIcon} />
+          <img className="icons" src={parkingIcon} alt="pgIcon" />
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
@@ -268,7 +268,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={wheelchairIcon} />
+          <img className="icons" src={wheelchairIcon} alt="wrIcon" />
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
@@ -279,7 +279,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={strollerIcon} />
+          <img className="icons" src={strollerIcon} alt="srIcon" />
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
@@ -290,7 +290,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={dogIcon} />
+          <img className="icons" src={dogIcon} alt="dgIcon" />
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
@@ -301,7 +301,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={volleyIcon} />
+          <img className="icons" src={volleyIcon} alt="vyIcon" />
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
@@ -312,7 +312,7 @@ const Search = () => {
             />
             <span className="checkboxSpan">√</span>
           </label>
-          <img className="icons" src={picnicIcon} />
+          <img className="icons" src={picnicIcon} alt="pcIcon" />
           <button
             className="searchButtonGrid"
             onClick={searchSubmit}
