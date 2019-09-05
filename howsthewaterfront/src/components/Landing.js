@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "./Search";
+import CopyrightFooter from "./Footer";
 import styled from "styled-components";
 import WaveBackground from "../assets/background-flip.png";
 import CoreIcon from "../assets/core_icon.png";
@@ -516,6 +517,7 @@ const Landing = () => {
             </p>
           </MemberDiv>
         </MemberContainer>
+        <CopyrightFooter />
       </AboutUs>
     </LandingContainer>
   );
