@@ -1,0 +1,162 @@
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.settingsDiv {
+  position: relative;
+  height: 120rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dot0 {
+  position: absolute;
+  background: rgba(0, 191, 191, 0.2);
+  border-radius: 200px;
+  width: 30rem;
+  height: 30rem;
+  left: 0rem;
+  top: 0rem;
+}
+.dot1 {
+  position: absolute;
+  background: rgba(0, 191, 191, 0.2);
+  border-radius: 200px;
+  width: 40rem;
+  height: 40rem;
+  top: 92rem;
+  right: -10rem;
+}
+.textDiv {
+  margin: 8rem auto;
+  width: 75%;
+}
+.textP {
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  line-height: 2.5rem;
+}
+.settingsForm {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 88rem;
+  border: 0.1rem solid #215c74;
+  background: #ffffff;
+  border-radius: 1rem;
+}
+.inputLabel {
+  margin: 1rem 4rem;
+  align-self: flex-start;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.1em;
+  color: #215c74;
+}
+.inputField {
+  width: 90%;
+  margin-bottom: 1rem;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  padding-left: 1rem;
+}
+.selectField {
+  width: 90%;
+  margin-bottom: 1rem;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  padding-left: 1rem;
+}
+.imageDiv {
+  width: 90%;
+  display: flex;
+}
+.showImageField {
+  width: 75%;
+  margin-bottom: 1rem;
+  height: 4rem;
+  background: #ffffff;
+  border: 1px solid #215c74;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 3.8rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  padding-left: 1.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.imageInputLabel {
+  cursor: pointer;
+  background-image: url("../assets/icons8-folder-52.png");
+  width: 5.2rem;
+  height: 5.2rem;
+  display: block;
+  margin: auto;
+  margin-top: -1rem;
+}
+.imageField {
+  opacity: 0;
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+.buttonsDiv {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 8rem 0 0 0;
+  flex-wrap: wrap;
+}
+.customButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 14rem;
+  height: 4.5rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  background: #2d728f;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  margin: 1rem;
+}
+@media (max-width: 768px) {
+  .buttonsDiv {
+    margin: 1rem 0 0 0;
+  }
+}
