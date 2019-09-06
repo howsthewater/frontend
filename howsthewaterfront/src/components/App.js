@@ -99,7 +99,7 @@ class App extends React.Component {
           <Routes childProps={childProps} />
           {/* Test to make sure apollo is fetching data as expected, will change in future to 
           display the data appropriately */}
-          <GetBeaches />
+//           <GetBeaches />
       </>
     );
   }
