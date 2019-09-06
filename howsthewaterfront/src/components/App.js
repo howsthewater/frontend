@@ -31,8 +31,8 @@ function GetBeaches() {
     }
   `);
 
-  if(loading) return <p>Loading...</p>;
-  if(error) return <p>Error :({error.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :({error.message}</p>;
 
   return data.filter.map(({ COUNTY, ID, NameMobileWeb, LocationMobileWeb }) => (
     <div key={ID}>
@@ -91,20 +91,19 @@ class App extends React.Component {
     );
     return (
       <>
-          <Route exact path="/" component={LandingForm} />
-          <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/signup" component={SignUpForm} />
-          <Route exact path="/searchresult" component={SearchResultForm} />
-          <Route exact path="/settings" component={Settings} />
-          <Routes childProps={childProps} />
-          {/* Test to make sure apollo is fetching data as expected, will change in future to 
+        <Route exact path="/" component={LandingForm} />
+        <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/signup" component={SignUpForm} />
+        <Route exact path="/searchresult" component={SearchResultForm} />
+        <Route exact path="/settings" component={Settings} />
+        <Routes childProps={childProps} />
+        {/* Test to make sure apollo is fetching data as expected, will change in future to 
           display the data appropriately */}
-//           <GetBeaches />
+        {/* <GetBeaches /> */}
       </>
     );
   }
 }
-
 
 const mapStateToProps = state => {
   console.log(
@@ -126,4 +125,3 @@ export default withRouter(
     { setUserData }
   )(App)
 );
-
