@@ -2,7 +2,6 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
 }
 
 html {
@@ -14,6 +13,7 @@ html {
 body {
   width: 100vw;
   min-height: 100%;
+  font-family: "Ubuntu", sans-serif;
 }
 
 /*---Media Queries --*/

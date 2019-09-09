@@ -1,0 +1,6 @@
+.header {
+  height: 94vh;
+  background-image: url("../assets/background-flip.png");
+  background-size: cover;
+  margin-top: 6vh;
+}
