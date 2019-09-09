@@ -1,6 +1,12 @@
 .header {
   height: 94vh;
-  background-image: url("../assets/background-flip.png");
+  background-image: linear-gradient(
+      to right,
+      hsla(180, 37%, 72%, 0.379),
+      hsla(182, 100%, 37%, 0.379)
+    ),
+    url("../assets/background-flip.png");
   background-size: cover;
+  background-position: center;
   margin-top: 6vh;
 }
