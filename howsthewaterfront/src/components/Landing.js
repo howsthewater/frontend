@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/landing.css";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
+import SearchBeach from "./Search";
 
 const Landing = () => {
   return (
@@ -18,7 +19,11 @@ const Landing = () => {
           <button className="signup-button">Sign Up</button>
         </nav>
       </header>
-      <section className="top-content"></section>
+      <section className="top-content">
+        <div className="search-content">
+          <SearchBeach />
+        </div>
+      </section>
     </body>
   );
 };

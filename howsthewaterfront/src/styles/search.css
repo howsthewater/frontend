@@ -1,7 +1,8 @@
 .searchContainer {
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 42%;
+  border: 1px solid red;
 }
 .searchForm {
   display: flex;
@@ -9,10 +10,10 @@
   height: 5rem;
 }
 .searchInput {
-  height: 5rem;
+  height: 40px;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 12px;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
   border: 0.1rem solid #2d728f;
   padding-left: 1rem;
@@ -22,7 +23,7 @@
 .searchButton {
   cursor: pointer;
   width: 10%;
-  height: 5rem;
+  height: 40px;
   background: #2d728f;
   border: 0.1rem solid #2d728f;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
@@ -30,26 +31,32 @@
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 12px;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
 }
 .aSearchToggleButton {
   cursor: pointer;
-  width: 25%;
+  width: 50%;
   height: 4.5rem;
-  margin-top: 3rem;
+  margin-top: 10px;
   background: none;
   border: none;
   font-family: Ubuntu;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.6rem;
   line-height: 1.8rem;
-  letter-spacing: 0.3rem;
-  color: #2d728f;
-  background: #ffffff;
-  border: 0.1rem solid #2d728f;
+  letter-spacing: 1px;
+  /* color: #2d728f; */
+  color: #ffffff;
+  /* background: #ffffff; */
+  /* border: 0.1rem solid #2d728f; */
+  border: none;
+  text-decoration: underline;
+  padding: 0px;
+  margin: 0px;
+  text-align: left;
 }
 .advancedSearchContainer {
   width: 100%;

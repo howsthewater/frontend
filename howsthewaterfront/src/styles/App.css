@@ -3,6 +3,9 @@
   padding: 0px;
   box-sizing: border-box;
 }
+*:focus {
+  visibility: hidden;
+}
 
 html {
   font-size: 62.5%;

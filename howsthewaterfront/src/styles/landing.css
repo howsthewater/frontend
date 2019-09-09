@@ -59,3 +59,18 @@ header nav a {
   line-height: 18px;
   border-radius: 5px;
 }
+
+.top-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10%;
+  margin-left: 2%;
+}
