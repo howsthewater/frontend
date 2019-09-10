@@ -6,6 +6,7 @@ import WaveBackground from "../assets/background-flip.png";
 import CoreIcon from "../assets/core_icon.png";
 import LoginIcon from "../assets/login_icon.png";
 import PremiumIcon from "../assets/icon-premium.png";
+import Header from './Header';
 // styling
 const LandingContainer = styled.div`
   display: flex;
@@ -417,8 +418,10 @@ const TeamPlaceholder = styled.span`
 //
 const Landing = () => {
   return (
+    <>
+    <Header />
     <LandingContainer>
-      <div>Landing Page</div>
+      {/* <div>Landing Page</div> */}
       <LandingJumbo>
         <Search />
       </LandingJumbo>
@@ -520,6 +523,7 @@ const Landing = () => {
         <CopyrightFooter />
       </AboutUs>
     </LandingContainer>
+    </>
   );
 };
 
