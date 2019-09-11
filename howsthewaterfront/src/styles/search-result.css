@@ -1,0 +1,135 @@
+.sResultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchBackground {
+  background: url("../assets/beach_surf.jpg") center;
+  display: flex;
+  width: 100%;
+  height: 30rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.bodySection {
+  width: 85%;
+}
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.subSectionDiv {
+  border-bottom: 0.1rem solid #7c8386;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+}
+.sHeader {
+  color: #215c74;
+  letter-spacing: 0.1rem;
+}
+.sText {
+  color: #7c8386;
+  letter-spacing: 0.1rem;
+}
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.centerSection {
+  width: 30%;
+  margin: 2rem;
+}
+.graph {
+  background: rgba(76, 164, 194, 0.7);
+  height: 100%;
+  width: 100%;
+}
+.rightSection {
+}
+.middleSection {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 178, 178, 0.2);
+  padding: 0 2rem;
+}
+.amenitiesText {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  color: #215c74;
+  font-weight: 800;
+  margin: 0 1%;
+}
+.iconsSection {
+  display: flex;
+  width: 50rem;
+  justify-content: space-around;
+}
+.icons {
+  height: 4rem;
+}
+
+.bottomSection {
+  font-family: Ubuntu;
+  width: 85%;
+  letter-spacing: 0.1em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 3% 0 5% 0;
+}
+
+.bottomSection .beach-info {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bottomSection .beach-pics {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0 5%;
+}
+
+.bottomSection .beach-pics img {
+  width: 30%;
+}
+
+.bottomSection .beach-info span {
+  height: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 8.5% 0;
+}
+
+.bottomSection .beach-info span h2 {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #215c74;
+  letter-spacing: 0.1em;
+  margin: 0 0.5rem 0 0;
+}
+
+.bottomSection .beach-info span p {
+  font-size: 1.6rem;
+  color: #215c74;
+  letter-spacing: 0.1em;
+}
