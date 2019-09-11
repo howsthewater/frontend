@@ -52,77 +52,101 @@ const SearchResult = () => {
       </div>
       <div className="bodySection">
         <div className="topSection">
-          <div className="leftSection">
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Latitude</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.lat : ""}</h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Longitude</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText"> {beachData ? beachData.lng : ""}</h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Region</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.region : ""}</h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Sunrise</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.sunrise : ""}</h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Sunset</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.sunset : ""}</h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Day Weather</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.dayWeather : ""}</h1>
-            </div>
-          </div>
-          <div className="centerSection">
+          <div className="graphSection">
             <div className="graph" />
           </div>
-          <div className="rightSection">
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Low Tide</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.lowTide : ""}</h1>
+          <dic className="infoSection">
+            <div className="leftSection">
+              <div className="subSectionDiv firstDiv">
+                <h1 className="sHeader sElement">Latitude</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.lat : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Longitude</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {" "}
+                  {beachData ? beachData.lng : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv sElement">
+                <h1 className="sHeader sElement">Region</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.region : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Sunrise</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.sunrise : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Sunset</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.sunset : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Day Weather</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.dayWeather : ""}
+                </h1>
+              </div>
             </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">High Tide</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText"> {beachData ? beachData.highTide : ""}</h1>
+            <div className="rightSection">
+              <div className="subSectionDiv firstDiv">
+                <h1 className="sHeader sElement">Low Tide</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.lowTide : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">High Tide</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {" "}
+                  {beachData ? beachData.highTide : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Wind Speed</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.windSpeed : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Wind Direction</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.windDirection : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Swell Height</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.swellHeight : ""}
+                </h1>
+              </div>
+              <div className="subSectionDiv">
+                <h1 className="sHeader sElement">Water Temperature</h1>
+                <h1 className="sHeader sElement">-</h1>
+                <h1 className="sText sElement">
+                  {beachData ? beachData.waterTemp : ""}
+                </h1>
+              </div>
             </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Wind Speed</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.windSpeed : ""}</h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Wind Direction</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">
-                {beachData ? beachData.windDirection : ""}
-              </h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Swell Height</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">
-                {beachData ? beachData.swellHeight : ""}
-              </h1>
-            </div>
-            <div className="subSectionDiv">
-              <h1 className="sHeader">Water Temperature</h1>
-              <h1 className="sHeader">-</h1>
-              <h1 className="sText">{beachData ? beachData.waterTemp : ""}</h1>
-            </div>
-          </div>
+          </dic>
         </div>
         <div className="middleSection">
           <div className="amenitiesText">Amenities:</div>
@@ -162,7 +186,7 @@ const SearchResult = () => {
           <img src={placeholder03} alt="" />
         </div>
       </div>
-      <CopyrightFooter />
+      <CopyrightFooter className="footerDiv" />
     </div>
   );
 };
