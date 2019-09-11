@@ -156,6 +156,9 @@
   .searchButton {
     width: 20%;
   }
+  .searchResultsContainer {
+    width: 50.4%;
+  }
   .aSearchToggleButton {
     width: 40%;
   }
