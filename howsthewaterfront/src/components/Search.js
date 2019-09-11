@@ -47,7 +47,11 @@ const Search = () => {
     if (e.target.name === "textInput") {
       let beaches = [...data.locations];
       beaches = beaches.filter(beach => {
-        if (beach.NameMobileWeb.toLowerCase().includes(e.target.value)) {
+        if (
+          beach.NameMobileWeb.toLowerCase().includes(
+            e.target.value.toLowerCase()
+          )
+        ) {
           return beaches;
         }
       });
