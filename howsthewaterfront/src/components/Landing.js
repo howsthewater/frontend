@@ -27,6 +27,7 @@ const Landing = () => {
           &#9776;
         </label>
         <input type="checkbox" id="toggle" />
+
         {/* Navigation links - header - right */}
         <nav className="menu">
           <a href="#">About</a>

@@ -1,13 +1,18 @@
+/* This is the container for the basic search */
 .searchContainer {
   display: flex;
   flex-direction: column;
   width: 600px;
 }
+
+/* Setting the height and width for the search form*/
 .searchForm {
   display: flex;
   width: 100%;
   height: 5rem;
 }
+
+/* Styles for search input field - basic search */
 .searchInput {
   height: 35px;
   font-style: normal;
@@ -19,6 +24,8 @@
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
 }
+
+/* Styling for the search button - basic search  */
 .searchButton {
   cursor: pointer;
   width: 80px;
@@ -34,6 +41,8 @@
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
 }
+
+/* This is the 'Advanced search' link. Its a button styled as a link.*/
 .aSearchToggleButton {
   cursor: pointer;
   width: 130px;
@@ -47,27 +56,27 @@
   font-size: 14px;
   line-height: 1.8rem;
   letter-spacing: 1px;
-  /* color: #2d728f; */
   color: #ffffff;
-  /* background: #ffffff; */
-  /* border: 0.1rem solid #2d728f; */
   border: none;
   text-decoration: none;
   padding: 0px 0 0px 0;
   margin: 0px;
   text-align: left;
-  /* border-bottom: 2px solid #2d728f; */
   border-bottom: 2px solid #ffffff;
 }
+
+/* This is the container for advanced search filter contents */
 .advancedSearchContainer {
   width: 100%;
   height: 35px;
   display: flex;
   margin-top: 5px;
-  animation-name: moveInFromLeft;
+  animation-name: appear;
   animation-duration: 5s;
 }
-@keyframes moveInFromLeft {
+
+/* Animation effect for appear*/
+@keyframes appear {
   0% {
     opacity: 0;
     transform: translateX(-100);
@@ -78,6 +87,8 @@
     transform: translateX(0);
   }
 }
+
+/* Form styling for advanced search */
 .advancedSearchForm {
   width: 90%;
   height: 35px;
@@ -91,11 +102,14 @@
   animation-name: moveInFromLeft;
   animation-duration: 5s;
 }
+
+/* Stling the check boxes */
 .checkboxLabel {
   margin-bottom: 2rem;
 }
+
+/* Styling the checkbox input*/
 .checkboxInput {
-  /* margin: 5px 0 0 0; */
   position: absolute;
   opacity: 0;
   z-index: 1;
@@ -104,26 +118,34 @@
   width: 10px;
   border: 0.2rem solid #2d728f;
 }
+
+/* Styling for checkbox when it is checked */
+/* This styling sets the background to  #2d728f so that the span item */
+/* check is visible. */
 .checkboxInput:checked ~ span {
   background: #2d728f;
   color: #ffffff;
 }
+
+/* This span adds the tick mark when checked*/
 .checkboxSpan {
   color: #ffffff;
-
   position: absolute;
   height: 11px;
   width: 11px;
   border: 0.2rem solid #2d728f;
   font-size: 8px;
-  /* line-height: 1.2; */
   margin-top: 4.5px;
   text-align: center;
 }
+
+/* Styling the icons for filter items */
 .icons {
   height: 75%;
   margin-right: 25px;
 }
+
+/* Styling the icon in a grid layout for advanced search */
 .searchButtonGrid {
   cursor: pointer;
   width: 10%;
@@ -140,6 +162,8 @@
   letter-spacing: 0.1rem;
   display: none;
 }
+
+/* The advanced search button */
 .searchButtonAdvanced {
   cursor: pointer;
   width: 10%;
@@ -158,33 +182,13 @@
   animation-name: moveInFromLeft;
   animation-duration: 3s;
 }
-/* @media (max-width: 992px) {
-  .searchContainer {
-    width: 400px;
-    background-color: teal;
-  }
-  .aSearchToggleButton {
-    width: 130px;
-  }
-  .advancedSearchForm {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 10rem;
-    padding-left: 2rem;
-  }
-  .searchButtonGrid {
-    display: block;
-    width: 95%;
-    height: 2.5rem;
-    grid-column-start: 7;
-    grid-column-end: 9;
-  }
-  .searchButtonAdvanced {
-    display: none;
-  }
-} */
 
+/* Breakpoint for 992px */
+@media (max-width: 992px) {
+  /* Currently there are no styling for this breakpoint */
+}
+
+/* Breakpoint for 768px */
 @media (max-width: 768px) {
   .searchContainer {
     width: 500px;
@@ -192,8 +196,17 @@
   .aSearchToggleButton {
     display: none;
   }
+
+  .advancedSearchForm {
+    display: none;
+  }
+
+  .searchButtonAdvanced {
+    display: none;
+  }
 }
 
+/* Breakpoint for 575px */
 @media (max-width: 575px) {
   .searchContainer {
     width: 400px;
