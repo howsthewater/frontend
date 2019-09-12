@@ -14,57 +14,18 @@ import { setUserData } from "../actions";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-// Sample query that gets COUNTY, ID, NAME, and LOCATION filtered by PARKING = NO
-function GetBeaches() {
-  const { loading, error, data } = useQuery(gql`
-    {
-      filter(
-        filter: { PARKING: { EQ: "No" } }
-        sort: { LATITUDE: ASC }
-        pagination: { limit: 10 }
-      ) {
-        COUNTY
-        ID
-        NameMobileWeb
-        LocationMobileWeb
-      }
-    }
-  `);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :({error.message}</p>;
-
-  return data.filter.map(({ COUNTY, ID, NameMobileWeb, LocationMobileWeb }) => (
-    <div key={ID}>
-      <p>{ID}</p>
-      <p>{COUNTY}:</p>
-      <p>{NameMobileWeb}</p>
-      <p>{LocationMobileWeb}</p>
-    </div>
-  ));
-}
 class App extends React.Component {
-  getPosition = () => {
-    return new Promise(function(resolve, reject) {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
-    });
-  };
-
   componentDidMount() {
     console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
-    this.getPosition()
-      .then(position => {
-        console.log("------------------------------------------------");
-        console.log(position.coords.latitude, position.coords.longitude);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
 
+    // Hub listens to aws cognito user pool to check if there has been a signin
     Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
+        // If there is a sign-in then the user information will be added to the db and global state
         case "signIn":
           console.log(`APP::CDM::HUB SIGN IN :: LISTEN:: ${data}`);
+
+          //Checks if the current user is authenticated
           Auth.currentAuthenticatedUser()
             .then(user => {
               console.log(user);
@@ -74,12 +35,40 @@ class App extends React.Component {
               } else if (user.attributes["custom:full_name"]) {
                 name = user.attributes["custom:full_name"];
               }
+
+              // getting location details
+              let latitude;
+              let longitude;
+              this.getPosition()
+                .then(position => {
+                  console.log(
+                    position.coords.latitude,
+                    position.coords.longitude
+                  );
+                  latitude = position.coords.latitude;
+                  longitude = position.coords.longitude;
+                })
+                .catch(err => {
+                  console.log(err.message);
+                });
               console.log(`APP :: CDM :: NAME IS :: ${name}`);
+              /* Add the user to the database */
+
+              /* Add the user to the datase ends */
+
+              /* Get the updated user from the database */
+
+              /* Get the updated user from the database - ends */
+
               this.props.setUserData({
                 name: name,
                 email: user.attributes.email,
                 username: user.username,
-                cognitoUser: user
+                cognitoUser: user,
+                location: {
+                  latitude: latitude,
+                  longitude: longitude
+                }
               });
               this.props.history.push("/home");
             })
@@ -95,6 +84,12 @@ class App extends React.Component {
 
     console.log(`APP :: CDM :: after :: HUB AUTH LISTENER`);
   }
+
+  getPosition = () => {
+    return new Promise(function(resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+  };
 
   render() {
     const childProps = {
@@ -132,6 +127,36 @@ const mapStateToProps = state => {
     user: state.user
   };
 };
+
+// Sample query that gets COUNTY, ID, NAME, and LOCATION filtered by PARKING = NO
+function GetBeaches() {
+  const { loading, error, data } = useQuery(gql`
+    {
+      filter(
+        filter: { PARKING: { EQ: "No" } }
+        sort: { LATITUDE: ASC }
+        pagination: { limit: 10 }
+      ) {
+        COUNTY
+        ID
+        NameMobileWeb
+        LocationMobileWeb
+      }
+    }
+  `);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :({error.message}</p>;
+
+  return data.filter.map(({ COUNTY, ID, NameMobileWeb, LocationMobileWeb }) => (
+    <div key={ID}>
+      <p>{ID}</p>
+      <p>{COUNTY}:</p>
+      <p>{NameMobileWeb}</p>
+      <p>{LocationMobileWeb}</p>
+    </div>
+  ));
+}
 
 export default withRouter(
   connect(
