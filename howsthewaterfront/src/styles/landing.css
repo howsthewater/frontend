@@ -1,3 +1,4 @@
+/* This is the first fold of the landing page. */
 .top-content {
   height: 94vh;
   background-image: linear-gradient(
@@ -8,13 +9,20 @@
     url("../assets/background-flip.png");
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Header section of the landing page. */
 header {
   height: 6vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* Container for the logo in the left. This will hold the drop and text logo. */
 .logo-container {
   margin-left: 90px;
   display: flex;
@@ -24,16 +32,20 @@ header {
   height: 100%;
   position: relative;
 }
+
+/* This is class for the drop shaped image logo. */
 .logo {
   height: 40px;
   width: 40px;
 }
 
+/* This is image logo for the text - How's the water */
 .logo-txt {
   height: 15px;
   width: 150px;
 }
 
+/* Navigation menu on the right hand side of the header */
 .menu {
   width: 400px;
   display: flex;
@@ -42,6 +54,7 @@ header {
   margin-right: 90px;
 }
 
+/* Link decoration styling for the navigation items */
 header nav a {
   text-decoration: none;
   color: #2d728f;
@@ -52,6 +65,7 @@ header nav a {
   line-height: 18px;
 }
 
+/* The sign-up button in the header - top right. */
 .signup-button {
   width: 60px;
   height: 30px;
@@ -64,12 +78,8 @@ header nav a {
   border-radius: 5px;
 }
 
-.top-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* This is the container for the search content in the landing page. This is a wrapper */
+/* over the search component. */
 .search-content {
   display: flex;
   justify-content: center;
@@ -82,6 +92,7 @@ header nav a {
   animation-timing-function: ease-in;
 }
 
+/* CSS animation effect for the search items to appear on landing page. */
 @keyframes appear {
   0% {
     opacity: 0;
@@ -93,6 +104,7 @@ header nav a {
   }
 }
 
+/* This is the hamburger icon for page responsiveness.  */
 .hamburger-icon {
   width: 40px;
   height: 40px;
@@ -107,29 +119,38 @@ header nav a {
   position: absolute;
 }
 
+/* Toggle effect for appearance and disappearance of the nav items on clicking */
+/* the hamburger icon. */
 #toggle {
   display: none;
 }
 
+/* Media queries for a width of 992px */
 @media (max-width: 992px) {
+  /* displays the hamburger icon */
   .hamburger-icon {
     display: block;
     cursor: pointer;
   }
+
+  /* Does not display the menu. This will be displayed only on click of hamburger icon */
   .menu {
     display: none;
   }
 
+  /* Styling the nav items for drop-down view */
   header nav a {
     border-bottom: 1px solid #eee;
     width: 100%;
     padding: 10px;
   }
 
+  /* Signup button in the drop-down of hamburger item */
   .signup-button {
     margin: 10px;
   }
 
+  /* When the hamburger item is clicked */
   #toggle:checked + .menu {
     display: flex;
     text-align: center;
@@ -144,29 +165,37 @@ header nav a {
   }
 }
 
+/* Breakpoint styling at 768px */
 @media (max-width: 768px) {
+  /* displays the hamburger icon - position for 768px*/
   .hamburger-icon {
     right: 70px;
   }
 
+  /* displays the hamburger icon */
   #toggle:checked + .menu {
     margin-right: 15px;
   }
 
+  /* Positioning the logo for 768px */
   .logo-container {
     margin-left: 40px;
   }
 }
 
+/* Breakpoint styling at 575px */
 @media (max-width: 575px) {
+  /* Positioning the hamburger icon for 575px */
   .hamburger-icon {
     right: 50px;
   }
 
+  /* Positioning the dropdown for 575px */
   #toggle:checked + .menu {
     margin-right: 0px;
   }
 
+  /* Positioning the logo for 575px */
   .logo-container {
     margin-left: 30px;
   }
