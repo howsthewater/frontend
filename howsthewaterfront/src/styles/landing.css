@@ -34,7 +34,7 @@ header {
   width: 150px;
 }
 
-header nav {
+.menu {
   width: 400px;
   display: flex;
   justify-content: space-between;
@@ -97,7 +97,6 @@ header nav a {
   width: 40px;
   height: 40px;
   text-align: center;
-  /* margin: 10px; */
   font-size: 25px;
   color: #2d728f;
   border: 1px solid #2d728f;
@@ -111,32 +110,14 @@ header nav a {
 #toggle {
   display: none;
 }
-/* .hamburger-icon span {
-  width: 30px;
-  background-color: #2d728f;
-  height: 3px;
-  display: block;
-  margin-bottom: 6px;
-}
-.hamburger-icon span:last-child {
-  margin-bottom: 0px;
-} */
 
 @media (max-width: 992px) {
   .hamburger-icon {
     display: block;
     cursor: pointer;
   }
-  header nav {
-    text-align: center;
-    flex-direction: column;
-    width: 150px;
-    right: 0px;
-    top: 43px;
-    margin-right: 40px;
-    padding: 0px;
-    position: absolute;
-    background-color: #ffffff;
+  .menu {
+    display: none;
   }
 
   header nav a {
@@ -147,5 +128,18 @@ header nav a {
 
   .signup-button {
     margin: 10px;
+  }
+
+  #toggle:checked + .menu {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 150px;
+    right: 0px;
+    top: 43px;
+    margin-right: 40px;
+    padding: 0px;
+    position: absolute;
+    background-color: #ffffff;
   }
 }
