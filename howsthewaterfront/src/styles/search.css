@@ -36,7 +36,7 @@
 }
 .aSearchToggleButton {
   cursor: pointer;
-  width: 22%;
+  width: 130px;
   height: 35px;
   margin-top: 10px;
   background: none;
@@ -163,7 +163,8 @@
     width: 20%;
   }
   .aSearchToggleButton {
-    width: 40%;
+    /* width: 40%; */
+    width: 130px;
   }
   .advancedSearchForm {
     width: 100%;

@@ -92,3 +92,60 @@ header nav a {
     transform: translate(0);
   }
 }
+
+.hamburger-icon {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  /* margin: 10px; */
+  font-size: 25px;
+  color: #2d728f;
+  border: 1px solid #2d728f;
+  border-radius: 5px;
+  display: none;
+  right: 90px;
+  top: 1px;
+  position: absolute;
+}
+
+#toggle {
+  display: none;
+}
+/* .hamburger-icon span {
+  width: 30px;
+  background-color: #2d728f;
+  height: 3px;
+  display: block;
+  margin-bottom: 6px;
+}
+.hamburger-icon span:last-child {
+  margin-bottom: 0px;
+} */
+
+@media (max-width: 992px) {
+  .hamburger-icon {
+    display: block;
+    cursor: pointer;
+  }
+  header nav {
+    text-align: center;
+    flex-direction: column;
+    width: 150px;
+    right: 0px;
+    top: 43px;
+    margin-right: 40px;
+    padding: 0px;
+    position: absolute;
+    background-color: #ffffff;
+  }
+
+  header nav a {
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .signup-button {
+    margin: 10px;
+  }
+}

@@ -12,6 +12,11 @@ const Landing = () => {
           <img className="logo" src={logo} alt="How's the water logo" />
           <img className="logo-txt" src={logoWords} alt="How's the water" />
         </div>
+
+        <label className="hamburger-icon" for="toggle">
+          &#9776;
+        </label>
+        <input type="checkbox" id="toggle" />
         <nav>
           <a href="#">About</a>
           <a href="#">Features</a>
