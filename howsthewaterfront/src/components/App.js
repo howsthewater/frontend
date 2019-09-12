@@ -10,11 +10,24 @@ import Routes from "./Routes";
 import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
 import { setUserData } from "../actions";
-
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
+/*
+ * Class component: App
+ *
+ * ComponentDidMount() - checks if the user has signed in successfully. If this is a new user
+ * the data will be input into the database. If its an existing user, the user information will be
+ * updated in the global state (user)
+ *
+ * getPosition() - Gets the position of the current user who logs into the system. This is used
+ * to set the user's home beach location
+ *
+ **/
 class App extends React.Component {
+  /*
+   * This funtion is invoked whenever App component is mounted
+   **/
   componentDidMount() {
     console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
 
@@ -60,6 +73,10 @@ class App extends React.Component {
 
               /* Get the updated user from the database - ends */
 
+              // Sets the user details in the global state. Currently it is set from the
+              // login information. Once it is connected to the DB, the user info returned from
+              // the db will be used to update user information. This will also be moved into a
+              // separate function
               this.props.setUserData({
                 name: name,
                 email: user.attributes.email,
@@ -85,12 +102,21 @@ class App extends React.Component {
     console.log(`APP :: CDM :: after :: HUB AUTH LISTENER`);
   }
 
+  /*
+   * Gets the current position of the sign-in user
+   **/
   getPosition = () => {
     return new Promise(function(resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
   };
 
+  /*
+   *
+   * Renders the App component.
+   * All the routes in the application are declared in this function.
+   *
+   **/
   render() {
     const childProps = {
       isAuthenticated: this.props.isAuthenticated
@@ -114,6 +140,10 @@ class App extends React.Component {
   }
 }
 
+/*
+ *
+ * This function maps the local state variable to global state variable
+ **/
 const mapStateToProps = state => {
   console.log(
     `APP :: MAP STATE TO PROPS :: state value of isFederatedSignIn ${JSON.stringify(
