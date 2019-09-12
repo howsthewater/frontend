@@ -143,3 +143,31 @@ header nav a {
     background-color: #ffffff;
   }
 }
+
+@media (max-width: 768px) {
+  .hamburger-icon {
+    right: 70px;
+  }
+
+  #toggle:checked + .menu {
+    margin-right: 15px;
+  }
+
+  .logo-container {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 575px) {
+  .hamburger-icon {
+    right: 50px;
+  }
+
+  #toggle:checked + .menu {
+    margin-right: 0px;
+  }
+
+  .logo-container {
+    margin-left: 30px;
+  }
+}
