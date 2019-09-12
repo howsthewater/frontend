@@ -71,6 +71,20 @@ header nav a {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 7%;
   margin-left: 2%;
+  animation-name: appear;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate(-100);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }

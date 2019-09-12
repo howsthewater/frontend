@@ -10,16 +10,13 @@ import reducer from "./reducers";
 import Amplify from "aws-amplify";
 //import config from "./aws-exports";
 import { BrowserRouter as Router } from "react-router-dom";
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
 require("dotenv").config();
-
-
 
 const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 });
-
 
 const config = {
   aws_project_region: process.env.REACT_APP_PROJECT_REGION,
@@ -36,8 +33,8 @@ const config = {
       "profile",
       "aws.cognito.signin.user.admin"
     ],
-    redirectSignIn: "http://localhost:3000/home",
-    redirectSignOut: "http://localhost:3000/",
+    redirectSignIn: process.env.REACT_APP_REDIRECT_SIGNIN,
+    redirectSignOut: process.env.REACT_APP_REDIRECT_SIGNOUT,
     responseType: "code"
   },
   federationTarget: "COGNITO_USER_POOLS"

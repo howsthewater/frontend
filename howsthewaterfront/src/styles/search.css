@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 42%;
-  border: 1px solid red;
 }
 .searchForm {
   display: flex;
@@ -10,7 +9,7 @@
   height: 5rem;
 }
 .searchInput {
-  height: 40px;
+  height: 35px;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -23,7 +22,7 @@
 .searchButton {
   cursor: pointer;
   width: 10%;
-  height: 40px;
+  height: 35px;
   background: #2d728f;
   border: 0.1rem solid #2d728f;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
@@ -37,15 +36,15 @@
 }
 .aSearchToggleButton {
   cursor: pointer;
-  width: 50%;
-  height: 4.5rem;
+  width: 22%;
+  height: 35px;
   margin-top: 10px;
   background: none;
   border: none;
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 14px;
   line-height: 1.8rem;
   letter-spacing: 1px;
   /* color: #2d728f; */
@@ -53,38 +52,56 @@
   /* background: #ffffff; */
   /* border: 0.1rem solid #2d728f; */
   border: none;
-  text-decoration: underline;
-  padding: 0px;
+  text-decoration: none;
+  padding: 0px 0 0px 0;
   margin: 0px;
   text-align: left;
+  /* border-bottom: 2px solid #2d728f; */
+  border-bottom: 2px solid #ffffff;
 }
 .advancedSearchContainer {
   width: 100%;
-  height: 5rem;
+  height: 35px;
   display: flex;
-  margin-top: 3rem;
+  margin-top: 5px;
+  animation-name: moveInFromLeft;
+  animation-duration: 5s;
+}
+@keyframes moveInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .advancedSearchForm {
   width: 90%;
-  height: 5rem;
+  height: 35px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background: #ffffff;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
   border: 0.1rem solid #2d728f;
+  margin-top: 10px;
+  animation-name: moveInFromLeft;
+  animation-duration: 5s;
 }
 .checkboxLabel {
   margin-bottom: 2rem;
 }
 .checkboxInput {
-  margin: 0;
+  /* margin: 5px 0 0 0; */
   position: absolute;
   opacity: 0;
   z-index: 1;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 10px;
+  width: 10px;
   border: 0.2rem solid #2d728f;
 }
 .checkboxInput:checked ~ span {
@@ -93,16 +110,19 @@
 }
 .checkboxSpan {
   color: #ffffff;
+
   position: absolute;
-  height: 2rem;
-  width: 2rem;
+  height: 11px;
+  width: 11px;
   border: 0.2rem solid #2d728f;
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-size: 8px;
+  /* line-height: 1.2; */
+  margin-top: 4.5px;
   text-align: center;
 }
 .icons {
   height: 75%;
+  margin-right: 25px;
 }
 .searchButtonGrid {
   cursor: pointer;
@@ -123,7 +143,7 @@
 .searchButtonAdvanced {
   cursor: pointer;
   width: 10%;
-  height: 5rem;
+  height: 35px;
   background: #2d728f;
   border: 0.1rem solid #2d728f;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
@@ -131,9 +151,12 @@
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 12px;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
+  margin-top: 10px;
+  animation-name: moveInFromLeft;
+  animation-duration: 3s;
 }
 @media (max-width: 992px) {
   .searchButton {

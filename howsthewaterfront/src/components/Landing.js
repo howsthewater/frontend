@@ -6,7 +6,7 @@ import SearchBeach from "./Search";
 
 const Landing = () => {
   return (
-    <body>
+    <>
       <header>
         <div className="logo-container">
           <img className="logo" src={logo} alt="How's the water logo" />
@@ -24,7 +24,7 @@ const Landing = () => {
           <SearchBeach />
         </div>
       </section>
-    </body>
+    </>
   );
 };
 

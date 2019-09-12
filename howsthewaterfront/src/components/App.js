@@ -44,8 +44,22 @@ function GetBeaches() {
   ));
 }
 class App extends React.Component {
+  getPosition = () => {
+    return new Promise(function(resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+  };
+
   componentDidMount() {
     console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
+    this.getPosition()
+      .then(position => {
+        console.log("------------------------------------------------");
+        console.log(position.coords.latitude, position.coords.longitude);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
 
     Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
