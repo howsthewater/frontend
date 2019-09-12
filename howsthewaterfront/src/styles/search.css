@@ -1,7 +1,7 @@
 .searchContainer {
   display: flex;
   flex-direction: column;
-  width: 42%;
+  width: 600px;
 }
 .searchForm {
   display: flex;
@@ -21,7 +21,7 @@
 }
 .searchButton {
   cursor: pointer;
-  width: 10%;
+  width: 80px;
   height: 35px;
   background: #2d728f;
   border: 0.1rem solid #2d728f;
@@ -158,12 +158,12 @@
   animation-name: moveInFromLeft;
   animation-duration: 3s;
 }
-@media (max-width: 992px) {
-  .searchButton {
-    width: 20%;
+/* @media (max-width: 992px) {
+  .searchContainer {
+    width: 400px;
+    background-color: teal;
   }
   .aSearchToggleButton {
-    /* width: 40%; */
     width: 130px;
   }
   .advancedSearchForm {
@@ -181,6 +181,24 @@
     grid-column-end: 9;
   }
   .searchButtonAdvanced {
+    display: none;
+  }
+} */
+
+@media (max-width: 768px) {
+  .searchContainer {
+    width: 500px;
+  }
+  .aSearchToggleButton {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  .searchContainer {
+    width: 400px;
+  }
+  .aSearchToggleButton {
     display: none;
   }
 }
