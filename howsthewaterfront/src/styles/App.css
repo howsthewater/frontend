@@ -2,8 +2,11 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
+  max-width: 100%;
 }
+/* *:focus {
+  visibility: hidden;
+} */
 
 html {
   font-size: 62.5%;
@@ -14,6 +17,7 @@ html {
 body {
   width: 100vw;
   min-height: 100%;
+  font-family: "Ubuntu", sans-serif;
 }
 
 /*---Media Queries --*/
