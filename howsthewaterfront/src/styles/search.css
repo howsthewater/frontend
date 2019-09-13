@@ -1,3 +1,4 @@
+
 /* This is the container for the basic search */
 .searchContainer {
   display: flex;
@@ -183,6 +184,32 @@
   animation-duration: 3s;
 }
 
+.loadingDiv {
+  display: flex;
+}
+.loadingText {
+  color: #000000;
+}
+.errorDiv {
+  display: flex;
+}
+.errorText {
+  color: #000000;
+}
+
+.searchResultsContainer {
+  background: #ffffff;
+  width: 90%;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  border: 0.1rem solid #2d728f;
+  position: absolute;
+  margin-top: 5rem;
+  width: 54.45%;
+}
+.searchResultText {
+  font-size: 1.6rem;
+}
+
 /* Breakpoint for 992px */
 @media (max-width: 992px) {
   /* Currently there are no styling for this breakpoint */
@@ -192,6 +219,9 @@
 @media (max-width: 768px) {
   .searchContainer {
     width: 500px;
+  }
+  .searchResultsContainer {
+    width: 50.4%;
   }
   .aSearchToggleButton {
     display: none;
