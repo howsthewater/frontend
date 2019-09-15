@@ -76,6 +76,9 @@ const Landing = () => {
                 sollicitudin. Sit amet consectetur adipiscing elit pellentesque
                 habitant morbi tristique.
               </p>
+              <a href="#" className="btn-text">
+                Learn more &rarr;
+              </a>
             </div>
             <div className="about-img-content">test</div>
           </div>

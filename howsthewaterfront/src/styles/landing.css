@@ -152,16 +152,16 @@ header nav a {
 }
 
 .about-content {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 73vh;
-  color: #5b9279;
+  color: rgba(91, 146, 121, 0.7);
 }
 
 .about-text-content {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   height: 45vh;
   width: 45%;
   display: flex;
@@ -191,6 +191,39 @@ header nav a {
 
 .paragraph:not(:last-child) {
   margin-bottom: 3rem;
+}
+
+.btn-text {
+  color: #2d728f;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #2d728f;
+  font-size: 1.5rem;
+  padding: 3px;
+  transition: all 0.2s;
+}
+
+.btn-text:visited .btn-text:link {
+  color: #2d728f;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #2d728f;
+  font-size: 1.5rem;
+  padding: 3px;
+  transition: all 0.2s;
+}
+
+.btn-text:hover {
+  background-color: #2d728f;
+  color: #eee;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
+  transform: translateY(-2px);
+  border-radius: 3px;
+}
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.299);
+  transform: translateY(0);
 }
 
 /* Media queries for a width of 992px */
