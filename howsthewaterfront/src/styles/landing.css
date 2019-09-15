@@ -151,6 +151,26 @@ header nav a {
   text-shadow: 0.5rem 1rem 2rem rgba(17, 17, 17, 0.299);
 }
 
+.about-content {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80vh;
+}
+
+.about-text-content {
+  border: 1px solid green;
+  height: 45vh;
+  width: 45%;
+}
+
+.about-img-content {
+  border: 1px solid blue;
+  height: 45vh;
+  width: 35%;
+}
+
 /* Media queries for a width of 992px */
 @media (max-width: 992px) {
   /* displays the hamburger icon */

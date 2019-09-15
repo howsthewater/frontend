@@ -51,6 +51,10 @@ const Landing = () => {
               Outdoor enthusiast's information corner
             </h2>
           </div>
+          <div className="about-content">
+            <div className="about-text-content">test</div>
+            <div className="about-img-content">test</div>
+          </div>
         </section>
       </main>
     </>
