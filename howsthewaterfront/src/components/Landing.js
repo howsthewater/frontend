@@ -15,7 +15,7 @@ import SearchBeach from "./Search";
  *
  */
 
-const Landing = () => {
+const Landing = props => {
   return (
     <>
       {/* Header Content for Landing page */}
@@ -37,8 +37,13 @@ const Landing = () => {
         <nav className="menu">
           <a href="#about">About</a>
           <a href="#features">Features</a>
-          <a href="#">Login</a>
-          <button className="signup-button">Sign Up</button>
+          <a href="/login">Login</a>
+          <button
+            className="signup-button"
+            onClick={() => props.history.push("/signup")}
+          >
+            Sign Up
+          </button>
         </nav>
       </header>
 
@@ -107,10 +112,48 @@ const Landing = () => {
         </section>
         <section className="section-features" id="features">
           <div className="features-content">
-            <div className="features-box">box 1</div>
-            <div className="features-box">box 2</div>
-            <div className="features-box">box 3</div>
-            <div className="features-box">box 4</div>
+            <div className="features-box">
+              <i class="features-box__icon icon-basic-target"></i>
+              <h3 className="heading-teritiary">Core</h3>
+              <p className="features-box-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+              </p>
+              <button
+                className="signup-button features-btn"
+                onClick={() => props.history.push("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
+            <div className="features-box">
+              <i class="features-box__icon icon-basic-link"></i>
+              <h3 className="heading-teritiary">Login</h3>
+              <p className="features-box-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+              </p>
+              <button
+                className="signup-button features-btn"
+                onClick={() => props.history.push("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
+            <div className="features-box">
+              <i class="features-box__icon icon-basic-gear"></i>
+              <h3 className="heading-teritiary">Premium</h3>
+              <p className="features-box-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+              </p>
+              <button
+                className="signup-button features-btn"
+                onClick={() => props.history.push("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
           </div>
         </section>
       </main>

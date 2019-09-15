@@ -77,6 +77,7 @@ header nav a {
   font-size: 14px;
   line-height: 18px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 /* This is the container for the search content in the landing page. This is a wrapper */
@@ -195,27 +196,27 @@ header nav a {
 }
 
 .btn-text {
-  color: #2d728f;
+  color: #00bfbf;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #2d728f;
+  border-bottom: 1px solid #00bfbf;
   font-size: 1.5rem;
   padding: 3px;
   transition: all 0.2s;
 }
 
 .btn-text:visited .btn-text:link {
-  color: #2d728f;
+  color: #00bfbf;
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #2d728f;
+  border-bottom: 1px solid #00bfbf;
   font-size: 1.5rem;
   padding: 3px;
   transition: all 0.2s;
 }
 
 .btn-text:hover {
-  background-color: #2d728f;
+  background-color: #00bfbf;
   color: #eee;
   box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
   transform: translateY(-2px);
@@ -265,7 +266,7 @@ header nav a {
 
 .section-features {
   /* background-color: #eee; */
-  padding: 15rem 0;
+  padding: 20rem 0;
   height: 100vh;
   background-image: linear-gradient(
       to right,
@@ -278,21 +279,42 @@ header nav a {
 }
 
 .features-content {
-  border: 1px solid red;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .features-box {
-  width: 18%;
-  background-color: rgba(255, 255, 255, 0.6);
+  width: 27rem;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
-  border: 1px solid green;
+  color: #00bfbf;
+}
+
+.features-box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  background-image: linear-gradient(to left, #00bfbf, #5b9279);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.features-box-text {
+  text-align: justify;
+  margin: 3rem 0 3.5rem 0;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.features-btn {
+  background-color: #00bfbf;
 }
 
 /* Media queries for a width of 992px */
