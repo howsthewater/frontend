@@ -3,8 +3,8 @@
   height: 94vh;
   background-image: linear-gradient(
       to right,
-      hsla(180, 37%, 72%, 0.3),
-      hsla(182, 100%, 37%, 0.42)
+      hsla(180, 37%, 72%, 0.6),
+      hsla(182, 100%, 37%, 0.6)
     ),
     url("../assets/background-flip.png");
   background-size: cover;
@@ -238,10 +238,12 @@ header nav a {
   position: absolute;
   z-index: 10;
   transition: all 0.2s;
+  outline-offset: 2rem;
 }
 
 .composition-photo:hover {
-  transform: scale(1.05);
+  outline: 1.25rem solid #00bfbf;
+  transform: scale(1.05) translateY(-1rem);
   box-shadow: 0 2.5rem 4rem rgba(17, 17, 17, 0.5);
   z-index: 20;
 }
@@ -259,6 +261,38 @@ header nav a {
 .composition-photo--p3 {
   top: 12rem;
   left: 15%;
+}
+
+.section-features {
+  /* background-color: #eee; */
+  padding: 15rem 0;
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      hsla(180, 37%, 72%, 0.65),
+      hsla(182, 100%, 37%, 0.65)
+    ),
+    url("../assets/features-pic-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.features-content {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.features-box {
+  width: 18%;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
+  border: 1px solid green;
 }
 
 /* Media queries for a width of 992px */

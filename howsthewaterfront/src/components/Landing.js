@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/landing.css";
 import "../styles/utility.css";
+import "../styles/font_styles.css";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
 import aboutPicture1 from "../assets/about-pic-1.jpg";
@@ -34,8 +35,8 @@ const Landing = () => {
 
         {/* Navigation links - header - right */}
         <nav className="menu">
-          <a href="#">About</a>
-          <a href="#">Features</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
           <a href="#">Login</a>
           <button className="signup-button">Sign Up</button>
         </nav>
@@ -48,7 +49,7 @@ const Landing = () => {
         </div>
       </section>
       <main>
-        <section className="section-about">
+        <section className="section-about" id="about">
           <div className="utility-center-txt">
             <h2 className="heading-secondary">
               Outdoor enthusiast's information corner
@@ -102,6 +103,14 @@ const Landing = () => {
                 />
               </div>
             </div>
+          </div>
+        </section>
+        <section className="section-features" id="features">
+          <div className="features-content">
+            <div className="features-box">box 1</div>
+            <div className="features-box">box 2</div>
+            <div className="features-box">box 3</div>
+            <div className="features-box">box 4</div>
           </div>
         </section>
       </main>
