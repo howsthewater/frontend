@@ -125,6 +125,32 @@ header nav a {
   display: none;
 }
 
+/* Fold2 - About section - This is the styling for about section*/
+.section-about {
+  background-color: #eee;
+  padding: 10rem 0;
+  height: 100vh;
+}
+
+.heading-secondary {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eee;
+  font-family: "Ubuntu", sans-serif;
+  letter-spacing: 3px;
+  display: inline-block;
+  background-image: linear-gradient(to left, #00bfbf, #5b9279);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+}
+
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(17, 17, 17, 0.299);
+}
+
 /* Media queries for a width of 992px */
 @media (max-width: 992px) {
   /* displays the hamburger icon */

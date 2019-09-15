@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/landing.css";
+import "../styles/utility.css";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
 import SearchBeach from "./Search";
@@ -43,6 +44,15 @@ const Landing = () => {
           <SearchBeach />
         </div>
       </section>
+      <main>
+        <section className="section-about">
+          <div className="utility-center-txt">
+            <h2 className="heading-secondary">
+              Outdoor enthusiast's information corner
+            </h2>
+          </div>
+        </section>
+      </main>
     </>
   );
 };
