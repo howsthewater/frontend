@@ -20,6 +20,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #2d728f;
 }
 
 /* Container for the logo in the left. This will hold the drop and text logo. */
@@ -174,7 +175,7 @@ header nav a {
 }
 
 .about-img-content {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   height: 45vh;
   width: 35%;
 }
@@ -224,6 +225,32 @@ header nav a {
 .btn-text:active {
   box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.299);
   transform: translateY(0);
+}
+
+.composition {
+  position: relative;
+}
+
+.composition-photo {
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.4);
+  border-radius: 2px;
+  position: absolute;
+}
+
+.composition-photo--p1 {
+  top: -3rem;
+  left: 0rem;
+}
+
+.composition-photo--p2 {
+  top: 2rem;
+  left: 45%;
+}
+
+.composition-photo--p3 {
+  top: 12rem;
+  left: 15%;
 }
 
 /* Media queries for a width of 992px */
