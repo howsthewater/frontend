@@ -52,7 +52,31 @@ const Landing = () => {
             </h2>
           </div>
           <div className="about-content">
-            <div className="about-text-content">test</div>
+            <div className="about-text-content">
+              <h3 className="heading-tertiary">
+                at augue eget arcu dictum varius duis at consectetur lorem
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
+                non odio euismod lacinia at quis. Nisl condimentum id venenatis
+                a. Porta lorem mollis aliquam ut porttitor leo a diam
+                sollicitudin. Sit amet consectetur adipiscing elit pellentesque
+                habitant morbi tristique.
+              </p>
+
+              <h3 className="heading-tertiary">
+                at augue eget arcu dictum varius duis at consectetur lorem
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
+                non odio euismod lacinia at quis. Nisl condimentum id venenatis
+                a. Porta lorem mollis aliquam ut porttitor leo a diam
+                sollicitudin. Sit amet consectetur adipiscing elit pellentesque
+                habitant morbi tristique.
+              </p>
+            </div>
             <div className="about-img-content">test</div>
           </div>
         </section>

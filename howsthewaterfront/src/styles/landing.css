@@ -128,12 +128,12 @@ header nav a {
 /* Fold2 - About section - This is the styling for about section*/
 .section-about {
   background-color: #eee;
-  padding: 10rem 0;
+  padding: 15rem 0;
   height: 100vh;
 }
 
 .heading-secondary {
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-weight: 700;
   color: #eee;
@@ -156,19 +156,39 @@ header nav a {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 80vh;
+  height: 73vh;
+  color: #5b9279;
 }
 
 .about-text-content {
   border: 1px solid green;
   height: 45vh;
   width: 45%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: justify;
 }
 
 .about-img-content {
   border: 1px solid blue;
   height: 45vh;
   width: 35%;
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+}
+
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
 }
 
 /* Media queries for a width of 992px */
