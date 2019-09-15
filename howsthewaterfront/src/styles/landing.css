@@ -266,14 +266,14 @@ header nav a {
 
 .section-features {
   /* background-color: #eee; */
-  padding: 20rem 0;
+  padding: 10rem 0;
   height: 100vh;
-  background-image: linear-gradient(
+  background: linear-gradient(
       to right,
       hsla(180, 37%, 72%, 0.65),
       hsla(182, 100%, 37%, 0.65)
     ),
-    url("../assets/features-pic-bg.jpg");
+    url("../assets/features-pic-bg.jpg") repeat fixed 100%;
   background-size: cover;
   background-position: center;
 }
@@ -283,6 +283,8 @@ header nav a {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  padding-top: 10%;
+  /* padding-bottom: 10%; */
 }
 
 .features-box {
@@ -295,6 +297,11 @@ header nav a {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
   color: #00bfbf;
+  transition: transform 0.3s;
+}
+
+.features-box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
 }
 
 .features-box__icon {
