@@ -169,6 +169,8 @@ header nav a {
   justify-content: space-evenly;
   flex-direction: column;
   text-align: justify;
+  letter-spacing: 1px;
+  line-height: 20px;
 }
 
 .about-img-content {
