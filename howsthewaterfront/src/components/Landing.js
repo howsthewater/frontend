@@ -3,6 +3,9 @@ import "../styles/landing.css";
 import "../styles/utility.css";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
+import aboutPicture1 from "../assets/about-pic-1.jpg";
+import aboutPicture2 from "../assets/about-pic-2.jpg";
+import aboutPicture3 from "../assets/about-pic-3.jpg";
 import SearchBeach from "./Search";
 
 /*
@@ -80,7 +83,25 @@ const Landing = () => {
                 Learn more &rarr;
               </a>
             </div>
-            <div className="about-img-content">test</div>
+            <div className="about-img-content">
+              <div className="composition">
+                <img
+                  src={aboutPicture1}
+                  alt="Family fun in beach"
+                  className="composition-photo composition-photo--p1"
+                />
+                <img
+                  src={aboutPicture2}
+                  alt="Surfing in beach"
+                  className="composition-photo composition-photo--p2"
+                />
+                <img
+                  src={aboutPicture3}
+                  alt="Relaxing in beach"
+                  className="composition-photo composition-photo--p3"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>
