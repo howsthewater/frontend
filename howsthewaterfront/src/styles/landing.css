@@ -21,6 +21,11 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #2d728f;
+  position: sticky;
+  top: 0px;
+  background-color: #eee;
+  text-transform: uppercase;
+  z-index: 30;
 }
 
 /* Container for the logo in the left. This will hold the drop and text logo. */
@@ -48,7 +53,7 @@ header {
 
 /* Navigation menu on the right hand side of the header */
 .menu {
-  width: 400px;
+  width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,23 +66,25 @@ header nav a {
   color: #2d728f;
   letter-spacing: 1px;
   font-style: bold;
-  font-weight: 550;
+  font-weight: 700;
   font-size: 14px;
   line-height: 18px;
 }
 
 /* The sign-up button in the header - top right. */
 .signup-button {
-  width: 60px;
+  width: 70px;
   height: 30px;
   color: #ffffff;
-  background-color: #2d728f;
+  /* background-color: #2d728f; */
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
 }
 
 /* This is the container for the search content in the landing page. This is a wrapper */
@@ -297,7 +304,7 @@ header nav a {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
   color: #00bfbf;
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 }
 
 .features-box:hover {

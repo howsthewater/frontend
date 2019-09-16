@@ -42,7 +42,7 @@ const Landing = props => {
             className="signup-button"
             onClick={() => props.history.push("/signup")}
           >
-            Sign Up
+            SIGN UP
           </button>
         </nav>
       </header>
