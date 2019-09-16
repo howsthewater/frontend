@@ -245,14 +245,22 @@ const Landing = props => {
             <a href="#section-about" className="popup-close">
               &times;
             </a>
-            <h2 class="heading-secondary">Privacy policy</h2>
+            <div className="popup-text">
+              <h2 class="heading-secondary">Our team</h2>
 
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-            <p className="paragraph">
-              Sint velit reprehenderit quidem possimus enim, cum dolorum tempore
-              id ipsam eveniet delectus, quasi blanditiis. Quas aut quo quos
-              earum eligendi ab?
-            </p>
+              <h3 class="heading-teritiary">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </h3>
+              <p className="paragraph">
+                Sint velit reprehenderit quidem possimus enim, cum dolorum
+                tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
+                quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. Eius, earum, dolore dolorem
+                tempora nam necessitatibus ratione, iusto fugit animi omnis non?
+                Id, voluptatum blanditiis. Itaque veniam suscipit quod ducimus
+                rerum.
+              </p>
+            </div>
           </div>
         </div>
       </div>

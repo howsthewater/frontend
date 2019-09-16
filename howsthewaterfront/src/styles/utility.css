@@ -25,21 +25,16 @@
   background-color: #fff;
   box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
   position: absoulte;
-  /* top: 50%;
-  left: 50%; */
   transform: translate(16%, 20%);
   border-radius: 3px;
   display: flex;
 }
 
 .popup-left {
+  width: 33.333333%;
 }
 .popup-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  border: 1px solid green;
+  width: 66.666667%;
   padding: 20px;
 }
 .popup-img {
@@ -50,23 +45,28 @@
 .popup-close {
   color: #2d728f;
   position: absolute;
-  top: 2.5rem;
-  right: 4rem;
+  top: 1rem;
+  right: 2rem;
   font-size: 3rem;
 }
 
 .popup-close:link {
   color: #2d728f;
   position: absolute;
-  top: 2.5rem;
-  right: 4rem;
+  top: 1rem;
+  right: 2rem;
   font-size: 3rem;
 }
 
 .popup-close:visited {
   color: #2d728f;
   position: absolute;
-  top: 2.5rem;
-  right: 4rem;
+  top: 1rem;
+  right: 2rem;
   font-size: 3rem;
+}
+
+.popup-text {
+  width: 100%;
+  margin: 2% 0;
 }
