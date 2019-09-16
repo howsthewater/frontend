@@ -49,7 +49,7 @@ const CopyrightFooter = () => {
   return (
     <div className="footerDiv">
       <p className="copyright">
-        Copyright 2019 How's The Water Inc. All Rights Reserved
+        &#169; 2019 How's The Water Inc. All Rights Reserved
       </p>
       <div className="textContainer">
         <p className="line first">|</p>

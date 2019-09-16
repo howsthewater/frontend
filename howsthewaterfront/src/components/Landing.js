@@ -12,6 +12,7 @@ import testimonial2 from "../assets/testimonial-2.jpg";
 import htwVideo from "../assets/htw_video.mp4";
 import testimonialVideo from "../assets/testimonial_video.mp4";
 import SearchBeach from "./Search";
+import Footer from "./Footer";
 
 /*
  * Landing page - Functional component
@@ -223,6 +224,9 @@ const Landing = props => {
           </div>
         </section>
       </main>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </>
   );
 };
