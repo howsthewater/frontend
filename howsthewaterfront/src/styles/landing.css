@@ -343,23 +343,20 @@ header nav a {
   height: 70vh;
   color: rgba(91, 146, 121, 0.7);
   padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .testimonial {
-  width: 55%;
-  margin: 2rem 10rem;
+  width: 50%;
+  margin: 2.5rem 10rem;
   box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
   border-radius: 3px;
-  padding: 2rem 2rem;
+  padding: 3rem 9rem;
   border-radius: 5px;
-}
-
-.t-right {
-  float: right;
-}
-
-.t-left {
-  float: left;
+  transform: skewX(-12deg);
 }
 
 .testimonial-circle {
@@ -367,9 +364,16 @@ header nav a {
   height: 10rem;
   float: left;
   shape-outside: circle(50% at 50% 50%);
+  -webkit-shape-outside: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
   margin-right: 2rem;
   position: relative;
+  transform: translateX(-3rem) skewX(12deg);
+}
+
+.testimonial-text {
+  transform: skewX(12deg);
 }
 
 .testimonial-img {
@@ -381,6 +385,7 @@ header nav a {
 
 .testimonial-img:hover {
   transform: scale(1);
+  filter: blur(6px) brightness(60%);
 }
 
 .testimonial-caption {

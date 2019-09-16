@@ -162,7 +162,7 @@ const Landing = props => {
             <h2 className="heading-secondary">We make people truly happy!</h2>
           </div>
           <div className="section-testimonials-content">
-            <div className="testimonial t-left">
+            <div className="testimonial">
               <figure className="testimonial-circle">
                 <img
                   src={testimonial1}
@@ -173,17 +173,19 @@ const Landing = props => {
                   Elizabeth Warren
                 </figcaption>
               </figure>
-              <h3 className="heading-teritiary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h3>
-              <p className="paragraph">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptate deserunt libero voluptatem, nemo molestiae officiis?
-                Quia vero aliquid, non asperiores, veniam dolor accusamus
-                suscipit soluta quas quos, maiores eius qui.
-              </p>
+              <div className="testimonial-text">
+                <h3 className="heading-teritiary">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                  Quia vero aliquid, non asperiores, veniam dolor accusamus
+                  suscipit soluta quas quos, maiores eius qui.
+                </p>
+              </div>
             </div>
-            <div className="testimonial t-right">
+            <div className="testimonial">
               <figure className="testimonial-circle">
                 <img
                   src={testimonial2}
@@ -201,26 +203,6 @@ const Landing = props => {
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Voluptate deserunt libero voluptatem, nemo molestiae officiis?
                 Quia vero aliquid.
-              </p>
-            </div>
-            <div className="testimonial t-left">
-              <figure className="testimonial-circle">
-                <img
-                  src={testimonial3}
-                  alt="woman"
-                  className="testimonial-img"
-                />
-                <figcaption className="testimonial-caption">
-                  Jamie Regan
-                </figcaption>
-              </figure>
-              <h3 className="heading-teritiary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h3>
-              <p className="paragraph">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptate deserunt libero voluptatem, nemo molestiae officiis?
-                Quia vero aliquid, non asperiores.
               </p>
             </div>
           </div>
