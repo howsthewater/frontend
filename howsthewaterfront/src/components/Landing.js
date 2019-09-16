@@ -9,7 +9,7 @@ import aboutPicture2 from "../assets/about-pic-2.jpg";
 import aboutPicture3 from "../assets/about-pic-3.jpg";
 import testimonial1 from "../assets/testimonial-1.jpg";
 import testimonial2 from "../assets/testimonial-2.jpg";
-import testimonial3 from "../assets/testimonial-3.jpg";
+import htwVideo from "../assets/htw_video.mp4";
 import SearchBeach from "./Search";
 
 /*
@@ -158,6 +158,11 @@ const Landing = props => {
           </div>
         </section>
         <section className="section-testimonials" id="testimonials">
+          <div className="background-video">
+            <video class="bg-video-content" autoPlay muted loop>
+              <source src={htwVideo} type="video/mp4" />
+            </video>
+          </div>
           <div className="utility-center-txt">
             <h2 className="heading-secondary">We make people truly happy!</h2>
           </div>
