@@ -66,14 +66,21 @@ const Landing = props => {
           <SearchBeach />
         </div>
       </section>
+
+      {/* The main section of the landing page */}
       <main>
+        {/* Fold2 - ABOUT SECTION */}
         <section className="section-about" id="about">
+          {/* ABOUT HEADING */}
           <div className="utility-center-txt">
             <h2 className="heading-secondary">
               Outdoor enthusiast's information corner
             </h2>
           </div>
+
+          {/* ABOUT CONTENT */}
           <div className="about-content">
+            {/* ABOUT TEXT CONTENT - LEFT */}
             <div className="about-text-content">
               <h3 className="heading-teritiary">
                 at augue eget arcu dictum varius duis at consectetur lorem
@@ -99,6 +106,8 @@ const Landing = props => {
                 Learn more &rarr;
               </a>
             </div>
+
+            {/* ABOUT IMAGE CONTENT RIGHT */}
             <div className="about-img-content">
               <div className="composition">
                 <img
@@ -120,8 +129,12 @@ const Landing = props => {
             </div>
           </div>
         </section>
+
+        {/* Fold3 - FEATURES SECTION */}
         <section className="section-features" id="features">
+          {/* FEATURES CONTENT */}
           <div className="features-content">
+            {/* FEATURES CARD - CORE */}
             <div className="features-box">
               <i class="features-box__icon icon-basic-target"></i>
               <h3 className="heading-teritiary">Core</h3>
@@ -136,6 +149,8 @@ const Landing = props => {
                 Sign Up
               </button>
             </div>
+
+            {/* FEATURES CARD - LOGIN */}
             <div className="features-box">
               <i class="features-box__icon icon-basic-link"></i>
               <h3 className="heading-teritiary">Login</h3>
@@ -150,6 +165,8 @@ const Landing = props => {
                 Sign Up
               </button>
             </div>
+
+            {/* FEATURES CARD - PREMIUM */}
             <div className="features-box">
               <i class="features-box__icon icon-basic-gear"></i>
               <h3 className="heading-teritiary">Premium</h3>
@@ -166,6 +183,8 @@ const Landing = props => {
             </div>
           </div>
         </section>
+
+        {/* Fold4 - TESTIMONIAL SECTION */}
         <section className="section-testimonials" id="testimonials">
           <div className="background-video">
             <video class="bg-video-content" autoPlay muted loop>
@@ -224,9 +243,14 @@ const Landing = props => {
           </div>
         </section>
       </main>
+      {/* END OF MAIN */}
+      {/* FOOTER SECTION */}
       <footer className="footer">
         <Footer />
       </footer>
+      {/* END OF FOOTER SECTION */}
+
+      {/* STATIC POPUP SECTION FOR ABOUT */}
       <div className="popup" id="popup-about">
         <div className="popup-content">
           <div className="popup-left">

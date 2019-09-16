@@ -1,19 +1,4 @@
 /* This is the first fold of the landing page. */
-/* .top-content {
-  height: 94vh;
-  background-image: linear-gradient(
-      to right,
-      hsla(180, 37%, 72%, 0.6),
-      hsla(182, 100%, 37%, 0.6)
-    ),
-    url("../assets/background-flip.png");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .top-content {
   height: 94vh;
   background-image: linear-gradient(
@@ -157,6 +142,7 @@ header nav a {
   height: 100vh;
 }
 
+/* H2 - This is the secondary heading in all of the application*/
 .heading-secondary {
   font-size: 3rem;
   text-transform: uppercase;
@@ -171,11 +157,13 @@ header nav a {
   transition: all 0.2s;
 }
 
+/* On hover over secondary heading, there is a skew effect */
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(17, 17, 17, 0.299);
 }
 
+/* Fold2- About: Section - Content */
 .about-content {
   display: flex;
   justify-content: space-evenly;
@@ -184,6 +172,7 @@ header nav a {
   color: rgba(91, 146, 121, 0.7);
 }
 
+/* Fold2 -About: Section - text content on the left */
 .about-text-content {
   height: 45vh;
   width: 45%;
@@ -196,11 +185,13 @@ header nav a {
   line-height: 20px;
 }
 
+/* Fold2 - About: Section - image content on the right */
 .about-img-content {
   height: 45vh;
   width: 35%;
 }
 
+/* H3 - Common H3 across the landing page */
 .heading-teritiary {
   font-size: 1.6rem;
   font-weight: 700;
@@ -209,15 +200,18 @@ header nav a {
   margin-top: 2%;
 }
 
+/*Paragraph - content styling */
 .paragraph {
   font-size: 1.6rem;
   margin-top: 1.5rem;
 }
 
+/* When not the last child use the following settings */
 .paragraph:not(:last-child) {
   margin-bottom: 3rem;
 }
 
+/* Fold2 - About:Section - 'Learn More' button styling */
 .btn-text {
   color: #00bfbf;
   display: inline-block;
@@ -228,6 +222,7 @@ header nav a {
   transition: all 0.2s;
 }
 
+/* Fold2 - About:section - 'Learn More button styling for visited and link */
 .btn-text:visited .btn-text:link {
   color: #00bfbf;
   display: inline-block;
@@ -238,6 +233,7 @@ header nav a {
   transition: all 0.2s;
 }
 
+/* Fold2 - About:Section - On hover over the 'Learn More' link */
 .btn-text:hover {
   background-color: #00bfbf;
   color: #eee;
@@ -246,15 +242,18 @@ header nav a {
   border-radius: 3px;
 }
 
+/* Fold2 - About:Section - When 'Learn More' is active link */
 .btn-text:active {
   box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.299);
   transform: translateY(0);
 }
 
+/* Fold2 - About:Section - Image section on the left - container */
 .composition {
   position: relative;
 }
 
+/* Fold2 - About:Section - For each photo on the left */
 .composition-photo {
   width: 55%;
   box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.4);
@@ -265,6 +264,7 @@ header nav a {
   outline-offset: 2rem;
 }
 
+/* Fold2: On hover over each image creates a frame like animation */
 .composition-photo:hover {
   outline: 1.25rem solid #00bfbf;
   transform: scale(1.05) translateY(-1rem);
@@ -272,21 +272,25 @@ header nav a {
   z-index: 20;
 }
 
+/* Fold2: Styling for each photo */
 .composition-photo--p1 {
   top: -3rem;
   left: 0rem;
 }
 
+/* Fold2: Styling for each photo */
 .composition-photo--p2 {
   top: 2rem;
   left: 45%;
 }
 
+/* Fold2: Styling for each photo */
 .composition-photo--p3 {
   top: 12rem;
   left: 15%;
 }
 
+/* Fold3: Features - Section: Container */
 .section-features {
   padding: 10rem 0;
   height: 100vh;
@@ -300,6 +304,7 @@ header nav a {
   background-position: center;
 }
 
+/* Fold3: Features - section : Content */
 .features-content {
   display: flex;
   justify-content: space-evenly;
@@ -308,6 +313,7 @@ header nav a {
   padding-top: 10%;
 }
 
+/* Fold3: Features - section : Each card is a feature box. Card styling */
 .features-box {
   width: 27rem;
   height: 50vh;
@@ -321,10 +327,12 @@ header nav a {
   transition: transform 0.5s;
 }
 
+/* Fold3: Features - section: hover effect on each card */
 .features-box:hover {
   transform: translateY(-1.5rem) scale(1.03);
 }
 
+/* Fold3: Features - section: The styling for the icon in each box. */
 .features-box__icon {
   font-size: 6rem;
   margin-bottom: 0.5rem;
@@ -334,6 +342,7 @@ header nav a {
   color: transparent;
 }
 
+/* Fold3: Features - section: Text content styling for the cards */
 .features-box-text {
   text-align: justify;
   margin: 3rem 0 3.5rem 0;
@@ -341,16 +350,19 @@ header nav a {
   line-height: 20px;
 }
 
+/* Fold3: This might not be in use */
 .features-btn {
   background-color: #00bfbf;
 }
 
+/* Fold4: Testimonials - section - Container styling*/
 .section-testimonials {
   height: 100vh;
   padding: 10rem 0;
   position: relative;
 }
 
+/* Fold4: Testimonials - section - content styling */
 .section-testimonials-content {
   height: 70vh;
   color: rgba(91, 146, 121, 0.7);
@@ -361,6 +373,7 @@ header nav a {
   align-items: center;
 }
 
+/* Fold4: Testimonials - section - Styling each testimonial card */
 .testimonial {
   width: 700px;
   margin: 2.5rem 10rem;
@@ -372,6 +385,7 @@ header nav a {
   transform: skewX(-12deg);
 }
 
+/* Fold4: Testimonials - section - Figure element styling - circle for each testimonial image */
 .testimonial-circle {
   width: 10rem;
   height: 10rem;
@@ -385,10 +399,12 @@ header nav a {
   transform: translateX(-3rem) skewX(12deg);
 }
 
+/* Fold4: Testimonials - section - Text content styling */
 .testimonial-text {
   transform: skewX(12deg);
 }
 
+/* Fold4: Testimonials - section - Image styling */
 .testimonial-img {
   height: 100%;
   transform: scale(-1.5%);
@@ -396,11 +412,13 @@ header nav a {
   backface-visibility: hidden;
 }
 
+/* Fold4: Testimonials - section - Image styling - hover effects*/
 .testimonial-img:hover {
   transform: scale(1);
   filter: blur(6px) brightness(60%);
 }
 
+/* Fold4: Testimonials - section - Caption styling*/
 .testimonial-caption {
   position: absolute;
   top: 50%;
@@ -415,10 +433,12 @@ header nav a {
   text-align: center;
 }
 
+/* Fold4: Testimonials - section - caption - hover effects */
 .testimonial:hover .testimonial-caption {
   opacity: 1;
 }
 
+/* General background video styling */
 .background-video {
   position: absolute;
   top: 0;
@@ -429,12 +449,14 @@ header nav a {
   opacity: 0.5;
 }
 
+/* Styling the actual content of the video */
 .bg-video-content {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Styling the footer container */
 .footer {
   width: 100%;
   height: 10vh;
@@ -500,6 +522,7 @@ header nav a {
     margin-left: 40px;
   }
 
+  /* The features content will be made horizontal cards instead of vertical cards */
   .features-content {
     display: flex;
     flex-direction: column;
@@ -511,6 +534,7 @@ header nav a {
     padding: 0;
   }
 
+  /* Features box will be horizontally sytled from this break point onwards */
   .features-box {
     width: 80%;
     height: 20vh;
@@ -528,10 +552,12 @@ header nav a {
     transition: transform 0.5s;
   }
 
+  /* The text will not be displayed from this break point onwards */
   .features-box-text {
     display: none;
   }
 
+  /* Styling the about section - flex direction to column */
   .about-content {
     display: flex;
     margin: 0;
@@ -543,6 +569,7 @@ header nav a {
     color: rgba(91, 146, 121, 0.7);
   }
 
+  /* Styling the text content of the about section. More text area */
   .about-text-content {
     height: 50vh;
     width: 80%;
@@ -557,22 +584,28 @@ header nav a {
     line-height: 20px;
   }
 
+  /* Image content will not be displayed from this break point onwards */
   .about-img-content {
     display: none;
   }
 
+  /* Margin styling for H3 */
   .heading-teritiary {
     margin-top: 0.5%;
   }
 
+  /* Margin styling for p tags */
   .paragraph {
     margin-top: 0;
   }
+
+  /* Margin styling and setting width for testimonial*/
   .testimonial {
     width: 90%;
     margin: 1rem;
   }
 
+  /* Testimonial text to be sized to 100% of width */
   .testimonial-text {
     width: 100%;
   }
