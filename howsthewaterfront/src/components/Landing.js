@@ -7,6 +7,9 @@ import logoWords from "../assets/Logo - htw - words.png";
 import aboutPicture1 from "../assets/about-pic-1.jpg";
 import aboutPicture2 from "../assets/about-pic-2.jpg";
 import aboutPicture3 from "../assets/about-pic-3.jpg";
+import testimonial1 from "../assets/testimonial-1.jpg";
+import testimonial2 from "../assets/testimonial-2.jpg";
+import testimonial3 from "../assets/testimonial-3.jpg";
 import SearchBeach from "./Search";
 
 /*
@@ -160,7 +163,13 @@ const Landing = props => {
           </div>
           <div className="section-testimonials-content">
             <div className="testimonial t-left">
-              <figure className="testimonial-circle"></figure>
+              <figure className="testimonial-circle">
+                <img
+                  src={testimonial1}
+                  alt="woman"
+                  className="testimonial-img"
+                />
+              </figure>
               <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h3>
@@ -172,7 +181,13 @@ const Landing = props => {
               </p>
             </div>
             <div className="testimonial t-right">
-              <figure className="testimonial-circle"></figure>
+              <figure className="testimonial-circle">
+                <img
+                  src={testimonial2}
+                  alt="woman"
+                  className="testimonial-img"
+                />
+              </figure>
               <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h3>
@@ -183,7 +198,13 @@ const Landing = props => {
               </p>
             </div>
             <div className="testimonial t-left">
-              <figure className="testimonial-circle"></figure>
+              <figure className="testimonial-circle">
+                <img
+                  src={testimonial3}
+                  alt="woman"
+                  className="testimonial-img"
+                />
+              </figure>
               <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h3>

@@ -340,19 +340,18 @@ header nav a {
 }
 
 .section-testimonials-content {
-  border: 1px solid red;
   height: 70vh;
   color: rgba(91, 146, 121, 0.7);
   padding-top: 2rem;
 }
 
 .testimonial {
-  border: 1px solid green;
   width: 55%;
   margin: 2rem 10rem;
   box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
   border-radius: 3px;
   padding: 2rem 2rem;
+  border-radius: 5px;
 }
 
 .t-right {
@@ -367,10 +366,13 @@ header nav a {
   width: 10rem;
   height: 10rem;
   float: left;
-  background-color: teal;
   shape-outside: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
   margin-right: 2rem;
+}
+
+.testimonial-img {
+  height: 100%;
 }
 
 /* Media queries for a width of 992px */
