@@ -147,7 +147,7 @@ header nav a {
   font-weight: 700;
   color: #eee;
   font-family: "Ubuntu", sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   display: inline-block;
   background-image: linear-gradient(to left, #00bfbf, #5b9279);
   -webkit-background-clip: text;
@@ -329,6 +329,12 @@ header nav a {
 
 .features-btn {
   background-color: #00bfbf;
+}
+
+.section-stories {
+  height: 100vh;
+  background-color: #eee;
+  padding: 15rem 0;
 }
 
 /* Media queries for a width of 992px */

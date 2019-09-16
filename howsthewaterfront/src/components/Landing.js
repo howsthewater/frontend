@@ -156,6 +156,11 @@ const Landing = props => {
             </div>
           </div>
         </section>
+        <section className="section-stories">
+          <div className="utility-center-txt">
+            <h2 className="heading-secondary">We make people truly happy!</h2>
+          </div>
+        </section>
       </main>
     </>
   );
