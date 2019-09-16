@@ -95,7 +95,7 @@ const Landing = props => {
                 a. Porta lorem mollis aliquam ut porttitor leo a diam
                 sollicitudin.
               </p>
-              <a href="#" className="btn-text">
+              <a href="#popup-about" className="btn-text">
                 Learn more &rarr;
               </a>
             </div>
@@ -227,6 +227,35 @@ const Landing = props => {
       <footer className="footer">
         <Footer />
       </footer>
+      <div className="popup" id="popup-about">
+        <div className="popup-content">
+          <div className="popup-left">
+            <img
+              src={aboutPicture3}
+              alt="Sample picture"
+              className="popup-img"
+            />
+            <img
+              src={aboutPicture2}
+              alt="Sample picture again"
+              className="popup-img"
+            />
+          </div>
+          <div className="popup-right">
+            <a href="#section-about" className="popup-close">
+              &times;
+            </a>
+            <h2 class="heading-secondary">Privacy policy</h2>
+
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+            <p className="paragraph">
+              Sint velit reprehenderit quidem possimus enim, cum dolorum tempore
+              id ipsam eveniet delectus, quasi blanditiis. Quas aut quo quos
+              earum eligendi ab?
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
