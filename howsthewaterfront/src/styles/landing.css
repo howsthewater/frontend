@@ -369,10 +369,36 @@ header nav a {
   shape-outside: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
   margin-right: 2rem;
+  position: relative;
 }
 
 .testimonial-img {
   height: 100%;
+  transform: scale(-1.5%);
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+
+.testimonial-img:hover {
+  transform: scale(1);
+}
+
+.testimonial-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.3rem;
+  opacity: 0;
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+
+.testimonial-caption:hover {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 /* Media queries for a width of 992px */

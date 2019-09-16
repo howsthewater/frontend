@@ -169,6 +169,9 @@ const Landing = props => {
                   alt="woman"
                   className="testimonial-img"
                 />
+                <figcaption className="testimonial-caption">
+                  Elizabeth Warren
+                </figcaption>
               </figure>
               <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -187,6 +190,9 @@ const Landing = props => {
                   alt="woman"
                   className="testimonial-img"
                 />
+                <figcaption className="testimonial-caption">
+                  Eric Crane
+                </figcaption>
               </figure>
               <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -204,6 +210,9 @@ const Landing = props => {
                   alt="woman"
                   className="testimonial-img"
                 />
+                <figcaption className="testimonial-caption">
+                  Jamie Regan
+                </figcaption>
               </figure>
               <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
