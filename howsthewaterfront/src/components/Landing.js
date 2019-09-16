@@ -10,7 +10,8 @@ import SearchBeach from "./Search";
  *
  */
 
-const Landing = () => {
+// need to pass props for router props, to pass to search
+const Landing = props => {
   return (
     <>
       {/* Header Content for Landing page */}
@@ -40,7 +41,7 @@ const Landing = () => {
       {/* Section for first fold - includes a background image and search component */}
       <section className="top-content">
         <div className="search-content">
-          <SearchBeach />
+          <SearchBeach routerProps={props} />
         </div>
       </section>
     </>
