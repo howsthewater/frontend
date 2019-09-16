@@ -232,12 +232,12 @@ const Landing = props => {
           <div className="popup-left">
             <img
               src={aboutPicture3}
-              alt="Sample picture"
+              alt="A person relaxing"
               className="popup-img"
             />
             <img
               src={aboutPicture2}
-              alt="Sample picture again"
+              alt="A person surfing"
               className="popup-img"
             />
           </div>
