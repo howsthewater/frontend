@@ -1,5 +1,5 @@
 /* This is the first fold of the landing page. */
-.top-content {
+/* .top-content {
   height: 94vh;
   background-image: linear-gradient(
       to right,
@@ -12,6 +12,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+.top-content {
+  height: 94vh;
+  background-image: linear-gradient(
+    to right,
+    hsla(180, 37%, 72%, 0.6),
+    hsla(182, 100%, 37%, 0.6)
+  );
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 /* Header section of the landing page. */

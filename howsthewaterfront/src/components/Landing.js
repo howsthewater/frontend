@@ -10,6 +10,7 @@ import aboutPicture3 from "../assets/about-pic-3.jpg";
 import testimonial1 from "../assets/testimonial-1.jpg";
 import testimonial2 from "../assets/testimonial-2.jpg";
 import htwVideo from "../assets/htw_video.mp4";
+import testimonialVideo from "../assets/testimonial_video.mp4";
 import SearchBeach from "./Search";
 
 /*
@@ -53,6 +54,13 @@ const Landing = props => {
 
       {/* Section for first fold - includes a background image and search component */}
       <section className="top-content">
+        {/* Adding for testing */}
+        <div className="background-video">
+          <video class="bg-video-content" autoPlay muted loop>
+            <source src={htwVideo} type="video/mp4" />
+          </video>
+        </div>
+        {/* adding for testing */}
         <div className="search-content">
           <SearchBeach />
         </div>
@@ -160,7 +168,7 @@ const Landing = props => {
         <section className="section-testimonials" id="testimonials">
           <div className="background-video">
             <video class="bg-video-content" autoPlay muted loop>
-              <source src={htwVideo} type="video/mp4" />
+              <source src={testimonialVideo} type="video/mp4" />
             </video>
           </div>
           <div className="utility-center-txt">
