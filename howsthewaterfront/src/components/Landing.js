@@ -37,6 +37,7 @@ const Landing = props => {
         <nav className="menu">
           <a href="#about">About</a>
           <a href="#features">Features</a>
+          <a href="#testimonials">Testimonials</a>
           <a href="/login">Login</a>
           <button
             className="signup-button"
@@ -62,19 +63,17 @@ const Landing = props => {
           </div>
           <div className="about-content">
             <div className="about-text-content">
-              <h3 className="heading-tertiary">
+              <h3 className="heading-teritiary">
                 at augue eget arcu dictum varius duis at consectetur lorem
               </h3>
               <p className="paragraph">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
                 non odio euismod lacinia at quis. Nisl condimentum id venenatis
-                a. Porta lorem mollis aliquam ut porttitor leo a diam
-                sollicitudin. Sit amet consectetur adipiscing elit pellentesque
-                habitant morbi tristique.
+                a.
               </p>
 
-              <h3 className="heading-tertiary">
+              <h3 className="heading-teritiary">
                 at augue eget arcu dictum varius duis at consectetur lorem
               </h3>
               <p className="paragraph">
@@ -82,8 +81,7 @@ const Landing = props => {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
                 non odio euismod lacinia at quis. Nisl condimentum id venenatis
                 a. Porta lorem mollis aliquam ut porttitor leo a diam
-                sollicitudin. Sit amet consectetur adipiscing elit pellentesque
-                habitant morbi tristique.
+                sollicitudin.
               </p>
               <a href="#" className="btn-text">
                 Learn more &rarr;
@@ -156,9 +154,45 @@ const Landing = props => {
             </div>
           </div>
         </section>
-        <section className="section-stories">
+        <section className="section-testimonials" id="testimonials">
           <div className="utility-center-txt">
             <h2 className="heading-secondary">We make people truly happy!</h2>
+          </div>
+          <div className="section-testimonials-content">
+            <div className="testimonial t-left">
+              <figure className="testimonial-circle"></figure>
+              <h3 className="heading-teritiary">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                Quia vero aliquid, non asperiores, veniam dolor accusamus
+                suscipit soluta quas quos, maiores eius qui.
+              </p>
+            </div>
+            <div className="testimonial t-right">
+              <figure className="testimonial-circle"></figure>
+              <h3 className="heading-teritiary">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                Quia vero aliquid.
+              </p>
+            </div>
+            <div className="testimonial t-left">
+              <figure className="testimonial-circle"></figure>
+              <h3 className="heading-teritiary">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                Quia vero aliquid, non asperiores.
+              </p>
+            </div>
           </div>
         </section>
       </main>

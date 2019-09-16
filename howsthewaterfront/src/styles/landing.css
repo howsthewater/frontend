@@ -20,12 +20,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #2d728f;
+  border-bottom: 1px solid hsla(153, 23%, 46%, 0.5);
   position: sticky;
   top: 0px;
-  background-color: #eee;
+  background-color: #fff;
   text-transform: uppercase;
   z-index: 30;
+  box-shadow: 0 0.2rem 0.2rem hsla(153, 23%, 46%, 0.5);
 }
 
 /* Container for the logo in the left. This will hold the drop and text logo. */
@@ -53,7 +54,7 @@ header {
 
 /* Navigation menu on the right hand side of the header */
 .menu {
-  width: 350px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -188,7 +189,7 @@ header nav a {
   width: 35%;
 }
 
-.heading-tertiary {
+.heading-teritiary {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -196,6 +197,7 @@ header nav a {
 
 .paragraph {
   font-size: 1.6rem;
+  margin-top: 1.5rem;
 }
 
 .paragraph:not(:last-child) {
@@ -331,10 +333,44 @@ header nav a {
   background-color: #00bfbf;
 }
 
-.section-stories {
+.section-testimonials {
   height: 100vh;
   background-color: #eee;
-  padding: 15rem 0;
+  padding: 10rem 0;
+}
+
+.section-testimonials-content {
+  border: 1px solid red;
+  height: 70vh;
+  color: rgba(91, 146, 121, 0.7);
+  padding-top: 2rem;
+}
+
+.testimonial {
+  border: 1px solid green;
+  width: 55%;
+  margin: 2rem 10rem;
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
+  border-radius: 3px;
+  padding: 2rem 2rem;
+}
+
+.t-right {
+  float: right;
+}
+
+.t-left {
+  float: left;
+}
+
+.testimonial-circle {
+  width: 10rem;
+  height: 10rem;
+  float: left;
+  background-color: teal;
+  shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  margin-right: 2rem;
 }
 
 /* Media queries for a width of 992px */
