@@ -196,14 +196,16 @@ const Landing = props => {
                   Eric Crane
                 </figcaption>
               </figure>
-              <h3 className="heading-teritiary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h3>
-              <p className="paragraph">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptate deserunt libero voluptatem, nemo molestiae officiis?
-                Quia vero aliquid.
-              </p>
+              <div className="testimonial-text">
+                <h3 className="heading-teritiary">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                  Quia vero aliquid.
+                </p>
+              </div>
             </div>
           </div>
         </section>

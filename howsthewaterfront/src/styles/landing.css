@@ -392,18 +392,18 @@ header nav a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 20%);
+  transform: translate(-50%, -50%);
   text-transform: uppercase;
   color: #fff;
   font-size: 1.3rem;
   opacity: 0;
   transition: all 0.5s;
   backface-visibility: hidden;
+  text-align: center;
 }
 
-.testimonial-caption:hover {
+.testimonial:hover .testimonial-caption {
   opacity: 1;
-  transform: translate(-50%, -50%);
 }
 
 /* Media queries for a width of 992px */
