@@ -20,6 +20,8 @@ import Footer from "./Footer";
  *
  */
 
+
+// need to pass props for router props, to pass to search
 const Landing = props => {
   return (
     <>
@@ -63,7 +65,7 @@ const Landing = props => {
         </div>
         {/* adding for testing */}
         <div className="search-content">
-          <SearchBeach />
+          <SearchBeach routerProps={props} />
         </div>
       </section>
 
