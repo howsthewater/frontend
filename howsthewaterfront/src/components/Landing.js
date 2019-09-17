@@ -28,7 +28,9 @@ const Landing = props => {
       <header>
         {/* Logo section on the left of header */}
         <div className="logo-container">
-          <img className="logo" src={logo} alt="How's the water logo" />
+          <a href="/">
+            <img className="logo" src={logo} alt="How's the water logo" />
+          </a>
           <img className="logo-txt" src={logoWords} alt="How's the water" />
         </div>
 

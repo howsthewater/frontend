@@ -41,7 +41,9 @@ function SignUp(props) {
       <header>
         {/* Logo section on the left of header */}
         <div className="logo-container">
-          <img className="logo" src={logo} alt="How's the water logo" />
+          <a href="/">
+            <img className="logo" src={logo} alt="How's the water logo" />
+          </a>
           <img className="logo-txt" src={logoWords} alt="How's the water" />
         </div>
 
@@ -93,35 +95,39 @@ function SignUp(props) {
             <div className="hr_bar" />
           </div>
           <form noValidate className="input-form" onSubmit={handleSubmit}>
-            {errors.fullname && <div className="error">{errors.fullname}</div>}
             <input
               className="input-txt"
               type="text"
               name="fullname"
-              placeholder="Full Name"
+              placeholder="Full Name*"
               value={values.fullname}
               onChange={handleChange}
             />
+            {errors.fullname && (
+              <div className="error-signup">{errors.fullname}</div>
+            )}
 
-            {errors.email && <div className="error">{errors.email}</div>}
             <input
               className="input-txt"
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address*"
               value={values.email}
               onChange={handleChange}
             />
-            {errors.password && <div className="error">{errors.password}</div>}
+            {errors.email && <div className="error-signup">{errors.email}</div>}
+
             <input
               className="input-txt"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password*"
               value={values.password}
               onChange={handleChange}
             />
-
+            {errors.password && (
+              <div className="error-signup">{errors.password}</div>
+            )}
             <button className="signup-btn">Sign Up</button>
           </form>
         </div>
