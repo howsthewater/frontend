@@ -159,7 +159,9 @@
 /* Styling the icons for filter items */
 .icons {
   margin-right: 10px;
-  width: 7%;
+  /* width: 5%; */
+  height: 3rem;
+  filter: brightness(0) invert(1);
 }
 
 /* Styling the icon in a grid layout for advanced search */

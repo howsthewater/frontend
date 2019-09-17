@@ -125,9 +125,11 @@ function SignUp(props) {
             <button className="signup-btn">Sign Up</button>
           </form>
         </div>
-        <div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
           <Footer />
-        </div>
+        </footer>
+        {/* END OF FOOTER SECTION */}
       </div>
     </div>
   );
