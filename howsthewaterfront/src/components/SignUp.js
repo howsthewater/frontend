@@ -1,7 +1,9 @@
 import React from "react";
 import { Auth } from "aws-amplify";
 import "../styles/signup.css";
-import Header from "./Header";
+// import Header from "./Header";
+import logo from "../assets/Logo - htw.png";
+import logoWords from "../assets/Logo - htw - words.png";
 import Search from "./Search";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
@@ -34,7 +36,36 @@ function SignUp(props) {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
+      {/* Header Content for Landing page */}
+      <header>
+        {/* Logo section on the left of header */}
+        <div className="logo-container">
+          <img className="logo" src={logo} alt="How's the water logo" />
+          <img className="logo-txt" src={logoWords} alt="How's the water" />
+        </div>
+
+        {/* Navigation section on the right of header */}
+        {/* Hamburger icon for smaller screen size */}
+        <label className="hamburger-icon" htmlFor="toggle">
+          &#9776;
+        </label>
+        <input type="checkbox" id="toggle" />
+
+        {/* Navigation links - header - right */}
+        <nav className="menu">
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="/login">Login</a>
+          <button
+            className="signup-button"
+            onClick={() => props.history.push("/signup")}
+          >
+            SIGN UP
+          </button>
+        </nav>
+      </header>
       <div className="search-body">
         <Search />
       </div>
