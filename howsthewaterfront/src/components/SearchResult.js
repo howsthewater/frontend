@@ -83,6 +83,7 @@ const SearchResult = props => {
           extremes {
             height
             type
+            timestamp
           }
         }
         StormAPI {
@@ -104,6 +105,7 @@ const SearchResult = props => {
   //   setBeachData(beachDummyData);
   // }, {});
 
+  console.log(data);
   return (
     <div className="sResultContainer">
       Search Result Page
@@ -172,15 +174,26 @@ const SearchResult = props => {
               <h1 className="sHeader sElement">Low Tide</h1>
               <h1 className="sHeader sElement">-</h1>
               <h1 className="sText sElement">
-                {/* {beachData ? beachData.lowTide : ""} */}
+                {data.filter
+                  ? data.filter[0].TideAPI.extremes[1].height.substring(0, 4) +
+                    " at: " +
+                    data.filter[0].TideAPI.extremes[1].timestamp
+                      .split(" ")[1]
+                      .substring(0, 8)
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader sElement">High Tide</h1>
               <h1 className="sHeader sElement">-</h1>
               <h1 className="sText sElement">
-                {" "}
-                {/* {beachData ? beachData.highTide : ""} */}
+                {data.filter
+                  ? data.filter[0].TideAPI.extremes[0].height.substring(0, 4) +
+                    " at: " +
+                    data.filter[0].TideAPI.extremes[0].timestamp
+                      .split(" ")[1]
+                      .substring(0, 8)
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
