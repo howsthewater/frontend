@@ -31,6 +31,23 @@ class App extends React.Component {
   componentDidMount() {
     console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
 
+    /*GET USER LOCATION*/
+    // getting location details
+    let latitude;
+    let longitude;
+    this.getPosition()
+      .then(position => {
+        console.log(position.coords.latitude, position.coords.longitude);
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+    console.log(`APP :: CDM :: LOCATION IS  IS :: ${latitude}, ${longitude}`);
+
+    /* END GET USER LOCATION */
+
     // Hub listens to aws cognito user pool to check if there has been a signin
     Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
@@ -49,22 +66,6 @@ class App extends React.Component {
                 name = user.attributes["custom:full_name"];
               }
 
-              // getting location details
-              let latitude;
-              let longitude;
-              this.getPosition()
-                .then(position => {
-                  console.log(
-                    position.coords.latitude,
-                    position.coords.longitude
-                  );
-                  latitude = position.coords.latitude;
-                  longitude = position.coords.longitude;
-                })
-                .catch(err => {
-                  console.log(err.message);
-                });
-              console.log(`APP :: CDM :: NAME IS :: ${name}`);
               /* Add the user to the database */
 
               /* Add the user to the datase ends */

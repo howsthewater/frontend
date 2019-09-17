@@ -46,9 +46,9 @@
 /* This is the 'Advanced search' link. Its a button styled as a link.*/
 .searchResultsContainer {
   background: #ffffff;
-  width: 90%;
+  width: 60%;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
-  border: 0.1rem solid #2d728f;
+  /* border: 0.1rem solid #2d728f; */
   position: absolute;
   margin-top: 5rem;
   width: 54.45%;

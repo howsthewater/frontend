@@ -20,7 +20,6 @@ import Footer from "./Footer";
  *
  */
 
-
 // need to pass props for router props, to pass to search
 const Landing = props => {
   return (
@@ -35,7 +34,7 @@ const Landing = props => {
 
         {/* Navigation section on the right of header */}
         {/* Hamburger icon for smaller screen size */}
-        <label className="hamburger-icon" for="toggle">
+        <label className="hamburger-icon" htmlFor="toggle">
           &#9776;
         </label>
         <input type="checkbox" id="toggle" />
@@ -59,7 +58,7 @@ const Landing = props => {
       <section className="top-content">
         {/* Adding for testing */}
         <div className="background-video">
-          <video class="bg-video-content" autoPlay muted loop>
+          <video className="bg-video-content" autoPlay muted loop>
             <source src={htwVideo} type="video/mp4" />
           </video>
         </div>
@@ -138,7 +137,7 @@ const Landing = props => {
           <div className="features-content">
             {/* FEATURES CARD - CORE */}
             <div className="features-box">
-              <i class="features-box__icon icon-basic-target"></i>
+              <i className="features-box__icon icon-basic-target"></i>
               <h3 className="heading-teritiary">Core</h3>
               <p className="features-box-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -154,7 +153,7 @@ const Landing = props => {
 
             {/* FEATURES CARD - LOGIN */}
             <div className="features-box">
-              <i class="features-box__icon icon-basic-link"></i>
+              <i className="features-box__icon icon-basic-link"></i>
               <h3 className="heading-teritiary">Login</h3>
               <p className="features-box-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -170,7 +169,7 @@ const Landing = props => {
 
             {/* FEATURES CARD - PREMIUM */}
             <div className="features-box">
-              <i class="features-box__icon icon-basic-gear"></i>
+              <i className="features-box__icon icon-basic-gear"></i>
               <h3 className="heading-teritiary">Premium</h3>
               <p className="features-box-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -189,7 +188,7 @@ const Landing = props => {
         {/* Fold4 - TESTIMONIAL SECTION */}
         <section className="section-testimonials" id="testimonials">
           <div className="background-video">
-            <video class="bg-video-content" autoPlay muted loop>
+            <video className="bg-video-content" autoPlay muted loop>
               <source src={testimonialVideo} type="video/mp4" />
             </video>
           </div>
@@ -272,9 +271,9 @@ const Landing = props => {
               &times;
             </a>
             <div className="popup-text">
-              <h2 class="heading-secondary">Our team</h2>
+              <h2 className="heading-secondary">Our team</h2>
 
-              <h3 class="heading-teritiary">
+              <h3 className="heading-teritiary">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h3>
               <p className="paragraph">
