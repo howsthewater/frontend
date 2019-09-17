@@ -203,3 +203,12 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+/* Breakpoint styling at 768px */
+@media (max-width: 768px) {
+  .search-body {
+    width: 100%;
+    height: 150px;
+    padding-top: 50px;
+  }
+}
