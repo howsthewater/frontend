@@ -118,6 +118,19 @@ const Search = props => {
         alert("cannot find beach name");
         console.log("not included");
       }
+    } else {
+      let advBeachesParams = {
+        RESTROOMS: values.restrooms,
+        PARKING: values.parking,
+        DSABLDACSS: values.disabled,
+        PCNC_AREA: values.picnicArea,
+        VOLLEYBALL: values.volleyBall,
+        DOG_FRIENDLY: values.dogFriendly,
+        EZ4STROLLERS: values.kidFriendly
+      };
+      // console.log(advBeachParams);
+      localStorage.setItem("advBeachParams", advBeachesParams);
+      props.routerProps.history.push("/advnacedsearch");
     }
   };
 
