@@ -1,102 +1,166 @@
+/* This is the container for the basic search */
 .searchContainer {
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 600px;
 }
+
+/* Setting the height and width for the search form*/
 .searchForm {
   display: flex;
   width: 100%;
   height: 5rem;
 }
+
+/* Styles for search input field - basic search */
 .searchInput {
-  height: 5rem;
+  height: 35px;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 12px;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
   border: 0.1rem solid #2d728f;
   padding-left: 1rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
 }
+
+/* Styling for the search button - basic search  */
 .searchButton {
   cursor: pointer;
-  width: 10%;
-  height: 5rem;
-  background: #2d728f;
+  width: 80px;
+  height: 35px;
+  /* background: #2d728f; */
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
   border: 0.1rem solid #2d728f;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
   color: #ffffff;
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
 }
+
+/* This is the 'Advanced search' link. Its a button styled as a link.*/
+.searchResultsContainer {
+  background: #ffffff;
+  width: 90%;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  border: 0.1rem solid #2d728f;
+  position: absolute;
+  margin-top: 5rem;
+  width: 54.45%;
+}
+.searchResultText {
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
 .aSearchToggleButton {
   cursor: pointer;
-  width: 25%;
-  height: 4.5rem;
-  margin-top: 3rem;
+  width: 130px;
+  height: 35px;
+  margin-top: 10px;
   background: none;
   border: none;
   font-family: Ubuntu;
   font-style: normal;
-  font-weight: 500;
-  font-size: 1.6rem;
+  font-weight: 600;
+  font-size: 14px;
   line-height: 1.8rem;
-  letter-spacing: 0.3rem;
-  color: #2d728f;
-  background: #ffffff;
-  border: 0.1rem solid #2d728f;
+  letter-spacing: 1px;
+  color: #ffffff;
+  border: none;
+  text-decoration: none;
+  padding: 0px 0 0px 0;
+  margin: 0px;
+  text-align: left;
+  border-bottom: 2px solid #ffffff;
 }
+
+/* This is the container for advanced search filter contents */
 .advancedSearchContainer {
   width: 100%;
-  height: 5rem;
+  height: 60px;
   display: flex;
-  margin-top: 3rem;
+  margin-top: 5px;
+  animation-name: appear;
+  animation-duration: 0.5s;
 }
+
+/* Animation effect for appear*/
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Form styling for advanced search */
 .advancedSearchForm {
   width: 90%;
-  height: 5rem;
+  height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #ffffff;
+  /* background: #ffffff; */
   border-radius: 0rem 0.2rem 0.2rem 0rem;
-  border: 0.1rem solid #2d728f;
+  /* border: 0.1rem solid #2d728f; */
+  margin-top: 10px;
+  animation-name: moveInFromLeft;
+  animation-duration: 5s;
 }
+
+/* Stling the check boxes */
 .checkboxLabel {
   margin-bottom: 2rem;
 }
+
+/* Styling the checkbox input*/
 .checkboxInput {
-  margin: 0;
   position: absolute;
   opacity: 0;
   z-index: 1;
   cursor: pointer;
-  height: 2rem;
-  width: 2rem;
+  height: 10px;
+  width: 10px;
   border: 0.2rem solid #2d728f;
 }
+
+/* Styling for checkbox when it is checked */
+/* This styling sets the background to  #2d728f so that the span item */
+/* check is visible. */
 .checkboxInput:checked ~ span {
   background: #2d728f;
   color: #ffffff;
 }
+
+/* This span adds the tick mark when checked*/
 .checkboxSpan {
-  color: #ffffff;
+  color: #ffffff1a;
   position: absolute;
-  height: 2rem;
-  width: 2rem;
+  height: 11px;
+  width: 11px;
   border: 0.2rem solid #2d728f;
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-size: 8px;
+  margin-top: 4.5px;
   text-align: center;
 }
+
+/* Styling the icons for filter items */
 .icons {
-  height: 75%;
+  margin-right: 10px;
+  width: 7%;
 }
+
+/* Styling the icon in a grid layout for advanced search */
 .searchButtonGrid {
   cursor: pointer;
   width: 10%;
@@ -113,43 +177,86 @@
   letter-spacing: 0.1rem;
   display: none;
 }
+
+/* The advanced search button */
 .searchButtonAdvanced {
   cursor: pointer;
   width: 10%;
-  height: 5rem;
-  background: #2d728f;
-  border: 0.1rem solid #2d728f;
-  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  height: 35px;
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
+  /* border: 0.1rem solid #2d728f; */
+  /* border-radius: 0rem 0.2rem 0.2rem 0rem; */
+  border-radius: 5px;
   color: #ffffff;
   font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 12px;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
 }
+
+.loadingDiv {
+  display: flex;
+}
+.loadingText {
+  color: #000000;
+}
+.errorDiv {
+  display: flex;
+}
+.errorText {
+  color: #000000;
+}
+
+.searchResultsContainer {
+  background: #ffffff;
+  width: 90%;
+  border-radius: 0rem 0.2rem 0.2rem 0rem;
+  /* border: 0.1rem solid #2d728f; */
+  position: absolute;
+  margin-top: 5rem;
+  width: 54.45%;
+}
+.searchResultText {
+  font-size: 1.6rem;
+}
+
+/* Breakpoint for 992px */
 @media (max-width: 992px) {
-  .searchButton {
-    width: 20%;
+  /* Currently there are no styling for this breakpoint */
+}
+
+/* Breakpoint for 768px */
+@media (max-width: 768px) {
+  .searchContainer {
+    width: 500px;
+  }
+  .searchResultsContainer {
+    width: 50.4%;
   }
   .aSearchToggleButton {
-    width: 40%;
+    display: none;
   }
+
   .advancedSearchForm {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: 10rem;
-    padding-left: 2rem;
+    display: none;
   }
-  .searchButtonGrid {
-    display: block;
-    width: 95%;
-    height: 2.5rem;
-    grid-column-start: 7;
-    grid-column-end: 9;
-  }
+
   .searchButtonAdvanced {
+    display: none;
+  }
+}
+
+/* Breakpoint for 575px */
+@media (max-width: 575px) {
+  .searchContainer {
+    width: 400px;
+  }
+  .aSearchToggleButton {
     display: none;
   }
 }

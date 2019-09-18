@@ -1,5 +1,8 @@
 import React from "react";
 import "../styles/footer.css";
+import "../styles/utility.css";
+import footerPicture1 from "../assets/about-pic-1.jpg";
+import footerPicture2 from "../assets/about-pic-2.jpg";
 // import styled from "styled-components";
 // const FooterDiv = styled.div`
 //   display: flex;
@@ -47,25 +50,71 @@ import "../styles/footer.css";
 
 const CopyrightFooter = () => {
   return (
-    <div className="footerDiv">
-      <p className="copyright">
-        Copyright 2019 How's The Water Inc. All Rights Reserved
-      </p>
-      <div className="textContainer">
-        <p className="line first">|</p>
-        <a className="textA" href="">
-          Terms + Conditions
-        </a>
-        <p className="line">|</p>
-        <a className="textA" href="">
-          Privacy Policy
-        </a>
-        <p className="line">|</p>
-        <a className="textA" href="">
-          Legal Statement
-        </a>
+    <>
+      <div className="footerDiv">
+        <p className="copyright">
+          &#169; 2019 How's The Water Inc. All Rights Reserved
+        </p>
+        <div className="textContainer">
+          <p className="line first">|</p>
+          <a className="textA" href="#popup-footer">
+            Terms + Conditions
+          </a>
+          <p className="line">|</p>
+          <a className="textA" href="#popup-footer">
+            Privacy Policy
+          </a>
+          <p className="line">|</p>
+          <a className="textA" href="#popup-footer">
+            Legal Statement
+          </a>
+        </div>
       </div>
-    </div>
+      <div className="popup" id="popup-footer">
+        <div className="popup-content">
+          <div className="popup-left">
+            <img
+              src={footerPicture1}
+              alt="A person relaxing"
+              className="popup-img"
+            />
+            <img
+              src={footerPicture2}
+              alt="A person surfing"
+              className="popup-img"
+            />
+          </div>
+          <div className="popup-right">
+            <a href="#section-about" className="popup-close">
+              &times;
+            </a>
+            <div className="popup-text">
+              <h2 class="heading-secondary">Terms & Conditions</h2>
+              <p className="paragraph">
+                Sint velit reprehenderit quidem possimus enim, cum dolorum
+                tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
+                quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit.
+              </p>
+              <h2 class="heading-secondary">Privacy Policy</h2>
+              <p className="paragraph">
+                Sint velit reprehenderit quidem possimus enim, cum dolorum
+                tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
+                quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit.
+              </p>
+              <h2 class="heading-secondary">Legal Statement</h2>
+              <p className="paragraph">
+                Sint velit reprehenderit quidem possimus enim, cum dolorum
+                tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
+                quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -1,528 +1,296 @@
 import React from "react";
-import Search from "./Search";
-import CopyrightFooter from "./Footer";
-import styled from "styled-components";
-import WaveBackground from "../assets/background-flip.png";
-import CoreIcon from "../assets/core_icon.png";
-import LoginIcon from "../assets/login_icon.png";
-import PremiumIcon from "../assets/icon-premium.png";
-import Header from './Header';
-// styling
-const LandingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-const LandingJumbo = styled.div`
-background-image: url(${WaveBackground});
-  // background-repeat: no-repeat;
-  width: 100%;
-  height: 108.1rem;
-  display: flex;
-  flex-direction column;
-  align-items: center
-  justify-content:center
-  margin: auto
-  `;
-const FandPDiv = styled.div`
-  width: 100%;
-  height: 108.1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const FandPText = styled.div`
-  margin-top: 10rem;
-  font-family: Ubuntu;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 3.6rem;
-  line-height: 4.1rem;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.05rem;
-  color: #2d728f;
-`;
-const Line = styled.div`
-  width: 31.5rem;
-  margin-top: 1rem;
-  margin-bottom: 10rem;
-  height: 0rem;
-  border: 1px solid #2d728f;
-`;
-const Dot0 = styled.span`
-  z-index: 1;
-  position: absolute;
-  background: rgba(0, 191, 191, 0.2);
-  border-radius: 200px;
-  width: 40rem;
-  height: 40rem;
-  right: 160rem
-  top: 175.4rem;
-`;
-const Dot1 = styled(Dot0)`
-  width: 20rem;
-  height: 20rem;
-  right: 115rem
-  top: 162.8rem;
-`;
-const Dot2 = styled(Dot0)`
-  width: 10rem;
-  height: 10rem;
-  right: 65rem;
-  top: 137.5rem;
-`;
-const Dot3 = styled(Dot0)`
-  width: 30rem;
-  height: 30rem;
-  right: 50rem;
-  top: 181.5rem;
-`;
-const Dot4 = styled(Dot0)`
-  width: 30rem;
-  height: 300px;
-  right: 3rem;
-  top: 121.1rem;
-`;
-const CardContainerDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  @media (max-width: 992px) {
-    flex-direction: column;
-  }
-`;
-const Card0 = styled.div`
-  z-index: 1
-  width: 48.2rem;
-  height: 64rem;
-  background: linear-gradient(180deg, #ffffff 0%, #00bfbf 100%);
-  box-shadow: 0rem .4rem 1rem #215c74;
-  display:flex;
-  flex-direction:column;
-  align-items:center
-  justify-content: space-around;
-  color: #ffffff;
-  @media(max-width:992px){
-    width: 98%
-    height: 20rem
-    flex-direction:row
-    margin: 2rem;
-  }
-  @media(max-width: 576px){
-    margin: 0rem;
-    height: 27rem;
-  }
-  h1{
-    font-size: 4rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      font-size:3rem;
-    }
-  }
-  p{
-    margin: 0 4rem;
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      width: 40%
-      margin: 0 1rem;
-      font-size:1.6rem;
-    }
-  }
-  h2{
-    font-size: 2.5rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      font-size: 2rem;
-    }
-    @media(max-width: 576px){
-      position: relative
-      bottom: 4rem;
-      left: 4.5rem;
-    }
-  }
-  button{
-    margin-bottom: 2.5rem;
-    width: 11.5rem;
-    height: 5.75rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    background: #0FB2B2;
-    border: 0
-    border-radius: 5px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 1.8rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.1rem;
-    color: #FFFFFF;
-    text-align: center
-    display: flex;
-    justify-content: center
-    font-weight: 700
-    cursor: pointer
-    @media(max-width:992px){
-      margin-bottom: 0rem;
-      height: 5.2rem
-      10rem;
-      font-size: 1.6rem
-    }
-    @media(max-width: 576px){
-      position: relative
-      top: 3rem;
-      right: 2.5rem;
-    }
-  }
-    `;
-const Card1 = styled.div`
-  z-index: 1;
-  width: 48.2rem;
-  height: 64rem;
-  background: linear-gradient(180deg, #ffffff 0%, #8fcbaf 100%);
-  box-shadow: 0px 4px 10px #5b9279;
-  display:flex;
-  flex-direction:column;
-  align-items:center
-  justify-content: space-around;
-  color: #ffffff
-  @media(max-width:992px){
-    width: 98%
-    height: 20rem
-    flex-direction:row
-    margin: 2rem
-  }
-  @media(max-width: 576px){
-    margin: 0rem;
-    height: 27rem;
-  }
-  h1{
-    font-size: 4rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      font-size:3rem;
-    }
-  }
-  p{
-    margin: 0 4rem;
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      width: 40%
-      margin: 0 1rem;
-      font-size:1.6rem;
-    }
-  }
-  h2{
-    font-size: 2.5rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      font-size: 2rem;
-    }
-    @media(max-width: 576px){
-      position: relative
-      bottom: 4rem;
-      left: 4.5rem;
-    }
-  }
-  button{
-    margin-bottom: 2.5rem;
-    width: 11.5rem;
-    height: 5.75rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    background: #5B9279;
-    border: 0
-    border-radius: 5px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 1.8rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.1rem;
-    color: #FFFFFF;
-    text-align: center
-    display: flex;
-    justify-content: center
-    font-weight: 700
-    cursor: pointer
-    @media(max-width:992px){
-      margin-bottom: 0rem;
-      height: 5.2rem
-      10rem;
-      font-size: 1.6rem
-    }
-    @media(max-width: 576px){
-      position: relative
-      top: 3rem;
-      right: 2.5rem;
-    }
-  }
-`;
-const Card2 = styled.div`
-  z-index:1
-  width: 48.2rem;
-  height: 64rem;
-  background: linear-gradient(180deg, #ffffff 0%, #357c9a 100%);
-  box-shadow: 0px 4px 10px #215c74;
-  display:flex;
-  flex-direction:column;
-  align-items:center
-  justify-content: space-around;
-  color: #ffffff
-  @media(max-width:992px){
-    width: 98%
-    height: 20rem
-    flex-direction:row
-    margin: 2rem
-  }
-  @media(max-width: 576px){
-    margin: 0rem;
-    height: 27rem;
-  }
-  h1{
-    font-size: 4rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      font-size:3rem;
-    }
-  }
-  p{
-    margin: 0 4rem;
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      width: 40%
-      margin: 0 1rem;
-      font-size:1.6rem;
-    }
-  }
-  h2{
-    font-size: 2.5rem;
-    letter-spacing: 0.1rem;
-    @media(max-width:992px){
-      font-size: 2rem;
-    }
-    @media(max-width: 576px){
-      position: relative
-      bottom: 4rem;
-      left: 3.5rem;
-    }
-  }
-  button{
-    margin-bottom: 2.5rem;
-    width: 11.5rem;
-    height: 6.2rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    background: #2D728F;
-    border: 0
-    border-radius: 5px;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 1.8rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.1rem;
-    color: #FFFFFF;
-    text-align: center
-    display: flex;
-    justify-content: center
-    font-weight: 700
-    cursor: pointer 
-    @media(max-width:992px){
-      margin-bottom: 0rem;
-      height: 5.2rem
-      10rem;
-      font-size: 1.6rem
-    }
-    @media(max-width: 576px){
-      position: relative
-      top: 3rem;
-      right: 2.7rem;
-    }
-  }
-    `;
-const AboutUs = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: #86d4d4;
-`;
-const AboutUsBanner = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5% 0 0 0;
-  font-size: 3.5rem;
-  width: 100%;
-  height: 10rem;
-  color: #47839d;
-  background-color: #c2e9e9;
-`;
-const AboutUsText = styled.div`
-  width: 90%;
-  margin: 3%;
-  p {
-    margin: 0 2% 0% 2%;
-    font-size: 1.6rem;
-    line-height: 5rem;
-    color: #ffffff;
-  }
-`;
-const MemberContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 85%
-  flex-wrap: wrap
-  margin-bottom: 2rem;
-  p{
-    margin-top: 1.6rem
-    font-size: 1.6rem;
-    text-align: center
-    line-height: 2rem;
-    color: #2d728f
-  }
-`;
-const MemberDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem;
-`;
-const TeamPlaceholder = styled.span`
-  background: rgba(255, 255, 255, 1);
-  border-radius: 200px;
-  width: 15rem;
-  height: 15rem;
-  box-shadow: 0rem 0.4rem 5rem #215c74;
+import "../styles/landing.css";
+import "../styles/utility.css";
+import "../styles/font_styles.css";
+import logo from "../assets/Logo - htw.png";
+import logoWords from "../assets/Logo - htw - words.png";
+import aboutPicture1 from "../assets/about-pic-1.jpg";
+import aboutPicture2 from "../assets/about-pic-2.jpg";
+import aboutPicture3 from "../assets/about-pic-3.jpg";
+import testimonial1 from "../assets/testimonial-1.jpg";
+import testimonial2 from "../assets/testimonial-2.jpg";
+import htwVideo from "../assets/htw_video.mp4";
+import testimonialVideo from "../assets/testimonial_video.mp4";
+import SearchBeach from "./Search";
+import Footer from "./Footer";
 
-  @media (max-width: 768px) {
-    width: 12rem;
-    height: 12rem;
-    box-shadow: 0rem 0.4rem 2rem #215c74;
-  }
-`;
-//
-const Landing = () => {
+
+/*
+ * Landing page - Functional component
+ * Renders the page when the user logs in. Maps to landing.css for styling
+ *
+ */
+
+
+// need to pass props for router props, to pass to search
+const Landing = props => {
   return (
     <>
-    <Header />
-    <LandingContainer>
-      {/* <div>Landing Page</div> */}
-      <LandingJumbo>
-        <Search />
-      </LandingJumbo>
-      <FandPDiv>
-        <FandPText>Features & Pricing</FandPText>
-        <Line />
-        <Dot0 />
-        <Dot1 />
-        <Dot2 />
-        <Dot3 />
-        <Dot4 />
-        <CardContainerDiv>
-          <Card0>
-            <img src={CoreIcon} alt="core" />
-            <h1>Core</h1>
-            <p>Everything you need to have a complete shopping experience.</p>
-            <h2>Free</h2>
-            <button>Included</button>
-          </Card0>
-          <Card1>
-            <img src={LoginIcon} alt="login" />
-            <h1>Login</h1>
-            <p>Everything you need to have a complete shopping experience.</p>
-            <h2>Free</h2>
-            <button>Sign Up</button>
-          </Card1>
-          <Card2>
-            <img src={PremiumIcon} alt="Premium" />
-            <h1>Premium</h1>
-            <p>Everything you need to have a complete shopping experience.</p>
-            <h2>$100</h2>
-            <button>Sign Up</button>
-          </Card2>
-        </CardContainerDiv>
-      </FandPDiv>
-      <AboutUs>
-        <AboutUsBanner>About Us</AboutUsBanner>
-        <AboutUsText>
-          <p>
-            ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s
-            the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the
-            water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the water’
-            Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem
-            Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum
-            ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s
-            the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the
-            water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the water’
-            Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem
-            Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum
-            ‘How’s the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s
-            the water’ Lorem Ipsum ‘How’s the water’ Lorem Ipsum ‘How’s the
-            water’ Lorem Ipsum
-          </p>
-        </AboutUsText>
-        <MemberContainer>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-          <MemberDiv>
-            <TeamPlaceholder />
-            <p>
-              Team <br /> Member
-            </p>
-          </MemberDiv>
-        </MemberContainer>
-        <CopyrightFooter />
-      </AboutUs>
-    </LandingContainer>
+      {/* Header Content for Landing page */}
+      <header>
+        {/* Logo section on the left of header */}
+        <div className="logo-container">
+          <img className="logo" src={logo} alt="How's the water logo" />
+          <img className="logo-txt" src={logoWords} alt="How's the water" />
+        </div>
+
+        {/* Navigation section on the right of header */}
+        {/* Hamburger icon for smaller screen size */}
+        <label className="hamburger-icon" for="toggle">
+          &#9776;
+        </label>
+        <input type="checkbox" id="toggle" />
+
+        {/* Navigation links - header - right */}
+        <nav className="menu">
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="/login">Login</a>
+          <button
+            className="signup-button"
+            onClick={() => props.history.push("/signup")}
+          >
+            SIGN UP
+          </button>
+        </nav>
+      </header>
+
+      {/* Section for first fold - includes a background image and search component */}
+      <section className="top-content">
+        {/* Adding for testing */}
+        <div className="background-video">
+          <video class="bg-video-content" autoPlay muted loop>
+            <source src={htwVideo} type="video/mp4" />
+          </video>
+        </div>
+        {/* adding for testing */}
+        <div className="search-content">
+          <SearchBeach routerProps={props} />
+        </div>
+      </section>
+
+      {/* The main section of the landing page */}
+      <main>
+        {/* Fold2 - ABOUT SECTION */}
+        <section className="section-about" id="about">
+          {/* ABOUT HEADING */}
+          <div className="utility-center-txt">
+            <h2 className="heading-secondary">
+              Outdoor enthusiast's information corner
+            </h2>
+          </div>
+
+          {/* ABOUT CONTENT */}
+          <div className="about-content">
+            {/* ABOUT TEXT CONTENT - LEFT */}
+            <div className="about-text-content">
+              <h3 className="heading-teritiary">
+                at augue eget arcu dictum varius duis at consectetur lorem
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
+                non odio euismod lacinia at quis. Nisl condimentum id venenatis
+                a.
+              </p>
+
+              <h3 className="heading-teritiary">
+                at augue eget arcu dictum varius duis at consectetur lorem
+              </h3>
+              <p className="paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
+                non odio euismod lacinia at quis. Nisl condimentum id venenatis
+                a. Porta lorem mollis aliquam ut porttitor leo a diam
+                sollicitudin.
+              </p>
+              <a href="#popup-about" className="btn-text">
+                Learn more &rarr;
+              </a>
+            </div>
+
+            {/* ABOUT IMAGE CONTENT RIGHT */}
+            <div className="about-img-content">
+              <div className="composition">
+                <img
+                  src={aboutPicture1}
+                  alt="Family fun in beach"
+                  className="composition-photo composition-photo--p1"
+                />
+                <img
+                  src={aboutPicture2}
+                  alt="Surfing in beach"
+                  className="composition-photo composition-photo--p2"
+                />
+                <img
+                  src={aboutPicture3}
+                  alt="Relaxing in beach"
+                  className="composition-photo composition-photo--p3"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Fold3 - FEATURES SECTION */}
+        <section className="section-features" id="features">
+          {/* FEATURES CONTENT */}
+          <div className="features-content">
+            {/* FEATURES CARD - CORE */}
+            <div className="features-box">
+              <i class="features-box__icon icon-basic-target"></i>
+              <h3 className="heading-teritiary">Core</h3>
+              <p className="features-box-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+              </p>
+              <button
+                className="signup-button features-btn"
+                onClick={() => props.history.push("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
+
+            {/* FEATURES CARD - LOGIN */}
+            <div className="features-box">
+              <i class="features-box__icon icon-basic-link"></i>
+              <h3 className="heading-teritiary">Login</h3>
+              <p className="features-box-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+              </p>
+              <button
+                className="signup-button features-btn"
+                onClick={() => props.history.push("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
+
+            {/* FEATURES CARD - PREMIUM */}
+            <div className="features-box">
+              <i class="features-box__icon icon-basic-gear"></i>
+              <h3 className="heading-teritiary">Premium</h3>
+              <p className="features-box-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+              </p>
+              <button
+                className="signup-button features-btn"
+                onClick={() => props.history.push("/signup")}
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Fold4 - TESTIMONIAL SECTION */}
+        <section className="section-testimonials" id="testimonials">
+          <div className="background-video">
+            <video class="bg-video-content" autoPlay muted loop>
+              <source src={testimonialVideo} type="video/mp4" />
+            </video>
+          </div>
+          <div className="utility-center-txt">
+            <h2 className="heading-secondary">We make people truly happy!</h2>
+          </div>
+          <div className="section-testimonials-content">
+            <div className="testimonial">
+              <figure className="testimonial-circle">
+                <img
+                  src={testimonial1}
+                  alt="woman"
+                  className="testimonial-img"
+                />
+                <figcaption className="testimonial-caption">
+                  Elizabeth Warren
+                </figcaption>
+              </figure>
+              <div className="testimonial-text">
+                <h3 className="heading-teritiary">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                  Quia vero aliquid, non asperiores, veniam dolor accusamus
+                  suscipit soluta quas quos, maiores eius qui.
+                </p>
+              </div>
+            </div>
+            <div className="testimonial">
+              <figure className="testimonial-circle">
+                <img
+                  src={testimonial2}
+                  alt="woman"
+                  className="testimonial-img"
+                />
+                <figcaption className="testimonial-caption">
+                  Eric Crane
+                </figcaption>
+              </figure>
+              <div className="testimonial-text">
+                <h3 className="heading-teritiary">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </h3>
+                <p className="paragraph">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
+                  Quia vero aliquid.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      {/* END OF MAIN */}
+      {/* FOOTER SECTION */}
+      <footer className="footer">
+        <Footer />
+      </footer>
+      {/* END OF FOOTER SECTION */}
+
+      {/* STATIC POPUP SECTION FOR ABOUT */}
+      <div className="popup" id="popup-about">
+        <div className="popup-content">
+          <div className="popup-left">
+            <img
+              src={aboutPicture3}
+              alt="A person relaxing"
+              className="popup-img"
+            />
+            <img
+              src={aboutPicture2}
+              alt="A person surfing"
+              className="popup-img"
+            />
+          </div>
+          <div className="popup-right">
+            <a href="#section-about" className="popup-close">
+              &times;
+            </a>
+            <div className="popup-text">
+              <h2 class="heading-secondary">Our team</h2>
+
+              <h3 class="heading-teritiary">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </h3>
+              <p className="paragraph">
+                Sint velit reprehenderit quidem possimus enim, cum dolorum
+                tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
+                quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. Eius, earum, dolore dolorem
+                tempora nam necessitatibus ratione, iusto fugit animi omnis non?
+                Id, voluptatum blanditiis. Itaque veniam suscipit quod ducimus
+                rerum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

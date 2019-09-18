@@ -7,164 +7,25 @@ import dogIcon from "../assets/icons8-dog-paw-64.png";
 import volleyIcon from "../assets/icons8-volleyball-player-50.png";
 import picnicIcon from "../assets/icons8-picnic-table-50.png";
 import "../styles/search.css";
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 
-// import styled from "styled-components";
-// const SearchContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   width: 60vw;
-// `;
-// const SearchForm = styled.form`
-//   display: flex;
-//   width: 100%;
-//   height: 5rem;
-// `;
-// const SearchInput = styled.input`
-//   height: 5rem;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 1.6rem;
-//   border-radius: 0rem .2rem .2rem 0rem;
-//   border: .1rem solid #2d728f
-//   padding-left: 1rem;
-//   line-height: 1.8rem;
-//   letter-spacing: 0.1rem;
-// `;
-// const SearchButton = styled.button`
-//   cursor: pointer;
-//   width: 10%;
-//   height: 5rem;
-//   background: #2d728f;
-//   border: 0.1rem solid #2d728f;
-//   border-radius: 0rem 0.2rem 0.2rem 0rem;
-//   color: #ffffff;
-//   font-family: Ubuntu;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 1.6rem;
-//   line-height: 1.8rem;
-//   letter-spacing: 0.1rem;
-//   @media (max-width: 992px) {
-//     width: 20%;
-//   }
-// `;
-// const SearchButtonAdvanced = styled.button`
-//   cursor: pointer;
-//   width: 10%;
-//   height: 5rem;
-//   background: #2d728f;
-//   border: 0.1rem solid #2d728f;
-//   border-radius: 0rem 0.2rem 0.2rem 0rem;
-//   color: #ffffff;
-//   font-family: Ubuntu;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 1.6rem;
-//   line-height: 1.8rem;
-//   letter-spacing: 0.1rem;
-//   @media (max-width: 992px) {
-//     display: none;
-//   }
-// `;
-// const SearchButtonGrid = styled.button`
-//   cursor: pointer;
-//   width: 10%;
-//   height: 5rem;
-//   background: #2d728f;
-//   border: 0.1rem solid #2d728f;
-//   border-radius: 0rem 0.2rem 0.2rem 0rem;
-//   color: #ffffff;
-//   font-family: Ubuntu;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 1.6rem;
-//   line-height: 1.8rem;
-//   letter-spacing: 0.1rem;
-//   display: none;
-//   @media (max-width: 992px) {
-//     display: block;
-//     width: 95%;
-//     height: 2.5rem;
-//     grid-column-start: 7;
-//     grid-column-end: 9;
-//   }
-// `;
-// const AdvancedSearchToggle = styled.button`
-//   cursor: pointer;
-//   width: 25%;
-//   height: 4.5rem;
-//   margin-top: 3rem;
-//   background: none;
-//   border: none;
-//   font-family: Ubuntu;
-//   font-style: normal;
-//   font-weight: 500;
-//   font-size: 1.6rem;
-//   line-height: 1.8rem;
-//   letter-spacing: 0.3rem;
-//   color: #2d728f;
-//   background: #ffffff;
-//   border: 0.1rem solid #2d728f;
-//   @media (max-width: 992px) {
-//     width: 40%;
-//   }
-// `;
-// const AdvancedSearchContainer = styled.div`
-//   width: 100%;
-//   height: 5rem;
-//   display: flex;
-//   margin-top: 3rem;
-// `;
-// const AdvancedSearchForm = styled.form`
-//   width: 90%;
-//   height: 5rem;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center
-//   background: #ffffff;
-//   border-radius: 0rem .2rem .2rem 0rem;
-//   border: .1rem solid #2d728f;
-//   @media (max-width:992px){
-//     width: 100%
-//     display: grid
-//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-//     height: 10rem;
-//     padding-left: 2rem;
-//   }
-// `;
-// const Icons = styled.img`
-//   height: 75%;
-// `;
-// const CheckboxLabel = styled.label`
-//   margin-bottom: 2rem;
-//   input {
-//     margin: 0;
-//     position: absolute;
-//     opacity: 0;
-//     z-index: 1;
-//     cursor: pointer;
-//     height: 2rem;
-//     width: 2rem;
-//     border: .2rem solid #2d728f;
+const beachesQuery = gql`
+  {
+    locations {
+      NameMobileWeb
+      RESTROOMS
+      PARKING
+      DSABLDACSS
+      EZ4STROLLERS
+      DOG_FRIENDLY
+      VOLLEYBALL
+      PCNC_AREA
+    }
+  }
+`;
 
-//   }
-//   input: checked ~span {
-//     background: #2d728f;
-//     color: #ffffff;
-//   }
-//   span {
-//     color: #ffffff
-//     position: absolute;
-//     height: 2rem;
-//     width: 2rem;
-//     border: .2rem solid #2d728f;
-//     font-size: 1.5rem
-//     line-height: 1.2;
-//     text-align: center
-//   }
-// `;
-//
-const Search = () => {
+const Search = props => {
   const [values, setValues] = useState({
     textInput: "",
     restrooms: false,
@@ -176,9 +37,32 @@ const Search = () => {
     picnicArea: false
   });
   const [advancedSearch, setAdvancedSearch] = useState(false);
+  // beach values
+  const [beaches, setBeaches] = useState([]);
+  const { loading, error, data } = useQuery(beachesQuery);
+  const [pickedBeach, setPickedBeach] = useState("");
+  //
   const searchInputHandler = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
+    if (e.target.name === "textInput") {
+      setPickedBeach(e.target.value);
+      let beaches = [...data.locations];
+      beaches = beaches.filter(beach => {
+        if (
+          beach.NameMobileWeb.toLowerCase().includes(
+            e.target.value.toLowerCase()
+          )
+        ) {
+          return beaches;
+        }
+      });
+      e.target.value === ""
+        ? setBeaches([])
+        : beaches.length >= 5
+        ? setBeaches(beaches.slice(0, 5))
+        : setBeaches(beaches);
+    }
   };
   const toggleAdvancedSearch = () => {
     if (advancedSearch) {
@@ -194,8 +78,18 @@ const Search = () => {
         picnicArea: false
       });
     } else {
+      setBeaches([]);
+      setPickedBeach("");
+      setValues({ ...values, textInput: "" });
       setAdvancedSearch(true);
     }
+  };
+  const pickedBeachHandler = beachName => {
+    setValues({
+      ...values,
+      textInput: beachName
+    });
+    setPickedBeach(beachName);
   };
   const advancedSearchChangeHandler = e => {
     const { name } = e.target;
@@ -204,13 +98,40 @@ const Search = () => {
     setValues({ ...values, [name]: value });
   };
   const searchSubmit = e => {
+    // if advanced search is false
+    // if pickedbeach is in data.locations.NameMobileWeb
+    // set local storage beachname to pickedbeach,
+    // else alert warning.
+    // route to /searchresult
+    // if advanced search is true, route to /advancedsearchresult,
+    // set different params in local storage, have checks, etc.
     e.preventDefault();
-    console.log(values);
+    if (!advancedSearch) {
+      let beachNameList = data.locations.map(
+        locations => locations.NameMobileWeb
+      );
+      if (beachNameList.includes(pickedBeach)) {
+        localStorage.setItem("beachName", pickedBeach);
+        props.routerProps.history.push("/searchresult");
+        console.log("included");
+      } else {
+        alert("cannot find beach name");
+        console.log("not included");
+      }
+    }
   };
-  //
-  return (
+
+  return loading ? (
+    <div className="loadingDiv">
+      <h1 className="loadingText">Please wait... getting beaches</h1>
+    </div>
+  ) : error ? (
+    <div className="errorDiv">
+      <h1 className="errorText">There was an error retreiving the data</h1>
+    </div>
+  ) : (
     <div className="searchContainer">
-      <div className="searchForm" onSubmit={searchSubmit}>
+      <form className="searchForm" onSubmit={searchSubmit}>
         <input
           className="searchInput"
           name="textInput"
@@ -219,6 +140,7 @@ const Search = () => {
           value={values.textInput}
           placeholder="Seach by beach name"
           style={{ width: advancedSearch ? "100%" : "90%" }}
+          autoComplete="off"
         />
         <button
           className="searchButton"
@@ -227,6 +149,19 @@ const Search = () => {
         >
           Search
         </button>
+      </form>
+      <div className="searchResultsContainer">
+        {beaches.map(beach => (
+          <p
+            className="searchResultText"
+            onClick={() => {
+              pickedBeachHandler(beach.NameMobileWeb);
+            }}
+            key={Math.random()}
+          >
+            {beach.NameMobileWeb}
+          </p>
+        ))}
       </div>
       <button className="aSearchToggleButton" onClick={toggleAdvancedSearch}>
         Advanced Search

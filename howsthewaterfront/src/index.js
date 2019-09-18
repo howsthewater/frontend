@@ -10,17 +10,19 @@ import reducer from "./reducers";
 import Amplify from "aws-amplify";
 //import config from "./aws-exports";
 import { BrowserRouter as Router } from "react-router-dom";
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
 require("dotenv").config();
-
-
 
 const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 });
 
-
+/*
+ * Configuration properties for AWS Cognito User Pool - used in authentication
+ * The environment variables have been set in each environment separately - Feature, staging & production
+ * The redirectURL have been set in the aws client settings in AWS Manage user pool console
+ **/
 const config = {
   aws_project_region: process.env.REACT_APP_PROJECT_REGION,
   aws_cognito_identity_pool_id: process.env.REACT_APP_COGNITO_IDENTITY_POOL_ID,
@@ -43,10 +45,19 @@ const config = {
   federationTarget: "COGNITO_USER_POOLS"
 };
 
+/*
+ *
+ * Uses the config mentioned above to configure the Amplify library
+ * which is later used to check for federated sign in and custom sign up.
+ *
+ **/
 Amplify.configure(config);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+/*
+ * Redux store
+ **/
 const store = createStore(
   reducer,
   composeEnhancers(applyMiddleware(thunk, logger))
