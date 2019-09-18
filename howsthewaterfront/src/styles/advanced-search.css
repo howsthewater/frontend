@@ -1,3 +1,7 @@
+.container {
+  width: 100%;
+}
+
 header {
   height: 6vh;
   display: flex;
@@ -69,4 +73,94 @@ header nav a {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
+}
+
+.searchBackground {
+  margin: 0 0 3% 0;
+}
+
+.searchResults {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+
+.searchTable {
+  width: 95%;
+  padding: 2rem 0 2rem 0;
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cff0f0;
+}
+
+.beachspot {
+  width: 20%;
+}
+
+.region {
+  width: 20%;
+}
+
+.amenities {
+  width: 20%;
+}
+
+.currentsurf {
+  width: 40%;
+}
+
+.table-headers {
+  font-size: 2.4rem;
+  color: #215c74;
+  text-align: center;
+}
+
+.DataContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+
+.rowContainer {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.beach-data {
+  text-align: center;
+  color: #215c74;
+  font-family: Ubuntu;
+  font-size: 2rem;
+}
+
+.beach-spot {
+  width: 20%;
+}
+
+.beach-region {
+  width: 20%;
+}
+
+.beach-amenities {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.beach-currentinfo {
+  width: 40%;
+  font-size: 1.5rem;
 }
