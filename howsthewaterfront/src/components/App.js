@@ -198,10 +198,6 @@ class App extends React.Component {
     console.log(
       `APP :: RENDER :: isAuthenticated value is ${childProps.isAuthenticated}`
     );
-    console.log(`APP :: RENDER :: user value is ${this.props.user.username}`);
-    // if (this.props.user.username) {
-    //   GetUser(this.props.user.username);
-    // }
 
     return (
       <>

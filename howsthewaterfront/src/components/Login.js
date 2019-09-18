@@ -20,6 +20,8 @@ function Login(props) {
       props.history.push("/home");
     } catch (error) {
       console.log("Error is " + error.message);
+      //Incorrect username or password.
+      // An account with the given email already exists.
       if (error.message === "User is not confirmed.") {
         setEmailVerifyError("Please verify your email address.");
       }
