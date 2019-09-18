@@ -105,7 +105,7 @@ const SearchResult = props => {
   //   setBeachData(beachDummyData);
   // }, {});
 
-  console.log(data);
+  // console.log(data);
   return (
     <div className="sResultContainer">
       Search Result Page
@@ -174,12 +174,37 @@ const SearchResult = props => {
               <h1 className="sHeader sElement">Low Tide</h1>
               <h1 className="sHeader sElement">-</h1>
               <h1 className="sText sElement">
-                {data.filter
+                {/* {data.filter
                   ? data.filter[0].TideAPI.extremes[1].height.substring(0, 4) +
                     " at: " +
                     data.filter[0].TideAPI.extremes[1].timestamp
                       .split(" ")[1]
                       .substring(0, 8)
+                  : ""} */}
+                {data.filter
+                  ? data.filter[0].TideAPI.extremes.filter(extreme => {
+                      for (let k in extreme) {
+                        if (extreme[k] === "low") return true;
+                      }
+                    }).length > 0
+                    ? ` height: ${data.filter[0].TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "low") return true;
+                          }
+                        })[0]
+                        .height.substring(
+                          0,
+                          4
+                        )} at: ${data.filter[0].TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "low") return true;
+                          }
+                        })[0]
+                        .timestamp.split(" ")[1]
+                        .substring(0, 8)}`
+                    : ""
                   : ""}
               </h1>
             </div>
@@ -187,12 +212,37 @@ const SearchResult = props => {
               <h1 className="sHeader sElement">High Tide</h1>
               <h1 className="sHeader sElement">-</h1>
               <h1 className="sText sElement">
-                {data.filter
+                {/* {data.filter
                   ? data.filter[0].TideAPI.extremes[0].height.substring(0, 4) +
                     " at: " +
                     data.filter[0].TideAPI.extremes[0].timestamp
                       .split(" ")[1]
                       .substring(0, 8)
+                  : ""} */}
+                {data.filter
+                  ? data.filter[0].TideAPI.extremes.filter(extreme => {
+                      for (let k in extreme) {
+                        if (extreme[k] === "high") return true;
+                      }
+                    }).length > 0
+                    ? ` height: ${data.filter[0].TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "high") return true;
+                          }
+                        })[0]
+                        .height.substring(
+                          0,
+                          4
+                        )} at: ${data.filter[0].TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "high") return true;
+                          }
+                        })[0]
+                        .timestamp.split(" ")[1]
+                        .substring(0, 8)}`
+                    : ""
                   : ""}
               </h1>
             </div>
