@@ -96,7 +96,7 @@ function Login(props) {
               className="input-txt"
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address*"
               value={values.email}
               onChange={handleChange}
             />
@@ -109,7 +109,7 @@ function Login(props) {
               className="input-txt"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password*"
               value={values.password}
               onChange={handleChange}
             />

@@ -11,8 +11,12 @@ import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
 import { setUserData } from "../actions";
 import { gql } from "apollo-boost";
+import ApolloClient from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
+const client = new ApolloClient({
+  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
+});
 /*
  * Class component: App
  *
@@ -58,7 +62,7 @@ class App extends React.Component {
           //Checks if the current user is authenticated
           Auth.currentAuthenticatedUser()
             .then(user => {
-              console.log(user);
+              console.log(user.username);
               let name = "";
               if (user.attributes.name) {
                 name = user.attributes.name;
@@ -66,7 +70,73 @@ class App extends React.Component {
                 name = user.attributes["custom:full_name"];
               }
 
+              let userFromDB = {};
               /* Add the user to the database */
+              client
+                .query({
+                  query: gql`
+                    {
+                      filterUser(filter: { cognitoUserId: { EQ: "${user.username}" } }) {
+                        cognitoUserId
+                        fullName
+                        email
+                        homeBeach
+                        homeBeachName
+                        latitude
+                        longitude
+                      }
+                    }
+                  `
+                })
+                .then(response => {
+                  console.log(
+                    `GRAPH QL USER LENGTH IS ${response.data.filterUser.length}`
+                  );
+                  console.log(
+                    `THIS IS FROM GRAPHQL :: ${JSON.stringify(
+                      response.data.filterUser
+                    )}`
+                  );
+                  if (response.data.filterUser.length) {
+                    // if the user is already available in the database
+                    userFromDB = response.data.filterUser[0];
+                    console.log(
+                      `GRAPHQL:: USER FROM DB IS ${JSON.stringify(userFromDB)}`
+                    );
+                  } else {
+                    // if the user is not available in the database it needs to be added
+                    client
+                      .mutate({
+                        mutation: gql`
+                      
+                        mutation {
+                          addUser(cognitoUserId: "${user.username}" fullName: "${name}" email: "${user.attributes.email}" latitude:${latitude} longitude:${longitude}) {
+                            cognitoUserId
+                            fullName
+                            email
+                            homeBeach
+                            homeBeachName
+                          }
+                        }
+                      
+                      `
+                      })
+                      .then(response => {
+                        userFromDB = response.data.addUser;
+                        console.log(
+                          `MUTATION USER FROM DB IS ${JSON.stringify(
+                            userFromDB
+                          )}`
+                        );
+                      })
+                      .catch(error => {
+                        console.log(`MUTATION ERROR IS ${error}`);
+                      });
+                  }
+                })
+                .catch(error => {
+                  console.log(`GRAPHQL ERROR IS ${error}`);
+                });
 
               /* Add the user to the datase ends */
 
@@ -86,14 +156,17 @@ class App extends React.Component {
                 location: {
                   latitude: latitude,
                   longitude: longitude
-                }
+                },
+                homeBeach: 8,
+                homeBeachName: "Lakeview Drive Boat Launch"
               });
+              localStorage.setItem("beachName", "Lakeview Drive Boat Launch");
               this.props.history.push("/home");
             })
             .catch(error => console.log("Not signed in" + error.message));
           break;
         case "customOAuthState":
-          console.log("APP :: CDM :: HUB :: CUSTOME OATUH STATE");
+          console.log("APP :: CDM :: HUB :: CUSTOM OATUH STATE");
           break;
         default:
           console.log("APP:: CDM :: HUB :: DEFAULT CASE");
@@ -125,6 +198,11 @@ class App extends React.Component {
     console.log(
       `APP :: RENDER :: isAuthenticated value is ${childProps.isAuthenticated}`
     );
+    console.log(`APP :: RENDER :: user value is ${this.props.user.username}`);
+    // if (this.props.user.username) {
+    //   GetUser(this.props.user.username);
+    // }
+
     return (
       <>
         <Route exact path="/" component={LandingForm} />
