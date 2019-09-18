@@ -97,7 +97,51 @@ const dummyData = [
 
 const AdvancedSearch = () => {
   const [searchData, setSearchBeaches] = useState(null);
+  const searchAmenities = localStorage.getItem("SearchAmenities");
+  console.log(searchAmenities);
+  console.log(typeof searchAmenities);
+  console.log(JSON.parse(searchAmenities).RESTROOMS);
+  //NameMobileWeb: { EQ: "Pelican State Beach" }
+  //${JSON.parse(searchAmenities).RESTROOMS ? 'RESTROOMS:{EQ:"Yes"}' : ""}
+  const beachesQuery = gql`
+    {
+      filter(filter: { RESTROOMS: { EQ: null } }) {
+        NameMobileWeb
+        DISTRICT
+        RESTROOMS
+        PARKING
+        DSABLDACSS
+        PCNC_AREA
+        VOLLEYBALL
+        DOG_FRIENDLY
+        EZ4STROLLERS
+        WwoAPI {
+          data {
+            weather {
+              hourly {
+                windspeedMiles
+                winddir16Point
+              }
+            }
+          }
+        }
+        StormAPI {
+          hours {
+            swellHeight {
+              value
+            }
+            waterTemperature {
+              value
+            }
+          }
+        }
+      }
+    }
+  `;
+  const { loading, error, data } = useQuery(beachesQuery);
+  console.log(searchAmenities);
 
+  console.log(data);
   useEffect(() => {
     setSearchBeaches(dummyData);
   }, {});
