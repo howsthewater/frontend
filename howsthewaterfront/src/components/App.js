@@ -58,7 +58,7 @@ class App extends React.Component {
         // If there is a sign-in then the user information will be added to the db and global state
         case "signIn":
           console.log(`APP::CDM::HUB SIGN IN :: LISTEN:: ${data}`);
-
+          let userFromDB = {};
           //Checks if the current user is authenticated
           Auth.currentAuthenticatedUser()
             .then(user => {
@@ -70,7 +70,6 @@ class App extends React.Component {
                 name = user.attributes["custom:full_name"];
               }
 
-              let userFromDB = {};
               /* Add the user to the database */
               client
                 .query({

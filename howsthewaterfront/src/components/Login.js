@@ -13,17 +13,25 @@ import { withRouter } from "react-router-dom";
 function Login(props) {
   const [emailVerifyError, setEmailVerifyError] = useState("");
   const handleSignIn = async () => {
-    console.log("SIGN IN CLICKED");
+    console.log("LOGIN:: HANDLE SIGN-IN :: SIGN IN CLICKED");
     try {
       const user = await Auth.signIn(values.email, values.password);
       console.log(user);
       props.history.push("/home");
     } catch (error) {
       console.log("Error is " + error.message);
-      //Incorrect username or password.
-      // An account with the given email already exists.
+
       if (error.message === "User is not confirmed.") {
+        // User is yet to verify his email address
         setEmailVerifyError("Please verify your email address.");
+      } else if (error.message === "Incorrect username or password.") {
+        //Incorrect username or password.
+        setEmailVerifyError("Please provide the correct credentials.");
+      } else if (
+        error.message === "An account with the given email already exists."
+      ) {
+        //An account with the given email already exists.
+        setEmailVerifyError("This email address already exists.");
       }
     }
   };
