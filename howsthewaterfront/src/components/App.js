@@ -5,6 +5,7 @@ import LoginForm from "./Login";
 import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
+import AdvancedSearch from "./AdvancedSearch";
 import Settings from "./Settings";
 import Routes from "./Routes";
 import { connect } from "react-redux";
@@ -130,6 +131,7 @@ class App extends React.Component {
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
+        <Route exact path="/advancedsearch" component={AdvancedSearch} />
         <Route exact path="/settings" component={Settings} />
         <Routes childProps={childProps} />
         {/* Test to make sure apollo is fetching data as expected, will change in future to 
