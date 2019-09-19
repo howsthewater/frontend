@@ -6,6 +6,7 @@ import { Auth } from "aws-amplify";
 class Header extends React.Component {
   onLogout = async e => {
     await Auth.signOut();
+    await localStorage.removeItem("htwUser");
     await this.props.logout();
     this.props.history.push("/");
   };

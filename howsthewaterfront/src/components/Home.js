@@ -5,11 +5,22 @@ import SearchResult from "./SearchResult";
 
 class Home extends React.Component {
   render() {
+    let loggedInUser = JSON.parse(localStorage.getItem("htwUser"));
+    let displayName = "";
+    if (loggedInUser) {
+      console.log(typeof loggedInUser);
+      console.log(loggedInUser.email);
+      displayName = loggedInUser.fullName;
+    } else {
+      displayName = this.props.user.name;
+    }
+
     return (
       <div>
         <Header />
-        Home Page {this.props.user.name}
-        <SearchResult />
+        {/* Home Page {this.props.user.name} */}
+        Home Page {displayName}
+        {/* <SearchResult /> */}
       </div>
     );
   }

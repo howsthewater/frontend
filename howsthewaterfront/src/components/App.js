@@ -100,6 +100,7 @@ class App extends React.Component {
                   if (response.data.filterUser.length) {
                     // if the user is already available in the database
                     userFromDB = response.data.filterUser[0];
+                    localStorage.setItem("htwUser", JSON.stringify(userFromDB));
                     console.log(
                       `GRAPHQL:: USER FROM DB IS ${JSON.stringify(userFromDB)}`
                     );
@@ -123,6 +124,10 @@ class App extends React.Component {
                       })
                       .then(response => {
                         userFromDB = response.data.addUser;
+                        localStorage.setItem(
+                          "htwUser",
+                          JSON.stringify(userFromDB)
+                        );
                         console.log(
                           `MUTATION USER FROM DB IS ${JSON.stringify(
                             userFromDB
@@ -160,7 +165,7 @@ class App extends React.Component {
                 homeBeach: 8,
                 homeBeachName: "Lakeview Drive Boat Launch"
               });
-              localStorage.setItem("beachName", "Lakeview Drive Boat Launch");
+              localStorage.setItem("beachName", "Marina del Rey Harbor");
               this.props.history.push("/home");
             })
             .catch(error => console.log("Not signed in" + error.message));

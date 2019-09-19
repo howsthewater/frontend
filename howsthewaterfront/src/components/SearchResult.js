@@ -100,7 +100,7 @@ const SearchResult = props => {
     }
   `;
   const { loading, error, data } = useQuery(beachQuery);
-
+  console.log(" ---------- " + data);
   // useEffect(() => {
   //   setBeachData(beachDummyData);
   // }, {});
