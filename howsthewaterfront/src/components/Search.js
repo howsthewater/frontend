@@ -129,7 +129,10 @@ const Search = props => {
         EZ4STROLLERS: values.kidFriendly
       };
       // console.log(advBeachParams);
-      localStorage.setItem("advBeachParams", advBeachesParams);
+      localStorage.setItem(
+        "advBeachesParams",
+        JSON.stringify(advBeachesParams)
+      );
       props.routerProps.history.push("/advancedsearch");
     }
   };
