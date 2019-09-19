@@ -20,7 +20,6 @@ import Footer from "./Footer";
  *
  */
 
-
 // need to pass props for router props, to pass to search
 const Landing = props => {
   return (
