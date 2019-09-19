@@ -89,21 +89,21 @@ const CopyrightFooter = () => {
               &times;
             </a>
             <div className="popup-text">
-              <h2 class="heading-secondary">Terms & Conditions</h2>
+              <h2 className="heading-secondary">Terms & Conditions</h2>
               <p className="paragraph">
                 Sint velit reprehenderit quidem possimus enim, cum dolorum
                 tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
                 quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
                 consectetur adipisicing elit.
               </p>
-              <h2 class="heading-secondary">Privacy Policy</h2>
+              <h2 className="heading-secondary">Privacy Policy</h2>
               <p className="paragraph">
                 Sint velit reprehenderit quidem possimus enim, cum dolorum
                 tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
                 quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
                 consectetur adipisicing elit.
               </p>
-              <h2 class="heading-secondary">Legal Statement</h2>
+              <h2 className="heading-secondary">Legal Statement</h2>
               <p className="paragraph">
                 Sint velit reprehenderit quidem possimus enim, cum dolorum
                 tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut

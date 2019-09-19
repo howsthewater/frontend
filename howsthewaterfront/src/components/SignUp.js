@@ -1,7 +1,9 @@
 import React from "react";
 import { Auth } from "aws-amplify";
 import "../styles/signup.css";
-import Header from "./Header";
+// import Header from "./Header";
+import logo from "../assets/Logo - htw.png";
+import logoWords from "../assets/Logo - htw - words.png";
 import Search from "./Search";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
@@ -34,7 +36,38 @@ function SignUp(props) {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
+      {/* Header Content for Landing page */}
+      <header>
+        {/* Logo section on the left of header */}
+        <div className="logo-container">
+          <a href="/">
+            <img className="logo" src={logo} alt="How's the water logo" />
+          </a>
+          <img className="logo-txt" src={logoWords} alt="How's the water" />
+        </div>
+
+        {/* Navigation section on the right of header */}
+        {/* Hamburger icon for smaller screen size */}
+        <label className="hamburger-icon" htmlFor="toggle">
+          &#9776;
+        </label>
+        <input type="checkbox" id="toggle" />
+
+        {/* Navigation links - header - right */}
+        <nav className="menu">
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="/login">Login</a>
+          <button
+            className="signup-button"
+            onClick={() => props.history.push("/signup")}
+          >
+            SIGN UP
+          </button>
+        </nav>
+      </header>
       <div className="search-body">
         <Search />
       </div>
@@ -62,41 +95,47 @@ function SignUp(props) {
             <div className="hr_bar" />
           </div>
           <form noValidate className="input-form" onSubmit={handleSubmit}>
-            {errors.fullname && <div className="error">{errors.fullname}</div>}
             <input
               className="input-txt"
               type="text"
               name="fullname"
-              placeholder="Full Name"
+              placeholder="Full Name*"
               value={values.fullname}
               onChange={handleChange}
             />
+            {errors.fullname && (
+              <div className="error-signup">{errors.fullname}</div>
+            )}
 
-            {errors.email && <div className="error">{errors.email}</div>}
             <input
               className="input-txt"
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address*"
               value={values.email}
               onChange={handleChange}
             />
-            {errors.password && <div className="error">{errors.password}</div>}
+            {errors.email && <div className="error-signup">{errors.email}</div>}
+
             <input
               className="input-txt"
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Password*"
               value={values.password}
               onChange={handleChange}
             />
-
+            {errors.password && (
+              <div className="error-signup">{errors.password}</div>
+            )}
             <button className="signup-btn">Sign Up</button>
           </form>
         </div>
-        <div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
           <Footer />
-        </div>
+        </footer>
+        {/* END OF FOOTER SECTION */}
       </div>
     </div>
   );

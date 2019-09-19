@@ -16,13 +16,15 @@
 .searchInput {
   height: 35px;
   font-style: normal;
+  color: #5b9279;
+  letter-spacing: 2px;
   font-weight: 500;
-  font-size: 12px;
-  border-radius: 0rem 0.2rem 0.2rem 0rem;
-  border: 0.1rem solid #2d728f;
+  font-size: 1.6rem;
+  border-radius: 3px;
   padding-left: 1rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
+  border: 1px solid #fff;
 }
 
 /* Styling for the search button - basic search  */
@@ -30,7 +32,6 @@
   cursor: pointer;
   width: 80px;
   height: 35px;
-  /* background: #2d728f; */
   background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
   border: 0.1rem solid #2d728f;
   border-radius: 0rem 0.2rem 0.2rem 0rem;
@@ -46,17 +47,20 @@
 /* This is the 'Advanced search' link. Its a button styled as a link.*/
 .searchResultsContainer {
   background: #ffffff;
-  width: 90%;
-  border-radius: 0rem 0.2rem 0.2rem 0rem;
-  border: 0.1rem solid #2d728f;
+  width: 600px;
   position: absolute;
-  margin-top: 5rem;
-  width: 54.45%;
+  margin-top: 3.6rem;
+  border-radius: 3px;
 }
 .searchResultText {
   font-size: 1.6rem;
+  color: #5b9279;
+  letter-spacing: 2px;
+  line-height: 20px;
+  padding: 10px;
+  font-weight: 500;
   cursor: pointer;
-  text-decoration: underline;
+  border-bottom: 0.5px solid #eee;
 }
 .aSearchToggleButton {
   cursor: pointer;
@@ -110,9 +114,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* background: #ffffff; */
   border-radius: 0rem 0.2rem 0.2rem 0rem;
-  /* border: 0.1rem solid #2d728f; */
   margin-top: 10px;
   animation-name: moveInFromLeft;
   animation-duration: 5s;
@@ -157,7 +159,9 @@
 /* Styling the icons for filter items */
 .icons {
   margin-right: 10px;
-  width: 7%;
+  /* width: 5%; */
+  height: 3rem;
+  filter: brightness(0) invert(1);
 }
 
 /* Styling the icon in a grid layout for advanced search */
@@ -184,8 +188,7 @@
   width: 10%;
   height: 35px;
   background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
-  /* border: 0.1rem solid #2d728f; */
-  /* border-radius: 0rem 0.2rem 0.2rem 0rem; */
+  border: 0.1rem solid #2d728f;
   border-radius: 5px;
   color: #ffffff;
   font-family: Ubuntu;
@@ -203,26 +206,16 @@
   display: flex;
 }
 .loadingText {
-  color: #000000;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 1.6rem;
 }
 .errorDiv {
   display: flex;
 }
 .errorText {
   color: #000000;
-}
-
-.searchResultsContainer {
-  background: #ffffff;
-  width: 90%;
-  border-radius: 0rem 0.2rem 0.2rem 0rem;
-  /* border: 0.1rem solid #2d728f; */
-  position: absolute;
-  margin-top: 5rem;
-  width: 54.45%;
-}
-.searchResultText {
-  font-size: 1.6rem;
 }
 
 /* Breakpoint for 992px */
