@@ -15,7 +15,7 @@
   margin: auto;
 } */
 .bodySection {
-  width: 85%;
+  width: 1200px;
   position: absolute;
   top: 245px;
   border: 1px solid red;
@@ -27,52 +27,21 @@
   margin-top: 3rem;
   border: 1px solid green;
 }
-
-.subSectionDiv {
-  width: 100%;
-  border-bottom: 0.1rem solid #7c8386;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2rem 3rem;
-}
-
-.firstDiv {
-  border-top: 0.1rem solid #7c8386;
-}
-
-.sElement {
-  font-size: 1.4rem;
-}
-
-.sHeader {
-  color: #215c74;
-  letter-spacing: 0.1rem;
-}
-.sText {
-  color: #7c8386;
-  letter-spacing: 0.1rem;
-}
-
-.graphSection {
-  width: 30%;
-}
-
-.graph {
-  background: rgba(76, 164, 194, 0.7);
-  height: 100%;
-}
-
 .leftSection {
   display: flex;
   flex-direction: column;
   width: 30%;
+  border: 1px solid blue;
 }
-
+.graphSection {
+  width: 30%;
+  border: 1px solid teal;
+}
 .rightSection {
   display: flex;
   flex-direction: column;
   width: 30%;
+  border: 1px solid yellow;
 }
 
 .middleSection {
@@ -81,6 +50,50 @@
   background: rgba(15, 178, 178, 0.2);
   padding: 0 2rem;
 }
+
+.subSectionDiv {
+  width: 100%;
+  border-bottom: 0.1rem solid #7c8386;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+.sHeader {
+  color: #215c74;
+  letter-spacing: 0.1rem;
+  width: 30%;
+  margin: 0 5px;
+  font-size: 1.4rem;
+  text-align: left;
+  vertical-align: middle;
+  padding-top: 2px;
+}
+.firstDiv {
+  border-top: 0.1rem solid #7c8386;
+}
+
+.sElement {
+  font-size: 1.4rem;
+  width: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.sText {
+  color: #7c8386;
+  letter-spacing: 0.1rem;
+  text-align: left;
+  margin: 0px 5px;
+  width: 50%;
+  font-size: 1.4rem;
+}
+
+.graph {
+  background: rgba(76, 164, 194, 0.7);
+  height: 100%;
+}
+
 .amenitiesText {
   font-size: 1.6rem;
   line-height: 1.8rem;

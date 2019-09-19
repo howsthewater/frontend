@@ -116,7 +116,59 @@ const SearchResult = props => {
         <Search routerProps={props} />
       </div>
       {/* SEARCH RESULT CONTENT SECTION - BEGIN */}
-      <div className="bodySection"></div>
+      <div className="bodySection">
+        <div className="topSection">
+          <div className="leftSection">
+            <div className="subSectionDiv firstDiv">
+              <h1 className="sHeader">Latitude</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">{data.filter ? beachData.LATITUDE : ""}</h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Longitude</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {" "}
+                {data.filter ? beachData.LONGITUDE : ""}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Region</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">{data.filter ? beachData.DISTRICT : ""}</h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader ">Sunrise</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? beachData.WwoAPI.data.weather[0].astronomy[0].sunrise
+                  : ""} */}{" "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Sunset</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? beachData.WwoAPI.data.weather[0].astronomy[0].sunset
+                  : ""} */}{" "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Day Weather</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? `${beachData.WwoAPI.data.current_condition[0].temp_F} F`
+                  : ""} */}{" "}
+              </h1>
+            </div>
+          </div>
+          <div className="graphSection"></div>
+          <div className="rightSection"></div>
+        </div>
+      </div>
       {/* FOOTER SECTION */}
       <footer className="footer">
         <Footer />
