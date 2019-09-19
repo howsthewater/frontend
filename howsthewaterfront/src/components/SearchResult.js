@@ -117,7 +117,9 @@ const SearchResult = props => {
       </div>
       {/* SEARCH RESULT CONTENT SECTION - BEGIN */}
       <div className="bodySection">
+        {/* TOP SECTION  */}
         <div className="topSection">
+          {/* TOP LEFT SECTION  */}
           <div className="leftSection">
             <div className="subSectionDiv firstDiv">
               <h1 className="sHeader">Latitude</h1>
@@ -165,8 +167,131 @@ const SearchResult = props => {
               </h1>
             </div>
           </div>
-          <div className="graphSection"></div>
-          <div className="rightSection"></div>
+
+          {/* TOP GRAPH SECTION */}
+          {/* GRAPH SECTION */}
+          <div className="graphSection">
+            <div className="graph"></div>
+          </div>
+
+          {/* TOP RIGHT SECTION */}
+          {/* RIGHT SECTION */}
+          <div className="rightSection">
+            <div className="subSectionDiv firstDiv">
+              <h1 className="sHeader">Low Tide</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? beachData.TideAPI.extremes[1].height.substring(0, 4) +
+                    " at: " +
+                    beachData.TideAPI.extremes[1].timestamp
+                      .split(" ")[1]
+                      .substring(0, 8)
+                  : ""} */}
+                {/* {data.filter
+                  ? beachData.TideAPI.extremes.filter(extreme => {
+                      for (let k in extreme) {
+                        if (extreme[k] === "low") return true;
+                      }
+                    }).length > 0
+                    ? ` height: ${beachData.TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "low") return true;
+                          }
+                        })[0]
+                        .height.substring(
+                          0,
+                          4
+                        )} at: ${beachData.TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "low") return true;
+                          }
+                        })[0]
+                        .timestamp.split(" ")[1]
+                        .substring(0, 8)}`
+                    : ""
+                  : ""} */}{" "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">High Tide</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? beachData.TideAPI.extremes[0].height.substring(0, 4) +
+                    " at: " +
+                    beachData.TideAPI.extremes[0].timestamp
+                      .split(" ")[1]
+                      .substring(0, 8)
+                  : ""} */}
+                {/* {data.filter
+                  ? beachData.TideAPI.extremes.filter(extreme => {
+                      for (let k in extreme) {
+                        if (extreme[k] === "high") return true;
+                      }
+                    }).length > 0
+                    ? ` height: ${beachData.TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "high") return true;
+                          }
+                        })[0]
+                        .height.substring(
+                          0,
+                          4
+                        )} at: ${beachData.TideAPI.extremes
+                        .filter(extreme => {
+                          for (let k in extreme) {
+                            if (extreme[k] === "high") return true;
+                          }
+                        })[0]
+                        .timestamp.split(" ")[1]
+                        .substring(0, 8)}`
+                    : ""
+                  : ""} */}{" "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Wind Speed</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? `${beachData.WwoAPI.data.weather[0].hourly[0].windspeedMiles} miles`
+                  : ""} */}
+                {"  "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Wind Dir.</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText sElement">
+                {/* {data.filter
+                  ? beachData.WwoAPI.data.weather[0].hourly[0].winddir16Point
+                  : ""} */}
+                {"  "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Swell Height</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? beachData.StormAPI.hours[0].swellHeight[0].value
+                  : ""} */}{" "}
+              </h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader">Water Temp.</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
+                {/* {data.filter
+                  ? beachData.StormAPI.hours[0].waterTemperature[0].value
+                  : ""} */}{" "}
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
       {/* FOOTER SECTION */}

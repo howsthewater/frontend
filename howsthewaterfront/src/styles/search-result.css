@@ -53,11 +53,11 @@
 
 .subSectionDiv {
   width: 100%;
-  border-bottom: 0.1rem solid #7c8386;
+  border-bottom: 0.1rem solid #eee;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .sHeader {
   color: #215c74;
@@ -70,7 +70,7 @@
   padding-top: 2px;
 }
 .firstDiv {
-  border-top: 0.1rem solid #7c8386;
+  border-top: 0.1rem solid #eee;
 }
 
 .sElement {
