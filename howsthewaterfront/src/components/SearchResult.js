@@ -105,7 +105,7 @@ const SearchResult = props => {
   //   setBeachData(beachDummyData);
   // }, {});
 
-  // console.log(data);
+  console.log(data);
   return (
     <div className="sResultContainer">
       Search Result Page

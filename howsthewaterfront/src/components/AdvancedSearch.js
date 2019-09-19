@@ -106,6 +106,7 @@ const AdvancedSearch = props => {
   const beachesQuery = gql`
     {
       filter(filter: { 
+        ${JSON.parse(advBeachesParams).RESTROOMS ? 'RESTROOMS:{EQ:"Yes"}' : ""}
         ${JSON.parse(advBeachesParams).PARKING ? 'PARKING:{EQ:"Yes"}' : ""}
         ${
           JSON.parse(advBeachesParams).DSABLDACSS ? 'DSABLDACSS:{EQ:"Yes"}' : ""
@@ -163,7 +164,7 @@ const AdvancedSearch = props => {
   // console.log(advBeachesParams);
 
   // console.log(data);
-  // console.log(data.filter);
+  console.log(data.filter);
   // useEffect(() => {
   //   setSearchBeaches(dummyData);
   // }, {});
