@@ -130,7 +130,7 @@ const Search = props => {
       };
       // console.log(advBeachParams);
       localStorage.setItem("advBeachParams", advBeachesParams);
-      props.routerProps.history.push("/advnacedsearch");
+      props.routerProps.history.push("/advancedsearch");
     }
   };
 
