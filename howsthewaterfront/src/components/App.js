@@ -163,9 +163,9 @@ class App extends React.Component {
                   longitude: longitude
                 },
                 homeBeach: 8,
-                homeBeachName: "Lakeview Drive Boat Launch"
+                homeBeachName: "Marina del Rey Harbor"
               });
-              localStorage.setItem("beachName", "Lakeview Drive Boat Launch");
+              localStorage.setItem("beachName", "Marina del Rey Harbor");
               this.props.history.push("/home");
             })
             .catch(error => console.log("Not signed in" + error.message));

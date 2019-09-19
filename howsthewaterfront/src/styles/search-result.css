@@ -15,9 +15,9 @@
   margin: auto;
 } */
 .bodySection {
-  width: 1200px;
+  width: 120rem;
   position: absolute;
-  top: 245px;
+  top: 195px;
   border: 1px solid red;
 }
 .topSection {
@@ -47,7 +47,7 @@
 .middleSection {
   display: flex;
   align-items: center;
-  background: rgba(15, 178, 178, 0.2);
+  background: hsla(198, 52%, 37%, 0.675);
   padding: 0 2rem;
 }
 
@@ -98,17 +98,17 @@
   font-size: 1.6rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  color: #215c74;
+  color: #ffffff;
   font-weight: 800;
-  margin: 0 1%;
+  margin: 0;
 }
 .iconsSection {
   display: flex;
-  width: 50rem;
+  width: 30rem;
   justify-content: space-around;
 }
 .icons {
-  height: 3rem;
+  height: 2.5rem;
 }
 
 .bottomSection {

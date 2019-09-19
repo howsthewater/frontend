@@ -293,6 +293,98 @@ const SearchResult = props => {
             </div>
           </div>
         </div>
+
+        {/* MIDDLE SECTION */}
+
+        <div className="middleSection">
+          <div className="amenitiesText">Amenities:</div>
+          <div className="iconsSection">
+            <img
+              className="icons"
+              src={toiletIcon}
+              alt="ttIcon"
+              style={
+                data.filter
+                  ? beachData.RESTROOMS === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+            <img
+              className="icons"
+              src={wheelchairIcon}
+              alt="wrIcon"
+              style={
+                data.filter
+                  ? beachData.DSABLDACSS === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+            <img
+              className="icons"
+              src={picnicIcon}
+              alt="pcIcon"
+              style={
+                data.filter
+                  ? beachData.PCNC_AREA === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+            <img
+              className="icons"
+              src={strollerIcon}
+              alt="srIcon"
+              style={
+                data.filter
+                  ? beachData.EZ4STROLLERS === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+            <img
+              className="icons"
+              src={parkingIcon}
+              alt="pgIcon"
+              style={
+                data.filter
+                  ? beachData.PARKING === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+            <img
+              className="icons"
+              src={dogIcon}
+              alt="dgIcon"
+              style={
+                data.filter
+                  ? beachData.DOG_FRIENDLY === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+            <img
+              className="icons"
+              src={volleyIcon}
+              alt="vyIcon"
+              style={
+                data.filter
+                  ? beachData.VOLLERYBALL === "Yes"
+                    ? { display: "block" }
+                    : { display: "none" }
+                  : { display: "none" }
+              }
+            />
+          </div>
+        </div>
       </div>
       {/* FOOTER SECTION */}
       <footer className="footer">
