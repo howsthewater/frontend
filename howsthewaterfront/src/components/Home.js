@@ -20,7 +20,7 @@ class Home extends React.Component {
         <Header />
         {/* Home Page {this.props.user.name} */}
         Home Page {displayName}
-        {/* <SearchResult /> */}
+        <SearchResult />
       </div>
     );
   }

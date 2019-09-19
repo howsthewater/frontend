@@ -165,7 +165,7 @@ class App extends React.Component {
                 homeBeach: 8,
                 homeBeachName: "Lakeview Drive Boat Launch"
               });
-              localStorage.setItem("beachName", "Marina del Rey Harbor");
+              localStorage.setItem("beachName", "Lakeview Drive Boat Launch");
               this.props.history.push("/home");
             })
             .catch(error => console.log("Not signed in" + error.message));
@@ -207,6 +207,7 @@ class App extends React.Component {
     return (
       <>
         <Route exact path="/" component={LandingForm} />
+        <Route exact path="/landing" component={LandingForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />

@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.searchBackground {
+/* .searchBackground {
   background: url("../assets/beach_surf.jpg") center;
   display: flex;
   width: 100%;
@@ -13,15 +13,19 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-}
+} */
 .bodySection {
   width: 85%;
+  position: absolute;
+  top: 245px;
+  border: 1px solid red;
 }
 .topSection {
   display: flex;
   justify-content: space-around;
   margin-bottom: 3rem;
   margin-top: 3rem;
+  border: 1px solid green;
 }
 
 .subSectionDiv {
