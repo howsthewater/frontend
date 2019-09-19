@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
+import SearchResult from "./SearchResult";
 
 class Home extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class Home extends React.Component {
       <div>
         <Header />
         Home Page {this.props.user.name}
+        <SearchResult />
       </div>
     );
   }

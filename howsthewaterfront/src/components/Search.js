@@ -25,7 +25,7 @@ const beachesQuery = gql`
   }
 `;
 
-const Search = () => {
+const Search = props => {
   const [values, setValues] = useState({
     textInput: "",
     restrooms: false,
@@ -40,11 +40,13 @@ const Search = () => {
   // beach values
   const [beaches, setBeaches] = useState([]);
   const { loading, error, data } = useQuery(beachesQuery);
+  const [pickedBeach, setPickedBeach] = useState("");
   //
   const searchInputHandler = e => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
     if (e.target.name === "textInput") {
+      setPickedBeach(e.target.value);
       let beaches = [...data.locations];
       beaches = beaches.filter(beach => {
         if (
@@ -76,8 +78,18 @@ const Search = () => {
         picnicArea: false
       });
     } else {
+      setBeaches([]);
+      setPickedBeach("");
+      setValues({ ...values, textInput: "" });
       setAdvancedSearch(true);
     }
+  };
+  const pickedBeachHandler = beachName => {
+    setValues({
+      ...values,
+      textInput: beachName
+    });
+    setPickedBeach(beachName);
   };
   const advancedSearchChangeHandler = e => {
     const { name } = e.target;
@@ -86,9 +98,42 @@ const Search = () => {
     setValues({ ...values, [name]: value });
   };
   const searchSubmit = e => {
+    // if advanced search is false
+    // if pickedbeach is in data.locations.NameMobileWeb
+    // set local storage beachname to pickedbeach,
+    // else alert warning.
+    // route to /searchresult
+    // if advanced search is true, route to /advancedsearchresult,
+    // set different params in local storage, have checks, etc.
     e.preventDefault();
-    console.log(values);
+    if (!advancedSearch) {
+      let beachNameList = data.locations.map(
+        locations => locations.NameMobileWeb
+      );
+      if (beachNameList.includes(pickedBeach)) {
+        localStorage.setItem("beachName", pickedBeach);
+        props.routerProps.history.push("/searchresult");
+        console.log("included");
+      } else {
+        alert("cannot find beach name");
+        console.log("not included");
+      }
+    } else {
+      let advBeachesParams = {
+        RESTROOMS: values.restrooms,
+        PARKING: values.parking,
+        DSABLDACSS: values.disabled,
+        PCNC_AREA: values.picnicArea,
+        VOLLEYBALL: values.volleyBall,
+        DOG_FRIENDLY: values.dogFriendly,
+        EZ4STROLLERS: values.kidFriendly
+      };
+      // console.log(advBeachParams);
+      localStorage.setItem("advBeachParams", advBeachesParams);
+      props.routerProps.history.push("/advancedsearch");
+    }
   };
+
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -99,7 +144,7 @@ const Search = () => {
     </div>
   ) : (
     <div className="searchContainer">
-      <div className="searchForm" onSubmit={searchSubmit}>
+      <form className="searchForm" onSubmit={searchSubmit}>
         <input
           className="searchInput"
           name="textInput"
@@ -117,10 +162,16 @@ const Search = () => {
         >
           Search
         </button>
-      </div>
+      </form>
       <div className="searchResultsContainer">
         {beaches.map(beach => (
-          <p className="searchResultText" key={Math.random()}>
+          <p
+            className="searchResultText"
+            onClick={() => {
+              pickedBeachHandler(beach.NameMobileWeb);
+            }}
+            key={Math.random()}
+          >
             {beach.NameMobileWeb}
           </p>
         ))}
