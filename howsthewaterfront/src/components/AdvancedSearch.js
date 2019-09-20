@@ -137,6 +137,8 @@ const AdvancedSearch = props => {
         VOLLEYBALL
         DOG_FRIENDLY
         EZ4STROLLERS
+        LATITUDE
+        LONGITUDE
         WwoAPI {
           data {
             weather {
@@ -309,9 +311,12 @@ const AdvancedSearch = props => {
                     />
                   </div>
                   <div className="beach-currentinfo beach-data">
-                    Wind Speed: {beach.windspeed} | Wind Direction:{" "}
-                    {beach.windDirection} | Swell Height: {beach.swellheight} |
-                    Temp: {beach.temp}
+                    Wind Speed:{" "}
+                    {beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles} |
+                    Wind Direction:{" "}
+                    {beach.WwoAPI.data.weather[0].hourly[0].winddir16Point} |
+                    Swell Height: {beach.StormAPI.hours[0].swellHeight[0].value}{" "}
+                    | Temp: {beach.StormAPI.hours[0].waterTemperature[0].value}
                   </div>
                 </div>
               ))
