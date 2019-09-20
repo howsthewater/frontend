@@ -4,16 +4,6 @@
   align-items: center;
 }
 
-/* .searchBackground {
-  background: url("../assets/beach_surf.jpg") center;
-  display: flex;
-  width: 100%;
-  height: 30rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-} */
 .bodySection {
   width: 120rem;
   height: 73vh;
@@ -43,8 +33,6 @@
 .amenitiesSection {
   display: flex;
   align-items: center;
-  /* background: hsla(198, 52%, 37%, 0.675); */
-  /* padding: 0 2rem; */
   width: 100%;
 }
 
@@ -56,6 +44,7 @@
   justify-content: space-evenly;
   padding: 0.5rem;
 }
+
 .sHeader {
   color: #215c74;
   letter-spacing: 0.1rem;
@@ -105,10 +94,7 @@
   justify-content: space-around;
 }
 .iconsSearchResult {
-  /* height: 2.5rem; */
-  /* width: 5%; */
   height: 2rem;
-  /* filter: brightness(0) invert(1); */
 }
 
 .iconsSearchResult:first-child {
@@ -122,9 +108,10 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 0 0 0.5rem 0;
-  border-top: 1px solid rgba(91, 146, 121, 0.7);
+  margin: 0 0 0 0;
+  border-top: 1px dotted rgba(91, 146, 121, 0.7);
   padding-top: 3rem;
+  border-bottom: 1px dotted rgba(91, 146, 121, 0.7);
 }
 
 .bottomSection .beach-info {
@@ -143,7 +130,6 @@
   justify-content: space-evenly;
   flex-wrap: nowrap;
   width: 40%;
-
   margin-left: 2rem;
 }
 
@@ -186,10 +172,7 @@
   }
 
   .graphSection {
-    order: -1;
-    width: 80%;
-    height: 40rem;
-    margin: 2rem;
+    display: none;
   }
 
   .leftSection {
@@ -204,6 +187,7 @@
 
   .bottomSection {
     flex-direction: column-reverse;
+    padding-bottom: 2rem;
   }
 
   .bottomSection .beach-pics {
@@ -220,9 +204,29 @@
     margin: 2% 0 0 0;
   }
 }
-@media (max-width: 576px) {
-  .graphSection {
-    width: 100%;
+
+@media (max-width: 768px) {
+  .topSection {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .firstDiv {
+    display: none;
+  }
+
+  .leftSection {
+    width: 80%;
+  }
+  .rightSection {
     margin: 0;
+    padding: 0;
+    width: 80%;
+  }
+}
+
+@media (max-width: 575px) {
+  .graphSection {
+    display: none;
   }
 }
