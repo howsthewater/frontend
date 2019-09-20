@@ -33,7 +33,7 @@
 }
 @media (max-width: 992px) {
   .footerDiv {
-    width: 70%;
+    width: 100%;
     flex-direction: column;
   }
   .copyright {
