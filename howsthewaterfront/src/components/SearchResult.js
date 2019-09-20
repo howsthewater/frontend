@@ -105,8 +105,16 @@ const SearchResult = props => {
   //   setBeachData(beachDummyData);
   // }, {});
 
-  // console.log(data);
-  return (
+  console.log(data);
+  return loading ? (
+    <div className="loadingDiv">
+      <h1 className="loadingText">Please wait... getting beaches</h1>
+    </div>
+  ) : error ? (
+    <div className="errorDiv">
+      <h1 className="errorText">There was an error retreiving the data</h1>
+    </div>
+  ) : (
     <div className="sResultContainer">
       Search Result Page
       <div className="searchBackground">
