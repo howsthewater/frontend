@@ -143,27 +143,27 @@ const SearchResult = props => {
               <h1 className="sHeader ">Sunrise</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
+                {data.filter
                   ? beachData.WwoAPI.data.weather[0].astronomy[0].sunrise
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader">Sunset</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
+                {data.filter
                   ? beachData.WwoAPI.data.weather[0].astronomy[0].sunset
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader">Day Weather</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
+                {data.filter
                   ? `${beachData.WwoAPI.data.current_condition[0].temp_F} F`
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
           </div>
@@ -188,7 +188,7 @@ const SearchResult = props => {
                       .split(" ")[1]
                       .substring(0, 8)
                   : ""} */}
-                {/* {data.filter
+                {data.filter
                   ? beachData.TideAPI.extremes.filter(extreme => {
                       for (let k in extreme) {
                         if (extreme[k] === "low") return true;
@@ -212,7 +212,7 @@ const SearchResult = props => {
                         .timestamp.split(" ")[1]
                         .substring(0, 8)}`
                     : ""
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
@@ -226,7 +226,7 @@ const SearchResult = props => {
                       .split(" ")[1]
                       .substring(0, 8)
                   : ""} */}
-                {/* {data.filter
+                {data.filter
                   ? beachData.TideAPI.extremes.filter(extreme => {
                       for (let k in extreme) {
                         if (extreme[k] === "high") return true;
@@ -250,45 +250,43 @@ const SearchResult = props => {
                         .timestamp.split(" ")[1]
                         .substring(0, 8)}`
                     : ""
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader">Wind Speed</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
+                {data.filter
                   ? `${beachData.WwoAPI.data.weather[0].hourly[0].windspeedMiles} miles`
-                  : ""} */}
-                {"  "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader">Wind Dir.</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText sElement">
-                {/* {data.filter
+                {data.filter
                   ? beachData.WwoAPI.data.weather[0].hourly[0].winddir16Point
-                  : ""} */}
-                {"  "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader">Swell Height</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
+                {data.filter
                   ? beachData.StormAPI.hours[0].swellHeight[0].value
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader">Water Temp.</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
+                {data.filter
                   ? beachData.StormAPI.hours[0].waterTemperature[0].value
-                  : ""} */}{" "}
+                  : ""}
               </h1>
             </div>
           </div>
@@ -314,7 +312,6 @@ const SearchResult = props => {
               <h2>About:</h2>
               <p>{data.filter ? beachData.DescriptionMobileWeb : ""}</p>
             </span>
-            {/* <div className="amenitiesSection"> */}
             <span>
               <div className="amenitiesText">Amenities:</div>
               <div className="iconsSection">
@@ -403,7 +400,6 @@ const SearchResult = props => {
                   }
                 />
               </div>
-              {/* </div> */}
             </span>
           </div>
           <div className="beach-pics">
