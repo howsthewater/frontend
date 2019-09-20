@@ -172,7 +172,15 @@ const AdvancedSearch = props => {
   // }, {});
   // console.log(searchData);
   // console.log(props);
-  return (
+  return loading ? (
+    <div className="loadingDiv">
+      <h1 className="loadingText">Please wait... getting beaches</h1>
+    </div>
+  ) : error ? (
+    <div className="errorDiv">
+      <h1 className="errorText">There was an error retreiving the data</h1>
+    </div>
+  ) : (
     <div className="container">
       Advanced Search Page
       {/****************  SUBJECT TO CHANGE **************/}
