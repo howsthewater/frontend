@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
-import CopyrightFooter from "./Footer";
+import Footer from "./Footer";
 import toiletIcon from "../assets/icons8-toilet-50.png";
 import parkingIcon from "../assets/icons8-parking-60.png";
 import wheelchairIcon from "../assets/icons8-wheelchair-48.png";
@@ -100,7 +100,10 @@ const SearchResult = props => {
     }
   `;
   const { loading, error, data } = useQuery(beachQuery);
-
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+  let beachData = JSON.parse(JSON.stringify(data.filter[0]));
+  console.log(" ---------- " + beachData.LONGITUDE);
   // useEffect(() => {
   //   setBeachData(beachDummyData);
   // }, {});
@@ -117,85 +120,89 @@ const SearchResult = props => {
   ) : (
     <div className="sResultContainer">
       Search Result Page
-      <div className="searchBackground">
+      <div className="search-body">
         <Search routerProps={props} />
       </div>
+      {/* SEARCH RESULT CONTENT SECTION - BEGIN */}
       <div className="bodySection">
+        {/* TOP SECTION  */}
         <div className="topSection">
+          {/* TOP LEFT SECTION  */}
           <div className="leftSection">
             <div className="subSectionDiv firstDiv">
-              <h1 className="sHeader sElement">Latitude</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
-                {data.filter ? data.filter[0].LATITUDE : ""}
-              </h1>
+              <h1 className="sHeader">Latitude</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">{data.filter ? beachData.LATITUDE : ""}</h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Longitude</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Longitude</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {" "}
-                {data.filter ? data.filter[0].LONGITUDE : ""}
-              </h1>
-            </div>
-            <div className="subSectionDiv sElement">
-              <h1 className="sHeader sElement">Region</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
-                {data.filter ? data.filter[0].DISTRICT : ""}
+                {data.filter ? beachData.LONGITUDE : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Sunrise</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Region</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">{data.filter ? beachData.DISTRICT : ""}</h1>
+            </div>
+            <div className="subSectionDiv">
+              <h1 className="sHeader ">Sunrise</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {data.filter
-                  ? data.filter[0].WwoAPI.data.weather[0].astronomy[0].sunrise
+                  ? beachData.WwoAPI.data.weather[0].astronomy[0].sunrise
                   : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Sunset</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Sunset</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {data.filter
-                  ? data.filter[0].WwoAPI.data.weather[0].astronomy[0].sunset
+                  ? beachData.WwoAPI.data.weather[0].astronomy[0].sunset
                   : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Day Weather</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Day Weather</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {data.filter
-                  ? `${data.filter[0].WwoAPI.data.current_condition[0].temp_F} F`
+                  ? `${beachData.WwoAPI.data.current_condition[0].temp_F} F`
                   : ""}
               </h1>
             </div>
-          </div>
-          <div className="graphSection">
-            <div className="graph" />
           </div>
 
+          {/* TOP GRAPH SECTION */}
+          {/* GRAPH SECTION */}
+          <div className="graphSection">
+            <div className="graph"></div>
+          </div>
+
+          {/* TOP RIGHT SECTION */}
+          {/* RIGHT SECTION */}
           <div className="rightSection">
             <div className="subSectionDiv firstDiv">
-              <h1 className="sHeader sElement">Low Tide</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Low Tide</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {/* {data.filter
-                  ? data.filter[0].TideAPI.extremes[1].height.substring(0, 4) +
+                  ? beachData.TideAPI.extremes[1].height.substring(0, 4) +
                     " at: " +
-                    data.filter[0].TideAPI.extremes[1].timestamp
+                    beachData.TideAPI.extremes[1].timestamp
                       .split(" ")[1]
                       .substring(0, 8)
                   : ""} */}
                 {data.filter
-                  ? data.filter[0].TideAPI.extremes.filter(extreme => {
+                  ? beachData.TideAPI.extremes.filter(extreme => {
                       for (let k in extreme) {
                         if (extreme[k] === "low") return true;
                       }
                     }).length > 0
-                    ? ` height: ${data.filter[0].TideAPI.extremes
+                    ? ` height: ${beachData.TideAPI.extremes
                         .filter(extreme => {
                           for (let k in extreme) {
                             if (extreme[k] === "low") return true;
@@ -204,7 +211,7 @@ const SearchResult = props => {
                         .height.substring(
                           0,
                           4
-                        )} at: ${data.filter[0].TideAPI.extremes
+                        )} at: ${beachData.TideAPI.extremes
                         .filter(extreme => {
                           for (let k in extreme) {
                             if (extreme[k] === "low") return true;
@@ -217,23 +224,23 @@ const SearchResult = props => {
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">High Tide</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">High Tide</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {/* {data.filter
-                  ? data.filter[0].TideAPI.extremes[0].height.substring(0, 4) +
+                  ? beachData.TideAPI.extremes[0].height.substring(0, 4) +
                     " at: " +
-                    data.filter[0].TideAPI.extremes[0].timestamp
+                    beachData.TideAPI.extremes[0].timestamp
                       .split(" ")[1]
                       .substring(0, 8)
                   : ""} */}
                 {data.filter
-                  ? data.filter[0].TideAPI.extremes.filter(extreme => {
+                  ? beachData.TideAPI.extremes.filter(extreme => {
                       for (let k in extreme) {
                         if (extreme[k] === "high") return true;
                       }
                     }).length > 0
-                    ? ` height: ${data.filter[0].TideAPI.extremes
+                    ? ` height: ${beachData.TideAPI.extremes
                         .filter(extreme => {
                           for (let k in extreme) {
                             if (extreme[k] === "high") return true;
@@ -242,7 +249,7 @@ const SearchResult = props => {
                         .height.substring(
                           0,
                           4
-                        )} at: ${data.filter[0].TideAPI.extremes
+                        )} at: ${beachData.TideAPI.extremes
                         .filter(extreme => {
                           for (let k in extreme) {
                             if (extreme[k] === "high") return true;
@@ -255,126 +262,194 @@ const SearchResult = props => {
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Wind Speed</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Wind Speed</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {data.filter
-                  ? `${data.filter[0].WwoAPI.data.weather[0].hourly[0].windspeedMiles} miles`
+                  ? `${beachData.WwoAPI.data.weather[0].hourly[0].windspeedMiles} miles`
                   : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Wind Direction</h1>
-              <h1 className="sHeader sElement">-</h1>
+              <h1 className="sHeader">Wind Dir.</h1>
+              <h1 className="sElement">-</h1>
               <h1 className="sText sElement">
                 {data.filter
-                  ? data.filter[0].WwoAPI.data.weather[0].hourly[0]
-                      .winddir16Point
+                  ? beachData.WwoAPI.data.weather[0].hourly[0].winddir16Point
                   : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Swell Height</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Swell Height</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {data.filter
-                  ? data.filter[0].StormAPI.hours[0].swellHeight[0].value
+                  ? beachData.StormAPI.hours[0].swellHeight[0].value
                   : ""}
               </h1>
             </div>
             <div className="subSectionDiv">
-              <h1 className="sHeader sElement">Water Temperature</h1>
-              <h1 className="sHeader sElement">-</h1>
-              <h1 className="sText sElement">
+              <h1 className="sHeader">Water Temp.</h1>
+              <h1 className="sElement">-</h1>
+              <h1 className="sText">
                 {data.filter
-                  ? data.filter[0].StormAPI.hours[0].waterTemperature[0].value
+                  ? beachData.StormAPI.hours[0].waterTemperature[0].value
                   : ""}
               </h1>
             </div>
           </div>
         </div>
-        <div className="middleSection">
-          <div className="amenitiesText">Amenities:</div>
-          <div className="iconsSection">
+
+        {/* BOTTOM SECTION */}
+
+        <div className="bottomSection">
+          <div className="beach-info">
+            <span>
+              <h2>Beach Name:</h2>
+              <p>{data.filter ? beachData.NameMobileWeb : ""}</p>
+            </span>
+            <span>
+              <h2>Address:</h2>
+              <p>{data.filter ? beachData.LocationMobileWeb : ""}</p>
+            </span>
+            <span>
+              <h2>Phone Number:</h2>
+              <p>{data.filter ? beachData.PHONE_NMBR : ""}</p>
+            </span>
+            <span>
+              <h2>About:</h2>
+              <p>{data.filter ? beachData.DescriptionMobileWeb : ""}</p>
+            </span>
+            <span>
+              <div className="amenitiesText">Amenities:</div>
+              <div className="iconsSection">
+                <img
+                  className="iconsSearchResult"
+                  src={toiletIcon}
+                  alt="ttIcon"
+                  style={
+                    data.filter
+                      ? beachData.RESTROOMS === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={wheelchairIcon}
+                  alt="wrIcon"
+                  style={
+                    data.filter
+                      ? beachData.DSABLDACSS === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={picnicIcon}
+                  alt="pcIcon"
+                  style={
+                    data.filter
+                      ? beachData.PCNC_AREA === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={strollerIcon}
+                  alt="srIcon"
+                  style={
+                    data.filter
+                      ? beachData.EZ4STROLLERS === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={parkingIcon}
+                  alt="pgIcon"
+                  style={
+                    data.filter
+                      ? beachData.PARKING === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={dogIcon}
+                  alt="dgIcon"
+                  style={
+                    data.filter
+                      ? beachData.DOG_FRIENDLY === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={volleyIcon}
+                  alt="vyIcon"
+                  style={
+                    data.filter
+                      ? beachData.VOLLERYBALL === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+              </div>
+            </span>
+          </div>
+          <div className="beach-pics">
             <img
-              className="icons"
-              src={toiletIcon}
-              alt="ttIcon"
+              src={data.filter ? beachData.Photo_1 : ""}
+              alt=""
               style={
                 data.filter
-                  ? data.filter[0].RESTROOMS === "Yes"
+                  ? beachData.Photo_1
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
               }
             />
             <img
-              className="icons"
-              src={wheelchairIcon}
-              alt="wrIcon"
+              src={data.filter ? beachData.Photo_2 : ""}
+              alt=""
               style={
                 data.filter
-                  ? data.filter[0].DSABLDACSS === "Yes"
+                  ? beachData.Photo_2
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
               }
             />
             <img
-              className="icons"
-              src={picnicIcon}
-              alt="pcIcon"
+              src={data.filter ? beachData.Photo_3 : ""}
+              alt=""
               style={
                 data.filter
-                  ? data.filter[0].PCNC_AREA === "Yes"
+                  ? beachData.Photo_3
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
               }
             />
             <img
-              className="icons"
-              src={strollerIcon}
-              alt="srIcon"
+              src={data.filter ? beachData.Photo_4 : ""}
+              alt=""
               style={
                 data.filter
-                  ? data.filter[0].EZ4STROLLERS === "Yes"
-                    ? { display: "block" }
-                    : { display: "none" }
-                  : { display: "none" }
-              }
-            />
-            <img
-              className="icons"
-              src={parkingIcon}
-              alt="pgIcon"
-              style={
-                data.filter
-                  ? data.filter[0].PARKING === "Yes"
-                    ? { display: "block" }
-                    : { display: "none" }
-                  : { display: "none" }
-              }
-            />
-            <img
-              className="icons"
-              src={dogIcon}
-              alt="dgIcon"
-              style={
-                data.filter
-                  ? data.filter[0].DOG_FRIENDLY === "Yes"
-                    ? { display: "block" }
-                    : { display: "none" }
-                  : { display: "none" }
-              }
-            />
-            <img
-              className="icons"
-              src={volleyIcon}
-              alt="vyIcon"
-              style={
-                data.filter
-                  ? data.filter[0].VOLLERYBALL === "Yes"
+                  ? beachData.Photo_4
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
@@ -382,74 +457,12 @@ const SearchResult = props => {
             />
           </div>
         </div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
+          <Footer />
+        </footer>
+        {/* END OF FOOTER SECTION */}
       </div>
-      <div className="bottomSection">
-        <div className="beach-info">
-          <span>
-            <h2>Beach Name:</h2>
-            <p>{data.filter ? data.filter[0].NameMobileWeb : ""}</p>
-          </span>
-          <span>
-            <h2>Address:</h2>
-            <p>{data.filter ? data.filter[0].LocationMobileWeb : ""}</p>
-          </span>
-          <span>
-            <h2>Phone Number:</h2>
-            <p>{data.filter ? data.filter[0].PHONE_NMBR : ""}</p>
-          </span>
-          <span>
-            <h2>About:</h2>
-            <p>{data.filter ? data.filter[0].DescriptionMobileWeb : ""}</p>
-          </span>
-        </div>
-        <div className="beach-pics">
-          <img
-            src={data.filter ? data.filter[0].Photo_1 : ""}
-            alt=""
-            style={
-              data.filter
-                ? data.filter[0].Photo_1
-                  ? { display: "block" }
-                  : { display: "none" }
-                : { display: "none" }
-            }
-          />
-          <img
-            src={data.filter ? data.filter[0].Photo_2 : ""}
-            alt=""
-            style={
-              data.filter
-                ? data.filter[0].Photo_2
-                  ? { display: "block" }
-                  : { display: "none" }
-                : { display: "none" }
-            }
-          />
-          <img
-            src={data.filter ? data.filter[0].Photo_3 : ""}
-            alt=""
-            style={
-              data.filter
-                ? data.filter[0].Photo_3
-                  ? { display: "block" }
-                  : { display: "none" }
-                : { display: "none" }
-            }
-          />
-          <img
-            src={data.filter ? data.filter[0].Photo_4 : ""}
-            alt=""
-            style={
-              data.filter
-                ? data.filter[0].Photo_4
-                  ? { display: "block" }
-                  : { display: "none" }
-                : { display: "none" }
-            }
-          />
-        </div>
-      </div>
-      <CopyrightFooter className="footerDiv" />
     </div>
   );
 };
