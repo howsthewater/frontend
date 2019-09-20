@@ -294,90 +294,158 @@ const SearchResult = props => {
           </div>
         </div>
 
-        {/* MIDDLE SECTION */}
+        {/* BOTTOM SECTION */}
 
-        <div className="middleSection">
-          <div className="amenitiesText">Amenities:</div>
-          <div className="iconsSection">
+        <div className="bottomSection">
+          <div className="beach-info">
+            <span>
+              <h2>Beach Name:</h2>
+              <p>{data.filter ? beachData.NameMobileWeb : ""}</p>
+            </span>
+            <span>
+              <h2>Address:</h2>
+              <p>{data.filter ? beachData.LocationMobileWeb : ""}</p>
+            </span>
+            <span>
+              <h2>Phone Number:</h2>
+              <p>{data.filter ? beachData.PHONE_NMBR : ""}</p>
+            </span>
+            <span>
+              <h2>About:</h2>
+              <p>{data.filter ? beachData.DescriptionMobileWeb : ""}</p>
+            </span>
+            {/* <div className="amenitiesSection"> */}
+            <span>
+              <div className="amenitiesText">Amenities:</div>
+              <div className="iconsSection">
+                <img
+                  className="iconsSearchResult"
+                  src={toiletIcon}
+                  alt="ttIcon"
+                  style={
+                    data.filter
+                      ? beachData.RESTROOMS === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={wheelchairIcon}
+                  alt="wrIcon"
+                  style={
+                    data.filter
+                      ? beachData.DSABLDACSS === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={picnicIcon}
+                  alt="pcIcon"
+                  style={
+                    data.filter
+                      ? beachData.PCNC_AREA === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={strollerIcon}
+                  alt="srIcon"
+                  style={
+                    data.filter
+                      ? beachData.EZ4STROLLERS === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={parkingIcon}
+                  alt="pgIcon"
+                  style={
+                    data.filter
+                      ? beachData.PARKING === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={dogIcon}
+                  alt="dgIcon"
+                  style={
+                    data.filter
+                      ? beachData.DOG_FRIENDLY === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+                <img
+                  className="iconsSearchResult"
+                  src={volleyIcon}
+                  alt="vyIcon"
+                  style={
+                    data.filter
+                      ? beachData.VOLLERYBALL === "Yes"
+                        ? { display: "block" }
+                        : { display: "none" }
+                      : { display: "none" }
+                  }
+                />
+              </div>
+              {/* </div> */}
+            </span>
+          </div>
+          <div className="beach-pics">
             <img
-              className="icons"
-              src={toiletIcon}
-              alt="ttIcon"
+              src={data.filter ? beachData.Photo_1 : ""}
+              alt=""
               style={
                 data.filter
-                  ? beachData.RESTROOMS === "Yes"
+                  ? beachData.Photo_1
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
               }
             />
             <img
-              className="icons"
-              src={wheelchairIcon}
-              alt="wrIcon"
+              src={data.filter ? beachData.Photo_2 : ""}
+              alt=""
               style={
                 data.filter
-                  ? beachData.DSABLDACSS === "Yes"
+                  ? beachData.Photo_2
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
               }
             />
             <img
-              className="icons"
-              src={picnicIcon}
-              alt="pcIcon"
+              src={data.filter ? beachData.Photo_3 : ""}
+              alt=""
               style={
                 data.filter
-                  ? beachData.PCNC_AREA === "Yes"
+                  ? beachData.Photo_3
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
               }
             />
             <img
-              className="icons"
-              src={strollerIcon}
-              alt="srIcon"
+              src={data.filter ? beachData.Photo_4 : ""}
+              alt=""
               style={
                 data.filter
-                  ? beachData.EZ4STROLLERS === "Yes"
-                    ? { display: "block" }
-                    : { display: "none" }
-                  : { display: "none" }
-              }
-            />
-            <img
-              className="icons"
-              src={parkingIcon}
-              alt="pgIcon"
-              style={
-                data.filter
-                  ? beachData.PARKING === "Yes"
-                    ? { display: "block" }
-                    : { display: "none" }
-                  : { display: "none" }
-              }
-            />
-            <img
-              className="icons"
-              src={dogIcon}
-              alt="dgIcon"
-              style={
-                data.filter
-                  ? beachData.DOG_FRIENDLY === "Yes"
-                    ? { display: "block" }
-                    : { display: "none" }
-                  : { display: "none" }
-              }
-            />
-            <img
-              className="icons"
-              src={volleyIcon}
-              alt="vyIcon"
-              style={
-                data.filter
-                  ? beachData.VOLLERYBALL === "Yes"
+                  ? beachData.Photo_4
                     ? { display: "block" }
                     : { display: "none" }
                   : { display: "none" }
@@ -385,12 +453,12 @@ const SearchResult = props => {
             />
           </div>
         </div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
+          <Footer />
+        </footer>
+        {/* END OF FOOTER SECTION */}
       </div>
-      {/* FOOTER SECTION */}
-      <footer className="footer">
-        <Footer />
-      </footer>
-      {/* END OF FOOTER SECTION */}
     </div>
   );
 };

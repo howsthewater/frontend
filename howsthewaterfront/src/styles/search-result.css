@@ -16,39 +16,36 @@
 } */
 .bodySection {
   width: 120rem;
+  height: 73vh;
   position: absolute;
   top: 195px;
-  border: 1px solid red;
 }
 .topSection {
   display: flex;
   justify-content: space-around;
   margin-bottom: 3rem;
   margin-top: 3rem;
-  border: 1px solid green;
 }
 .leftSection {
   display: flex;
   flex-direction: column;
   width: 30%;
-  border: 1px solid blue;
 }
 .graphSection {
   width: 30%;
-  border: 1px solid teal;
 }
 .rightSection {
   display: flex;
   flex-direction: column;
   width: 30%;
-  border: 1px solid yellow;
 }
 
-.middleSection {
+.amenitiesSection {
   display: flex;
   align-items: center;
-  background: hsla(198, 52%, 37%, 0.675);
-  padding: 0 2rem;
+  /* background: hsla(198, 52%, 37%, 0.675); */
+  /* padding: 0 2rem; */
+  width: 100%;
 }
 
 .subSectionDiv {
@@ -90,7 +87,7 @@
 }
 
 .graph {
-  background: rgba(76, 164, 194, 0.7);
+  background: hsla(180, 100%, 37%, 0.6);
   height: 100%;
 }
 
@@ -98,7 +95,7 @@
   font-size: 1.6rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  color: #ffffff;
+  color: #2d728f;
   font-weight: 800;
   margin: 0;
 }
@@ -107,59 +104,76 @@
   width: 30rem;
   justify-content: space-around;
 }
-.icons {
-  height: 2.5rem;
+.iconsSearchResult {
+  /* height: 2.5rem; */
+  /* width: 5%; */
+  height: 2rem;
+  /* filter: brightness(0) invert(1); */
+}
+
+.iconsSearchResult:first-child {
+  margin-left: 5rem;
 }
 
 .bottomSection {
   font-family: Ubuntu;
-  width: 85%;
+  width: 100%;
   letter-spacing: 0.1em;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 3% 0 0 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 0 0.5rem 0;
+  border-top: 1px solid rgba(91, 146, 121, 0.7);
+  padding-top: 3rem;
 }
 
 .bottomSection .beach-info {
-  width: 40%;
+  width: 50%;
+  height: 28vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin-left: 2rem;
+  margin-right: 7rem;
 }
 
 .bottomSection .beach-pics {
   display: flex;
-  justify-content: space-between;
-  margin: 0 0 0 5%;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  width: 40%;
+
+  margin-left: 2rem;
 }
 
 .bottomSection .beach-pics img {
   width: 30%;
+  margin: 2px;
 }
 
 .bottomSection .beach-info span {
-  height: 25%;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 0 0 8.5% 0;
+  /* flex-wrap: wrap; */
+  margin: 0 0 1.5rem 0;
 }
 
 .bottomSection .beach-info span h2 {
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #215c74;
   letter-spacing: 0.1em;
   margin: 0 0.5rem 0 0;
+  width: 15rem;
 }
 
 .bottomSection .beach-info span p {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #215c74;
-  letter-spacing: 0.1em;
+  width: 50rem;
 }
 
 .footerDiv {
