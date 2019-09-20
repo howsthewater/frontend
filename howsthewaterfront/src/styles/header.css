@@ -1,0 +1,104 @@
+.authenticated-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
+    
+h1 {
+    font-size: 2.5rem;
+    color: #2d728f;
+    padding-right: 65%;
+}
+
+a {
+    font-size: 1.5rem;
+    color: #2d728f;
+    text-decoration: none;
+}    
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    height: 5rem;
+}
+
+.settings {
+    border-bottom: .1rem solid #2d728f;
+    color: #2d728f;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.settings img {
+height: 2.6rem;
+}
+
+.settings a {
+    font-size: 2rem;
+}
+
+.profile {
+    margin-right: 7rem;
+}
+.profile:hover {
+    cursor: pointer;
+}
+
+.logo {
+    margin-left: 7rem;
+}
+
+.logout {
+    font-size: 2rem;
+    color: #2d728f;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logout img {
+    height: 2rem;
+}
+
+.menu {
+    position: absolute;
+    display: block;
+    z-index: 1;
+    min-width: 160px;
+    right: 1.75rem;
+    top: 5rem;
+    background-color: white;
+    padding-top: .5rem;
+}
+/* 
+.signup {
+    background-color: #2d728f;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    padding: 4px;
+    width: 7rem;
+}
+.signup:hover {
+    cursor: pointer;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+} */
+    
