@@ -156,11 +156,78 @@ header nav a {
 .beach-amenities {
   width: 20%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+}
+
+.icons {
+  margin: 0 0.2rem;
 }
 
 .beach-currentinfo {
   width: 40%;
   font-size: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .beach-region {
+    display: none;
+  }
+
+  .beach-amenities {
+    width: 20%;
+  }
+
+  .amenities {
+    width: 20%;
+  }
+
+  .beach-spot {
+    width: 30%;
+  }
+
+  .beachspot {
+    width: 30%;
+  }
+
+  .region {
+    display: none;
+  }
+
+  .icons {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .beach-amenities {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .beach-amenities {
+    width: 33%;
+  }
+
+  .amenities {
+    width: 33%;
+  }
+
+  .beach-spot {
+    width: 33%;
+  }
+
+  .beachspot {
+    width: 33%;
+  }
+
+  .beach-currentinfo {
+    width: 33%;
+  }
+
+  .currentsurf {
+    width: 33%;
+  }
 }

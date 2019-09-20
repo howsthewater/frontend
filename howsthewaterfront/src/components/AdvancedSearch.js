@@ -17,95 +17,117 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-const dummyData = [
-  {
-    NameMobileWeb: "aName",
-    DISTRICT: "aRegion",
-    RESTROOMS: "Yes",
-    PARKING: "No",
-    DSABLDACSS: "Yes",
-    PCNC_AREA: "Yes",
-    VOLLEYBALL: "No",
-    DOG_FRIENDLY: "No",
-    EZ4STROLLERS: "Yes",
-    windspeed: "something",
-    windDirection: "something else",
-    swellheight: "swell",
-    temp: "95"
-  },
-  {
-    NameMobileWeb: "aName",
-    DISTRICT: "aRegion",
-    RESTROOMS: "Yes",
-    PARKING: "No",
-    DSABLDACSS: "Yes",
-    PCNC_AREA: "Yes",
-    VOLLEYBALL: "No",
-    DOG_FRIENDLY: "No",
-    EZ4STROLLERS: "Yes",
-    windspeed: "something",
-    windDirection: "something else",
-    swellheight: "swell",
-    temp: "95"
-  },
-  {
-    NameMobileWeb: "aName",
-    DISTRICT: "aRegion",
-    RESTROOMS: "Yes",
-    PARKING: "No",
-    DSABLDACSS: "Yes",
-    PCNC_AREA: "No",
-    VOLLEYBALL: "No",
-    DOG_FRIENDLY: "No",
-    EZ4STROLLERS: "Yes",
-    windspeed: "something",
-    windDirection: "something else",
-    swellheight: "swell",
-    temp: "95"
-  },
-  {
-    NameMobileWeb: "aName",
-    DISTRICT: "aRegion",
-    RESTROOMS: "Yes",
-    PARKING: "No",
-    DSABLDACSS: "Yes",
-    PCNC_AREA: "Yes",
-    VOLLEYBALL: "Yes",
-    DOG_FRIENDLY: "Yes",
-    EZ4STROLLERS: "Yes",
-    windspeed: "something",
-    windDirection: "something else",
-    swellheight: "swell",
-    temp: "95"
-  },
-  {
-    NameMobileWeb: "aName",
-    DISTRICT: "aRegion",
-    RESTROOMS: "Yes",
-    PARKING: "No",
-    DSABLDACSS: "No",
-    PCNC_AREA: "Yes",
-    VOLLEYBALL: "Yes",
-    DOG_FRIENDLY: "Yes",
-    EZ4STROLLERS: "Yes",
-    windspeed: "something",
-    windDirection: "something else",
-    swellheight: "swell",
-    temp: "95"
-  }
-];
+// const dummyData = [
+//   {
+//     NameMobileWeb: "aName",
+//     DISTRICT: "aRegion",
+//     RESTROOMS: "Yes",
+//     PARKING: "No",
+//     DSABLDACSS: "Yes",
+//     PCNC_AREA: "Yes",
+//     VOLLEYBALL: "No",
+//     DOG_FRIENDLY: "No",
+//     EZ4STROLLERS: "Yes",
+//     windspeed: "something",
+//     windDirection: "something else",
+//     swellheight: "swell",
+//     temp: "95"
+//   },
+//   {
+//     NameMobileWeb: "aName",
+//     DISTRICT: "aRegion",
+//     RESTROOMS: "Yes",
+//     PARKING: "No",
+//     DSABLDACSS: "Yes",
+//     PCNC_AREA: "Yes",
+//     VOLLEYBALL: "No",
+//     DOG_FRIENDLY: "No",
+//     EZ4STROLLERS: "Yes",
+//     windspeed: "something",
+//     windDirection: "something else",
+//     swellheight: "swell",
+//     temp: "95"
+//   },
+//   {
+//     NameMobileWeb: "aName",
+//     DISTRICT: "aRegion",
+//     RESTROOMS: "Yes",
+//     PARKING: "No",
+//     DSABLDACSS: "Yes",
+//     PCNC_AREA: "No",
+//     VOLLEYBALL: "No",
+//     DOG_FRIENDLY: "No",
+//     EZ4STROLLERS: "Yes",
+//     windspeed: "something",
+//     windDirection: "something else",
+//     swellheight: "swell",
+//     temp: "95"
+//   },
+//   {
+//     NameMobileWeb: "aName",
+//     DISTRICT: "aRegion",
+//     RESTROOMS: "Yes",
+//     PARKING: "No",
+//     DSABLDACSS: "Yes",
+//     PCNC_AREA: "Yes",
+//     VOLLEYBALL: "Yes",
+//     DOG_FRIENDLY: "Yes",
+//     EZ4STROLLERS: "Yes",
+//     windspeed: "something",
+//     windDirection: "something else",
+//     swellheight: "swell",
+//     temp: "95"
+//   },
+//   {
+//     NameMobileWeb: "aName",
+//     DISTRICT: "aRegion",
+//     RESTROOMS: "Yes",
+//     PARKING: "No",
+//     DSABLDACSS: "No",
+//     PCNC_AREA: "Yes",
+//     VOLLEYBALL: "Yes",
+//     DOG_FRIENDLY: "Yes",
+//     EZ4STROLLERS: "Yes",
+//     windspeed: "something",
+//     windDirection: "something else",
+//     swellheight: "swell",
+//     temp: "95"
+//   }
+// ];
 
-const AdvancedSearch = () => {
-  const [searchData, setSearchBeaches] = useState(null);
-  const searchAmenities = localStorage.getItem("SearchAmenities");
-  console.log(searchAmenities);
-  console.log(typeof searchAmenities);
-  console.log(JSON.parse(searchAmenities).RESTROOMS);
+const AdvancedSearch = props => {
+  // const [searchData, setSearchBeaches] = useState(null);
+  const advBeachesParams = localStorage.getItem("advBeachesParams");
+  // console.log(advBeachesParams);
+  // console.log(typeof advBeachesParams);
+  // console.log(JSON.parse(advBeachesParams).RESTROOMS);
   //NameMobileWeb: { EQ: "Pelican State Beach" }
-  //${JSON.parse(searchAmenities).RESTROOMS ? 'RESTROOMS:{EQ:"Yes"}' : ""}
+  //${JSON.parse(advBeachesParams).PARKING ? 'PARKING:{EQ:"Yes"}' : ""}
   const beachesQuery = gql`
     {
-      filter(filter: { RESTROOMS: { EQ: null } }) {
+      filter(filter: { 
+        ${JSON.parse(advBeachesParams).RESTROOMS ? 'RESTROOMS:{EQ:"Yes"}' : ""}
+        ${JSON.parse(advBeachesParams).PARKING ? 'PARKING:{EQ:"Yes"}' : ""}
+        ${
+          JSON.parse(advBeachesParams).DSABLDACSS ? 'DSABLDACSS:{EQ:"Yes"}' : ""
+        }
+        ${JSON.parse(advBeachesParams).PCNC_AREA ? 'PCNC_AREA:{EQ:"Yes"}' : ""}
+        ${
+          JSON.parse(advBeachesParams).VOLLEYBALL ? 'VOLLEYBALL:{EQ:"Yes"}' : ""
+        }
+        ${
+          JSON.parse(advBeachesParams).DOG_FRIENDLY
+            ? 'DOG_FRIENDLY:{EQ:"Yes"}'
+            : ""
+        }
+        ${
+          JSON.parse(advBeachesParams).EZ4STROLLERS
+            ? 'EZ4STROLLERS:{EQ:"Yes"}'
+            : ""
+        }
+       },
+       pagination: {limit: 10}
+       ) {
         NameMobileWeb
         DISTRICT
         RESTROOMS
@@ -115,6 +137,8 @@ const AdvancedSearch = () => {
         VOLLEYBALL
         DOG_FRIENDLY
         EZ4STROLLERS
+        LATITUDE
+        LONGITUDE
         WwoAPI {
           data {
             weather {
@@ -139,14 +163,24 @@ const AdvancedSearch = () => {
     }
   `;
   const { loading, error, data } = useQuery(beachesQuery);
-  console.log(searchAmenities);
+  // console.log(advBeachesParams);
 
-  console.log(data);
-  useEffect(() => {
-    setSearchBeaches(dummyData);
-  }, {});
-  console.log(searchData);
-  return (
+  // console.log(data);
+  // console.log(data.filter);
+  // useEffect(() => {
+  //   setSearchBeaches(dummyData);
+  // }, {});
+  // console.log(searchData);
+  // console.log(props);
+  return loading ? (
+    <div className="loadingDiv">
+      <h1 className="loadingText">Please wait... getting beaches</h1>
+    </div>
+  ) : error ? (
+    <div className="errorDiv">
+      <h1 className="errorText">There was an error retreiving the data</h1>
+    </div>
+  ) : (
     <div className="container">
       Advanced Search Page
       {/****************  SUBJECT TO CHANGE **************/}
@@ -175,7 +209,7 @@ const AdvancedSearch = () => {
       </header>
       {/****************  SUBJECT TO CHANGE **************/}
       <div className="searchBackground">
-        <Search />
+        <Search routerProps={props} />
       </div>
       <div className="searchResults">
         {/* Component above results that lays out the columns*/}
@@ -189,8 +223,8 @@ const AdvancedSearch = () => {
         </div>
         <div className="DataContainer">
           {/* {data.map=>(div NameMobileWeb , div region, div, amenties, current surf)} */}
-          {searchData
-            ? searchData.map(beach => (
+          {data.filter
+            ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
                   <div className="beach-spot beach-data">
                     {beach.NameMobileWeb}
@@ -206,7 +240,7 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.RESTROOMS === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
@@ -218,7 +252,7 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.DSABLDACSS === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
@@ -230,7 +264,7 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.PCNC_AREA === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
@@ -242,7 +276,7 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.EZ4STROLLERS === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
@@ -254,7 +288,7 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.PARKING === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
@@ -266,7 +300,7 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.DOG_FRIENDLY === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
@@ -278,16 +312,19 @@ const AdvancedSearch = () => {
                       style={
                         beach
                           ? beach.toilet === "Yes"
-                            ? { display: "block" }
+                            ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
                       }
                     />
                   </div>
                   <div className="beach-currentinfo beach-data">
-                    Wind Speed: {beach.windspeed} | Wind Direction:{" "}
-                    {beach.windDirection} | Swell Height: {beach.swellheight} |
-                    Temp: {beach.temp}
+                    Wind Speed:{" "}
+                    {beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles} |
+                    Wind Direction:{" "}
+                    {beach.WwoAPI.data.weather[0].hourly[0].winddir16Point} |
+                    Swell Height: {beach.StormAPI.hours[0].swellHeight[0].value}{" "}
+                    | Temp: {beach.StormAPI.hours[0].waterTemperature[0].value}
                   </div>
                 </div>
               ))
