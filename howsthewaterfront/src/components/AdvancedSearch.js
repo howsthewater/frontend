@@ -166,7 +166,7 @@ const AdvancedSearch = props => {
   // console.log(advBeachesParams);
 
   // console.log(data);
-  console.log(data.filter);
+  // console.log(data.filter);
   // useEffect(() => {
   //   setSearchBeaches(dummyData);
   // }, {});
