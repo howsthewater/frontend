@@ -220,6 +220,115 @@ const AdvancedSearch = props => {
             <h2 className="table-headers currentsurf">Current Surf Info.</h2>
           </div>
         </div>
+        <div className="DataContainer">
+          {/* {data.map=>(div NameMobileWeb , div region, div, amenties, current surf)} */}
+          {data.filter
+            ? data.filter.map(beach => (
+                <div className="rowContainer" key={Math.random()}>
+                  <div className="beach-spot beach-data">
+                    {beach.NameMobileWeb}
+                  </div>
+                  <div className="beach-region beach-data">
+                    {beach.DISTRICT}
+                  </div>
+                  <div className="beach-amenities beach-data">
+                    <img
+                      className="icons-search-result"
+                      src={toiletIcon}
+                      alt="ttIcon"
+                      style={
+                        beach
+                          ? beach.RESTROOMS === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                    <img
+                      className="icons-search-result"
+                      src={wheelchairIcon}
+                      alt="wrIcon"
+                      style={
+                        beach
+                          ? beach.DSABLDACSS === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                    <img
+                      className="icons-search-result"
+                      src={picnicIcon}
+                      alt="pcIcon"
+                      style={
+                        beach
+                          ? beach.PCNC_AREA === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                    <img
+                      className="icons-search-result"
+                      src={strollerIcon}
+                      alt="srIcon"
+                      style={
+                        beach
+                          ? beach.EZ4STROLLERS === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                    <img
+                      className="icons-search-result"
+                      src={parkingIcon}
+                      alt="pgIcon"
+                      style={
+                        beach
+                          ? beach.PARKING === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                    <img
+                      className="icons-search-result"
+                      src={dogIcon}
+                      alt="dgIcon"
+                      style={
+                        beach
+                          ? beach.DOG_FRIENDLY === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                    <img
+                      className="icons-search-result"
+                      src={volleyIcon}
+                      alt="vyIcon"
+                      style={
+                        beach
+                          ? beach.toilet === "Yes"
+                            ? { display: "block", filter: "none" }
+                            : { display: "none" }
+                          : { display: "none" }
+                      }
+                    />
+                  </div>
+                  <div className="beach-currentinfo beach-data">
+                    Wind Speed:{" "}
+                    {beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles} |
+                    Wind Direction:{" "}
+                    {beach.WwoAPI.data.weather[0].hourly[0].winddir16Point} |
+                    Swell Height: {beach.StormAPI.hours[0].swellHeight[0].value}{" "}
+                    | Temp: {beach.StormAPI.hours[0].waterTemperature[0].value}
+                  </div>
+                </div>
+              ))
+            : ""}
+        </div>
         {/* FOOTER SECTION */}
         <footer className="footer">
           <Footer />
