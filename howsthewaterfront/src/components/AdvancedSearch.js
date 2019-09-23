@@ -210,6 +210,14 @@ const AdvancedSearch = props => {
       <div className="search-body">
         <Search />
       </div>
+      <div className="search-result-body">
+        <div className="search-result">Search result body</div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
+          <Footer />
+        </footer>
+        {/* END OF FOOTER SECTION */}
+      </div>
     </div>
   );
 };
