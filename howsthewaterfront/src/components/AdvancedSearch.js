@@ -211,7 +211,15 @@ const AdvancedSearch = props => {
         <Search />
       </div>
       <div className="search-result-body">
-        <div className="search-result">Search result body</div>
+        <div className="searchResults">
+          {/* Component above results that lays out the columns*/}
+          <div className="searchTable">
+            <h2 className="table-headers beachspot">Beach Spot</h2>
+            <h2 className="table-headers region">Region</h2>
+            <h2 className="table-headers amenities">Amenities</h2>
+            <h2 className="table-headers currentsurf">Current Surf Info.</h2>
+          </div>
+        </div>
         {/* FOOTER SECTION */}
         <footer className="footer">
           <Footer />

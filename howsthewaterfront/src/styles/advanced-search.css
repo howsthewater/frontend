@@ -80,7 +80,7 @@
 
 .search-result-body {
   position: absolute;
-  top: 200px;
+  top: 195px;
   width: 100%;
   height: 72vh;
   display: flex;
@@ -94,17 +94,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 .searchTable {
-  width: 95%;
-  padding: 2rem 0 2rem 0;
-  margin: 0 0 0 0;
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 0;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #cff0f0;
+  border: 1px solid red;
 }
 
 .beachspot {
@@ -124,7 +125,7 @@
 }
 
 .table-headers {
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   color: #215c74;
   text-align: center;
 }
@@ -178,7 +179,7 @@
   font-size: 1.5rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .beach-region {
     display: none;
   }
@@ -215,7 +216,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .beach-amenities {
     width: 33%;
   }
