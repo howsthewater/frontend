@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
-import CopyrightFooter from "./Footer";
+import Footer from "./Footer";
 import toiletIcon from "../assets/icons8-toilet-50.png";
 import parkingIcon from "../assets/icons8-parking-60.png";
 import wheelchairIcon from "../assets/icons8-wheelchair-48.png";
@@ -181,8 +181,7 @@ const AdvancedSearch = props => {
       <h1 className="errorText">There was an error retreiving the data</h1>
     </div>
   ) : (
-    <div className="container">
-      Advanced Search Page
+    <div>
       {/****************  SUBJECT TO CHANGE **************/}
       <header>
         {/* Logo section on the left of header */}
@@ -193,7 +192,7 @@ const AdvancedSearch = props => {
 
         {/* Navigation section on the right of header */}
         {/* Hamburger icon for smaller screen size */}
-        <label className="hamburger-icon" for="toggle">
+        <label className="hamburger-icon" htmlFor="toggle">
           &#9776;
         </label>
         <input type="checkbox" id="toggle" />
@@ -208,130 +207,9 @@ const AdvancedSearch = props => {
         </nav>
       </header>
       {/****************  SUBJECT TO CHANGE **************/}
-      <div className="searchBackground">
-        <Search routerProps={props} />
+      <div className="search-body">
+        <Search />
       </div>
-      <div className="searchResults">
-        {/* Component above results that lays out the columns*/}
-        <div className="searchTable">
-          <h2 className="table-headers beachspot">Beach Spot</h2>
-          <h2 className="table-headers region">Region</h2>
-          <h2 className="table-headers amenities">Amenities</h2>
-          <h2 className="table-headers currentsurf">
-            Current Surf Information
-          </h2>
-        </div>
-        <div className="DataContainer">
-          {/* {data.map=>(div NameMobileWeb , div region, div, amenties, current surf)} */}
-          {data.filter
-            ? data.filter.map(beach => (
-                <div className="rowContainer" key={Math.random()}>
-                  <div className="beach-spot beach-data">
-                    {beach.NameMobileWeb}
-                  </div>
-                  <div className="beach-region beach-data">
-                    {beach.DISTRICT}
-                  </div>
-                  <div className="beach-amenities beach-data">
-                    <img
-                      className="icons"
-                      src={toiletIcon}
-                      alt="ttIcon"
-                      style={
-                        beach
-                          ? beach.RESTROOMS === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                    <img
-                      className="icons"
-                      src={wheelchairIcon}
-                      alt="wrIcon"
-                      style={
-                        beach
-                          ? beach.DSABLDACSS === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                    <img
-                      className="icons"
-                      src={picnicIcon}
-                      alt="pcIcon"
-                      style={
-                        beach
-                          ? beach.PCNC_AREA === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                    <img
-                      className="icons"
-                      src={strollerIcon}
-                      alt="srIcon"
-                      style={
-                        beach
-                          ? beach.EZ4STROLLERS === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                    <img
-                      className="icons"
-                      src={parkingIcon}
-                      alt="pgIcon"
-                      style={
-                        beach
-                          ? beach.PARKING === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                    <img
-                      className="icons"
-                      src={dogIcon}
-                      alt="dgIcon"
-                      style={
-                        beach
-                          ? beach.DOG_FRIENDLY === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                    <img
-                      className="icons"
-                      src={volleyIcon}
-                      alt="vyIcon"
-                      style={
-                        beach
-                          ? beach.toilet === "Yes"
-                            ? { display: "block", filter: "none" }
-                            : { display: "none" }
-                          : { display: "none" }
-                      }
-                    />
-                  </div>
-                  <div className="beach-currentinfo beach-data">
-                    Wind Speed:{" "}
-                    {beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles} |
-                    Wind Direction:{" "}
-                    {beach.WwoAPI.data.weather[0].hourly[0].winddir16Point} |
-                    Swell Height: {beach.StormAPI.hours[0].swellHeight[0].value}{" "}
-                    | Temp: {beach.StormAPI.hours[0].waterTemperature[0].value}
-                  </div>
-                </div>
-              ))
-            : ""}
-        </div>
-      </div>
-      <CopyrightFooter />
     </div>
   );
 };
