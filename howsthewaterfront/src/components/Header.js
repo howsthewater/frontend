@@ -68,8 +68,8 @@ class Header extends React.Component {
           <h1>How's the water</h1>
           </div>
             <div className="links">
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/signup"><button className="signup">Sign Up</button></NavLink>
+            <a href="/login">Login</a>
+            <a href="/signup"><button className="signup">Sign Up</button></a>
           </div>
         </div> 
       </>
