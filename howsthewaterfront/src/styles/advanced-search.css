@@ -25,6 +25,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #cff0f0;
+  z-index: -1;
 }
 
 .beachspot {
@@ -48,6 +49,7 @@
   color: #215c74;
   text-align: center;
   letter-spacing: 0.2rem;
+  z-index: -1;
 }
 
 .DataContainer {
@@ -66,6 +68,7 @@
   align-items: center;
   padding: 1rem 0 1rem 0;
   border-bottom: 1px solid #cccccc;
+  z-index: -1;
 }
 
 .beach-data {
@@ -73,6 +76,7 @@
   color: #215c74;
   font-family: Ubuntu;
   font-size: 1.2rem;
+  z-index: -1;
 }
 
 .beach-spot {
@@ -80,11 +84,13 @@
   font-weight: 700;
   text-align: left;
   padding-left: 2rem;
+  z-index: -1;
 }
 
 .beach-region {
   width: 10%;
   text-align: left;
+  z-index: -1;
 }
 
 .beach-amenities {
@@ -92,11 +98,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: -1;
 }
 
 .icons-search-result {
   margin: 0 0.3rem;
   height: 2rem;
+  z-index: -1;
 }
 
 .beach-currentinfo {
@@ -104,6 +112,7 @@
   font-size: 1.2rem;
   text-align: center;
   padding-left: 2rem;
+  z-index: -1;
 }
 
 @media (max-width: 992px) {
