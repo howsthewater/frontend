@@ -11,6 +11,7 @@ import picnicIcon from "../assets/icons8-picnic-table-50.png";
 import surf_header from "../assets/beach_surf_header.jpg";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
+import { withRouter } from "react-router-dom";
 // graphql stuff
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
@@ -209,7 +210,7 @@ const AdvancedSearch = props => {
       </header>
       {/****************  SUBJECT TO CHANGE **************/}
       <div className="searchBackground">
-        <Search routerProps={props} />
+        <Search />
       </div>
       <div className="searchResults">
         {/* Component above results that lays out the columns*/}
@@ -336,4 +337,4 @@ const AdvancedSearch = props => {
   );
 };
 
-export default AdvancedSearch;
+export default withRouter(AdvancedSearch);

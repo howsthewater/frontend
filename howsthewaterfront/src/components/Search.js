@@ -6,6 +6,7 @@ import strollerIcon from "../assets/icons8-stroller-50.png";
 import dogIcon from "../assets/icons8-dog-paw-64.png";
 import volleyIcon from "../assets/icons8-volleyball-player-50.png";
 import picnicIcon from "../assets/icons8-picnic-table-50.png";
+import { withRouter } from "react-router-dom";
 import "../styles/search.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
@@ -112,7 +113,7 @@ const Search = props => {
       );
       if (beachNameList.includes(pickedBeach)) {
         localStorage.setItem("beachName", pickedBeach);
-        props.routerProps.history.push("/searchresult");
+        props.history.push("/searchresult");
         console.log("included");
       } else {
         alert("cannot find beach name");
@@ -133,7 +134,7 @@ const Search = props => {
         "advBeachesParams",
         JSON.stringify(advBeachesParams)
       );
-      props.routerProps.history.push("/advancedsearch");
+      props.history.push("/advancedsearch");
     }
   };
 
@@ -284,4 +285,4 @@ const Search = props => {
   );
 };
 
-export default Search;
+export default withRouter(Search);
