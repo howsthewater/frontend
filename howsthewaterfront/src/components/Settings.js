@@ -215,8 +215,8 @@ const Settings = () => {
   };
 
   return (
-    <Header />
     <div className="settingsContainer">
+      <Header />
       <div className="settingsDiv">
         <span className="dot0" />
         <span className="dot1" />
