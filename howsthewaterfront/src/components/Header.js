@@ -32,49 +32,55 @@ class Header extends React.Component {
     this.setState({ showMenu: !this.state.showMenu })
   }
 
-  render() {
-    return (
-      <>
-       {this.props.isAuthenticated &&  
-        <div className="authenticated-header">
-            <img src={Logo} className="logo" alt="logo" onClick={this.returnHome} />
-            <h1>How's the water</h1>
-            Hi, {this.props.user.name}
-            <img src={IconName} className="profile" alt="profile" onClick={this.toggleDropDown} />
-            {
-              this.state.showMenu 
-                ? (
-                  <div className="menu">
-                    <div className="settings">
-                      <a href="/settings">Settings</a>
-                      <img src={IconSettings} alt="settings" />
-                    </div>
-                    <div className="logout" onClick={this.onLogout}>
-                      Logout
-                      <img src={IconLogout} alt="sign out" />
-                    </div>
-                  </div>
-                )
-                : (
-                  null
-                )
-              }
-        </div>
-      }
-      
-         <div className="unauthenticated-header">
-          <div className="logo-text">
-          <img src={Logo} alt="logo" />
-          <h1>How's the water</h1>
-          </div>
-            <div className="links">
-            <a href="/login">Login</a>
-            <a href="/signup"><button className="signup">Sign Up</button></a>
-          </div>
-        </div> 
-      </>
-    );
-  }
+  render() {
+    return (
+      <>
+        {this.props.isAuthenticated ? (
+          <div className="authenticated-header">
+            <img
+              src={Logo}
+              className="logo"
+              alt="logo"
+              onClick={this.returnHome}
+            />
+            <h1>How's the water</h1>
+            Hi, {this.props.user.name}
+            <img
+              src={IconName}
+              className="profile"
+              alt="profile"
+              onClick={this.toggleDropDown}
+            />
+            {this.state.showMenu ? (
+              <div className="menu">
+                <div className="settings">
+                  <a href="/settings">Settings</a>
+                  <img src={IconSettings} alt="settings" />
+                </div>
+                <div className="logout" onClick={this.onLogout}>
+                  Logout
+                  <img src={IconLogout} alt="sign out" />
+                </div>
+              </div>
+            ) : null}
+          </div>
+        ) : (
+          <div className="unauthenticated-header">
+            <div className="logo-text">
+              <img src={Logo} alt="logo" />
+              <h1>How's the water</h1>
+            </div>
+            <div className="links">
+              <a href="/login">Login</a>
+              <a href="/signup">
+                <button className="signup">Sign Up</button>
+              </a>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
 }
 
 const mapStateToProps = state => {
