@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "../styles/settings.css";
 import styled from "styled-components";
+import validateSettings from "./helper/validateSettings";
+import useSettingsForm from "./helper/useSettingsForm";
+// import { settings } from "cluster";
 // import folderIcon from "../assets/icons8-folder-52.png";
 // styling
 // const SettingsContainer = styled.div`
@@ -193,6 +196,7 @@ const Settings = () => {
     imageInput: null
   });
   const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
+  
 
   const formChangeHandler = e => {
     const { name, value } = e.target;
@@ -213,6 +217,8 @@ const Settings = () => {
     }
   };
 
+  const { settingsValues, handleChange, errors } = useSettingsForm(validateSettings);
+
   return (
     <div className="settingsContainer">
       <div className="settingsDiv">
@@ -228,7 +234,7 @@ const Settings = () => {
             your persona for easy search. Items marked (*) are mandatory.
           </p>
         </div>
-        <form className="settingsForm">
+        <form className="settingsForm" noValidate>
           <label className="inputLabel">Full Name*: </label>
           <input
             className="inputField"
@@ -236,9 +242,12 @@ const Settings = () => {
             name="nameInput"
             type="text"
             onChange={formChangeHandler}
-            value={values.nameInput}
+            value={values.nameInput || ""}
             placeholder="Name Input..."
           />
+          {errors.fullname && (
+            <div className="error">{errors.fullname}</div>
+          )}
           <label className="inputLabel">Mobile Number: </label>
           <input
             className="inputField"
@@ -246,10 +255,13 @@ const Settings = () => {
             name="phoneInput"
             type="tel"
             onChange={formChangeHandler}
-            value={values.phoneInput}
+            value={values.phoneInput || ""}
             placeholder="xxx-xxx-xxxx"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           />
+          {errors.mobileNumber && (
+            <div className="error">{errors.mobileNumber}</div>
+          )}
           <label className="inputLabel">
             Base beach spot/ surf spot in California*:{" "}
           </label>
