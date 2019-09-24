@@ -2,7 +2,7 @@ import React from "react";
 import { logout } from "../actions";
 import { connect } from "react-redux";
 import { Auth } from "aws-amplify";
-import Logo from '../assets/logo_white.png';
+import Logo from '../assets/Logo - htw.png';
 import { withRouter } from 'react-router-dom';
 // import Settings from './Settings';
 import IconName from '../assets/icons8-name-64.png';

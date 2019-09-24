@@ -1,79 +1,78 @@
 .authenticated-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin: 1rem 0 1rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 0 1rem 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #2d728f
     }
     
-    h1 {
-        font-size: 2.5rem;
-        color: #2d728f;
-        padding-right: 65%;
-    }
-    
-    a {
-        font-size: 1.5rem;
-        color: #2d728f;
-        text-decoration: none;
+    a {
+        font-size: 1.5rem;
+        color: #2d728f;
+        text-decoration: none;
     }
     
     a:hover {
-        text-decoration: underline;
+        text-decoration: underline;
     }
     
     img {
-        height: 5rem;
+        height: 5rem;
     }
     
     .settings {
-        border-bottom: .1rem solid #2d728f;
-        color: #2d728f;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        border-bottom: .1rem solid #2d728f;
+        color: #2d728f;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
     }
     
     .settings img {
-        height: 2.6rem;
+        height: 2.6rem;
     }
     
     .settings a {
-        font-size: 2rem;
+        font-size: 2rem;
     }
     
     .profile {
-        margin-right: 7rem;
+        margin-right: 7rem;
     }
     .profile:hover {
-        cursor: pointer;
+        cursor: pointer;
     }
     
     .logo {
-        margin-left: 7rem;
+        margin-left: 7rem;
     }
     
     .logout {
-        font-size: 2rem;
-        color: #2d728f;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        font-size: 2rem;
+        color: #2d728f;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
     }
     
     .logout img {
-        height: 2rem;
+        height: 2rem;
     }
     
     .menu {
-        position: absolute;
-        display: block;
-        z-index: 1;
-        min-width: 160px;
-        right: 1.75rem;
-        top: 5rem;
-        background-color: white;
-        padding-top: .5rem;
+        position: absolute;
+        display: block;
+        z-index: 1;
+        min-width: 160px;
+        right: 1.75rem;
+        top: 5rem;
+        background-color: white;
+        padding-top: .5rem;
     }
     /* 
     .signup {
