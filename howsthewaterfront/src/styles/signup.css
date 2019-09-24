@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  z-index: -1;
 }
 
 .signin-body {
@@ -19,7 +18,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  z-index: -1;
 }
 
 .signup-content {
@@ -34,7 +32,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  z-index: -1;
 }
 
 /* Shared */
@@ -51,7 +48,6 @@
   border-radius: 0.2em;
   font-size: 16px;
   color: #fff;
-  z-index: -1;
 }
 .loginBtn:before {
   content: "";
@@ -61,7 +57,6 @@
   left: 0;
   width: 34px;
   height: 100%;
-  z-index: -1;
 }
 .loginBtn:focus {
   outline: none;
@@ -77,7 +72,6 @@
   /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
   text-shadow: 0 -1px 0 #354c8c;
   margin: 20px 0 10px 0;
-  z-index: -1;
 }
 .loginBtn--facebook:before {
   border-right: #364e92 1px solid;
@@ -96,7 +90,6 @@
   background: #dd4b39;
   padding: 0 60px 0 50px;
   margin: 10px 0 5px 0;
-  z-index: -1;
 }
 .loginBtn--google:before {
   border-right: #bb3f30 1px solid;
@@ -113,7 +106,6 @@
   height: 20px;
   border-bottom: 0.5px solid #000000;
   margin-bottom: 20px;
-  z-index: -1;
 }
 
 .signup-btn {
