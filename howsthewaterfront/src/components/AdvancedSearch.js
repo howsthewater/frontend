@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
-import CopyrightFooter from "./Footer";
+import Footer from "./Footer";
 import toiletIcon from "../assets/icons8-toilet-50.png";
 import parkingIcon from "../assets/icons8-parking-60.png";
 import wheelchairIcon from "../assets/icons8-wheelchair-48.png";
@@ -182,8 +182,7 @@ const AdvancedSearch = props => {
       <h1 className="errorText">There was an error retreiving the data</h1>
     </div>
   ) : (
-    <div className="container">
-      Advanced Search Page
+    <div>
       {/****************  SUBJECT TO CHANGE **************/}
       <header>
         {/* Logo section on the left of header */}
@@ -194,7 +193,7 @@ const AdvancedSearch = props => {
 
         {/* Navigation section on the right of header */}
         {/* Hamburger icon for smaller screen size */}
-        <label className="hamburger-icon" for="toggle">
+        <label className="hamburger-icon" htmlFor="toggle">
           &#9776;
         </label>
         <input type="checkbox" id="toggle" />
@@ -209,18 +208,20 @@ const AdvancedSearch = props => {
         </nav>
       </header>
       {/****************  SUBJECT TO CHANGE **************/}
-      <div className="searchBackground">
+
+      <div className="search-body">
+
         <Search />
       </div>
-      <div className="searchResults">
-        {/* Component above results that lays out the columns*/}
-        <div className="searchTable">
-          <h2 className="table-headers beachspot">Beach Spot</h2>
-          <h2 className="table-headers region">Region</h2>
-          <h2 className="table-headers amenities">Amenities</h2>
-          <h2 className="table-headers currentsurf">
-            Current Surf Information
-          </h2>
+      <div className="search-result-body">
+        <div className="searchResults">
+          {/* Component above results that lays out the columns*/}
+          <div className="searchTable">
+            <h2 className="table-headers beachspot">Beach Spot</h2>
+            <h2 className="table-headers region">Region</h2>
+            <h2 className="table-headers amenities">Amenities</h2>
+            <h2 className="table-headers currentsurf">Current Surf Info.</h2>
+          </div>
         </div>
         <div className="DataContainer">
           {/* {data.map=>(div NameMobileWeb , div region, div, amenties, current surf)} */}
@@ -235,7 +236,7 @@ const AdvancedSearch = props => {
                   </div>
                   <div className="beach-amenities beach-data">
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={toiletIcon}
                       alt="ttIcon"
                       style={
@@ -247,7 +248,7 @@ const AdvancedSearch = props => {
                       }
                     />
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={wheelchairIcon}
                       alt="wrIcon"
                       style={
@@ -259,7 +260,7 @@ const AdvancedSearch = props => {
                       }
                     />
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={picnicIcon}
                       alt="pcIcon"
                       style={
@@ -271,7 +272,7 @@ const AdvancedSearch = props => {
                       }
                     />
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={strollerIcon}
                       alt="srIcon"
                       style={
@@ -283,7 +284,7 @@ const AdvancedSearch = props => {
                       }
                     />
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={parkingIcon}
                       alt="pgIcon"
                       style={
@@ -295,7 +296,7 @@ const AdvancedSearch = props => {
                       }
                     />
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={dogIcon}
                       alt="dgIcon"
                       style={
@@ -307,7 +308,7 @@ const AdvancedSearch = props => {
                       }
                     />
                     <img
-                      className="icons"
+                      className="icons-search-result"
                       src={volleyIcon}
                       alt="vyIcon"
                       style={
@@ -331,8 +332,12 @@ const AdvancedSearch = props => {
               ))
             : ""}
         </div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
+          <Footer />
+        </footer>
+        {/* END OF FOOTER SECTION */}
       </div>
-      <CopyrightFooter />
     </div>
   );
 };
