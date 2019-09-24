@@ -35,7 +35,7 @@ class Header extends React.Component {
   render() {
     return (
       <>
-      {/* {this.props.isAuthenticated &&  */}
+       {this.props.isAuthenticated &&  
         <div className="authenticated-header">
             <img src={Logo} className="logo" alt="logo" onClick={this.returnHome} />
             <h1>How's the water</h1>
@@ -60,18 +60,18 @@ class Header extends React.Component {
                 )
               }
         </div>
-      {/* } */}
+      }
       
-        {/* <div className="unauthenticated-header">
-        //   <div className="logo-text">
-        //     <img src={Logo} alt="logo" />
-        //     <h1>How's the water</h1>
-        //   </div>
-        //   <div className="links">
-        //     <NavLink to="/login">Login</NavLink>
-        //     <NavLink to="/signup"><button className="signup">Sign Up</button></NavLink>
-        //   </div>
-        // </div> */}
+         <div className="unauthenticated-header">
+          <div className="logo-text">
+          <img src={Logo} alt="logo" />
+          <h1>How's the water</h1>
+          </div>
+            <div className="links">
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/signup"><button className="signup">Sign Up</button></NavLink>
+          </div>
+        </div> 
       </>
     );
   }
