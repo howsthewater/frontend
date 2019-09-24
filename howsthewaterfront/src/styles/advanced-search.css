@@ -1,101 +1,31 @@
-.container {
+.search-result-body {
+  position: absolute;
+  top: 195px;
   width: 100%;
-}
-
-header {
-  height: 6vh;
+  height: 72vh;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid hsla(153, 23%, 46%, 0.5);
-  position: sticky;
-  top: 0px;
-  background-color: #fff;
-  text-transform: uppercase;
-  z-index: 30;
-  box-shadow: 0 0.2rem 0.2rem hsla(153, 23%, 46%, 0.5);
+  justify-content: flex-start;
 }
-
-/* Container for the logo in the left. This will hold the drop and text logo. */
-.logo-container {
-  margin-left: 90px;
-  display: flex;
-  width: 200px;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 100%;
-  position: relative;
-}
-
-/* This is class for the drop shaped image logo. */
-.logo {
-  height: 40px;
-  width: 40px;
-}
-
-/* This is image logo for the text - How's the water */
-.logo-txt {
-  height: 15px;
-  width: 150px;
-}
-
-/* Navigation menu on the right hand side of the header */
-.menu {
-  width: 450px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 90px;
-}
-
-/* Link decoration styling for the navigation items */
-header nav a {
-  text-decoration: none;
-  color: #2d728f;
-  letter-spacing: 1px;
-  font-style: bold;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-/* The sign-up button in the header - top right. */
-.signup-button {
-  width: 70px;
-  height: 30px;
-  color: #ffffff;
-  /* background-color: #2d728f; */
-  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
-}
-
-.searchBackground {
-  margin: 0 0 3% 0;
-}
-
 .searchResults {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 .searchTable {
   width: 95%;
-  padding: 2rem 0 2rem 0;
-  margin: 0 0 0 0;
+  padding: 0.5rem 0 0.5rem 0;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #cff0f0;
+  z-index: -1;
 }
 
 .beachspot {
@@ -103,73 +33,89 @@ header nav a {
 }
 
 .region {
-  width: 20%;
+  width: 5%;
 }
 
 .amenities {
-  width: 20%;
+  width: 12%;
 }
 
 .currentsurf {
-  width: 40%;
+  width: 45%;
 }
 
 .table-headers {
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   color: #215c74;
   text-align: center;
+  letter-spacing: 0.2rem;
+  z-index: -1;
 }
 
 .DataContainer {
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 .rowContainer {
-  width: 95%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 1rem 0 1rem 0;
   border-bottom: 1px solid #cccccc;
+  z-index: -1;
 }
 
 .beach-data {
   text-align: center;
   color: #215c74;
   font-family: Ubuntu;
-  font-size: 2rem;
+  font-size: 1.2rem;
+  z-index: -1;
 }
 
 .beach-spot {
   width: 20%;
+  font-weight: 700;
+  text-align: left;
+  padding-left: 2rem;
+  z-index: -1;
 }
 
 .beach-region {
-  width: 20%;
+  width: 10%;
+  text-align: left;
+  z-index: -1;
 }
 
 .beach-amenities {
-  width: 20%;
+  width: 12%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  z-index: -1;
 }
 
-.icons {
-  margin: 0 0.2rem;
+.icons-search-result {
+  margin: 0 0.3rem;
+  height: 2rem;
+  z-index: -1;
 }
 
 .beach-currentinfo {
-  width: 40%;
-  font-size: 1.5rem;
+  width: 45%;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-left: 2rem;
+  z-index: -1;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .beach-region {
     display: none;
   }
@@ -200,22 +146,19 @@ header nav a {
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .beach-amenities {
     flex-wrap: wrap;
   }
-}
+} */
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .beach-amenities {
     width: 33%;
+    padding-left: 2rem;
   }
 
   .amenities {
-    width: 33%;
-  }
-
-  .beach-spot {
     width: 33%;
   }
 
@@ -225,6 +168,7 @@ header nav a {
 
   .beach-currentinfo {
     width: 33%;
+    text-align: justify;
   }
 
   .currentsurf {
