@@ -5,14 +5,22 @@ const useForm = (callback, validate) => {
     fullname: "",
     email: "",
     password: "",
-    mobile: ""
+    mobile: "",
+    regionInput: "",
+    beachInput: "",
+    surferInput: "",
+    imageInput: null
   });
 
   const [errors, setErrors] = useState({
     fullname: "",
     email: "",
     password: "",
-    mobile: ""
+    mobile: "",
+    regionInput: "",
+    beachInput: "",
+    surferInput: "",
+    imageInput: null
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,7 +36,7 @@ const useForm = (callback, validate) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log("Sign Up clicked");
+    console.log("USEFORM:: HANDLE SUBMIT :: SUBMIT CLICKED");
     // validate form fields
     setErrors(validate(values));
     setIsSubmitting(true);

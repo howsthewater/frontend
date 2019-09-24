@@ -3,6 +3,8 @@ import "../styles/settings.css";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
 import Footer from "./Footer";
+import useForm from "../components/helper/useForm";
+import validate from "../components/helper/validateUserSettings";
 
 const dummyRegionData = [
   "Northern California",
@@ -24,29 +26,38 @@ const dummyBeachData = [
 const dummySurferData = ["Hardcore", "Hungry", "Half-hearted", "Hopeless"];
 //
 const Settings = props => {
-  const [values, setValues] = useState({
-    nameInput: "",
-    phoneInput: "",
-    regionInput: dummyRegionData[0],
-    beachInput: dummyBeachData[0],
-    surferInput: dummySurferData[0],
-    imageInput: null
-  });
+  const handleUpdate = () => {
+    // ADD FUNCTIONALITY FOR ADD UPDATE HERE
+    console.log("HANDLE UPDATE HERE");
+  };
+  const { values, handleChange, handleSubmit, errors } = useForm(
+    handleUpdate,
+    validate
+  );
+
+  // const [values, setValues] = useState({
+  //   fullname: "",
+  //   mobile: "",
+  //   regionInput: dummyRegionData[0],
+  //   beachInput: dummyBeachData[0],
+  //   surferInput: dummySurferData[0],
+  //   imageInput: null
+  // });
   const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
 
   const formChangeHandler = e => {
     const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+    // setValues({ ...values, [name]: value });
   };
   const imageHandler = e => {
     let imageFile = e.target.files[0];
     if (!imageFile) {
-      setValues({ ...values, imageInput: null });
+      // setValues({ ...values, imageInput: null });
       setImageReaderValue("No file chosen");
       return;
     }
     if (imageFile.type.match(/image.*/)) {
-      setValues({ ...values, imageInput: imageFile });
+      // setValues({ ...values, imageInput: imageFile });
       setImageReaderValue(`${imageFile.name}`);
     } else {
       alert("Image file must be image, no image set");
@@ -92,7 +103,6 @@ const Settings = props => {
       <div className="settingsContainer">
         <div className="settingsDiv">
           <span className="dot0" />
-          <span className="dot1" />
           <div className="textDiv">
             <p className="textP">
               Please keep your user settings up to date to get the relevant surf
@@ -103,28 +113,33 @@ const Settings = props => {
               on your persona for easy search. Items marked (*) are mandatory.
             </p>
           </div>
-          <form className="settingsForm">
+          <form noValidate className="settingsForm" onSubmit={handleSubmit}>
             <label className="inputLabel">Full Name*: </label>
             <input
               className="inputField"
               id="nInput"
-              name="nameInput"
+              name="fullname"
               type="text"
-              onChange={formChangeHandler}
-              value={values.nameInput}
+              onChange={handleChange}
+              value={values.fullname}
               placeholder="Name Input..."
             />
+            {errors.fullname && (
+              <div className="error-settings">{errors.fullname}</div>
+            )}
             <label className="inputLabel">Mobile Number: </label>
             <input
               className="inputField"
               id="pInput"
-              name="phoneInput"
+              name="mobile"
               type="tel"
-              onChange={formChangeHandler}
-              value={values.phoneInput}
+              onChange={handleChange}
+              value={values.mobile}
               placeholder="xxx-xxx-xxxx"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             />
+            {errors.mobile && (
+              <div className="error-settings">{errors.mobile}</div>
+            )}
             <label className="inputLabel">
               Base beach spot/ surf spot in California*:{" "}
             </label>
