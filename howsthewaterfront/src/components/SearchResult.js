@@ -41,7 +41,11 @@ import { useQuery } from "@apollo/react-hooks";
 
 const SearchResult = props => {
   // const [beachData, setBeachData] = useState(null);
-  const beachName = localStorage.getItem("beachName");
+  let beachName = localStorage.getItem("beachName");
+  if (!beachName) {
+    beachName = "Coastal Trail (Marin County)";
+  }
+
   const beachQuery = gql`
     {
       filter(filter: { NameMobileWeb: { EQ: "${beachName}" } }) {
@@ -104,12 +108,7 @@ const SearchResult = props => {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
-  console.log(" ---------- " + beachData.LONGITUDE);
-  // useEffect(() => {
-  //   setBeachData(beachDummyData);
-  // }, {});
 
-  console.log(data);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>

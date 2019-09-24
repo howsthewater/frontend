@@ -31,6 +31,8 @@ const reducer = (state = initialState, action) => {
       console.log(
         `REDUCERS :: SIGNUP_SUCCESS :: USER IS ${action.payload.user}`
       );
+      localStorage.setItem("beachName", action.payload.user.homeBeachName);
+      localStorage.setItem("htwUser", JSON.stringify(action.payload.user));
       return {
         ...state,
         error: "",
