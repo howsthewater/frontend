@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/settings.css";
-import styled from "styled-components";
+import Header from "./Header";
+// import styled from "styled-components";
 // import folderIcon from "../assets/icons8-folder-52.png";
 // styling
 // const SettingsContainer = styled.div`
@@ -214,6 +215,7 @@ const Settings = () => {
   };
 
   return (
+    <Header />
     <div className="settingsContainer">
       <div className="settingsDiv">
         <span className="dot0" />

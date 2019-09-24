@@ -39,7 +39,7 @@ class Header extends React.Component {
           <div className="unauthenticated-header">
             <div className="logo-text">
               <img src={Logo} alt="logo" />
-              <h1>How's the water</h1>
+              <h1 className="header-text">How's the water</h1>
             </div>
             <div className="links">
               <a href="/login">Login</a>
@@ -56,8 +56,8 @@ class Header extends React.Component {
               alt="logo"
               onClick={this.returnHome}
             />
-            <h1>How's the water</h1>
-            Hi, {this.props.user.name}
+            <h1 className="header-text">How's the water</h1>
+            <p className="username">Hi, {this.props.user.name}</p>
             <img
               src={IconName}
               className="profile"
