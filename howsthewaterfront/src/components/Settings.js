@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/settings.css";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
+import Footer from "./Footer";
 
 const dummyRegionData = [
   "Northern California",
@@ -181,6 +182,11 @@ const Settings = props => {
               <button className="customButton">Cancel</button>
             </div>
           </form>
+          {/* FOOTER SECTION */}
+          <footer className="footer">
+            <Footer />
+          </footer>
+          {/* END OF FOOTER SECTION */}
         </div>
       </div>
     </div>

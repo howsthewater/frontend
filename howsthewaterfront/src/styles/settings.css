@@ -4,10 +4,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  width: 100%;
+  height: 94vh;
 }
 .settingsDiv {
-  position: relative;
-  height: 120rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,18 +22,11 @@
   left: 0rem;
   top: 0rem;
 }
-.dot1 {
-  position: absolute;
-  background: rgba(0, 191, 191, 0.2);
-  border-radius: 200px;
-  width: 40rem;
-  height: 40rem;
-  top: 92rem;
-  right: -10rem;
-}
+
 .textDiv {
-  margin: 8rem auto;
-  width: 75%;
+  margin: 1rem auto;
+  width: 90%;
+  text-align: justify;
 }
 .textP {
   font-size: 1.6rem;
@@ -48,46 +41,43 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
-  height: 88rem;
+  width: 45rem;
   border: 0.1rem solid #215c74;
   background: #ffffff;
   border-radius: 1rem;
+  margin-bottom: 2rem;
 }
 .inputLabel {
-  margin: 1rem 4rem;
+  margin: 1rem 2rem 0rem 2.25rem;
   align-self: flex-start;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 1.4rem;
   line-height: 25px;
   letter-spacing: 0.1em;
   color: #215c74;
+  vertical-align: middle;
 }
 .inputField {
   width: 90%;
-  margin-bottom: 1rem;
-  height: 4rem;
+  height: 3rem;
   background: #ffffff;
   border: 1px solid #215c74;
   box-sizing: border-box;
   font-weight: 500;
-  font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 2.5rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
   letter-spacing: 0.1rem;
   color: #215c74;
-  padding-left: 1rem;
 }
 .selectField {
   width: 90%;
-  margin-bottom: 1rem;
-  height: 4rem;
+  height: 3rem;
   background: #ffffff;
   border: 1px solid #215c74;
   box-sizing: border-box;
   font-weight: 500;
   font-weight: 500;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   line-height: 2.5rem;
   letter-spacing: 0.1rem;
   color: #215c74;
@@ -99,30 +89,26 @@
 }
 .showImageField {
   width: 75%;
-  margin-bottom: 1rem;
-  height: 4rem;
+  height: 3rem;
   background: #ffffff;
   border: 1px solid #215c74;
-  box-sizing: border-box;
   font-weight: 500;
-  font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 3.8rem;
+  font-size: 1.2rem;
+  line-height: 2.5rem;
   letter-spacing: 0.1rem;
   color: #215c74;
   padding-left: 1.2rem;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  vertical-align: middle;
 }
 .imageInputLabel {
   cursor: pointer;
   background-image: url("../assets/icons8-folder-52.png");
-  width: 5.2rem;
-  height: 5.2rem;
-  display: block;
+  width: 3rem;
+  height: 3rem;
   margin: auto;
-  margin-top: -1rem;
+  background-size: cover;
 }
 .imageField {
   opacity: 0;
@@ -131,29 +117,26 @@
   width: 0;
 }
 .buttonsDiv {
-  width: 70%;
+  width: 90%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin: 8rem 0 0 0;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .customButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 14rem;
-  height: 4.5rem;
-  font-weight: 500;
-  font-size: 1.6rem;
-  line-height: 1.8rem;
-  letter-spacing: 0.1rem;
-  background: #2d728f;
+  width: 120px;
+  height: 40px;
   color: #ffffff;
-  border: 0;
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 5px;
   cursor: pointer;
-  margin: 1rem;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
+  margin: 2rem 2rem;
+  border: 1px solid #2d728f;
 }
 @media (max-width: 768px) {
   .buttonsDiv {
