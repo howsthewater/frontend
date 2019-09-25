@@ -170,7 +170,6 @@ const Settings = props => {
           {/* END OF FOOTER SECTION */}
         </div>
       </div>
-    </div>
 </>
   );
 };
