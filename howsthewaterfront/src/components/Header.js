@@ -68,7 +68,12 @@ class Header extends React.Component {
               onClick={this.returnHome}
             />
             <h1 className="h1-text">How's the water</h1>
-            <p className="username">Hi, {this.props.user.name}</p>
+            <p className="username">
+              Hi,{" "}
+              {!JSON.parse(localStorage.getItem("htwUser")).fullName
+                ? ""
+                : JSON.parse(localStorage.getItem("htwUser")).fullName}
+            </p>
             <img
               src={IconName}
               className="profile"
