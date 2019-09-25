@@ -10,8 +10,7 @@ const PrivateRoute = ({ component: C, props: cProps, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        cProps.isAuthenticated ||
-        localStorage.getItem("amplify-signin-with-hostedUI") ? (
+        cProps.isAuthenticated || localStorage.getItem("htwUser") ? (
           <C {...props} {...cProps} />
         ) : (
           <Redirect to={`/login`} />
@@ -22,3 +21,5 @@ const PrivateRoute = ({ component: C, props: cProps, ...rest }) => {
 };
 
 export default PrivateRoute;
+
+//amplify-signin-with-hostedUI

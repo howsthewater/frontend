@@ -6,7 +6,6 @@ import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
 import AdvancedSearch from "./AdvancedSearch";
-import Settings from "./Settings";
 import Routes from "./Routes";
 import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
@@ -217,9 +216,14 @@ class App extends React.Component {
    *
    **/
   render() {
-    const childProps = {
-      isAuthenticated: this.props.isAuthenticated
+    let childProps = {
+      isAuthenticated: false
     };
+    if (localStorage.getItem("htwUser")) {
+      childProps = {
+        isAuthenticated: true
+      };
+    }
     console.log(
       `APP :: RENDER :: isAuthenticated value is ${childProps.isAuthenticated}`
     );
@@ -227,11 +231,12 @@ class App extends React.Component {
     return (
       <>
         <Route exact path="/" component={LandingForm} />
+        <Route exact path="/landing" component={LandingForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
-        <Route exact path="/settings" component={Settings} />
+        {/* <Route exact path="/settings" component={Settings} /> */}
         <Routes childProps={childProps} />
         {/* Test to make sure apollo is fetching data as expected, will change in future to 
           display the data appropriately */}
