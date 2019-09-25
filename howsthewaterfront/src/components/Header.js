@@ -19,12 +19,12 @@ class Header extends React.Component {
     };
   }
 
-  componentDidMount = () => {
-    let username = localStorage.getItem("htwUser");
-    username = JSON.parse(username).fullName;
-    console.log(username);
-    this.setState({ username: username });
-  };
+  // componentDidMount = () => {
+  //   let username = localStorage.getItem("htwUser");
+  //   username = JSON.parse(username).fullName;
+  //   console.log(username);
+  //   this.setState({ username: username });
+  // };
 
   onLogout = async e => {
     await Auth.signOut();
