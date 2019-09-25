@@ -492,6 +492,10 @@ header nav a {
     display: none;
   }
 
+  .menu-loggedIn {
+    display: none;
+  }
+
   /* Styling the nav items for drop-down view */
   header nav a {
     border-bottom: 1px solid #eee;
