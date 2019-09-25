@@ -70,7 +70,7 @@ class Header extends React.Component {
             <h1 className="h1-text">How's the water</h1>
             <p className="username">
               Hi,{" "}
-              {!JSON.parse(localStorage.getItem("htwUser")).fullName
+              {!JSON.parse(localStorage.getItem("htwUser"))
                 ? ""
                 : JSON.parse(localStorage.getItem("htwUser")).fullName}
             </p>
