@@ -17,9 +17,9 @@ class Home extends React.Component {
 
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
         {/* Home Page {this.props.user.name} */}
-        Home Page {displayName}
+        {/* Home Page {displayName} */}
         <SearchResult />
       </div>
     );

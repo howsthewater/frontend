@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "../styles/settings.css";
 import Header from "./Header";
-import logo from "../assets/Logo - htw.png";
-import logoWords from "../assets/Logo - htw - words.png";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateUserSettings";
+import { withRouter } from "react-router-dom";
 
 const dummyRegionData = [
   "Northern California",

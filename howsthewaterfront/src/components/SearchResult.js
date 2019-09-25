@@ -116,7 +116,6 @@ const SearchResult = props => {
     </div>
   ) : (
     <div className="sResultContainer">
-      {/* Search Result Page */}
       <Header />
       <div className="search-body">
         <Search />
