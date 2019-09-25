@@ -4,7 +4,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateUserSettings";
-import { withRouter } from "react-router-dom";
 
 const dummyRegionData = [
   "Northern California",
