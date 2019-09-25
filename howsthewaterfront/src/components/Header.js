@@ -14,9 +14,18 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMenu: false
+      showMenu: false,
+      username: ""
     };
   }
+
+  componentDidMount = () => {
+    let username = localStorage.getItem("htwUser");
+    username = JSON.parse(username).fullName;
+    console.log(username);
+    this.setState({ username: username });
+  };
+
   onLogout = async e => {
     await Auth.signOut();
     await this.props.logout();
