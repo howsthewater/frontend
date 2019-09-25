@@ -8,7 +8,7 @@ import { withRouter } from "react-router-dom";
 import IconName from "../assets/icons8-name-64.png";
 import IconSettings from "../assets/icons8-settings-48.png";
 import IconLogout from "../assets/icons8-sign-out-50.png";
-import "../styles/header.css";
+import "../styles/global-header.css";
 
 class Header extends React.Component {
   constructor(props) {
@@ -39,10 +39,12 @@ class Header extends React.Component {
           <div className="unauthenticated-header">
             <div className="logo-text">
               <img src={Logo} alt="logo" />
-              <h1 className="header-text">How's the water</h1>
+              <h1 className="h1-text">How's the water</h1>
             </div>
             <div className="links">
-              <a href="/login">Login</a>
+              <a className="login" href="/login">
+                Login
+              </a>
               <a href="/signup">
                 <button className="signup">Sign Up</button>
               </a>
@@ -52,11 +54,11 @@ class Header extends React.Component {
           <div className="authenticated-header">
             <img
               src={Logo}
-              className="logo"
+              className="logo1"
               alt="logo"
               onClick={this.returnHome}
             />
-            <h1 className="header-text">How's the water</h1>
+            <h1 className="h1-text">How's the water</h1>
             <p className="username">Hi, {this.props.user.name}</p>
             <img
               src={IconName}
@@ -65,7 +67,7 @@ class Header extends React.Component {
               onClick={this.toggleDropDown}
             />
             {this.state.showMenu ? (
-              <div className="menu">
+              <div className="toggle-menu">
                 <div className="settings">
                   <a href="/settings">Settings</a>
                   <img src={IconSettings} alt="settings" />

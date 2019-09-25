@@ -1,0 +1,131 @@
+.authenticated-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3vh;
+  margin: 1rem 0;
+  /* width: 90%; */
+}
+
+.h1-text {
+  font-size: 2.5rem;
+  color: #2d728f;
+  padding-right: 24%;
+}
+
+a {
+  font-size: 1.5rem;
+  color: #2d728f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  height: 5rem;
+}
+
+.username {
+  font-size: 1.5rem;
+  /* font-weight: 500; */
+  padding-bottom: 1rem;
+  margin-left: 30%;
+}
+
+.settings {
+  border-bottom: 0.1rem solid #2d728f;
+  color: #2d728f;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.settings img {
+  height: 3rem;
+  padding-right: 3%;
+}
+
+.settings a {
+  font-size: 2rem;
+}
+
+.profile {
+  margin-right: 7rem;
+}
+.profile:hover {
+  cursor: pointer;
+}
+
+.logo1 {
+  margin-left: 7rem;
+}
+
+.logout {
+  font-size: 2rem;
+  color: #2d728f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logout:hover {
+  text-decoration: underline;
+}
+
+.logout img {
+  height: 2rem;
+  padding-right: 7%;
+}
+
+.toggle-menu {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  max-width: 13%;
+  right: -8.25rem;
+  top: 5rem;
+  background-color: white;
+  /* padding-top: 0.5rem; */
+}
+
+.unauthenticated-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-top: 1rem;
+}
+.signup {
+  background-color: #2d728f;
+  color: white;
+  font-size: 1.75rem;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  width: 9rem;
+}
+.signup:hover {
+  cursor: pointer;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20%;
+}
+
+.login {
+  font-size: 2rem;
+}
