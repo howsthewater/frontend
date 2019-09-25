@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import "../styles/signup.css";
 // import Header from "./Header";
@@ -11,6 +11,7 @@ import validate from "../components/helper/validateSignup";
 import { withRouter } from "react-router-dom";
 
 function SignUp(props) {
+  const [emailVerifyError, setEmailVerifyError] = useState("");
   const handleSignUp = async () => {
     console.log("SIGN UP CLICKED");
     try {
@@ -26,6 +27,10 @@ function SignUp(props) {
       props.history.push("/login");
     } catch (error) {
       console.log("Error is " + error.message);
+      if (error.message === "An account with the given email already exists.") {
+        //An account with the given email already exists.
+        setEmailVerifyError("This email address already exists.");
+      }
     }
   };
 
@@ -115,6 +120,9 @@ function SignUp(props) {
               value={values.email}
               onChange={handleChange}
             />
+            {emailVerifyError && (
+              <div className="error-signup">{emailVerifyError}</div>
+            )}
             {errors.email && <div className="error-signup">{errors.email}</div>}
 
             <input

@@ -10,7 +10,7 @@ class Home extends React.Component {
     if (loggedInUser) {
       console.log(typeof loggedInUser);
       console.log(loggedInUser.email);
-      displayName = loggedInUser.fullName;
+      displayName = loggedInUser.name;
     } else {
       displayName = this.props.user.name;
     }
