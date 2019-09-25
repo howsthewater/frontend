@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Search from "./Search";
 import Footer from "./Footer";
+import Header from "./Header";
 import toiletIcon from "../assets/icons8-toilet-50.png";
 import parkingIcon from "../assets/icons8-parking-60.png";
 import wheelchairIcon from "../assets/icons8-wheelchair-48.png";
@@ -8,10 +9,6 @@ import strollerIcon from "../assets/icons8-stroller-50.png";
 import dogIcon from "../assets/icons8-dog-paw-64.png";
 import volleyIcon from "../assets/icons8-volleyball-player-50.png";
 import picnicIcon from "../assets/icons8-picnic-table-50.png";
-import surf_header from "../assets/beach_surf_header.jpg";
-import placeholder01 from "../assets/beach-placeholder01.png";
-import placeholder02 from "../assets/beach-placeholder02.png";
-import placeholder03 from "../assets/beach-placeholder03.png";
 import { withRouter } from "react-router-dom";
 import "../styles/search-result.css";
 import { gql } from "apollo-boost";
@@ -119,7 +116,8 @@ const SearchResult = props => {
     </div>
   ) : (
     <div className="sResultContainer">
-      Search Result Page
+      {/* Search Result Page */}
+      <Header />
       <div className="search-body">
         <Search />
       </div>

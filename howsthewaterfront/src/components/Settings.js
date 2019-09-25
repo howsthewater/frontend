@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/settings.css";
+import Header from "./Header";
 import logo from "../assets/Logo - htw.png";
 import logoWords from "../assets/Logo - htw - words.png";
 import Footer from "./Footer";
@@ -47,6 +48,7 @@ const Settings = props => {
 
   const formChangeHandler = e => {
     const { name, value } = e.target;
+    console.log(`FORM CHANGE HANDLER :: VALUES :: ${name}, ${value}`);
     // setValues({ ...values, [name]: value });
   };
   const imageHandler = e => {
@@ -66,43 +68,9 @@ const Settings = props => {
 
   return (
     <div>
-      {/* THIS WILL BE REPLACED BY THE HEADER COMPONENT */}
-      {/* <Header /> */}
-      {/* Header Content for Landing page */}
-      <header>
-        {/* Logo section on the left of header */}
-        <div className="logo-container">
-          <a href="/">
-            <img className="logo" src={logo} alt="How's the water logo" />
-          </a>
-          <img className="logo-txt" src={logoWords} alt="How's the water" />
-        </div>
-
-        {/* Navigation section on the right of header */}
-        {/* Hamburger icon for smaller screen size */}
-        <label className="hamburger-icon" htmlFor="toggle">
-          &#9776;
-        </label>
-        <input type="checkbox" id="toggle" />
-
-        {/* Navigation links - header - right */}
-        <nav className="menu">
-          <a href="#about">About</a>
-          <a href="#features">Features</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="/login">Login</a>
-          <button
-            className="signup-button"
-            onClick={() => props.history.push("/signup")}
-          >
-            SIGN UP
-          </button>
-        </nav>
-      </header>
-      {/* THIS WILL BE REPLACED BY THE HEADER COMPONENT */}
+      <Header />
       <div className="settingsContainer">
         <div className="settingsDiv">
-          <span className="dot0" />
           <div className="textDiv">
             <p className="textP">
               Please keep your user settings up to date to get the relevant surf
