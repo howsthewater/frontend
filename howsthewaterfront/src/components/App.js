@@ -100,10 +100,33 @@ class App extends React.Component {
                   if (response.data.filterUser.length) {
                     // if the user is already available in the database
                     userFromDB = response.data.filterUser[0];
-                    localStorage.setItem("htwUser", JSON.stringify(userFromDB));
+
                     console.log(
                       `GRAPHQL:: USER FROM DB IS ${JSON.stringify(userFromDB)}`
                     );
+                    // SETTING THE USER IN THE GLOBAL STATE
+                    this.props.setUserData({
+                      name: userFromDB.fullName,
+                      email: userFromDB.email,
+                      username: userFromDB.cognitoUserId,
+                      cognitoUser: userFromDB.cognitoUserId,
+                      location: {
+                        latitude: latitude,
+                        longitude: longitude
+                      },
+                      homeBeach: userFromDB.homeBeach,
+                      homeBeachName: userFromDB.homeBeachName
+                    });
+                    if (localStorage.getItem("beachName")) {
+                      this.props.history.push("/home");
+                    } else {
+                      localStorage.setItem(
+                        "beachName",
+                        userFromDB.homeBeachName
+                      );
+
+                      this.props.history.push("/home");
+                    }
                   } else {
                     // if the user is not available in the database it needs to be added
                     client
@@ -124,16 +147,37 @@ class App extends React.Component {
                       })
                       .then(response => {
                         userFromDB = response.data.addUser;
-                        localStorage.setItem(
-                          "htwUser",
-                          JSON.stringify(userFromDB)
-                        );
+
                         console.log(
                           `MUTATION USER FROM DB IS ${JSON.stringify(
                             userFromDB
                           )}`
                         );
+                        // SETTING THE USER IN THE GLOBAL STATE
+                        this.props.setUserData({
+                          name: userFromDB.fullName,
+                          email: userFromDB.email,
+                          username: userFromDB.cognitoUserId,
+                          cognitoUser: userFromDB.cognitoUserId,
+                          location: {
+                            latitude: latitude,
+                            longitude: longitude
+                          },
+                          homeBeach: userFromDB.homeBeach,
+                          homeBeachName: userFromDB.homeBeachName
+                        });
+                        if (localStorage.getItem("beachName")) {
+                          this.props.history.push("/home");
+                        } else {
+                          localStorage.setItem(
+                            "beachName",
+                            userFromDB.homeBeachName
+                          );
+
+                          this.props.history.push("/home");
+                        }
                       })
+
                       .catch(error => {
                         console.log(`MUTATION ERROR IS ${error}`);
                       });
@@ -141,32 +185,8 @@ class App extends React.Component {
                 })
                 .catch(error => {
                   console.log(`GRAPHQL ERROR IS ${error}`);
+                  this.props.history.push("/home");
                 });
-
-              /* Add the user to the datase ends */
-
-              /* Get the updated user from the database */
-
-              /* Get the updated user from the database - ends */
-
-              // Sets the user details in the global state. Currently it is set from the
-              // login information. Once it is connected to the DB, the user info returned from
-              // the db will be used to update user information. This will also be moved into a
-              // separate function
-              this.props.setUserData({
-                name: name,
-                email: user.attributes.email,
-                username: user.username,
-                cognitoUser: user,
-                location: {
-                  latitude: latitude,
-                  longitude: longitude
-                },
-                homeBeach: 8,
-                homeBeachName: "Marina del Rey Harbor"
-              });
-              localStorage.setItem("beachName", "Marina del Rey Harbor");
-              this.props.history.push("/home");
             })
             .catch(error => console.log("Not signed in" + error.message));
           break;
@@ -207,7 +227,6 @@ class App extends React.Component {
     return (
       <>
         <Route exact path="/" component={LandingForm} />
-        <Route exact path="/landing" component={LandingForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />

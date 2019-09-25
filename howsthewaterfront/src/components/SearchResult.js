@@ -12,6 +12,7 @@ import surf_header from "../assets/beach_surf_header.jpg";
 import placeholder01 from "../assets/beach-placeholder01.png";
 import placeholder02 from "../assets/beach-placeholder02.png";
 import placeholder03 from "../assets/beach-placeholder03.png";
+import { withRouter } from "react-router-dom";
 import "../styles/search-result.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
@@ -40,7 +41,11 @@ import { useQuery } from "@apollo/react-hooks";
 
 const SearchResult = props => {
   // const [beachData, setBeachData] = useState(null);
-  const beachName = localStorage.getItem("beachName");
+  let beachName = localStorage.getItem("beachName");
+  if (!beachName) {
+    beachName = "Coastal Trail (Marin County)";
+  }
+
   const beachQuery = gql`
     {
       filter(filter: { NameMobileWeb: { EQ: "${beachName}" } }) {
@@ -103,12 +108,7 @@ const SearchResult = props => {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
-  console.log(" ---------- " + beachData.LONGITUDE);
-  // useEffect(() => {
-  //   setBeachData(beachDummyData);
-  // }, {});
 
-  console.log(data);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -121,7 +121,7 @@ const SearchResult = props => {
     <div className="sResultContainer">
       Search Result Page
       <div className="search-body">
-        <Search routerProps={props} />
+        <Search />
       </div>
       {/* SEARCH RESULT CONTENT SECTION - BEGIN */}
       <div className="bodySection">
@@ -467,4 +467,4 @@ const SearchResult = props => {
   );
 };
 
-export default SearchResult;
+export default withRouter(SearchResult);
