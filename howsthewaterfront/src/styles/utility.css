@@ -1,0 +1,87 @@
+/* This is the styling for utility elements */
+
+/* Centers the element items within this class */
+.utility-center-txt {
+  text-align: center;
+}
+
+/* Pop-up window styling - container */
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 0%, 0.801);
+  z-index: 30;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+/* Pseudo class - popup target */
+.popup:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styling the pop-up content */
+.popup-content {
+  width: 75%;
+  background-color: #fff;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
+  position: absoulte;
+  transform: translate(16%, 20%);
+  border-radius: 3px;
+  display: flex;
+}
+
+/* Styling the left section */
+.popup-left {
+  width: 33.333333%;
+}
+
+/* Styling the right section */
+.popup-right {
+  width: 66.666667%;
+  padding: 20px;
+}
+
+/* Styling the pop-up images */
+.popup-img {
+  width: 100%;
+  display: block;
+}
+
+/* Pop-up close icon */
+.popup-close {
+  color: #2d728f;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 3rem;
+}
+
+/* Pop-up close icon link */
+.popup-close:link {
+  color: #2d728f;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 3rem;
+}
+
+/* Pop-up close icon visited */
+.popup-close:visited {
+  color: #2d728f;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 3rem;
+}
+
+/* Popup text styling */
+.popup-text {
+  width: 100%;
+  margin: 2% 0;
+}

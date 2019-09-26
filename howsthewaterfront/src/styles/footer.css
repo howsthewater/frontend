@@ -1,7 +1,9 @@
 .footerDiv {
   display: flex;
-  width: 100%;
-  margin: 5% 0 2% 0;
+  width: 100vw;
+  padding-bottom: 20px;
+  margin: 0;
+  /* margin: 5% 0 2% 0; */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -31,7 +33,7 @@
 }
 @media (max-width: 992px) {
   .footerDiv {
-    width: 70%;
+    width: 100%;
     flex-direction: column;
   }
   .copyright {
@@ -41,8 +43,15 @@
     display: none;
   }
 }
+
+/* Breakpoint styling at 768px */
+@media (max-width: 768px) {
+  .textContainer {
+    display: none;
+  }
+}
 @media (max-width: 576px) {
   .copyright {
-    width: 100%;
+    width: 65%;
   }
 }

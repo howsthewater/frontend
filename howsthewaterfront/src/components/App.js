@@ -5,14 +5,18 @@ import LoginForm from "./Login";
 import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
-import Settings from "./Settings";
+import AdvancedSearch from "./AdvancedSearch";
 import Routes from "./Routes";
 import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
 import { setUserData } from "../actions";
 import { gql } from "apollo-boost";
+import ApolloClient from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
+const client = new ApolloClient({
+  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
+});
 /*
  * Class component: App
  *
@@ -31,17 +35,34 @@ class App extends React.Component {
   componentDidMount() {
     console.log(`APP :: CDM :: before :: HUB AUTH LISTENER`);
 
+    /*GET USER LOCATION*/
+    // getting location details
+    let latitude;
+    let longitude;
+    this.getPosition()
+      .then(position => {
+        console.log(position.coords.latitude, position.coords.longitude);
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+    console.log(`APP :: CDM :: LOCATION IS  IS :: ${latitude}, ${longitude}`);
+
+    /* END GET USER LOCATION */
+
     // Hub listens to aws cognito user pool to check if there has been a signin
     Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
         // If there is a sign-in then the user information will be added to the db and global state
         case "signIn":
           console.log(`APP::CDM::HUB SIGN IN :: LISTEN:: ${data}`);
-
+          let userFromDB = {};
           //Checks if the current user is authenticated
           Auth.currentAuthenticatedUser()
             .then(user => {
-              console.log(user);
+              console.log(user.username);
               let name = "";
               if (user.attributes.name) {
                 name = user.attributes.name;
@@ -49,50 +70,127 @@ class App extends React.Component {
                 name = user.attributes["custom:full_name"];
               }
 
-              // getting location details
-              let latitude;
-              let longitude;
-              this.getPosition()
-                .then(position => {
-                  console.log(
-                    position.coords.latitude,
-                    position.coords.longitude
-                  );
-                  latitude = position.coords.latitude;
-                  longitude = position.coords.longitude;
-                })
-                .catch(err => {
-                  console.log(err.message);
-                });
-              console.log(`APP :: CDM :: NAME IS :: ${name}`);
               /* Add the user to the database */
+              client
+                .query({
+                  query: gql`
+                    {
+                      filterUser(filter: { cognitoUserId: { EQ: "${user.username}" } }) {
+                        cognitoUserId
+                        fullName
+                        email
+                        homeBeach
+                        homeBeachName
+                        latitude
+                        longitude
+                      }
+                    }
+                  `
+                })
+                .then(response => {
+                  console.log(
+                    `GRAPH QL USER LENGTH IS ${response.data.filterUser.length}`
+                  );
+                  console.log(
+                    `THIS IS FROM GRAPHQL :: ${JSON.stringify(
+                      response.data.filterUser
+                    )}`
+                  );
+                  if (response.data.filterUser.length) {
+                    // if the user is already available in the database
+                    userFromDB = response.data.filterUser[0];
 
-              /* Add the user to the datase ends */
+                    console.log(
+                      `GRAPHQL:: USER FROM DB IS ${JSON.stringify(userFromDB)}`
+                    );
+                    // SETTING THE USER IN THE GLOBAL STATE
+                    this.props.setUserData({
+                      name: userFromDB.fullName,
+                      email: userFromDB.email,
+                      username: userFromDB.cognitoUserId,
+                      cognitoUser: userFromDB.cognitoUserId,
+                      location: {
+                        latitude: latitude,
+                        longitude: longitude
+                      },
+                      homeBeach: userFromDB.homeBeach,
+                      homeBeachName: userFromDB.homeBeachName
+                    });
+                    if (localStorage.getItem("beachName")) {
+                      this.props.history.push("/home");
+                    } else {
+                      localStorage.setItem(
+                        "beachName",
+                        userFromDB.homeBeachName
+                      );
 
-              /* Get the updated user from the database */
+                      this.props.history.push("/home");
+                    }
+                  } else {
+                    // if the user is not available in the database it needs to be added
+                    client
+                      .mutate({
+                        mutation: gql`
+                      
+                        mutation {
+                          addUser(cognitoUserId: "${user.username}" fullName: "${name}" email: "${user.attributes.email}" latitude:${latitude} longitude:${longitude}) {
+                            cognitoUserId
+                            fullName
+                            email
+                            homeBeach
+                            homeBeachName
+                          }
+                        }
+                      
+                      `
+                      })
+                      .then(response => {
+                        userFromDB = response.data.addUser;
 
-              /* Get the updated user from the database - ends */
+                        console.log(
+                          `MUTATION USER FROM DB IS ${JSON.stringify(
+                            userFromDB
+                          )}`
+                        );
+                        // SETTING THE USER IN THE GLOBAL STATE
+                        this.props.setUserData({
+                          name: userFromDB.fullName,
+                          email: userFromDB.email,
+                          username: userFromDB.cognitoUserId,
+                          cognitoUser: userFromDB.cognitoUserId,
+                          location: {
+                            latitude: latitude,
+                            longitude: longitude
+                          },
+                          homeBeach: userFromDB.homeBeach,
+                          homeBeachName: userFromDB.homeBeachName
+                        });
+                        if (localStorage.getItem("beachName")) {
+                          this.props.history.push("/home");
+                        } else {
+                          localStorage.setItem(
+                            "beachName",
+                            userFromDB.homeBeachName
+                          );
 
-              // Sets the user details in the global state. Currently it is set from the
-              // login information. Once it is connected to the DB, the user info returned from
-              // the db will be used to update user information. This will also be moved into a
-              // separate function
-              this.props.setUserData({
-                name: name,
-                email: user.attributes.email,
-                username: user.username,
-                cognitoUser: user,
-                location: {
-                  latitude: latitude,
-                  longitude: longitude
-                }
-              });
-              this.props.history.push("/home");
+                          this.props.history.push("/home");
+                        }
+                      })
+
+                      .catch(error => {
+                        console.log(`MUTATION ERROR IS ${error}`);
+                      });
+                  }
+                })
+                .catch(error => {
+                  console.log(`GRAPHQL ERROR IS ${error}`);
+                  this.props.history.push("/home");
+                });
             })
             .catch(error => console.log("Not signed in" + error.message));
           break;
         case "customOAuthState":
-          console.log("APP :: CDM :: HUB :: CUSTOME OATUH STATE");
+          console.log("APP :: CDM :: HUB :: CUSTOM OATUH STATE");
           break;
         default:
           console.log("APP:: CDM :: HUB :: DEFAULT CASE");
@@ -118,19 +216,27 @@ class App extends React.Component {
    *
    **/
   render() {
-    const childProps = {
-      isAuthenticated: this.props.isAuthenticated
+    let childProps = {
+      isAuthenticated: false
     };
+    if (localStorage.getItem("htwUser")) {
+      childProps = {
+        isAuthenticated: true
+      };
+    }
     console.log(
       `APP :: RENDER :: isAuthenticated value is ${childProps.isAuthenticated}`
     );
+
     return (
       <>
         <Route exact path="/" component={LandingForm} />
+        <Route exact path="/landing" component={LandingForm} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
-        <Route exact path="/settings" component={Settings} />
+        <Route exact path="/advancedsearch" component={AdvancedSearch} />
+        {/* <Route exact path="/settings" component={Settings} /> */}
         <Routes childProps={childProps} />
         {/* Test to make sure apollo is fetching data as expected, will change in future to 
           display the data appropriately */}

@@ -1,13 +1,12 @@
 import React from "react";
-import Header from "./Header";
 import { connect } from "react-redux";
+import SearchResult from "./SearchResult";
 
 class Home extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        Home Page {this.props.user.name}
+        <SearchResult />
       </div>
     );
   }

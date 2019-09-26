@@ -2,24 +2,32 @@
 .top-content {
   height: 94vh;
   background-image: linear-gradient(
-      to right,
-      hsla(180, 37%, 72%, 0.3),
-      hsla(182, 100%, 37%, 0.42)
-    ),
-    url("../assets/background-flip.png");
+    to right,
+    hsla(180, 37%, 72%, 0.6),
+    hsla(182, 100%, 37%, 0.6)
+  );
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 /* Header section of the landing page. */
 header {
   height: 6vh;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid hsla(153, 23%, 46%, 0.5);
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+  text-transform: uppercase;
+  z-index: 30;
+  box-shadow: 0 0.2rem 0.2rem hsla(153, 23%, 46%, 0.5);
 }
 
 /* Container for the logo in the left. This will hold the drop and text logo. */
@@ -47,12 +55,30 @@ header {
 
 /* Navigation menu on the right hand side of the header */
 .menu {
-  width: 400px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: 90px;
+  text-transform: none;
+  font-size: 1.4rem;
+  color: #2d728f;
+  font-weight: 500;
+  letter-spacing: 2px;
 }
+
+/* .menu-loggedIn {
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 90px;
+  text-transform: none;
+  font-size: 1.4rem;
+  color: #2d728f;
+  font-weight: 500;
+  letter-spacing: 2px;
+} */
 
 /* Link decoration styling for the navigation items */
 header nav a {
@@ -60,22 +86,25 @@ header nav a {
   color: #2d728f;
   letter-spacing: 1px;
   font-style: bold;
-  font-weight: 550;
+  font-weight: 700;
   font-size: 14px;
   line-height: 18px;
 }
 
 /* The sign-up button in the header - top right. */
 .signup-button {
-  width: 60px;
+  width: 70px;
   height: 30px;
   color: #ffffff;
-  background-color: #2d728f;
+  /* background-color: #2d728f; */
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
   border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
 }
 
 /* This is the container for the search content in the landing page. This is a wrapper */
@@ -125,6 +154,336 @@ header nav a {
   display: none;
 }
 
+/* Fold2 - About section - This is the styling for about section*/
+.section-about {
+  background-color: #eee;
+  padding: 15rem 0;
+  height: 100vh;
+}
+
+/* H2 - This is the secondary heading in all of the application*/
+.heading-secondary {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #eee;
+  font-family: "Ubuntu", sans-serif;
+  letter-spacing: 2px;
+  display: inline-block;
+  background-image: linear-gradient(to left, #00bfbf, #5b9279);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+}
+
+/* On hover over secondary heading, there is a skew effect */
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(17, 17, 17, 0.299);
+}
+
+/* Fold2- About: Section - Content */
+.about-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 73vh;
+  color: rgba(91, 146, 121, 0.7);
+}
+
+/* Fold2 -About: Section - text content on the left */
+.about-text-content {
+  height: 45vh;
+  width: 45%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-align: justify;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+/* Fold2 - About: Section - image content on the right */
+.about-img-content {
+  height: 45vh;
+  width: 35%;
+}
+
+/* H3 - Common H3 across the landing page */
+.heading-teritiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+/*Paragraph - content styling */
+.paragraph {
+  font-size: 1.6rem;
+  margin-top: 1.5rem;
+}
+
+/* When not the last child use the following settings */
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+/* Fold2 - About:Section - 'Learn More' button styling */
+.btn-text {
+  color: #00bfbf;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #00bfbf;
+  font-size: 1.5rem;
+  padding: 3px;
+  transition: all 0.2s;
+}
+
+/* Fold2 - About:section - 'Learn More button styling for visited and link */
+.btn-text:visited .btn-text:link {
+  color: #00bfbf;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #00bfbf;
+  font-size: 1.5rem;
+  padding: 3px;
+  transition: all 0.2s;
+}
+
+/* Fold2 - About:Section - On hover over the 'Learn More' link */
+.btn-text:hover {
+  background-color: #00bfbf;
+  color: #eee;
+  box-shadow: 0 1rem 2rem rgba(17, 17, 17, 0.299);
+  transform: translateY(-2px);
+  border-radius: 3px;
+}
+
+/* Fold2 - About:Section - When 'Learn More' is active link */
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(17, 17, 17, 0.299);
+  transform: translateY(0);
+}
+
+/* Fold2 - About:Section - Image section on the left - container */
+.composition {
+  position: relative;
+}
+
+/* Fold2 - About:Section - For each photo on the left */
+.composition-photo {
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.4);
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  transition: all 0.2s;
+  outline-offset: 2rem;
+}
+
+/* Fold2: On hover over each image creates a frame like animation */
+.composition-photo:hover {
+  outline: 1.25rem solid #00bfbf;
+  transform: scale(1.05) translateY(-1rem);
+  box-shadow: 0 2.5rem 4rem rgba(17, 17, 17, 0.5);
+  z-index: 20;
+}
+
+/* Fold2: Styling for each photo */
+.composition-photo--p1 {
+  top: -3rem;
+  left: 0rem;
+}
+
+/* Fold2: Styling for each photo */
+.composition-photo--p2 {
+  top: 2rem;
+  left: 45%;
+}
+
+/* Fold2: Styling for each photo */
+.composition-photo--p3 {
+  top: 12rem;
+  left: 15%;
+}
+
+/* Fold3: Features - Section: Container */
+.section-features {
+  padding: 10rem 0;
+  height: 100vh;
+  background: linear-gradient(
+      to right,
+      hsla(180, 37%, 72%, 0.65),
+      hsla(182, 100%, 37%, 0.65)
+    ),
+    url("../assets/features-pic-bg.jpg") repeat fixed 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Fold3: Features - section : Content */
+.features-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-top: 10%;
+}
+
+/* Fold3: Features - section : Each card is a feature box. Card styling */
+.features-box {
+  width: 27rem;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
+  color: #00bfbf;
+  transition: transform 0.5s;
+}
+
+/* Fold3: Features - section: hover effect on each card */
+.features-box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
+}
+
+/* Fold3: Features - section: The styling for the icon in each box. */
+.features-box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  background-image: linear-gradient(to left, #00bfbf, #5b9279);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Fold3: Features - section: Text content styling for the cards */
+.features-box-text {
+  text-align: justify;
+  margin: 3rem 0 3.5rem 0;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+/* Fold3: This might not be in use */
+.features-btn {
+  background-color: #00bfbf;
+}
+
+/* Fold4: Testimonials - section - Container styling*/
+.section-testimonials {
+  height: 100vh;
+  padding: 10rem 0;
+  position: relative;
+}
+
+/* Fold4: Testimonials - section - content styling */
+.section-testimonials-content {
+  height: 70vh;
+  color: rgba(91, 146, 121, 0.7);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fold4: Testimonials - section - Styling each testimonial card */
+.testimonial {
+  width: 700px;
+  margin: 2.5rem 10rem;
+  box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
+  background-color: rgba(238, 238, 238, 0.616);
+  border-radius: 3px;
+  padding: 3rem 9rem;
+  border-radius: 5px;
+  transform: skewX(-12deg);
+}
+
+/* Fold4: Testimonials - section - Figure element styling - circle for each testimonial image */
+.testimonial-circle {
+  width: 10rem;
+  height: 10rem;
+  float: left;
+  shape-outside: circle(50% at 50% 50%);
+  -webkit-shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  margin-right: 2rem;
+  position: relative;
+  transform: translateX(-3rem) skewX(12deg);
+}
+
+/* Fold4: Testimonials - section - Text content styling */
+.testimonial-text {
+  transform: skewX(12deg);
+}
+
+/* Fold4: Testimonials - section - Image styling */
+.testimonial-img {
+  height: 100%;
+  transform: scale(-1.5%);
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+
+/* Fold4: Testimonials - section - Image styling - hover effects*/
+.testimonial-img:hover {
+  transform: scale(1);
+  filter: blur(6px) brightness(60%);
+}
+
+/* Fold4: Testimonials - section - Caption styling*/
+.testimonial-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.3rem;
+  opacity: 0;
+  transition: all 0.5s;
+  backface-visibility: hidden;
+  text-align: center;
+}
+
+/* Fold4: Testimonials - section - caption - hover effects */
+.testimonial:hover .testimonial-caption {
+  opacity: 1;
+}
+
+/* General background video styling */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Styling the actual content of the video */
+.bg-video-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Styling the footer container */
+.footer {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Media queries for a width of 992px */
 @media (max-width: 992px) {
   /* displays the hamburger icon */
@@ -137,6 +496,10 @@ header nav a {
   .menu {
     display: none;
   }
+
+  /* .menu-loggedIn {
+    display: none;
+  } */
 
   /* Styling the nav items for drop-down view */
   header nav a {
@@ -180,6 +543,94 @@ header nav a {
   /* Positioning the logo for 768px */
   .logo-container {
     margin-left: 40px;
+  }
+
+  /* The features content will be made horizontal cards instead of vertical cards */
+  .features-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding-top: 10%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Features box will be horizontally sytled from this break point onwards */
+  .features-box {
+    width: 80%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2%;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(17, 17, 17, 0.15);
+    color: #00bfbf;
+    transition: transform 0.5s;
+  }
+
+  /* The text will not be displayed from this break point onwards */
+  .features-box-text {
+    display: none;
+  }
+
+  /* Styling the about section - flex direction to column */
+  .about-content {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    color: rgba(91, 146, 121, 0.7);
+  }
+
+  /* Styling the text content of the about section. More text area */
+  .about-text-content {
+    height: 50vh;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+
+  /* Image content will not be displayed from this break point onwards */
+  .about-img-content {
+    display: none;
+  }
+
+  /* Margin styling for H3 */
+  .heading-teritiary {
+    margin-top: 0.5%;
+  }
+
+  /* Margin styling for p tags */
+  .paragraph {
+    margin-top: 0;
+  }
+
+  /* Margin styling and setting width for testimonial*/
+  .testimonial {
+    width: 90%;
+    margin: 1rem;
+  }
+
+  /* Testimonial text to be sized to 100% of width */
+  .testimonial-text {
+    width: 100%;
   }
 }
 
