@@ -651,3 +651,10 @@ header nav a {
     margin-left: 30px;
   }
 }
+
+/* Break point for really small phones*/
+@media (max-width: 450px) {
+  .section-about {
+    height: 140vh;
+  }
+}
