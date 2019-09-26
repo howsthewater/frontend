@@ -40,7 +40,7 @@ class Header extends React.Component {
             </label>
             <input type="checkbox" id="toggle" />
 
-            <nav className="menu-loggedIn">
+            <nav className="menu">
               Hi, {displayName}!<a href="/settings">Settings</a>
               <button className="signup-button" onClick={this.onLogout}>
                 Logout
