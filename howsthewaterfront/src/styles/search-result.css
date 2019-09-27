@@ -132,7 +132,7 @@
 .bottomSection .beach-pics {
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 40%;
   margin-left: 2rem;
 }
