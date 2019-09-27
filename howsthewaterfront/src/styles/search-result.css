@@ -92,7 +92,9 @@
 .iconsSection {
   display: flex;
   width: 30rem;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  /* Adding this so that the icons are arranged from the beginning.  */
+  justify-content: flex-start;
 }
 .iconsSearchResult {
   height: 2rem;
@@ -212,9 +214,9 @@
     justify-content: flex-start;
     align-items: center;
   }
-  .firstDiv {
+  /* .firstDiv {
     display: none;
-  }
+  } */
 
   .leftSection {
     width: 80%;
