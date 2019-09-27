@@ -99,13 +99,6 @@ const Search = props => {
     setValues({ ...values, [name]: value });
   };
   const searchSubmit = e => {
-    // if advanced search is false
-    // if pickedbeach is in data.locations.NameMobileWeb
-    // set local storage beachname to pickedbeach,
-    // else alert warning.
-    // route to /searchresult
-    // if advanced search is true, route to /advancedsearchresult,
-    // set different params in local storage, have checks, etc.
     e.preventDefault();
     if (!advancedSearch) {
       let beachNameList = data.locations.map(
@@ -129,7 +122,6 @@ const Search = props => {
         DOG_FRIENDLY: values.dogFriendly,
         EZ4STROLLERS: values.kidFriendly
       };
-      // console.log(advBeachParams);
       localStorage.setItem(
         "advBeachesParams",
         JSON.stringify(advBeachesParams)

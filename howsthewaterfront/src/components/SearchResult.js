@@ -14,30 +14,7 @@ import "../styles/search-result.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-// const beachDummyData = {
-//   beachName: "Marina del Rey Harbor",
-//   address: "small-craft harbor, restaurants, hotels",
-//   phoneNumber: "310-457-8143",
-//   about:
-//     "small-craft harbor, restaurants, hotels, waterfront parks, Visitor Center at 4701 Admiralty Way",
-//   lat: "33.97",
-//   lng: "Longitude",
-//   region: "North California",
-//   sunrise: "6:09 am",
-//   sunset: "7:29 pm",
-//   dayWeather: "34 - 45 F",
-//   lowTide: "10:00 am 9:00 pm",
-//   highTide: "5:00 am 6:00 pm",
-//   windSpeed: "25 mph",
-//   windDirection: "NE",
-//   swellHeight: "2.0 m",
-//   waterTemp: "40 F"
-//   ammeneties: []
-//   images : []
-// };
-
-const SearchResult = props => {
-  // const [beachData, setBeachData] = useState(null);
+const SearchResult = () => {
   let beachName = localStorage.getItem("beachName");
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
@@ -63,7 +40,7 @@ const SearchResult = props => {
         Photo_2
         Photo_3
         Photo_4
-        DISTRICT
+        REGION
         WwoAPI {
           data {
             weather {
@@ -142,7 +119,7 @@ const SearchResult = props => {
             <div className="subSectionDiv">
               <h1 className="sHeader">Region</h1>
               <h1 className="sElement">-</h1>
-              <h1 className="sText">{data.filter ? beachData.DISTRICT : ""}</h1>
+              <h1 className="sText">{data.filter ? beachData.REGION : ""}</h1>
             </div>
             <div className="subSectionDiv">
               <h1 className="sHeader ">Sunrise</h1>
@@ -186,13 +163,6 @@ const SearchResult = props => {
               <h1 className="sHeader">Low Tide</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
-                  ? beachData.TideAPI.extremes[1].height.substring(0, 4) +
-                    " at: " +
-                    beachData.TideAPI.extremes[1].timestamp
-                      .split(" ")[1]
-                      .substring(0, 8)
-                  : ""} */}
                 {data.filter
                   ? beachData.TideAPI.extremes.filter(extreme => {
                       for (let k in extreme) {
@@ -224,13 +194,6 @@ const SearchResult = props => {
               <h1 className="sHeader">High Tide</h1>
               <h1 className="sElement">-</h1>
               <h1 className="sText">
-                {/* {data.filter
-                  ? beachData.TideAPI.extremes[0].height.substring(0, 4) +
-                    " at: " +
-                    beachData.TideAPI.extremes[0].timestamp
-                      .split(" ")[1]
-                      .substring(0, 8)
-                  : ""} */}
                 {data.filter
                   ? beachData.TideAPI.extremes.filter(extreme => {
                       for (let k in extreme) {

@@ -24,7 +24,7 @@ const dummyBeachData = [
 ];
 const dummySurferData = ["Hardcore", "Hungry", "Half-hearted", "Hopeless"];
 //
-const Settings = props => {
+const Settings = () => {
   const handleUpdate = () => {
     // ADD FUNCTIONALITY FOR ADD UPDATE HERE
     console.log("HANDLE UPDATE HERE");
