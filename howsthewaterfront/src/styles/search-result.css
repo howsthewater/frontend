@@ -211,7 +211,7 @@
 
 @media (max-width: 768px) {
   .topSection {
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
   }
@@ -221,6 +221,7 @@
 
   .leftSection {
     width: 80%;
+    margin: 0;
   }
   .rightSection {
     margin: 0;
