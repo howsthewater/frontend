@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateUserSettings";
 import { gql } from "apollo-boost";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
 const regionalData = [
   "Northern California",
@@ -36,14 +36,12 @@ const Settings = () => {
     validate
   );
 
-  // const [values, setValues] = useState({
-  //   fullname: "",
-  //   mobile: "",
-  //   regionInput: dummyRegionData[0],
-  //   beachInput: dummyBeachData[0],
-  //   surferInput: personaData[0],
-  //   imageInput: null
-  // });
+  const [formValues, setFormValues] = useState({
+    regionInput: regionalData[0],
+    beachInput: "",
+    surferInput: personaData[0],
+    imageInput: null
+  });
 
   // get htwUser from local storage
   const currentUser = localStorage.getItem("htwUser");
@@ -63,10 +61,48 @@ const Settings = () => {
         homeBeachName
         longitude
         latitude
+        phoneInput
+        regionInput
+        beachInput
+        persona
       }
     }
     `;
+
+  const mutationQuery = gql`
+    mutation{
+      update(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
+      ${values.fullname ? "fullName: " + '"' + values.fullname + '"' : ""},
+      ${
+        formValues.regionInput
+          ? "regionInput: " + '"' + formValues.regionInput + '"'
+          : ""
+      },
+beachInput: "",
+      ${
+        formValues.surferInput
+          ? "persona: " + '"' + formValues.surferInput + '"'
+          : ""
+      },
+      ${values.mobile ? "phoneInput: " + '"' + values.mobile + '"' : ""}
+      )
+      {
+        fullName
+      }
+    }
+  `;
+
+  // mutation{
+  //   update(cognitoUserId: "Google_104106894437105465231", fullName: "jeff kang",
+  //     regionInput:"", beachInput: "", persona: "")
+  //     {
+  //       fullName
+  //     }
+  // }
+  console.log(formValues.regionInput);
+
   const { loading, error, data } = useQuery(userQuery);
+  const [updateUser] = useMutation(mutationQuery);
 
   // useEffect(() => {
   //   let currentUser = JSON.parse(localStorage.getItem("htwUser"));
@@ -77,7 +113,7 @@ const Settings = () => {
   const formChangeHandler = e => {
     const { name, value } = e.target;
     console.log(`FORM CHANGE HANDLER :: VALUES :: ${name}, ${value}`);
-    // setValues({ ...values, [name]: value });
+    setFormValues({ ...formValues, [name]: value });
   };
   const imageHandler = e => {
     let imageFile = e.target.files[0];
@@ -153,8 +189,18 @@ const Settings = () => {
               name="mobile"
               type="tel"
               onChange={handleChange}
-              value={values.mobile}
-              placeholder="xxx-xxx-xxxx"
+              // value={values.mobile}
+              value={
+                values.mobile.length > 0
+                  ? values.mobile
+                  : data.filterUser
+                  ? data.filterUser[0].phoneInput
+                  : ""
+              }
+              // placeholder="xxx-xxx-xxxx"
+              placeholder={
+                data.filterUser ? data.filterUser[0].phoneInput : "xxx-xxx-xxxx"
+              }
             />
             {errors.mobile && (
               <div className="error-settings">{errors.mobile}</div>
@@ -215,7 +261,14 @@ const Settings = () => {
               />
             </div>
             <div className="buttonsDiv">
-              <button className="customButton">Update</button>
+              <button
+                className="customButton"
+                onClick={() => {
+                  updateUser();
+                }}
+              >
+                Update
+              </button>
               <button className="customButton">Cancel</button>
             </div>
           </form>

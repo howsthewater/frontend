@@ -83,6 +83,10 @@ class App extends React.Component {
                         homeBeachName
                         latitude
                         longitude
+                        phoneInput
+                        regionInput
+                        beachInput
+                        persona
                       }
                     }
                   `
