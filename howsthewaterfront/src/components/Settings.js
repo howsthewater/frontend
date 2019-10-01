@@ -12,21 +12,13 @@ const regionalData = [
   "Central California",
   "Southern California"
 ];
-const dummyBeachData = [
-  "La Jolla",
-  "Santa Monica",
-  "Coronado",
-  "Carmel City",
-  "Moonstone",
-  "Salt Creek",
-  "Sand Dollar",
-  "McClures",
-  "Pebble",
-  "San Gregorio"
-];
 const personaData = ["Hardcore", "Hungry", "Half-hearted", "Hopeless"];
 //
 const Settings = () => {
+  // get htwUser from local storage
+  const currentUser = localStorage.getItem("htwUser");
+
+  // custom hooks for form validation
   const handleUpdate = () => {
     // ADD FUNCTIONALITY FOR ADD UPDATE HERE
     console.log("HANDLE UPDATE HERE");
@@ -35,11 +27,23 @@ const Settings = () => {
     handleUpdate,
     validate
   );
+  // form handler for input values
+  const formChangeHandler = e => {
+    const { name, value } = e.target;
+    console.log(`FORM CHANGE HANDLER :: VALUES :: ${name}, ${value}`);
+    setFormValues({ ...formValues, [name]: value });
+  };
 
-  // get htwUser from local storage
-  const currentUser = localStorage.getItem("htwUser");
-  // console.log(JSON.parse(currentUser).cognitoUser);
+  // values for dropdown
+  const [formValues, setFormValues] = useState({
+    regionInput: "",
+    surferInput: "",
+    imageInput: null
+  });
+  // beach input
+  const [beachName, setBeachName] = useState("");
 
+  // user query on init
   const userQuery = gql`
   {
     filterUser(
@@ -62,13 +66,7 @@ const Settings = () => {
     }
     `;
 
-  const [formValues, setFormValues] = useState({
-    regionInput: "",
-    beachInput: "",
-    surferInput: personaData[0],
-    imageInput: null
-  });
-  //
+  // beach query on update to region
   const beachQuery = gql`
     {
       filter(filter:{REGION: {EQ: "${formValues.regionInput}"}})
@@ -78,6 +76,7 @@ const Settings = () => {
     }
     `;
 
+  // mutation query on submit update
   const mutationQuery = gql`
     mutation{
       update(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
@@ -87,7 +86,7 @@ const Settings = () => {
           ? "regionInput: " + '"' + formValues.regionInput + '"'
           : ""
       },
-beachInput: "",
+      ${beachName ? "beachInput: " + '"' + beachName + '"' : ""},
       ${
         formValues.surferInput
           ? "persona: " + '"' + formValues.surferInput + '"'
@@ -97,20 +96,25 @@ beachInput: "",
       )
       {
         fullName
+        phoneInput
+        regionInput
+        beachInput
+        persona
       }
     }
   `;
 
-  console.log(formValues.regionInput);
-
-  const { loading, error, data } = useQuery(userQuery);
+  // graphQL queries
+  const { loading, error, data, refetch } = useQuery(userQuery);
   const [updateUser] = useMutation(mutationQuery);
   const beachData = useQuery(beachQuery, {
     skip: !formValues.regionInput
   });
-  const [beachName, setBeachName] = useState("");
+
+  // selected beach input
   const [beaches, setBeaches] = useState([]);
 
+  // search input handler
   const searchInputHandler = e => {
     if (!beachData.data) {
       return alert("Must pick beach region first");
@@ -131,23 +135,27 @@ beachInput: "",
       ? setBeaches(beaches.slice(0, 5))
       : setBeaches(beaches);
   };
+  // set beach handler
   const pickedBeachHandler = beachName => {
     setBeachName(beachName);
   };
-  console.log(beachName);
-  console.log(beachData.data);
-  // console.log(beachData.data ? beachData.data.filter : "");
-  // useEffect(() => {
-  //   let currentUser = JSON.parse(localStorage.getItem("htwUser"));
-  //   console.log(currentUser);
-  // }, []);
-  const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
 
-  const formChangeHandler = e => {
-    const { name, value } = e.target;
-    console.log(`FORM CHANGE HANDLER :: VALUES :: ${name}, ${value}`);
-    setFormValues({ ...formValues, [name]: value });
+  const submitUpdate = () => {
+    if (beaches.length === 0) {
+      updateUser();
+      refetch();
+    } else if (beaches) {
+      if (beaches.some(beach => beach.NameMobileWeb === beachName)) {
+        updateUser();
+        refetch();
+      } else {
+        return alert("Beach does not exist.");
+      }
+    }
   };
+
+  // image handler, to be implemented
+  const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
   const imageHandler = e => {
     let imageFile = e.target.files[0];
     if (!imageFile) {
@@ -162,11 +170,6 @@ beachInput: "",
       alert("Image file must be image, no image set");
     }
   };
-
-  console.log(data ? data : "");
-  console.log(values);
-  console.log(handleChange);
-  console.log(formValues);
 
   return loading ? (
     <div className="loadingDiv">
@@ -192,56 +195,64 @@ beachInput: "",
             </p>
           </div>
           <form noValidate className="settingsForm" onSubmit={handleSubmit}>
-            <label className="inputLabel">Full Name*: </label>
+            <label className="inputLabel">
+              Full Name*:
+              {data.filterUser ? ` ${data.filterUser[0].fullName}` : ""}
+            </label>
             <input
               className="inputField"
               id="nInput"
               name="fullname"
               type="text"
               onChange={handleChange}
-              // value={values.fullname}
-              value={
-                values.fullname.length > 0
-                  ? values.fullname
-                  : data.filterUser
-                  ? data.filterUser[0].fullName
-                  : ""
-              }
-              // placeholder="Name Input..."
-              placeholder={
-                data.filterUser ? data.filterUser[0].fullName : "Name Input..."
-              }
+              value={values.fullname}
+              // value={
+              //   values.fullname.length > 0
+              //     ? values.fullname
+              //     : data.filterUser
+              //     ? data.filterUser[0].fullName
+              //     : ""
+              // }
+              placeholder="Name Input..."
+              // placeholder={
+              //   data.filterUser ? data.filterUser[0].fullName : "Name Input..."
+              // }
             />
             {errors.fullname && (
               <div className="error-settings">{errors.fullname}</div>
             )}
             {/* currently no mobile number field avail in schema */}
-            <label className="inputLabel">Mobile Number: </label>
+            <label className="inputLabel">
+              Mobile Number:
+              {data.filterUser ? ` ${data.filterUser[0].phoneInput}` : ""}
+            </label>
             <input
               className="inputField"
               id="pInput"
               name="mobile"
               type="tel"
               onChange={handleChange}
-              // value={values.mobile}
-              value={
-                values.mobile.length > 0
-                  ? values.mobile
-                  : data.filterUser
-                  ? data.filterUser[0].phoneInput
-                  : "xxx-xxx-xxxx"
-              }
-              // placeholder="xxx-xxx-xxxx"
-              placeholder={
-                data.filterUser ? data.filterUser[0].phoneInput : "xxx-xxx-xxxx"
-              }
+              value={values.mobile}
+              // value={
+              //   values.mobile.length > 0
+              //     ? values.mobile
+              //     : data.filterUser
+              //     ? data.filterUser[0].phoneInput
+              //     : "xxx-xxx-xxxx"
+              // }
+              placeholder="xxx-xxx-xxxx"
+              // placeholder={
+              //   data.filterUser ? data.filterUser[0].phoneInput : "xxx-xxx-xxxx"
+              // }
             />
             {errors.mobile && (
               <div className="error-settings">{errors.mobile}</div>
             )}
             {/* currently no base region field avail in schema */}
             <label className="inputLabel">
-              Base beach Region/ region in California*:{" "}
+              Base beach Region/ region in California*:
+              <br />
+              {data.filterUser ? `  ${data.filterUser[0].regionInput}` : ""}
             </label>
             <select
               className="selectField"
@@ -249,11 +260,12 @@ beachInput: "",
               onChange={formChangeHandler}
             >
               <option value="" hidden>
-                {data.filterUser
+                Select Region
+                {/* {data.filterUser
                   ? data.filterUser[0].regionInput
                     ? data.filterUser[0].regionInput
                     : "Select Region"
-                  : "Select Region"}
+                  : "Select Region"} */}
               </option>
               {regionalData.map((region, index) => (
                 <option value={region} key={index}>
@@ -262,7 +274,9 @@ beachInput: "",
               ))}
             </select>
             <label className="inputLabel">
-              Base beach spot/ surf spot in California*:{" "}
+              Base beach spot/ surf spot in California*:
+              <br />
+              {data.filterUser ? ` ${data.filterUser[0].beachInput}` : ""}
             </label>
             {/* <select
               className="selectField"
@@ -277,7 +291,7 @@ beachInput: "",
             </select> */}
             <input
               className="selectField"
-              name="beachName"
+              name="beachInput"
               type="text"
               onChange={searchInputHandler}
               value={beachName}
@@ -296,21 +310,25 @@ beachInput: "",
               ))}
             </div>
             {/* currently no persona field avail in schema */}
-            <label className="inputLabel">Choose your persona*: </label>
+            <label className="inputLabel">
+              Choose your persona*:
+              {data.filterUser ? ` ${data.filterUser[0].persona}` : ""}
+            </label>
             <select
               className="selectField"
               name="surferInput"
               onChange={formChangeHandler}
             >
               <option value="" hidden>
-                {data.filterUser
+                Select Persona
+                {/* {data.filterUser
                   ? data.filterUser[0].persona
                     ? data.filterUser[0].persona
                     : "Select Persona"
-                  : "Select Persona"}
+                  : "Select Persona"} */}
               </option>
-              {personaData.map(surfer => (
-                <option value={surfer} key={Math.random()}>
+              {personaData.map((surfer, index) => (
+                <option value={surfer} key={index}>
                   {surfer}
                 </option>
               ))}
@@ -329,12 +347,7 @@ beachInput: "",
               />
             </div>
             <div className="buttonsDiv">
-              <button
-                className="customButton"
-                onClick={() => {
-                  updateUser();
-                }}
-              >
+              <button className="customButton" onClick={submitUpdate}>
                 Update
               </button>
               <button className="customButton">Cancel</button>
