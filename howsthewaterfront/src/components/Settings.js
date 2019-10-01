@@ -36,13 +36,6 @@ const Settings = () => {
     validate
   );
 
-  const [formValues, setFormValues] = useState({
-    regionInput: regionalData[0],
-    beachInput: "",
-    surferInput: personaData[0],
-    imageInput: null
-  });
-
   // get htwUser from local storage
   const currentUser = localStorage.getItem("htwUser");
   // console.log(JSON.parse(currentUser).cognitoUser);
@@ -65,6 +58,22 @@ const Settings = () => {
         regionInput
         beachInput
         persona
+      }
+    }
+    `;
+
+  const [formValues, setFormValues] = useState({
+    regionInput: "",
+    beachInput: "",
+    surferInput: personaData[0],
+    imageInput: null
+  });
+  //
+  const beachQuery = gql`
+    {
+      filter(filter:{REGION: {EQ: "${formValues.regionInput}"}})
+      {
+        NameMobileWeb
       }
     }
     `;
@@ -92,18 +101,42 @@ beachInput: "",
     }
   `;
 
-  // mutation{
-  //   update(cognitoUserId: "Google_104106894437105465231", fullName: "jeff kang",
-  //     regionInput:"", beachInput: "", persona: "")
-  //     {
-  //       fullName
-  //     }
-  // }
   console.log(formValues.regionInput);
 
   const { loading, error, data } = useQuery(userQuery);
   const [updateUser] = useMutation(mutationQuery);
+  const beachData = useQuery(beachQuery, {
+    skip: !formValues.regionInput
+  });
+  const [beachName, setBeachName] = useState("");
+  const [beaches, setBeaches] = useState([]);
 
+  const searchInputHandler = e => {
+    if (!beachData.data) {
+      return alert("Must pick beach region first");
+    }
+    const { name, value } = e.target;
+    setBeachName(value);
+    let beaches = [...beachData.data.filter];
+    beaches = beaches.filter(beach => {
+      if (
+        beach.NameMobileWeb.toLowerCase().includes(e.target.value.toLowerCase())
+      ) {
+        return beaches;
+      }
+    });
+    e.target.value === ""
+      ? setBeaches([])
+      : beaches.length >= 5
+      ? setBeaches(beaches.slice(0, 5))
+      : setBeaches(beaches);
+  };
+  const pickedBeachHandler = beachName => {
+    setBeachName(beachName);
+  };
+  console.log(beachName);
+  console.log(beachData.data);
+  // console.log(beachData.data ? beachData.data.filter : "");
   // useEffect(() => {
   //   let currentUser = JSON.parse(localStorage.getItem("htwUser"));
   //   console.log(currentUser);
@@ -133,6 +166,7 @@ beachInput: "",
   console.log(data ? data : "");
   console.log(values);
   console.log(handleChange);
+  console.log(formValues);
 
   return loading ? (
     <div className="loadingDiv">
@@ -195,7 +229,7 @@ beachInput: "",
                   ? values.mobile
                   : data.filterUser
                   ? data.filterUser[0].phoneInput
-                  : ""
+                  : "xxx-xxx-xxxx"
               }
               // placeholder="xxx-xxx-xxxx"
               placeholder={
@@ -214,8 +248,15 @@ beachInput: "",
               name="regionInput"
               onChange={formChangeHandler}
             >
-              {regionalData.map(region => (
-                <option value={region} key={Math.random()}>
+              <option value="" hidden>
+                {data.filterUser
+                  ? data.filterUser[0].regionInput
+                    ? data.filterUser[0].regionInput
+                    : "Select Region"
+                  : "Select Region"}
+              </option>
+              {regionalData.map((region, index) => (
+                <option value={region} key={index}>
                   {region}
                 </option>
               ))}
@@ -223,7 +264,7 @@ beachInput: "",
             <label className="inputLabel">
               Base beach spot/ surf spot in California*:{" "}
             </label>
-            <select
+            {/* <select
               className="selectField"
               name="beachInput"
               onChange={formChangeHandler}
@@ -233,7 +274,27 @@ beachInput: "",
                   {beach}
                 </option>
               ))}
-            </select>
+            </select> */}
+            <input
+              className="selectField"
+              name="beachName"
+              type="text"
+              onChange={searchInputHandler}
+              value={beachName}
+              placeholder="Choose beach region first"
+            />
+            <div>
+              {beaches.map(beach => (
+                <p
+                  onClick={() => {
+                    pickedBeachHandler(beach.NameMobileWeb);
+                  }}
+                  key={Math.random()}
+                >
+                  {beach.NameMobileWeb}
+                </p>
+              ))}
+            </div>
             {/* currently no persona field avail in schema */}
             <label className="inputLabel">Choose your persona*: </label>
             <select
@@ -241,6 +302,13 @@ beachInput: "",
               name="surferInput"
               onChange={formChangeHandler}
             >
+              <option value="" hidden>
+                {data.filterUser
+                  ? data.filterUser[0].persona
+                    ? data.filterUser[0].persona
+                    : "Select Persona"
+                  : "Select Persona"}
+              </option>
               {personaData.map(surfer => (
                 <option value={surfer} key={Math.random()}>
                   {surfer}
