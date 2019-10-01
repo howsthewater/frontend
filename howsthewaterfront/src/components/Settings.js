@@ -291,7 +291,7 @@ const Settings = () => {
             </select> */}
             <input
               className="selectField"
-              name="beachInput"
+              name="beachName"
               type="text"
               onChange={searchInputHandler}
               value={beachName}
