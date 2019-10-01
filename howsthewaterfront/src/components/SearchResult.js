@@ -83,6 +83,7 @@ const SearchResult = () => {
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
 
+  console.log(data.filter ? beachData.TideAPI.extremes : "");
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -184,8 +185,7 @@ const SearchResult = () => {
                             if (extreme[k] === "low") return true;
                           }
                         })[0]
-                        .timestamp.split(" ")[1]
-                        .substring(0, 8)}`
+                        .timestamp.substring(11, 19)}`
                     : ""
                   : ""}
               </h1>
@@ -215,8 +215,7 @@ const SearchResult = () => {
                             if (extreme[k] === "high") return true;
                           }
                         })[0]
-                        .timestamp.split(" ")[1]
-                        .substring(0, 8)}`
+                        .timestamp.substring(11, 19)}`
                     : ""
                   : ""}
               </h1>
