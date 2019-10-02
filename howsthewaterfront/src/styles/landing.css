@@ -529,12 +529,15 @@ header nav a {
 }
 
 /* Breakpoint styling at 768px */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   /* displays the hamburger icon - position for 768px*/
   .hamburger-icon {
     right: 70px;
   }
 
+  .heading-secondary {
+    margin: 0 2rem;
+  }
   /* displays the hamburger icon */
   #toggle:checked + .menu {
     margin-right: 15px;
@@ -580,13 +583,17 @@ header nav a {
     display: none;
   }
 
+  .section-about {
+    height: 70vh;
+    padding-top: 6rem;
+  }
   /* Styling the about section - flex direction to column */
   .about-content {
     display: flex;
     margin: 0;
-    padding: 0;
+    padding-top: 2rem;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 70vh;
     color: rgba(91, 146, 121, 0.7);
@@ -649,5 +656,30 @@ header nav a {
   /* Positioning the logo for 575px */
   .logo-container {
     margin-left: 30px;
+  }
+}
+
+/* Break point for really small phones*/
+@media (max-width: 450px) {
+  .section-about {
+    height: 100vh;
+    padding-top: 3rem;
+  }
+
+  .section-testimonials {
+    display: none;
+  }
+}
+
+/* Break point for really small phones*/
+@media (max-width: 360px) {
+  .section-about {
+    height: 160vh;
+    padding-top: 3rem;
+  }
+
+  .section-testimonials {
+    height: 140vh;
+    display: none;
   }
 }

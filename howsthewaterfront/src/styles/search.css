@@ -254,3 +254,13 @@
     display: none;
   }
 }
+
+/* Breakpoint for 450px */
+@media (max-width: 450px) {
+  .searchContainer {
+    width: 250px;
+  }
+  .aSearchToggleButton {
+    display: none;
+  }
+}

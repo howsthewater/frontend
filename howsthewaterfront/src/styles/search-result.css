@@ -12,6 +12,7 @@
 }
 .topSection {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-around;
   margin-bottom: 3rem;
   margin-top: 3rem;
@@ -91,10 +92,13 @@
 .iconsSection {
   display: flex;
   width: 30rem;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  /* Adding this so that the icons are arranged from the beginning.  */
+  justify-content: flex-start;
 }
 .iconsSearchResult {
   height: 2rem;
+  margin: 0.5rem;
 }
 
 .iconsSearchResult:first-child {
@@ -128,7 +132,7 @@
 .bottomSection .beach-pics {
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   width: 40%;
   margin-left: 2rem;
 }
@@ -207,16 +211,17 @@
 
 @media (max-width: 768px) {
   .topSection {
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
   }
-  .firstDiv {
+  /* .firstDiv {
     display: none;
-  }
+  } */
 
   .leftSection {
     width: 80%;
+    margin: 0;
   }
   .rightSection {
     margin: 0;
