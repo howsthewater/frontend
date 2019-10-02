@@ -16,92 +16,8 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-// const dummyData = [
-//   {
-//     NameMobileWeb: "aName",
-//     DISTRICT: "aRegion",
-//     RESTROOMS: "Yes",
-//     PARKING: "No",
-//     DSABLDACSS: "Yes",
-//     PCNC_AREA: "Yes",
-//     VOLLEYBALL: "No",
-//     DOG_FRIENDLY: "No",
-//     EZ4STROLLERS: "Yes",
-//     windspeed: "something",
-//     windDirection: "something else",
-//     swellheight: "swell",
-//     temp: "95"
-//   },
-//   {
-//     NameMobileWeb: "aName",
-//     DISTRICT: "aRegion",
-//     RESTROOMS: "Yes",
-//     PARKING: "No",
-//     DSABLDACSS: "Yes",
-//     PCNC_AREA: "Yes",
-//     VOLLEYBALL: "No",
-//     DOG_FRIENDLY: "No",
-//     EZ4STROLLERS: "Yes",
-//     windspeed: "something",
-//     windDirection: "something else",
-//     swellheight: "swell",
-//     temp: "95"
-//   },
-//   {
-//     NameMobileWeb: "aName",
-//     DISTRICT: "aRegion",
-//     RESTROOMS: "Yes",
-//     PARKING: "No",
-//     DSABLDACSS: "Yes",
-//     PCNC_AREA: "No",
-//     VOLLEYBALL: "No",
-//     DOG_FRIENDLY: "No",
-//     EZ4STROLLERS: "Yes",
-//     windspeed: "something",
-//     windDirection: "something else",
-//     swellheight: "swell",
-//     temp: "95"
-//   },
-//   {
-//     NameMobileWeb: "aName",
-//     DISTRICT: "aRegion",
-//     RESTROOMS: "Yes",
-//     PARKING: "No",
-//     DSABLDACSS: "Yes",
-//     PCNC_AREA: "Yes",
-//     VOLLEYBALL: "Yes",
-//     DOG_FRIENDLY: "Yes",
-//     EZ4STROLLERS: "Yes",
-//     windspeed: "something",
-//     windDirection: "something else",
-//     swellheight: "swell",
-//     temp: "95"
-//   },
-//   {
-//     NameMobileWeb: "aName",
-//     DISTRICT: "aRegion",
-//     RESTROOMS: "Yes",
-//     PARKING: "No",
-//     DSABLDACSS: "No",
-//     PCNC_AREA: "Yes",
-//     VOLLEYBALL: "Yes",
-//     DOG_FRIENDLY: "Yes",
-//     EZ4STROLLERS: "Yes",
-//     windspeed: "something",
-//     windDirection: "something else",
-//     swellheight: "swell",
-//     temp: "95"
-//   }
-// ];
-
-const AdvancedSearch = props => {
-  // const [searchData, setSearchBeaches] = useState(null);
+const AdvancedSearch = () => {
   const advBeachesParams = localStorage.getItem("advBeachesParams");
-  // console.log(advBeachesParams);
-  // console.log(typeof advBeachesParams);
-  // console.log(JSON.parse(advBeachesParams).RESTROOMS);
-  //NameMobileWeb: { EQ: "Pelican State Beach" }
-  //${JSON.parse(advBeachesParams).PARKING ? 'PARKING:{EQ:"Yes"}' : ""}
   const beachesQuery = gql`
     {
       filter(filter: { 
@@ -128,7 +44,7 @@ const AdvancedSearch = props => {
        pagination: {limit: 10}
        ) {
         NameMobileWeb
-        DISTRICT
+        REGION
         RESTROOMS
         PARKING
         DSABLDACSS
@@ -162,15 +78,6 @@ const AdvancedSearch = props => {
     }
   `;
   const { loading, error, data } = useQuery(beachesQuery);
-  // console.log(advBeachesParams);
-
-  // console.log(data);
-  // console.log(data.filter);
-  // useEffect(() => {
-  //   setSearchBeaches(dummyData);
-  // }, {});
-  // console.log(searchData);
-  // console.log(props);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -204,9 +111,7 @@ const AdvancedSearch = props => {
                   <div className="beach-spot beach-data">
                     {beach.NameMobileWeb}
                   </div>
-                  <div className="beach-region beach-data">
-                    {beach.DISTRICT}
-                  </div>
+                  <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">
                     <img
                       className="icons-search-result"

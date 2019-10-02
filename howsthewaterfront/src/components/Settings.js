@@ -1,30 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/settings.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateUserSettings";
+import { gql } from "apollo-boost";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 
-const dummyRegionData = [
+const regionalData = [
   "Northern California",
   "Central California",
   "Southern California"
 ];
-const dummyBeachData = [
-  "La Jolla",
-  "Santa Monica",
-  "Coronado",
-  "Carmel City",
-  "Moonstone",
-  "Salt Creek",
-  "Sand Dollar",
-  "McClures",
-  "Pebble",
-  "San Gregorio"
-];
-const dummySurferData = ["Hardcore", "Hungry", "Half-hearted", "Hopeless"];
+const personaData = ["Hardcore", "Hungry", "Half-hearted", "Hopeless"];
 //
-const Settings = props => {
+const Settings = () => {
+  // get htwUser from local storage
+  const currentUser = localStorage.getItem("htwUser");
+
+  // custom hooks for form validation
   const handleUpdate = () => {
     // ADD FUNCTIONALITY FOR ADD UPDATE HERE
     console.log("HANDLE UPDATE HERE");
@@ -33,22 +27,135 @@ const Settings = props => {
     handleUpdate,
     validate
   );
-
-  // const [values, setValues] = useState({
-  //   fullname: "",
-  //   mobile: "",
-  //   regionInput: dummyRegionData[0],
-  //   beachInput: dummyBeachData[0],
-  //   surferInput: dummySurferData[0],
-  //   imageInput: null
-  // });
-  const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
-
+  // form handler for input values
   const formChangeHandler = e => {
     const { name, value } = e.target;
     console.log(`FORM CHANGE HANDLER :: VALUES :: ${name}, ${value}`);
-    // setValues({ ...values, [name]: value });
+    setFormValues({ ...formValues, [name]: value });
   };
+
+  // values for dropdown
+  const [formValues, setFormValues] = useState({
+    regionInput: "",
+    surferInput: "",
+    imageInput: null
+  });
+  // beach input
+  const [beachName, setBeachName] = useState("");
+
+  // user query on init
+  const userQuery = gql`
+  {
+    filterUser(
+      filter: { cognitoUserId: { EQ: "${
+        JSON.parse(currentUser).cognitoUser
+      }" } }
+      ) {
+        cognitoUserId
+        fullName
+        email
+        homeBeach
+        homeBeachName
+        longitude
+        latitude
+        phoneInput
+        regionInput
+        beachInput
+        persona
+      }
+    }
+    `;
+
+  // beach query on update to region
+  const beachQuery = gql`
+    {
+      filter(filter:{REGION: {EQ: "${formValues.regionInput}"}})
+      {
+        NameMobileWeb
+      }
+    }
+    `;
+
+  // mutation query on submit update
+  const mutationQuery = gql`
+    mutation{
+      update(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
+      ${values.fullname ? "fullName: " + '"' + values.fullname + '"' : ""},
+      ${
+        formValues.regionInput
+          ? "regionInput: " + '"' + formValues.regionInput + '"'
+          : ""
+      },
+      ${beachName ? "beachInput: " + '"' + beachName + '"' : ""},
+      ${
+        formValues.surferInput
+          ? "persona: " + '"' + formValues.surferInput + '"'
+          : ""
+      },
+      ${values.mobile ? "phoneInput: " + '"' + values.mobile + '"' : ""}
+      )
+      {
+        fullName
+        phoneInput
+        regionInput
+        beachInput
+        persona
+      }
+    }
+  `;
+
+  // graphQL queries
+  const { loading, error, data, refetch } = useQuery(userQuery);
+  const [updateUser] = useMutation(mutationQuery);
+  const beachData = useQuery(beachQuery, {
+    skip: !formValues.regionInput
+  });
+
+  // selected beach input
+  const [beaches, setBeaches] = useState([]);
+
+  // search input handler
+  const searchInputHandler = e => {
+    if (!beachData.data) {
+      return alert("Must pick beach region first");
+    }
+    const { name, value } = e.target;
+    setBeachName(value);
+    let beaches = [...beachData.data.filter];
+    beaches = beaches.filter(beach => {
+      if (
+        beach.NameMobileWeb.toLowerCase().includes(e.target.value.toLowerCase())
+      ) {
+        return beaches;
+      }
+    });
+    e.target.value === ""
+      ? setBeaches([])
+      : beaches.length >= 5
+      ? setBeaches(beaches.slice(0, 5))
+      : setBeaches(beaches);
+  };
+  // set beach handler
+  const pickedBeachHandler = beachName => {
+    setBeachName(beachName);
+  };
+
+  const submitUpdate = () => {
+    if (beaches.length === 0) {
+      updateUser();
+      refetch();
+    } else if (beaches) {
+      if (beaches.some(beach => beach.NameMobileWeb === beachName)) {
+        updateUser();
+        refetch();
+      } else {
+        return alert("Beach does not exist.");
+      }
+    }
+  };
+
+  // image handler, to be implemented
+  const [imageReaderValue, setImageReaderValue] = useState("No file chosen");
   const imageHandler = e => {
     let imageFile = e.target.files[0];
     if (!imageFile) {
@@ -64,7 +171,15 @@ const Settings = props => {
     }
   };
 
-  return (
+  return loading ? (
+    <div className="loadingDiv">
+      <h1 className="loadingText">Please wait... getting beaches</h1>
+    </div>
+  ) : error ? (
+    <div className="errorDiv">
+      <h1 className="errorText">There was an error retreiving the data</h1>
+    </div>
+  ) : (
     <div>
       <Header />
       <div className="settingsContainer">
@@ -80,7 +195,10 @@ const Settings = props => {
             </p>
           </div>
           <form noValidate className="settingsForm" onSubmit={handleSubmit}>
-            <label className="inputLabel">Full Name*: </label>
+            <label className="inputLabel">
+              Full Name*:
+              {data.filterUser ? ` ${data.filterUser[0].fullName}` : ""}
+            </label>
             <input
               className="inputField"
               id="nInput"
@@ -88,12 +206,26 @@ const Settings = props => {
               type="text"
               onChange={handleChange}
               value={values.fullname}
+              // value={
+              //   values.fullname.length > 0
+              //     ? values.fullname
+              //     : data.filterUser
+              //     ? data.filterUser[0].fullName
+              //     : ""
+              // }
               placeholder="Name Input..."
+              // placeholder={
+              //   data.filterUser ? data.filterUser[0].fullName : "Name Input..."
+              // }
             />
             {errors.fullname && (
               <div className="error-settings">{errors.fullname}</div>
             )}
-            <label className="inputLabel">Mobile Number: </label>
+            {/* currently no mobile number field avail in schema */}
+            <label className="inputLabel">
+              Mobile Number:
+              {data.filterUser ? ` ${data.filterUser[0].phoneInput}` : ""}
+            </label>
             <input
               className="inputField"
               id="pInput"
@@ -101,29 +233,52 @@ const Settings = props => {
               type="tel"
               onChange={handleChange}
               value={values.mobile}
+              // value={
+              //   values.mobile.length > 0
+              //     ? values.mobile
+              //     : data.filterUser
+              //     ? data.filterUser[0].phoneInput
+              //     : "xxx-xxx-xxxx"
+              // }
               placeholder="xxx-xxx-xxxx"
+              // placeholder={
+              //   data.filterUser ? data.filterUser[0].phoneInput : "xxx-xxx-xxxx"
+              // }
             />
             {errors.mobile && (
               <div className="error-settings">{errors.mobile}</div>
             )}
+            {/* currently no base region field avail in schema */}
             <label className="inputLabel">
-              Base beach spot/ surf spot in California*:{" "}
+              Base beach Region/ region in California*:
+              <br />
+              {data.filterUser ? `  ${data.filterUser[0].regionInput}` : ""}
             </label>
             <select
               className="selectField"
               name="regionInput"
               onChange={formChangeHandler}
             >
-              {dummyRegionData.map(region => (
-                <option value={region} key={Math.random()}>
+              <option value="" hidden>
+                Select Region
+                {/* {data.filterUser
+                  ? data.filterUser[0].regionInput
+                    ? data.filterUser[0].regionInput
+                    : "Select Region"
+                  : "Select Region"} */}
+              </option>
+              {regionalData.map((region, index) => (
+                <option value={region} key={index}>
                   {region}
                 </option>
               ))}
             </select>
             <label className="inputLabel">
-              Base beach spot/ surf spot in California*:{" "}
+              Base beach spot/ surf spot in California*:
+              <br />
+              {data.filterUser ? ` ${data.filterUser[0].beachInput}` : ""}
             </label>
-            <select
+            {/* <select
               className="selectField"
               name="beachInput"
               onChange={formChangeHandler}
@@ -133,19 +288,52 @@ const Settings = props => {
                   {beach}
                 </option>
               ))}
-            </select>
-            <label className="inputLabel">Choose your persona*: </label>
+            </select> */}
+            <input
+              className="selectField"
+              name="beachName"
+              type="text"
+              onChange={searchInputHandler}
+              value={beachName}
+              placeholder="Choose beach region first"
+            />
+            <div>
+              {beaches.map(beach => (
+                <p
+                  onClick={() => {
+                    pickedBeachHandler(beach.NameMobileWeb);
+                  }}
+                  key={Math.random()}
+                >
+                  {beach.NameMobileWeb}
+                </p>
+              ))}
+            </div>
+            {/* currently no persona field avail in schema */}
+            <label className="inputLabel">
+              Choose your persona*:
+              {data.filterUser ? ` ${data.filterUser[0].persona}` : ""}
+            </label>
             <select
               className="selectField"
               name="surferInput"
               onChange={formChangeHandler}
             >
-              {dummySurferData.map(surfer => (
-                <option value={surfer} key={Math.random()}>
+              <option value="" hidden>
+                Select Persona
+                {/* {data.filterUser
+                  ? data.filterUser[0].persona
+                    ? data.filterUser[0].persona
+                    : "Select Persona"
+                  : "Select Persona"} */}
+              </option>
+              {personaData.map((surfer, index) => (
+                <option value={surfer} key={index}>
                   {surfer}
                 </option>
               ))}
             </select>
+            {/* currently no picture field avail in schema */}
             <label className="inputLabel">Upload your picture: </label>
             <div className="imageDiv">
               <div className="showImageField">{imageReaderValue}</div>
@@ -159,7 +347,9 @@ const Settings = props => {
               />
             </div>
             <div className="buttonsDiv">
-              <button className="customButton">Update</button>
+              <button className="customButton" onClick={submitUpdate}>
+                Update
+              </button>
               <button className="customButton">Cancel</button>
             </div>
           </form>
