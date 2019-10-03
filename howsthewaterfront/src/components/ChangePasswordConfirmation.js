@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
+import "../styles/change-password.css";
 
 function ChangePasswordConfirmation(props) {
   return (

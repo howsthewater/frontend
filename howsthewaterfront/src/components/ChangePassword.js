@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/signup.css";
+import "../styles/change-password.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import Search from "./Search";
