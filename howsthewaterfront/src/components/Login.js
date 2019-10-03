@@ -95,9 +95,6 @@ function Login(props) {
               <div className="error-signup">{errors.password}</div>
             )}
             <div className="passwordFeature-container">
-              <a className="passwordFeature" href="/changePassword">
-                Change Password
-              </a>
               <a className="passwordFeature" href="/forgotPassword">
                 Forgot Password
               </a>

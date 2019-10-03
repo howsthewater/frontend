@@ -11,12 +11,25 @@ class Header extends React.Component {
     await Auth.signOut();
     await localStorage.removeItem("htwUser");
     await localStorage.removeItem("beachName");
-    await this.props.logout();
     this.props.history.push("/landing");
   };
   render() {
     let loggedInUser = JSON.parse(localStorage.getItem("htwUser"));
+    let amplifySignInWithHostedUI = localStorage.getItem(
+      "amplify-signin-with-hostedUI"
+    );
+    console.log(
+      "------------- AMPLIFY SIGN IN WITH HOSTED UI --------------------------" +
+        amplifySignInWithHostedUI
+    );
     let displayName = "";
+    let displayChangePassword = !amplifySignInWithHostedUI
+      ? ""
+      : `<a href="/changePassword">Change Password</a>`;
+    console.log(
+      "--------------DISPLAY CHANGE PASSWORD IS ----------------" +
+        displayChangePassword
+    );
     if (loggedInUser) {
       console.log(typeof loggedInUser);
       console.log(loggedInUser.email);
@@ -32,7 +45,7 @@ class Header extends React.Component {
               <a href="/home">
                 <img className="logo" src={logo} alt="How's the water logo" />
               </a>
-              <img className="logo-txt" src={logoWords} alt="How's the water" />
+              Hi, {displayName}!
             </div>
 
             <label className="hamburger-icon" htmlFor="toggle">
@@ -41,7 +54,11 @@ class Header extends React.Component {
             <input type="checkbox" id="toggle" />
 
             <nav className="menu">
-              Hi, {displayName}!<a href="/settings">Settings</a>
+              {amplifySignInWithHostedUI === "false" && (
+                <a href="/changePassword">Change Password</a>
+              )}
+
+              <a href="/settings">Settings</a>
               <button className="signup-button" onClick={this.onLogout}>
                 Logout
               </button>
