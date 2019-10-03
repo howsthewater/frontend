@@ -9,6 +9,9 @@ const useForm = (callback, validate) => {
     regionInput: "",
     beachInput: "",
     surferInput: "",
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
     imageInput: null
   });
 
@@ -20,6 +23,9 @@ const useForm = (callback, validate) => {
     regionInput: "",
     beachInput: "",
     surferInput: "",
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
     imageInput: null
   });
 
