@@ -4,7 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Search from "./Search";
 import useForm from "../components/helper/useForm";
-import validate from "../components/helper/validateSignup";
+import validate from "../components/helper/validateChangePassword";
 
 function ChangePassword(props) {
   const handleChangePassword = async () => {
