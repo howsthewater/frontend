@@ -241,8 +241,6 @@ class App extends React.Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
-        <Route exact path="/changePassword" component={ChangePassword} />
-        {/* <Route exact path="/settings" component={Settings} /> */}
         <Routes childProps={childProps} />
         {/* Test to make sure apollo is fetching data as expected, will change in future to 
           display the data appropriately */}

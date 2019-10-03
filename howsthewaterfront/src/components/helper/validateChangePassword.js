@@ -1,6 +1,6 @@
 export default function validate(values) {
   let errors = {};
-
+  console.log("-----------IN VALIDATE CHANGE PASSWORD ---------------");
   // Validation for old password
   if (!values.oldPassword) {
     //password - more than 8 characters
@@ -18,5 +18,8 @@ export default function validate(values) {
       "Password should contain at least one special character";
   }
 
+  console.log(
+    "ERRORS IS -------------------------------" + JSON.stringify(errors)
+  );
   return errors;
 }

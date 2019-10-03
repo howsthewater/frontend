@@ -8,6 +8,7 @@ import validate from "../components/helper/validateChangePassword";
 
 function ChangePassword(props) {
   const handleChangePassword = async () => {
+    console.log("Change Password CLICKED");
     try {
       console.log("Change Password CLICKED");
       //   const signUpResponse = await Auth.signUp({
