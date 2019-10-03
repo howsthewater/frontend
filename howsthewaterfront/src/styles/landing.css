@@ -67,6 +67,16 @@ header {
   letter-spacing: 2px;
 }
 
+.displayName {
+  align-items: center;
+
+  text-transform: none;
+  font-size: 1.4rem;
+  color: #2d728f;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
 /* Link decoration styling for the navigation items */
 header nav a {
   text-decoration: none;

@@ -45,7 +45,7 @@ class Header extends React.Component {
               <a href="/home">
                 <img className="logo" src={logo} alt="How's the water logo" />
               </a>
-              Hi, {displayName}!
+              <span className="displayName">Hi, {displayName}!</span>
             </div>
 
             <label className="hamburger-icon" htmlFor="toggle">

@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Search from "./Search";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateChangePassword";
+import { withRouter } from "react-router-dom";
 
 function ChangePassword(props) {
   const handleChangePassword = async () => {
@@ -20,7 +21,7 @@ function ChangePassword(props) {
       //     }
       //   });
       //   console.log(signUpResponse);
-      //   props.history.push("/login");
+      props.history.push("/changePasswordConfirmation");
     } catch (error) {
       console.log("Error is " + error.message);
       //   if (error.message === "An account with the given email already exists.") {
@@ -95,4 +96,4 @@ function ChangePassword(props) {
   );
 }
 
-export default ChangePassword;
+export default withRouter(ChangePassword);

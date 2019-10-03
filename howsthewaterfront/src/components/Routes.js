@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import HomePageForm from "./Home";
 import SettingsForm from "./Settings";
 import ChangePasswordForm from "./ChangePassword";
+import ChangePasswordConfirmationForm from "./ChangePasswordConfirmation";
 
 export default ({ childProps }) => (
   <Switch>
@@ -24,6 +25,13 @@ export default ({ childProps }) => (
       exact
       path="/changePassword"
       component={ChangePasswordForm}
+      props={childProps}
+    />
+
+    <PrivateRoute
+      exact
+      path="/changePasswordConfirmation"
+      component={ChangePasswordConfirmationForm}
       props={childProps}
     />
   </Switch>
