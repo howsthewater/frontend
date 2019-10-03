@@ -205,6 +205,27 @@
   align-items: center;
 }
 
+.passwordFeature-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.passwordFeature {
+  text-decoration: none;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #2d728f;
+  cursor: pointer;
+  border-bottom: 1px solid #2d728f;
+}
+
+.passwordFeature:hover {
+  color: #00bfbf;
+  border-bottom: 1px solid #00bfbf;
+}
+
 /* Breakpoint styling at 768px */
 @media (max-width: 768px) {
   .search-body {
