@@ -213,8 +213,8 @@
 }
 .passwordFeature {
   text-decoration: none;
-  margin-left: 1rem;
-  margin-top: 1rem;
+  margin: 1rem;
+
   font-size: 1.4rem;
   color: #2d728f;
   cursor: pointer;

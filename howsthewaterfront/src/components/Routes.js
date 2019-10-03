@@ -27,12 +27,5 @@ export default ({ childProps }) => (
       component={ChangePasswordForm}
       props={childProps}
     />
-
-    <PrivateRoute
-      exact
-      path="/changePasswordConfirmation"
-      component={ChangePasswordConfirmationForm}
-      props={childProps}
-    />
   </Switch>
 );

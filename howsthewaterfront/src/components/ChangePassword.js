@@ -6,28 +6,26 @@ import Search from "./Search";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateChangePassword";
 import { withRouter } from "react-router-dom";
+import { Auth } from "aws-amplify";
 
 function ChangePassword(props) {
+  const [passwordVerifyError, setPasswordVerifyError] = useState("");
   const handleChangePassword = async () => {
     console.log("Change Password CLICKED");
     try {
-      console.log("Change Password CLICKED");
-      //   const signUpResponse = await Auth.signUp({
-      //     username: values.email,
-      //     password: values.password,
-      //     attributes: {
-      //       email: values.email,
-      //       "custom:full_name": values.fullname
-      //     }
-      //   });
-      //   console.log(signUpResponse);
+      const user = await Auth.currentAuthenticatedUser();
+      console.log(user);
+      await Auth.changePassword(user, values.oldPassword, values.newPassword);
+      await localStorage.removeItem("htwUser");
+      await localStorage.removeItem("beachName");
       props.history.push("/changePasswordConfirmation");
     } catch (error) {
       console.log("Error is " + error.message);
-      //   if (error.message === "An account with the given email already exists.") {
-      //     //An account with the given email already exists.
-      //     setEmailVerifyError("This email address already exists.");
-      //   }
+      // if (error.message === "An account with the given email already exists.") {
+      //   //An account with the given email already exists.
+      //   setEmailVerifyError("This email address already exists.");
+      // }
+      setPasswordVerifyError(error.message);
     }
   };
 
@@ -81,6 +79,9 @@ function ChangePassword(props) {
             />
             {errors.confirmPassword && (
               <div className="error-signup">{errors.confirmPassword}</div>
+            )}
+            {passwordVerifyError && (
+              <div className="error-signup">{passwordVerifyError}</div>
             )}
             <button className="changePassword-btn">Change Password</button>
           </form>
