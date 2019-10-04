@@ -10,26 +10,32 @@ import { withRouter } from "react-router-dom";
 import { Auth } from "aws-amplify";
 
 function ChangePassword(props) {
+  // Attributes to capture the aws-amplify (cognito) error
   const [passwordVerifyError, setPasswordVerifyError] = useState("");
+
+  // This function handles the change password
   const handleChangePassword = async () => {
-    console.log("Change Password CLICKED");
     try {
+      // Get the current logged in user
       const user = await Auth.currentAuthenticatedUser();
-      console.log(user);
+
+      // Call change password on the current user
       await Auth.changePassword(user, values.oldPassword, values.newPassword);
+
+      // Remove the howsthewater specific local storage attributes as the user will be authomatically
+      // logged out of the system when the password is changed
       await localStorage.removeItem("htwUser");
       await localStorage.removeItem("beachName");
+
+      // Displays the Change password confirmation page
       props.history.push("/changePasswordConfirmation");
     } catch (error) {
-      console.log("Error is " + error.message);
-      // if (error.message === "An account with the given email already exists.") {
-      //   //An account with the given email already exists.
-      //   setEmailVerifyError("This email address already exists.");
-      // }
+      // Sets the error from cognito to be displayed on screen.
       setPasswordVerifyError(error.message);
     }
   };
 
+  // Custom hook useForm for handling form validations
   const { values, handleChange, handleSubmit, errors } = useForm(
     handleChangePassword,
     validate
@@ -37,7 +43,10 @@ function ChangePassword(props) {
 
   return (
     <div>
+      {/* HEADER */}
       <Header />
+
+      {/* SEARCH COMPONENT */}
       <div className="search-body">
         <Search />
       </div>

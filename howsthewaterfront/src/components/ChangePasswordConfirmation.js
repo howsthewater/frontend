@@ -16,7 +16,7 @@ function ChangePasswordConfirmation(props) {
           Your password has been successfully changed. Please click
           <a href="/login" className="passwordFeature">
             Login
-          </a>{" "}
+          </a>
           to continue.
         </span>
 
