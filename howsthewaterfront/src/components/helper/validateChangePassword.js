@@ -28,12 +28,14 @@ export default function validate(values) {
   } else if (!/\d/.test(values.newPassword)) {
     errors.newPassword = "Password should contain at least one number";
   } else if (!/[a-z]/.test(values.newPassword)) {
-    errors.oldPassword = "Password should contain at least one lowercase";
+    errors.newPassword = "Password should contain at least one lowercase";
   } else if (!/[A-Z]/.test(values.newPassword)) {
-    errors.oldPassword = "Password should contain at least one uppercase";
+    errors.newPassword = "Password should contain at least one uppercase";
   } else if (!/\W/.test(values.newPassword)) {
     errors.newPassword =
       "Password should contain at least one special character";
+  } else if (values.newPassword === values.oldPassword) {
+    errors.newPassword = "Old Password and New Password should be different";
   }
 
   // Validation for confirm password
