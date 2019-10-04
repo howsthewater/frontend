@@ -6,6 +6,7 @@ import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
 import AdvancedSearch from "./AdvancedSearch";
+import ChangePasswordConfirmation from "./ChangePasswordConfirmation";
 import Routes from "./Routes";
 import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
@@ -240,7 +241,11 @@ class App extends React.Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
-        {/* <Route exact path="/settings" component={Settings} /> */}
+        <Route
+          exact
+          path="/changePasswordConfirmation"
+          component={ChangePasswordConfirmation}
+        />
         <Routes childProps={childProps} />
         {/* Test to make sure apollo is fetching data as expected, will change in future to 
           display the data appropriately */}
