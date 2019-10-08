@@ -53,7 +53,7 @@ export default function validate(values) {
   } else if (!/\W/.test(values.confirmPassword)) {
     errors.confirmPassword =
       "Password should contain at least one special character";
-  } else if (values.newPassword != values.confirmPassword) {
+  } else if (values.newPassword !== values.confirmPassword) {
     errors.confirmPassword =
       "New Password and confirm password must be the same";
   }
