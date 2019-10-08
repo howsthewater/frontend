@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import useForm from "../components/helper/useForm";
 import validate from "../components/helper/validateForgotPassword";
 import { withRouter } from "react-router-dom";
+import { Auth } from "aws-amplify";
 import "../styles/forgot-password.css";
 
 function ForgotPassword(props) {
@@ -12,8 +13,15 @@ function ForgotPassword(props) {
   const [emailVerifyError, setEmailVerifyError] = useState("");
 
   // This function handles the change password
-  const handleForgotPassword = () => {
+  const handleForgotPassword = async () => {
     console.log("------WITHIN HANDLE FORGOT PASSWORD--------");
+
+    try {
+      await Auth.forgotPassword(values.email);
+    } catch (error) {
+      // Sets the error from cognito to be displayed on screen.
+      setEmailVerifyError(error.message);
+    }
   };
 
   // Custom hook useForm for handling form validations
