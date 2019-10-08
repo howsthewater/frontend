@@ -142,12 +142,21 @@ const Settings = () => {
 
   const submitUpdate = () => {
     if (beaches.length === 0) {
-      updateUser();
-      refetch();
+      (async () => {
+        let uUser = await updateUser();
+        let rFetch = await refetch();
+      })();
+      // updateUser();
+      // refetch();
     } else if (beaches) {
       if (beaches.some(beach => beach.NameMobileWeb === beachName)) {
-        updateUser();
-        refetch();
+        (async () => {
+          let uUser = await updateUser();
+          let rFetch = await refetch();
+        })();
+        // }
+        // updateUser();
+        // refetch();
       } else {
         return alert("Beach does not exist.");
       }
