@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
@@ -8,6 +8,20 @@ import { withRouter } from "react-router-dom";
 import "../styles/forgot-password.css";
 
 function ForgotPassword(props) {
+  // Attributes to capture the aws-amplify (cognito) error
+  const [emailVerifyError, setEmailVerifyError] = useState("");
+
+  // This function handles the change password
+  const handleForgotPassword = () => {
+    console.log("------WITHIN HANDLE FORGOT PASSWORD--------");
+  };
+
+  // Custom hook useForm for handling form validations
+  const { values, handleChange, handleSubmit, errors } = useForm(
+    handleForgotPassword,
+    validate
+  );
+
   return (
     <div>
       {/* HEADER */}
@@ -19,15 +33,39 @@ function ForgotPassword(props) {
       </div>
       {/* FORGOT PASSWORD BODY */}
       <div className="forgotPassword-body">
-        <div className="forgotPassword-content"></div>
+        <div className="forgotPassword-content">
+          <form noValidate className="input-form" onSubmit={handleSubmit}>
+            <div className="forgotPassword-label">
+              <h1>Forgot your password?</h1>
+              <p>
+                Please enter the email address associated with your account and
+                we'll email you a password reset link.
+              </p>
+            </div>
+            <input
+              className="input-txt"
+              type="text"
+              name="email"
+              placeholder="Email Address*"
+              value={values.email}
+              onChange={handleChange}
+            />
+            {errors.email && (
+              <div className="error-forgotPassword">{errors.email}</div>
+            )}
+            {emailVerifyError && (
+              <div className="error-forgotPassword">{emailVerifyError}</div>
+            )}
+            <button className="forgotPassword-btn">Forgot Password</button>
+          </form>
+        </div>
+        {/* FOOTER SECTION */}
+        <footer className="footer">
+          <Footer />
+        </footer>
+        {/* END OF FOOTER SECTION */}
       </div>
       {/* END OF FORGOT PASSWORD BODY */}
-
-      {/* FOOTER SECTION */}
-      <footer className="footer">
-        <Footer />
-      </footer>
-      {/* END OF FOOTER SECTION */}
     </div>
   );
 }
