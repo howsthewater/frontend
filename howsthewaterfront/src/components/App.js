@@ -8,6 +8,7 @@ import SearchResultForm from "./SearchResult";
 import AdvancedSearch from "./AdvancedSearch";
 import ChangePasswordConfirmation from "./ChangePasswordConfirmation";
 import ForgotPassword from "./ForgotPassword";
+import ForgotPasswordVerification from "./ForgotPasswordVerification";
 import Routes from "./Routes";
 import { connect } from "react-redux";
 import { Auth, Hub } from "aws-amplify";
@@ -243,6 +244,11 @@ class App extends React.Component {
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
         <Route exact path="/forgotPassword" component={ForgotPassword} />
+        <Route
+          exact
+          path="/forgotPasswordVerification"
+          component={ForgotPasswordVerification}
+        />
         <Route
           exact
           path="/changePasswordConfirmation"

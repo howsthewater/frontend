@@ -18,6 +18,9 @@ function ForgotPassword(props) {
 
     try {
       await Auth.forgotPassword(values.email);
+
+      // Displays the Change password confirmation page
+      props.history.push("/forgotPasswordVerification");
     } catch (error) {
       // Sets the error from cognito to be displayed on screen.
       setEmailVerifyError(error.message);
