@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
 import useForm from "./helper/useForm";
 import validate from "./helper/validateForgotPasswordVerification";
 import "../styles/forgot-password.css";
+import { Auth } from "aws-amplify";
+import { withRouter } from "react-router-dom";
 
 function ForgotPasswordVerification(props) {
+  // Attributes to capture the aws-amplify (cognito) error
+  const [cognitoVerifyError, setCognitoVerifyError] = useState("");
+
   // This function handles the change password
-  const handleForgotPasswordVerification = () => {
+  const handleForgotPasswordVerification = async () => {
     console.log("------------HANDLE FORGOT PASSWORD VERIFICATION -----------");
+    try {
+      // Check the verification code of the forgot password on submit
+      await Auth.forgotPasswordSubmit(
+        values.email,
+        values.verificationCode,
+        values.newPassword
+      );
+
+      // Remove the howsthewater specific local storage attributes as the user will be authomatically
+      // logged out of the system when the password is changed
+      await localStorage.removeItem("htwUser");
+      await localStorage.removeItem("beachName");
+
+      // Displays the Change password confirmation page
+      props.history.push("/changePasswordConfirmation");
+    } catch (error) {
+      // Sets the error from cognito to be displayed on screen.
+      setCognitoVerifyError(error.message);
+    }
   };
 
   // Custom hook useForm for handling form validations
@@ -91,7 +115,11 @@ function ForgotPasswordVerification(props) {
               </div>
             )}
 
-            <button className="signup-btn">Login</button>
+            {cognitoVerifyError && (
+              <div className="error-forgotPassword">{cognitoVerifyError}</div>
+            )}
+
+            <button className="signup-btn">Submit</button>
           </form>
         </div>
         {/* FOOTER SECTION */}
@@ -105,4 +133,4 @@ function ForgotPasswordVerification(props) {
   );
 }
 
-export default ForgotPasswordVerification;
+export default withRouter(ForgotPasswordVerification);
