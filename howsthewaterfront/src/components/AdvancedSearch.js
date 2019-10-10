@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -18,6 +18,7 @@ import "../styles/advanced-search.css";
 
 const AdvancedSearch = () => {
   const advBeachesParams = localStorage.getItem("advBeachesParams");
+  const [skipValue, setSkipValue] = useState(0);
   const beachesQuery = gql`
     {
       filter(filter: { 
@@ -41,10 +42,10 @@ const AdvancedSearch = () => {
             : ""
         }
        },
-       pagination: {limit: 10}
+       pagination: {limit: 10, skip: ${skipValue}}
        ) {
         NameMobileWeb
-        REGION
+        
         RESTROOMS
         PARKING
         DSABLDACSS
@@ -77,7 +78,23 @@ const AdvancedSearch = () => {
       }
     }
   `;
+  const paginationHandler = direction => {
+    console.log(this);
+    if (skipValue === 0 && direction === "left") {
+      alert(`Can't go left here`);
+    } else if (direction === "left") {
+      setSkipValue(skipValue - 10);
+    } else if (data.filter.length < 10 && direction === "right") {
+      alert(`Can't go right here`);
+    } else if (direction === "right") {
+      setSkipValue(skipValue + 10);
+    }
+    console.log(direction);
+  };
+  console.log(skipValue);
+
   const { loading, error, data } = useQuery(beachesQuery);
+  console.log(data ? data.filter : "");
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -191,7 +208,7 @@ const AdvancedSearch = () => {
                       alt="vyIcon"
                       style={
                         beach
-                          ? beach.toilet === "Yes"
+                          ? beach.VOLLEYBALL === "Yes"
                             ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
@@ -200,15 +217,31 @@ const AdvancedSearch = () => {
                   </div>
                   <div className="beach-currentinfo beach-data">
                     Wind Speed:{" "}
-                    {beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles} |
-                    Wind Direction:{" "}
-                    {beach.WwoAPI.data.weather[0].hourly[0].winddir16Point} |
-                    Swell Height: {beach.StormAPI.hours[0].swellHeight[0].value}{" "}
-                    | Temp: {beach.StormAPI.hours[0].waterTemperature[0].value}
+                    {beach.WwoAPI.data.weather
+                      ? beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles
+                      : "Not-Available"}{" "}
+                    | Wind Direction:{" "}
+                    {beach.WwoAPI.data.weather
+                      ? beach.WwoAPI.data.weather[0].hourly[0].winddir16Point
+                      : "Not-Available"}{" "}
+                    | Swell Height:{" "}
+                    {beach.StormAPI.hours[0].swellHeight[0].value} | Temp:{" "}
+                    {beach.StormAPI.hours[0].waterTemperature[0].value}
                   </div>
                 </div>
               ))
             : ""}
+          <div className="paginate-buttons">
+            <button
+              className="previous"
+              onClick={() => paginationHandler("left")}
+            >
+              Previous
+            </button>
+            <button className="next" onClick={() => paginationHandler("right")}>
+              Next
+            </button>
+          </div>
         </div>
         {/* FOOTER SECTION */}
         <footer className="footer">
