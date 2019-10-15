@@ -4,7 +4,6 @@ import PrivateRoute from "./PrivateRoute";
 import HomePageForm from "./Home";
 import SettingsForm from "./Settings";
 import ChangePasswordForm from "./ChangePassword";
-import ChangePasswordConfirmationForm from "./ChangePasswordConfirmation";
 
 export default ({ childProps }) => (
   <Switch>

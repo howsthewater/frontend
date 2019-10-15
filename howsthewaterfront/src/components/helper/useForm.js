@@ -12,7 +12,8 @@ const useForm = (callback, validate) => {
     oldPassword: "",
     newPassword: "",
     confirmPassword: "",
-    imageInput: null
+    imageInput: null,
+    verificationCode: ""
   });
 
   const [errors, setErrors] = useState({
@@ -26,7 +27,8 @@ const useForm = (callback, validate) => {
     oldPassword: "",
     newPassword: "",
     confirmPassword: "",
-    imageInput: null
+    imageInput: null,
+    verificationCode: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
