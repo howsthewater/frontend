@@ -22,15 +22,23 @@ const ChartWindSpeed = () => {
     labels: windSpeedForecastLabel,
     datasets: [
       {
-        label: "Wind Speed",
+        label: "Wind Speed Forecast",
         data: windSpeedForecastData,
         fill: false,
         borderWidth: 1,
         borderColor: "#2d728f"
+        // lineTension: 0
       }
     ]
   };
-  return <Line data={chartData} options={{ maintainAspectRatio: false }} />;
+  return (
+    <Line
+      data={chartData}
+      options={{
+        maintainAspectRatio: false
+      }}
+    />
+  );
 };
 
 export default ChartWindSpeed;
