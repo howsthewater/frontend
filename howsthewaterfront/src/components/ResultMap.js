@@ -7,12 +7,12 @@ import {
   Marker
 } from "react-google-maps";
 
-const MyMapComponent = compose(
+const MapComponent = compose(
   withProps({
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyDkCag5CYyBKqA99wjIvVdCUSxLR1IHRAY&callback=initMap",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: <div style={{ height: `100%` }} />,
     mapElement: <div style={{ height: `100%` }} />
   }),
   withScriptjs,
@@ -22,15 +22,13 @@ const MyMapComponent = compose(
     defaultZoom={10}
     defaultCenter={{ lat: 37.263514, lng: -122.410365 }}
   >
-    {props.isMarkerShown && (
-      <Marker position={{ lat: 37.263514, lng: -122.410365 }} />
-    )}
+    <Marker position={{ lat: 37.263514, lng: -122.410365 }} />
   </GoogleMap>
 ));
 
-class MapEx extends Component {
+class ResultMap extends Component {
   state = {
-    isMarkerShown: true
+    isMarkerShown: false
   };
 
   componentDidMount() {
@@ -50,7 +48,7 @@ class MapEx extends Component {
 
   render() {
     return (
-      <MyMapComponent
+      <MapComponent
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
@@ -58,4 +56,4 @@ class MapEx extends Component {
   }
 }
 
-export default MapEx;
+export default ResultMap;

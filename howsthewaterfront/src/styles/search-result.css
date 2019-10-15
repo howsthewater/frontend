@@ -119,21 +119,35 @@
 }
 
 .bottomSection .beach-info {
-  width: 50%;
+  width: 30%;
   height: 28vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   margin-left: 2rem;
-  margin-right: 7rem;
+  margin-right: 4rem;
+}
+
+.bottomSection .map {
+  width: 30%;
+  height: 25vh;
+  margin-bottom: 3rem;
+}
+
+.bottomSection .map .gm-style-mtc {
+  display: none;
+}
+
+.bottomSection .map .gmnoprint {
+  display: none;
 }
 
 .bottomSection .beach-pics {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  width: 40%;
+  width: 30%;
   margin-left: 2rem;
 }
 

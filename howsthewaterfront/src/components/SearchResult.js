@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
+import ResultMap from "./ResultMap";
 import toiletIcon from "../assets/icons8-toilet-50.png";
 import parkingIcon from "../assets/icons8-parking-60.png";
 import wheelchairIcon from "../assets/icons8-wheelchair-48.png";
@@ -368,6 +369,9 @@ const SearchResult = () => {
                 />
               </div>
             </span>
+          </div>
+          <div className="map">
+            <ResultMap />
           </div>
           <div className="beach-pics">
             <img
