@@ -45,7 +45,7 @@ const AdvancedSearch = () => {
        pagination: {limit: 10, skip: ${skipValue}}
        ) {
         NameMobileWeb
-        
+        REGION
         RESTROOMS
         PARKING
         DSABLDACSS
@@ -236,7 +236,7 @@ const AdvancedSearch = () => {
               className="previous"
               onClick={() => paginationHandler("left")}
             >
-              Previous
+              Prev
             </button>
             <button className="next" onClick={() => paginationHandler("right")}>
               Next

@@ -175,3 +175,36 @@
     width: 33%;
   }
 }
+
+.paginate-buttons {
+  margin-top: 5rem;
+  display: flex;
+}
+
+.previous {
+  margin-right: 13rem;
+  font-size: 2rem;
+  width: 8.5rem;
+
+  color: #ffffff;
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1%;
+  /* box-shadow: 0 1rem 2rem rgba(17, 17, 0.299); */
+}
+
+.next {
+  font-size: 2rem;
+  width: 7.5rem;
+
+  color: #ffffff;
+  background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  /* box-shadow: 0 1rem 2rem rgba(17, 17, 0.299); */
+}
