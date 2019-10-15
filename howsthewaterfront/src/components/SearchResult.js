@@ -13,6 +13,7 @@ import { withRouter } from "react-router-dom";
 import "../styles/search-result.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import ChartWindSpeed from "../components/charts/ChartWindSpeed";
 
 const SearchResult = () => {
   let beachName = localStorage.getItem("beachName");
@@ -154,7 +155,9 @@ const SearchResult = () => {
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
           <div className="graphSection">
-            <div className="graph"></div>
+            <div className="graph">
+              <ChartWindSpeed />
+            </div>
           </div>
 
           {/* TOP RIGHT SECTION */}
