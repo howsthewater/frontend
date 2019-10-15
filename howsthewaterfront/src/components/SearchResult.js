@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -17,6 +17,16 @@ import ChartWindSpeed from "../components/charts/ChartWindSpeed";
 import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
 const SearchResult = () => {
+  const [viewWindSpeed, setViewWindSpeed] = useState(true);
+
+  const toggleWindSpeed = () => {
+    if (viewWindSpeed) {
+      setViewWindSpeed(false);
+    } else {
+      setViewWindSpeed(true);
+    }
+  };
+
   let beachName = localStorage.getItem("beachName");
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
@@ -155,15 +165,27 @@ const SearchResult = () => {
 
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
-          <div className="graphSection">
-            <button className="graphToggleText">
-              View Swell Height forecast
-            </button>
-            <div className="graph">
-              {/* <ChartWindSpeed /> */}
-              <ChartSwellHeight />
+          {viewWindSpeed && (
+            <div className="graphSection">
+              <button className="graphToggleText" onClick={toggleWindSpeed}>
+                View Swell Height forecast
+              </button>
+              <div className="graph">
+                <ChartWindSpeed />
+              </div>
             </div>
-          </div>
+          )}
+
+          {!viewWindSpeed && (
+            <div className="graphSection" onClick={toggleWindSpeed}>
+              <button className="graphToggleText">
+                View Wind Speed forecast
+              </button>
+              <div className="graph">
+                <ChartSwellHeight />
+              </div>
+            </div>
+          )}
 
           {/* TOP RIGHT SECTION */}
           {/* RIGHT SECTION */}
