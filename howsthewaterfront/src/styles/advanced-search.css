@@ -177,14 +177,14 @@
 }
 
 .paginate-buttons {
-  margin-top: 5rem;
+  margin: 5rem 0;
   display: flex;
 }
 
 .previous {
-  margin-right: 13rem;
-  font-size: 2rem;
-  width: 8.5rem;
+  margin-right: 7rem;
+  font-size: 1.2rem;
+  width: 7rem;
 
   color: #ffffff;
   background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
@@ -197,9 +197,8 @@
 }
 
 .next {
-  font-size: 2rem;
-  width: 7.5rem;
-
+  font-size: 1.2rem;
+  width: 7rem;
   color: #ffffff;
   background: linear-gradient(hsla(153, 23%, 46%), hsl(198, 52%, 37%));
   font-style: normal;
