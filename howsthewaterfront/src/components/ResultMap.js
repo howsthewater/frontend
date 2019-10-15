@@ -9,8 +9,7 @@ import {
 
 const MapComponent = compose(
   withProps({
-    googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyDkCag5CYyBKqA99wjIvVdCUSxLR1IHRAY&callback=initMap",
+    googleMapURL: process.env.REACT_APP_GOOGLE_API_KEY,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `100%` }} />,
     mapElement: <div style={{ height: `100%` }} />

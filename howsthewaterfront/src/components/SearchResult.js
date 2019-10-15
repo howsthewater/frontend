@@ -371,7 +371,6 @@ const SearchResult = () => {
             </span>
           </div>
           <div className="map">
-            {console.log(data.filter ? data.filter[0].LATITUDE : "")}
             <ResultMap
               latitude={data.filter ? data.filter[0].LATITUDE : ""}
               longitude={data.filter ? data.filter[0].LONGITUDE : ""}
