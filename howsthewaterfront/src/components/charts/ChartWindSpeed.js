@@ -1,4 +1,5 @@
 import React from "react";
+import { Line } from "react-chartjs-2";
 
 const ChartWindSpeed = () => {
   // const windSpeedForecastQuery = (Enter the gql query here);
@@ -17,7 +18,19 @@ const ChartWindSpeed = () => {
     "10/10"
   ];
   let windSpeedForecastData = [20, 30, 24, 12, 36, 10, 23, 19, 34, 10];
-  return <div>Chart component</div>;
+  let chartData = {
+    labels: windSpeedForecastLabel,
+    datasets: [
+      {
+        label: "Wind Speed",
+        data: windSpeedForecastData,
+        fill: false,
+        borderWidth: 1,
+        borderColor: "#2d728f"
+      }
+    ]
+  };
+  return <Line data={chartData} options={{ maintainAspectRatio: false }} />;
 };
 
 export default ChartWindSpeed;
