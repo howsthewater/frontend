@@ -5,7 +5,7 @@
 }
 
 .bodySection {
-  width: 120rem;
+  width: 150rem;
   height: 73vh;
   position: absolute;
   top: 195px;
@@ -82,10 +82,10 @@
 }
 
 .amenitiesText {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  color: #2d728f;
+  color: #215c74;
   font-weight: 800;
   margin: 0;
 }
@@ -130,7 +130,7 @@
 }
 
 .bottomSection .map {
-  width: 30%;
+  width: 31.7%;
   height: 25vh;
   margin-bottom: 3rem;
 }
@@ -208,18 +208,45 @@
     padding-bottom: 2rem;
   }
 
+  .bottomSection :nth-child(1) {
+    order: 3;
+  }
+
+  .bottomSection :nth-child(2) {
+    order: 1;
+  }
+
+  .bottomSection :nth-child(3) {
+    order: 2;
+  }
+
+  .bottomSection .map {
+    width: 60%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
   .bottomSection .beach-pics {
-    margin: 0 0 0 0;
-    width: 100%;
+    margin: auto;
+    width: 80%;
     height: auto;
   }
 
   .bottomSection .beach-info {
     width: 100%;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
   }
 
   .bottomSection .beach-info span {
-    margin: 2% 0 0 0;
+    width: 65%;
+    margin: auto;
+    flex-direction: row-reverse;
+  }
+
+  .bottomSection .beach-info span .iconsSection {
+    width: 77.5%;
   }
 }
 

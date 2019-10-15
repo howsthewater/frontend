@@ -20,9 +20,17 @@ const MapComponent = compose(
 )(props => (
   <GoogleMap
     defaultZoom={10}
-    defaultCenter={{ lat: 37.263514, lng: -122.410365 }}
+    defaultCenter={{
+      lat: props.latitude,
+      lng: props.longitude
+    }}
   >
-    <Marker position={{ lat: 37.263514, lng: -122.410365 }} />
+    <Marker
+      position={{
+        lat: props.latitude,
+        lng: props.longitude
+      }}
+    />
   </GoogleMap>
 ));
 
@@ -51,6 +59,8 @@ class ResultMap extends Component {
       <MapComponent
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
+        latitude={this.props.latitude}
+        longitude={this.props.longitude}
       />
     );
   }
