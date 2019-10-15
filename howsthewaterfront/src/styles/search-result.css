@@ -17,7 +17,6 @@
   align-items: center;
   margin-bottom: 3rem;
   margin-top: 3rem;
-  border: 1px solid green;
   height: 210px;
 }
 .leftSection {
@@ -27,7 +26,6 @@
 }
 .graphSection {
   width: 30%;
-  border: 1px solid red;
   overflow: hidden;
   display: flex;
   flex-direction: column;
