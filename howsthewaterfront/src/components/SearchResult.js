@@ -14,6 +14,7 @@ import "../styles/search-result.css";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import ChartWindSpeed from "../components/charts/ChartWindSpeed";
+import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
 const SearchResult = () => {
   let beachName = localStorage.getItem("beachName");
@@ -159,7 +160,8 @@ const SearchResult = () => {
               View Swell Height forecast
             </button>
             <div className="graph">
-              <ChartWindSpeed />
+              {/* <ChartWindSpeed /> */}
+              <ChartSwellHeight />
             </div>
           </div>
 
