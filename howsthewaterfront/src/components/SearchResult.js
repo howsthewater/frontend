@@ -155,6 +155,9 @@ const SearchResult = () => {
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
           <div className="graphSection">
+            <button className="graphToggleText">
+              View Swell Height forecast
+            </button>
             <div className="graph">
               <ChartWindSpeed />
             </div>
