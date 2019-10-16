@@ -65,6 +65,7 @@ const Search = props => {
         : setBeaches(beaches);
     }
   };
+  console.log(data);
   const toggleAdvancedSearch = () => {
     if (advancedSearch) {
       setAdvancedSearch(false);
