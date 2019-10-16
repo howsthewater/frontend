@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
+import ResultMap from "./ResultMap";
 import toiletIcon from "../assets/icons8-toilet-50.png";
 import parkingIcon from "../assets/icons8-parking-60.png";
 import wheelchairIcon from "../assets/icons8-wheelchair-48.png";
@@ -82,8 +83,8 @@ const SearchResult = () => {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
+  console.log(data.filter ? data.filter[0] : "");
 
-  console.log(data.filter ? beachData.TideAPI.extremes : "");
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -368,6 +369,12 @@ const SearchResult = () => {
                 />
               </div>
             </span>
+          </div>
+          <div className="map">
+            <ResultMap
+              latitude={data.filter ? data.filter[0].LATITUDE : ""}
+              longitude={data.filter ? data.filter[0].LONGITUDE : ""}
+            />
           </div>
           <div className="beach-pics">
             <img
