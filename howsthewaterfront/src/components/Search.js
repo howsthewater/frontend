@@ -137,7 +137,7 @@ const Search = props => {
       props.history.push("/advancedsearch");
     }
   };
-
+  // region submit for the basic search, when region is clicked, redirect to map component
   const regionSubmit = region => {
     console.log(region);
     // assign to localStorage, push to separate component,
@@ -183,7 +183,7 @@ const Search = props => {
         <div
           className="regionSearchContainer"
           style={
-            values.textInput.length == 0
+            values.textInput.length === 0
               ? { display: "None" }
               : beaches.length === 0
               ? { display: "None" }
@@ -222,6 +222,15 @@ const Search = props => {
           className="advancedSearchForm"
           style={{ display: !advancedSearch ? "none" : "" }}
         >
+          {/* work on dropdown for advanced search region */}
+          <select className="advancedRegionSelect">
+            <option value="None">None</option>
+            {regionSearch.map((region, index) => (
+              <option value={region} key={index}>
+                {region}
+              </option>
+            ))}
+          </select>
           <label className="checkboxLabel">
             <input
               className="checkboxInput"
