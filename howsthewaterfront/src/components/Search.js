@@ -92,6 +92,7 @@ const Search = props => {
       textInput: beachName
     });
     setPickedBeach(beachName);
+    setBeaches([]);
   };
   const advancedSearchChangeHandler = e => {
     const { name } = e.target;

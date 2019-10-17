@@ -61,7 +61,8 @@
   font-weight: 500;
   cursor: pointer;
   border-bottom: 0.5px solid #eee;
-  z-index: 30;
+  position: relative;
+  z-index: 1;
 }
 .aSearchToggleButton {
   cursor: pointer;
