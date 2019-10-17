@@ -37,6 +37,12 @@ const Search = props => {
     volleyBall: false,
     picnicArea: false
   });
+  // region search hard coded
+  const regionSearch = [
+    "Northern California",
+    "Central California",
+    "Southern California"
+  ];
   const [advancedSearch, setAdvancedSearch] = useState(false);
   // beach values
   const [beaches, setBeaches] = useState([]);
@@ -167,6 +173,22 @@ const Search = props => {
         </button>
       </form>
       <div className="searchResultsContainer">
+        <div
+          className="regionSearchContainer"
+          style={
+            values.textInput.length == 0
+              ? { display: "None" }
+              : beaches.length === 0
+              ? { display: "None" }
+              : { display: "block" }
+          }
+        >
+          {regionSearch.map(region => (
+            <p className="searchResultText" key={Math.random()}>
+              {region}
+            </p>
+          ))}
+        </div>
         {beaches.map(beach => (
           <p
             className="searchResultText"
