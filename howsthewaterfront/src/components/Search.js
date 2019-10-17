@@ -138,6 +138,13 @@ const Search = props => {
     }
   };
 
+  const regionSubmit = region => {
+    console.log(region);
+    // assign to localStorage, push to separate component,
+    // that mounts region data onto the map w/ bubbles,
+    // for the different beaches
+  };
+
   console.log(advancedSearch);
   return loading ? (
     <div className="loadingDiv">
@@ -184,7 +191,13 @@ const Search = props => {
           }
         >
           {regionSearch.map(region => (
-            <p className="searchResultText" key={Math.random()}>
+            <p
+              className="searchResultText"
+              onClick={() => {
+                regionSubmit(region);
+              }}
+              key={Math.random()}
+            >
               {region}
             </p>
           ))}
