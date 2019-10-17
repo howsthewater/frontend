@@ -41,6 +41,11 @@ const AdvancedSearch = () => {
             ? 'EZ4STROLLERS:{EQ:"Yes"}'
             : ""
         }
+        ${
+          JSON.parse(advBeachesParams).REGION
+            ? 'REGION:{EQ:"' + JSON.parse(advBeachesParams).REGION + '"}'
+            : ""
+        }
        },
        pagination: {limit: 10, skip: ${skipValue}}
        ) {

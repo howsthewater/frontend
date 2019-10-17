@@ -35,7 +35,8 @@ const Search = props => {
     kidFriendly: false,
     dogFriendly: false,
     volleyBall: false,
-    picnicArea: false
+    picnicArea: false,
+    REGION: ""
   });
   // region search hard coded
   const regionSearch = [
@@ -101,6 +102,7 @@ const Search = props => {
     setBeaches([]);
   };
   const advancedSearchChangeHandler = e => {
+    console.log(e.target);
     const { name } = e.target;
     let value = "";
     values[name] ? (value = false) : (value = true);
@@ -128,7 +130,8 @@ const Search = props => {
         PCNC_AREA: values.picnicArea,
         VOLLEYBALL: values.volleyBall,
         DOG_FRIENDLY: values.dogFriendly,
-        EZ4STROLLERS: values.kidFriendly
+        EZ4STROLLERS: values.kidFriendly,
+        REGION: values.REGION
       };
       localStorage.setItem(
         "advBeachesParams",
@@ -144,8 +147,13 @@ const Search = props => {
     // that mounts region data onto the map w/ bubbles,
     // for the different beaches
   };
+  const advancedRegionHandler = e => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
 
-  console.log(advancedSearch);
+  // console.log(advancedSearch);
+  console.log(values);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -223,8 +231,12 @@ const Search = props => {
           style={{ display: !advancedSearch ? "none" : "" }}
         >
           {/* work on dropdown for advanced search region */}
-          <select className="advancedRegionSelect">
-            <option value="None">None</option>
+          <select
+            className="advancedRegionSelect"
+            name="REGION"
+            onChange={advancedRegionHandler}
+          >
+            <option value="">None</option>
             {regionSearch.map((region, index) => (
               <option value={region} key={index}>
                 {region}
