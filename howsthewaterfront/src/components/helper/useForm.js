@@ -9,7 +9,11 @@ const useForm = (callback, validate) => {
     regionInput: "",
     beachInput: "",
     surferInput: "",
-    imageInput: null
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+    imageInput: null,
+    verificationCode: ""
   });
 
   const [errors, setErrors] = useState({
@@ -20,7 +24,11 @@ const useForm = (callback, validate) => {
     regionInput: "",
     beachInput: "",
     surferInput: "",
-    imageInput: null
+    oldPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+    imageInput: null,
+    verificationCode: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);

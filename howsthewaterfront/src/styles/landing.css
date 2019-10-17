@@ -32,10 +32,11 @@ header {
 
 /* Container for the logo in the left. This will hold the drop and text logo. */
 .logo-container {
-  margin-left: 90px;
+  margin-left: 130px;
+
   display: flex;
-  width: 200px;
-  justify-content: space-evenly;
+  width: 300px;
+  justify-content: flex-start;
   align-items: center;
   height: 100%;
   position: relative;
@@ -57,7 +58,7 @@ header {
 .menu {
   width: 450px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-right: 90px;
   text-transform: none;
@@ -67,18 +68,14 @@ header {
   letter-spacing: 2px;
 }
 
-/* .menu-loggedIn {
-  width: 450px;
-  display: flex;
-  justify-content: space-between;
+.displayName {
   align-items: center;
-  margin-right: 90px;
   text-transform: none;
   font-size: 1.4rem;
   color: #2d728f;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 2px;
-} */
+}
 
 /* Link decoration styling for the navigation items */
 header nav a {
@@ -89,6 +86,7 @@ header nav a {
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
+  padding-right: 3.5rem;
 }
 
 /* The sign-up button in the header - top right. */
@@ -486,6 +484,9 @@ header nav a {
 
 /* Media queries for a width of 992px */
 @media (max-width: 992px) {
+  .logo-container {
+    margin-left: 20px;
+  }
   /* displays the hamburger icon */
   .hamburger-icon {
     display: block;
@@ -545,7 +546,7 @@ header nav a {
 
   /* Positioning the logo for 768px */
   .logo-container {
-    margin-left: 40px;
+    margin-left: 20px;
   }
 
   /* The features content will be made horizontal cards instead of vertical cards */
@@ -655,7 +656,7 @@ header nav a {
 
   /* Positioning the logo for 575px */
   .logo-container {
-    margin-left: 30px;
+    margin-left: 20px;
   }
 }
 

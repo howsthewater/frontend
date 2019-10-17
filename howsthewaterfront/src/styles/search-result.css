@@ -5,7 +5,7 @@
 }
 
 .bodySection {
-  width: 120rem;
+  width: 150rem;
   height: 73vh;
   position: absolute;
   top: 195px;
@@ -14,8 +14,10 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 3rem;
   margin-top: 3rem;
+  height: 210px;
 }
 .leftSection {
   display: flex;
@@ -24,6 +26,12 @@
 }
 .graphSection {
   width: 30%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .rightSection {
   display: flex;
@@ -78,14 +86,27 @@
 
 .graph {
   background: hsla(180, 100%, 37%, 0.6);
-  height: 100%;
+  height: 80%;
+  width: 100%;
+}
+
+.graphToggleText {
+  text-decoration: underline;
+  border: 0;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  color: #2d728f;
+}
+
+.graphToggleText:hover {
+  color: #00bfbf;
 }
 
 .amenitiesText {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  color: #2d728f;
+  color: #215c74;
   font-weight: 800;
   margin: 0;
 }
@@ -119,21 +140,35 @@
 }
 
 .bottomSection .beach-info {
-  width: 50%;
+  width: 30%;
   height: 28vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   margin-left: 2rem;
-  margin-right: 7rem;
+  margin-right: 4rem;
+}
+
+.bottomSection .map {
+  width: 31.7%;
+  height: 25vh;
+  margin-bottom: 3rem;
+}
+
+.bottomSection .map .gm-style-mtc {
+  display: none;
+}
+
+.bottomSection .map .gmnoprint {
+  display: none;
 }
 
 .bottomSection .beach-pics {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  width: 40%;
+  width: 30%;
   margin-left: 2rem;
 }
 
@@ -194,18 +229,45 @@
     padding-bottom: 2rem;
   }
 
+  .bottomSection :nth-child(1) {
+    order: 3;
+  }
+
+  .bottomSection :nth-child(2) {
+    order: 1;
+  }
+
+  .bottomSection :nth-child(3) {
+    order: 2;
+  }
+
+  .bottomSection .map {
+    width: 60%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
   .bottomSection .beach-pics {
-    margin: 0 0 0 0;
-    width: 100%;
+    margin: auto;
+    width: 80%;
     height: auto;
   }
 
   .bottomSection .beach-info {
     width: 100%;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
   }
 
   .bottomSection .beach-info span {
-    margin: 2% 0 0 0;
+    width: 65%;
+    margin: auto;
+    flex-direction: row-reverse;
+  }
+
+  .bottomSection .beach-info span .iconsSection {
+    width: 77.5%;
   }
 }
 

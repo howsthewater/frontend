@@ -65,6 +65,7 @@ const Search = props => {
         : setBeaches(beaches);
     }
   };
+  console.log(data);
   const toggleAdvancedSearch = () => {
     if (advancedSearch) {
       setAdvancedSearch(false);
@@ -130,6 +131,7 @@ const Search = props => {
     }
   };
 
+  console.log(advancedSearch);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -148,7 +150,11 @@ const Search = props => {
           onChange={searchInputHandler}
           value={values.textInput}
           placeholder="Seach by beach name"
-          style={{ width: advancedSearch ? "100%" : "90%" }}
+          // style={{ width: advancedSearch ? "100%" : "90%" }}
+          style={{
+            display: !advancedSearch ? "" : "none",
+            width: !advancedSearch ? "100%" : ""
+          }}
           autoComplete="off"
         />
         <button
