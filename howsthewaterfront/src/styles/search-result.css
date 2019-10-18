@@ -5,7 +5,7 @@
 }
 
 .bodySection {
-  width: 150rem;
+  width: 120rem;
   height: 73vh;
   position: absolute;
   top: 195px;
@@ -151,7 +151,7 @@
 }
 
 .bottomSection .map {
-  width: 31.7%;
+  width: 30%;
   height: 25vh;
   margin-bottom: 3rem;
 }
