@@ -15,7 +15,7 @@ import heartSelected from "../assets/heart-selected.jpg";
 import { withRouter } from "react-router-dom";
 import "../styles/search-result.css";
 import { gql } from "apollo-boost";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import ChartWindSpeed from "../components/charts/ChartWindSpeed";
 import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
@@ -114,6 +114,20 @@ const SearchResult = () => {
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
   console.log(data.filter ? data.filter[0] : "");
+
+  const addFavoriteBeachQuery = gql`
+      mutation{
+        update(cognitoUserId: "${loggedInUser.cognitoUser}", favoriteBeach: "${beachName}"){
+          fullName
+          email
+          homeBeach
+          homeBeachName
+          longitude
+          latitude
+          phoneInput
+          favoriteBeach
+        }
+      }`;
 
   return loading ? (
     <div className="loadingDiv">
