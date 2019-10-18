@@ -21,6 +21,7 @@ import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
 const SearchResult = () => {
   const [viewWindSpeed, setViewWindSpeed] = useState(true);
+  const [isFavoriteBeach, setIsFavoriteBeach] = useState(false);
 
   const toggleWindSpeed = () => {
     if (viewWindSpeed) {
@@ -31,10 +32,24 @@ const SearchResult = () => {
   };
 
   let beachName = localStorage.getItem("beachName");
-  let loggedInUser = localStorage.getItem("htwUser");
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
   }
+
+  let loggedInUser = localStorage.getItem("htwUser");
+  if (loggedInUser) {
+    if (beachName === loggedInUser.favoriteBeach) {
+      setIsFavoriteBeach(true);
+    }
+  }
+
+  const toggleFavoriteBeach = () => {
+    if (isFavoriteBeach) {
+      setIsFavoriteBeach(false);
+    } else {
+      setIsFavoriteBeach(true);
+    }
+  };
 
   const beachQuery = gql`
     {
@@ -297,9 +312,18 @@ const SearchResult = () => {
         {/* BOTTOM SECTION */}
 
         <div className="bottomSection">
-          {loggedInUser && (
+          {!isFavoriteBeach && (
             <div>
-              <img className="heartImg" src={heartUnselected} />
+              <button className="heartBtn" onClick={toggleFavoriteBeach}>
+                <img className="heartImg" src={heartUnselected} />
+              </button>
+            </div>
+          )}
+          {isFavoriteBeach && (
+            <div>
+              <button className="heartBtn" onClick={toggleFavoriteBeach}>
+                <img className="heartImg" src={heartSelected} />
+              </button>
             </div>
           )}
           <div className="beach-info">
