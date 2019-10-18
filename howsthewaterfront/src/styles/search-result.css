@@ -123,9 +123,9 @@
   margin: 0.5rem;
 }
 
-.iconsSearchResult:first-child {
+/* .iconsSearchResult:first-child {
   margin-left: 5rem;
-}
+} */
 
 .bottomSection {
   font-family: Ubuntu;
@@ -268,7 +268,6 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 2rem;
-    border: 1px solid green;
   }
 
   .bottomSection :nth-child(1) {
