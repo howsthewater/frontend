@@ -18,21 +18,8 @@ class Header extends React.Component {
     let amplifySignInWithHostedUI = localStorage.getItem(
       "amplify-signin-with-hostedUI"
     );
-    console.log(
-      "------------- AMPLIFY SIGN IN WITH HOSTED UI --------------------------" +
-        amplifySignInWithHostedUI
-    );
     let displayName = "";
-    let displayChangePassword = !amplifySignInWithHostedUI
-      ? ""
-      : `<a href="/changePassword">Change Password</a>`;
-    console.log(
-      "--------------DISPLAY CHANGE PASSWORD IS ----------------" +
-        displayChangePassword
-    );
     if (loggedInUser) {
-      console.log(typeof loggedInUser);
-      console.log(loggedInUser.email);
       displayName = loggedInUser.name;
     } else {
       displayName = this.props.user.name;

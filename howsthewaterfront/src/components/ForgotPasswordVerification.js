@@ -14,7 +14,6 @@ function ForgotPasswordVerification(props) {
 
   // This function handles the change password
   const handleForgotPasswordVerification = async () => {
-    console.log("------------HANDLE FORGOT PASSWORD VERIFICATION -----------");
     try {
       // Check the verification code of the forgot password on submit
       await Auth.forgotPasswordSubmit(
