@@ -21,7 +21,6 @@ import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
 const SearchResult = () => {
   const [viewWindSpeed, setViewWindSpeed] = useState(true);
-  const [isFavoriteBeach, setIsFavoriteBeach] = useState(false);
 
   const toggleWindSpeed = () => {
     if (viewWindSpeed) {
@@ -35,14 +34,11 @@ const SearchResult = () => {
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
   }
-  const [favoriteBeachName, setFavoriteBeachName] = useState("");
   let loggedInUser = localStorage.getItem("htwUser");
-  if (loggedInUser) {
-    if (beachName === loggedInUser.favoriteBeach) {
-      setIsFavoriteBeach(true);
-      setFavoriteBeachName(beachName);
-    }
-  }
+  let favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+  const [isFavoriteBeach, setIsFavoriteBeach] = useState(
+    favoriteBeach === beachName ? true : false
+  );
 
   const beachQuery = gql`
     {
