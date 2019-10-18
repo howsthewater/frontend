@@ -35,21 +35,13 @@ const SearchResult = () => {
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
   }
-
+  const [favoriteBeachName, setFavoriteBeachName] = useState("");
   let loggedInUser = localStorage.getItem("htwUser");
   if (loggedInUser) {
     if (beachName === loggedInUser.favoriteBeach) {
       setIsFavoriteBeach(true);
     }
   }
-
-  const toggleFavoriteBeach = () => {
-    if (isFavoriteBeach) {
-      setIsFavoriteBeach(false);
-    } else {
-      setIsFavoriteBeach(true);
-    }
-  };
 
   const beachQuery = gql`
     {
@@ -109,26 +101,63 @@ const SearchResult = () => {
       }
     }
   `;
+
+  const addFavoriteBeachQuery = gql`
+mutation{
+  update(cognitoUserId: "${
+    JSON.parse(loggedInUser).cognitoUser
+  }", favoriteBeach: "${favoriteBeachName}"){
+    fullName
+    email
+    homeBeach
+    homeBeachName
+    longitude
+    latitude
+    phoneInput
+    favoriteBeach
+  }
+}`;
+
   const { loading, error, data } = useQuery(beachQuery);
+  const [updateUser] = useMutation(addFavoriteBeachQuery);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
   console.log(data.filter ? data.filter[0] : "");
 
-  const addFavoriteBeachQuery = gql`
-      mutation{
-        update(cognitoUserId: "${loggedInUser.cognitoUser}", favoriteBeach: "${beachName}"){
-          fullName
-          email
-          homeBeach
-          homeBeachName
-          longitude
-          latitude
-          phoneInput
-          favoriteBeach
-        }
-      }`;
-
+  const toggleFavoriteBeach = async () => {
+    try {
+      if (isFavoriteBeach) {
+        setIsFavoriteBeach(false);
+        setFavoriteBeachName("");
+        let updatedUser = await updateUser();
+        console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
+        console.log(
+          `COGNITO USER ID : ${JSON.parse(loggedInUser).cognitoUser}`
+        );
+        console.log(
+          `TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
+            updatedUser.data
+          )}`
+        );
+      } else {
+        setIsFavoriteBeach(true);
+        setFavoriteBeachName(beachName);
+        let updatedUser = await updateUser();
+        console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
+        console.log(
+          `COGNITO USER ID : ${JSON.parse(loggedInUser).cognitoUser}`
+        );
+        console.log(
+          `TOGGLE FAVORITE BEACH SELECTED: UPDATED USER IS ${JSON.stringify(
+            updatedUser.data
+          )}`
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
