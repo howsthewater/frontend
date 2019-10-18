@@ -166,28 +166,29 @@ const SearchResult = () => {
 
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
-          {viewWindSpeed && (
-            <div className="graphSection">
-              <button className="graphToggleText" onClick={toggleWindSpeed}>
-                View Swell Height forecast
-              </button>
-              <div className="graph">
-                <ChartWindSpeed />
-              </div>
-            </div>
-          )}
+          <div className="graphSection">
+            {viewWindSpeed && (
+              <>
+                <button className="graphToggleText" onClick={toggleWindSpeed}>
+                  View Swell Height forecast
+                </button>
+                <div className="graph">
+                  <ChartWindSpeed />
+                </div>
+              </>
+            )}
 
-          {!viewWindSpeed && (
-            <div className="graphSection" onClick={toggleWindSpeed}>
-              <button className="graphToggleText">
-                View Wind Speed forecast
-              </button>
-              <div className="graph">
-                <ChartSwellHeight />
-              </div>
-            </div>
-          )}
-
+            {!viewWindSpeed && (
+              <>
+                <button className="graphToggleText" onClick={toggleWindSpeed}>
+                  View Wind Speed forecast
+                </button>
+                <div className="graph">
+                  <ChartSwellHeight />
+                </div>
+              </>
+            )}
+          </div>
           {/* TOP RIGHT SECTION */}
           {/* RIGHT SECTION */}
           <div className="rightSection">
@@ -311,7 +312,7 @@ const SearchResult = () => {
               <p>{data.filter ? beachData.DescriptionMobileWeb : ""}</p>
             </span>
             <span>
-              <div className="amenitiesText">Amenities:</div>
+              <h2>Amenities:</h2>
               <div className="iconsSection">
                 <img
                   className="iconsSearchResult"
