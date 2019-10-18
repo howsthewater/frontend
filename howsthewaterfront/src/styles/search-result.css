@@ -141,14 +141,20 @@
 }
 
 .bottomSection .beach-info {
-  width: 30%;
+  width: 28%;
   /* height: 28vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-right: 4rem;
+}
+
+.heartImg {
+  width: 3rem;
+  margin: 0;
+  padding: 5px 0 0 10px;
 }
 
 .bottomSection .map {

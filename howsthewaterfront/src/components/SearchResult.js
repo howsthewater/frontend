@@ -10,6 +10,8 @@ import strollerIcon from "../assets/icons8-stroller-50.png";
 import dogIcon from "../assets/icons8-dog-paw-64.png";
 import volleyIcon from "../assets/icons8-volleyball-player-50.png";
 import picnicIcon from "../assets/icons8-picnic-table-50.png";
+import heartUnselected from "../assets/heart-unselected.jpg";
+import heartSelected from "../assets/heart-selected.jpg";
 import { withRouter } from "react-router-dom";
 import "../styles/search-result.css";
 import { gql } from "apollo-boost";
@@ -295,6 +297,11 @@ const SearchResult = () => {
         {/* BOTTOM SECTION */}
 
         <div className="bottomSection">
+          {loggedInUser && (
+            <div>
+              <img className="heartImg" src={heartUnselected} />
+            </div>
+          )}
           <div className="beach-info">
             <span>
               <h2>Beach Name:</h2>
