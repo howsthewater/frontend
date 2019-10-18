@@ -29,6 +29,7 @@ const SearchResult = () => {
   };
 
   let beachName = localStorage.getItem("beachName");
+  let loggedInUser = localStorage.getItem("htwUser");
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
   }
