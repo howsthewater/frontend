@@ -40,6 +40,7 @@ const SearchResult = () => {
   if (loggedInUser) {
     if (beachName === loggedInUser.favoriteBeach) {
       setIsFavoriteBeach(true);
+      setFavoriteBeachName(beachName);
     }
   }
 
@@ -104,9 +105,9 @@ const SearchResult = () => {
 
   const addFavoriteBeachQuery = gql`
 mutation{
-  update(cognitoUserId: "${
-    JSON.parse(loggedInUser).cognitoUser
-  }", favoriteBeach: "${favoriteBeachName}"){
+  update(cognitoUserId: "${JSON.parse(loggedInUser).cognitoUser}", ${
+    !isFavoriteBeach ? 'favoriteBeach:"' + beachName + '"' : 'favoriteBeach:""'
+  } ){
     fullName
     email
     homeBeach
@@ -129,22 +130,34 @@ mutation{
     try {
       if (isFavoriteBeach) {
         setIsFavoriteBeach(false);
-        setFavoriteBeachName("");
+        // setFavoriteBeachName("");
         let updatedUser = await updateUser();
-        console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
+        updatedUser.data.update = {
+          ...updatedUser.data.update,
+          cognitoUser: JSON.parse(loggedInUser).cognitoUser
+        };
+        // console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
         console.log(
           `COGNITO USER ID : ${JSON.parse(loggedInUser).cognitoUser}`
         );
         console.log(
           `TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
-            updatedUser.data
+            updatedUser.data.update
           )}`
+        );
+        localStorage.setItem(
+          "htwUser",
+          JSON.stringify(updatedUser.data.update)
         );
       } else {
         setIsFavoriteBeach(true);
-        setFavoriteBeachName(beachName);
+        // setFavoriteBeachName(beachName);
         let updatedUser = await updateUser();
-        console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
+        updatedUser.data.update = {
+          ...updatedUser.data.update,
+          cognitoUser: JSON.parse(loggedInUser).cognitoUser
+        };
+        // console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
         console.log(
           `COGNITO USER ID : ${JSON.parse(loggedInUser).cognitoUser}`
         );
@@ -152,6 +165,10 @@ mutation{
           `TOGGLE FAVORITE BEACH SELECTED: UPDATED USER IS ${JSON.stringify(
             updatedUser.data
           )}`
+        );
+        localStorage.setItem(
+          "htwUser",
+          JSON.stringify(updatedUser.data.update)
         );
       }
     } catch (error) {
