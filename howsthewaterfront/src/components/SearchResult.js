@@ -20,8 +20,10 @@ import ChartWindSpeed from "../components/charts/ChartWindSpeed";
 import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
 const SearchResult = () => {
+  // This variable is to set the toggle for wind speed and swell height
   const [viewWindSpeed, setViewWindSpeed] = useState(true);
 
+  // This function is to toggle between wind-speed and swell-height
   const toggleWindSpeed = () => {
     if (viewWindSpeed) {
       setViewWindSpeed(false);
@@ -34,8 +36,15 @@ const SearchResult = () => {
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
   }
+
+  // Checks to see if the user is logged in. The favorite feature is only for logged in users
   let loggedInUser = localStorage.getItem("htwUser");
+
+  // Gets the favorite beach from the logged in user
   let favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+
+  // Sets the value of isFavoriteBeach is true if the beach name from local storage
+  // and the favorite beach of the user matches
   const [isFavoriteBeach, setIsFavoriteBeach] = useState(
     favoriteBeach === beachName ? true : false
   );
@@ -99,6 +108,7 @@ const SearchResult = () => {
     }
   `;
 
+  // Mutation query for adding a favorite beach to the user
   const addFavoriteBeachQuery = gql`
 mutation{
   update(cognitoUserId: "${JSON.parse(loggedInUser).cognitoUser}", ${
@@ -116,28 +126,31 @@ mutation{
 }`;
 
   const { loading, error, data } = useQuery(beachQuery);
+
+  // updateUser is the function to be called to update the favorite beach of a user
   const [updateUser] = useMutation(addFavoriteBeachQuery);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
   console.log(data.filter ? data.filter[0] : "");
 
+  // Function to toggle favorite beach. When its chosen and not chosen
   const toggleFavoriteBeach = async () => {
     try {
       if (isFavoriteBeach) {
         setIsFavoriteBeach(false);
-        // setFavoriteBeachName("");
         let updatedUser = await updateUser();
         updatedUser.data.update = {
           ...updatedUser.data.update,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
         };
-        // console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
         console.log(
-          `COGNITO USER ID : ${JSON.parse(loggedInUser).cognitoUser}`
+          `SEARCH-RESULT::COGNITO USER ID : ${
+            JSON.parse(loggedInUser).cognitoUser
+          }`
         );
         console.log(
-          `TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
+          `SEARCH-RESULT::TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
             updatedUser.data.update
           )}`
         );
@@ -147,18 +160,18 @@ mutation{
         );
       } else {
         setIsFavoriteBeach(true);
-        // setFavoriteBeachName(beachName);
         let updatedUser = await updateUser();
         updatedUser.data.update = {
           ...updatedUser.data.update,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
         };
-        // console.log(`FAVORITE BEACH NAME : ${favoriteBeachName}`);
         console.log(
-          `COGNITO USER ID : ${JSON.parse(loggedInUser).cognitoUser}`
+          `SEARCH-RESULT:: COGNITO USER ID : ${
+            JSON.parse(loggedInUser).cognitoUser
+          }`
         );
         console.log(
-          `TOGGLE FAVORITE BEACH SELECTED: UPDATED USER IS ${JSON.stringify(
+          `SEARCH-RESULT:: TOGGLE FAVORITE BEACH SELECTED: UPDATED USER IS ${JSON.stringify(
             updatedUser.data
           )}`
         );
@@ -168,7 +181,7 @@ mutation{
         );
       }
     } catch (error) {
-      console.log(error);
+      console.log(`SEARCH-RESULT:: ERROR WHILE UPDATING USER IS ${error}`);
     }
   };
   return loading ? (
