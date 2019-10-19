@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -19,7 +19,7 @@ import { useQuery, useMutation } from "@apollo/react-hooks";
 import ChartWindSpeed from "../components/charts/ChartWindSpeed";
 import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
-const SearchResult = () => {
+const SearchResult = props => {
   // This variable is to set the toggle for wind speed and swell height
   const [viewWindSpeed, setViewWindSpeed] = useState(true);
 
@@ -49,10 +49,13 @@ const SearchResult = () => {
   // Sets the value of isFavoriteBeach is true if the beach name from local storage
   // and the favorite beach of the user matches
   let initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
-  const [isFavoriteBeach, setIsFavoriteBeach] = useState(
-    initialValueOfFavoriteBeach
-  );
+  const [isFavoriteBeach, setIsFavoriteBeach] = useState(false);
 
+  useEffect(() => {
+    console.log(`USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`);
+    initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
+    setIsFavoriteBeach(initialValueOfFavoriteBeach);
+  }, [initialValueOfFavoriteBeach, beachName]);
   console.log(
     `SEARCH-RESULT: FAVORITE BEACH FROM LOCAL STORAGE IS ${favoriteBeach}`
   );

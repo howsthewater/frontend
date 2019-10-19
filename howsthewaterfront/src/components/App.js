@@ -113,7 +113,7 @@ class App extends React.Component {
                     );
                     // SETTING THE USER IN THE GLOBAL STATE
                     this.props.setUserData({
-                      name: userFromDB.fullName,
+                      fullName: userFromDB.fullName,
                       email: userFromDB.email,
                       username: userFromDB.cognitoUserId,
                       cognitoUser: userFromDB.cognitoUserId,
@@ -164,7 +164,7 @@ class App extends React.Component {
                         );
                         // SETTING THE USER IN THE GLOBAL STATE
                         this.props.setUserData({
-                          name: userFromDB.fullName,
+                          fullName: userFromDB.fullName,
                           email: userFromDB.email,
                           username: userFromDB.cognitoUserId,
                           cognitoUser: userFromDB.cognitoUserId,
