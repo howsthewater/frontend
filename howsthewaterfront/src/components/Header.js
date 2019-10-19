@@ -20,7 +20,7 @@ class Header extends React.Component {
     );
     let displayName = "";
     if (loggedInUser) {
-      displayName = loggedInUser.name;
+      displayName = loggedInUser.fullName;
     } else {
       displayName = this.props.user.name;
     }

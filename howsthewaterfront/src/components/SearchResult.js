@@ -41,13 +41,26 @@ const SearchResult = () => {
   let loggedInUser = localStorage.getItem("htwUser");
 
   // Gets the favorite beach from the logged in user
-  let favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+  let favoriteBeach = "";
+  if (loggedInUser) {
+    favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+  }
 
   // Sets the value of isFavoriteBeach is true if the beach name from local storage
   // and the favorite beach of the user matches
+  let initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
   const [isFavoriteBeach, setIsFavoriteBeach] = useState(
-    favoriteBeach === beachName ? true : false
+    initialValueOfFavoriteBeach
   );
+
+  console.log(
+    `SEARCH-RESULT: FAVORITE BEACH FROM LOCAL STORAGE IS ${favoriteBeach}`
+  );
+  console.log(`SEARCH-RESULT: BEACH NAME FROM LOCAL STORAGE IS ${beachName}`);
+  console.log(
+    `SEARCH-RESULT: INITIAL VALUE OF FAVORITE BEACH IS ${initialValueOfFavoriteBeach}`
+  );
+  console.log(`SEARCH-RESULT: IS FAVORITE BEACH IS  ${isFavoriteBeach}`);
 
   const beachQuery = gql`
     {
@@ -109,9 +122,11 @@ const SearchResult = () => {
   `;
 
   // Mutation query for adding a favorite beach to the user
+  const cognitoUser = loggedInUser ? JSON.parse(loggedInUser).cognitoUser : "";
+
   const addFavoriteBeachQuery = gql`
 mutation{
-  update(cognitoUserId: "${JSON.parse(loggedInUser).cognitoUser}", ${
+  update(cognitoUserId: "${cognitoUser}", ${
     !isFavoriteBeach ? 'favoriteBeach:"' + beachName + '"' : 'favoriteBeach:""'
   } ){
     fullName
@@ -379,16 +394,16 @@ mutation{
         </div>
 
         {/* BOTTOM SECTION */}
-
+        {console.log(isFavoriteBeach)}
         <div className="bottomSection">
-          {!isFavoriteBeach && (
+          {!isFavoriteBeach && loggedInUser && (
             <div>
               <button className="heartBtn" onClick={toggleFavoriteBeach}>
                 <img className="heartImg" src={heartUnselected} />
               </button>
             </div>
           )}
-          {isFavoriteBeach && (
+          {isFavoriteBeach && loggedInUser && (
             <div>
               <button className="heartBtn" onClick={toggleFavoriteBeach}>
                 <img className="heartImg" src={heartSelected} />
