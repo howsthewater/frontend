@@ -12,6 +12,8 @@ import {
   Marker,
   InfoWindow
 } from "react-google-maps";
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 
 const MapComponent = compose(
   withProps({
@@ -42,6 +44,41 @@ const MapComponent = compose(
 ));
 
 const Region = () => {
+  // region from localstorage
+  let regionInput = localStorage.getItem("regionFilter");
+  // beach query for region data
+  const regionQuery = gql`
+  {
+    filter(filter: {REGION: {EQ: "${regionInput}"}})
+    {
+      NameMobileWeb
+      LATITUDE
+      LONGITUDE
+      REGION
+      WwoAPI{
+        data{
+          weather{
+            hourly{
+              windspeedMiles
+              winddir16Point
+            }
+          }
+        }
+      }
+      StormAPI{
+        hours{
+          swellHeight{
+            value
+          }
+        }
+      }
+    }
+  }
+  `;
+  const { loading, error, data } = useQuery(regionQuery);
+  // console.log(regionInput);
+  // console.log(data.filter ? data.filter[0] : "");
+  console.log(data);
   return (
     <div className="sResultContainer">
       <Header />

@@ -146,6 +146,8 @@ const Search = props => {
     // assign to localStorage, push to separate component,
     // that mounts region data onto the map w/ bubbles,
     // for the different beaches
+    localStorage.setItem("regionFilter", region);
+    props.history.push("/region");
   };
   const advancedRegionHandler = e => {
     const { name, value } = e.target;
