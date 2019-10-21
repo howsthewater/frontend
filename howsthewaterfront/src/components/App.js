@@ -16,6 +16,7 @@ import { setUserData } from "../actions";
 import { gql } from "apollo-boost";
 import ApolloClient from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import ChartSwellHeight from "./charts/ChartSwellHeight";
 
 // const client = new ApolloClient({
 //   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
@@ -252,6 +253,7 @@ class App extends React.Component {
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
         <Route exact path="/forgotPassword" component={ForgotPassword} />
+        <Route exact path="/chart" component={ChartSwellHeight} />
         <Route
           exact
           path="/forgotPasswordVerification"

@@ -121,6 +121,7 @@ const SearchResult = props => {
             windSpeed{
               value
             }
+            time
           }
         }
       }
@@ -283,7 +284,7 @@ mutation{
                   View Swell Height forecast
                 </button>
                 <div className="graph">
-                  <ChartWindSpeed />
+                  <ChartWindSpeed dataSet={beachData.StormAPI.hours} />
                 </div>
               </>
             )}
@@ -294,7 +295,7 @@ mutation{
                   View Wind Speed forecast
                 </button>
                 <div className="graph">
-                  <ChartSwellHeight />
+                  <ChartSwellHeight dataSet={beachData.StormAPI.hours} />
                 </div>
               </>
             )}
