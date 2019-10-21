@@ -24,7 +24,7 @@ const ChartWindSpeed = props => {
     labels: windSpeedForecastLabel,
     datasets: [
       {
-        label: "Wind Speed Forecast",
+        label: "Wind Speed (meters/sec)",
         data: windSpeedForecastData,
         fill: false,
         borderWidth: 1,

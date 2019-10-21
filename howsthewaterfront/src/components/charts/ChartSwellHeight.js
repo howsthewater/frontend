@@ -18,11 +18,12 @@ const ChartSwellHeight = props => {
   dataSet.forEach(set => {
     swellHeightForecastData.push(set.swellHeight[0].value);
   });
+
   let chartData = {
     labels: swellHeightForecastLabel,
     datasets: [
       {
-        label: "Swell Height Forecast",
+        label: "Swell Height (meters)",
         data: swellHeightForecastData,
         fill: false,
         borderWidth: 1,

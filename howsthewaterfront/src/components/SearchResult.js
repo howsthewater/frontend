@@ -154,9 +154,6 @@ mutation{
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
-  console.log(
-    ":: SEARCH RESULT :: VALUE OF DATA IS -->" + JSON.stringify(data.filter[0])
-  );
 
   // Function to toggle favorite beach. When its chosen and not chosen
   const toggleFavoriteBeach = async () => {
