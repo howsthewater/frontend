@@ -16,6 +16,13 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
 const Region = () => {
+  const [selectedMarker, setSelectedMarker] = useState("");
+  const [mapSpecs, setMapSpecs] = useState({
+    // default
+    zoom: 5,
+    lat: 36.74,
+    lng: -119.79
+  });
   // region from localstorage
   let regionInput = localStorage.getItem("regionFilter");
   console.log(regionInput);
@@ -51,13 +58,20 @@ const Region = () => {
   const { loading, error, data } = useQuery(regionQuery);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
-  const beachData = data ? data.filter.slice(0, 200) : "";
 
+  const beachData = data ? data.filter.slice(0, 200) : "";
   // console.log(regionInput);
-  // console.log(data.filter ? data.filter[0] : "");
   // console.log(data ? data.filter : "");
   // console.log(beachData);
-
+  const selectMarkerHandler = beach => {
+    setSelectedMarker(beach);
+    setMapSpecs({
+      ...mapSpecs,
+      zoom: 12,
+      lat: beach.LATITUDE,
+      lng: beach.LONGITUDE
+    });
+  };
   // map
   const MapComponent = compose(
     withProps({
@@ -68,13 +82,12 @@ const Region = () => {
     }),
     withScriptjs,
     withGoogleMap
-  )(props => (
+  )(() => (
     <GoogleMap
-      defaultZoom={5}
+      defaultZoom={mapSpecs.zoom}
       defaultCenter={{
-        // hardcode for now
-        lat: 36.74,
-        lng: -119.79
+        lat: mapSpecs.lat,
+        lng: mapSpecs.lng
       }}
     >
       {beachData
@@ -83,7 +96,22 @@ const Region = () => {
               key={Math.random()}
               // {...console.log(beach.LONGITUDE, beach.LONGITUDE)}
               position={{ lat: beach.LATITUDE, lng: beach.LONGITUDE }}
-            />
+              onClick={() => {
+                selectMarkerHandler(beach);
+              }}
+            >
+              {selectedMarker === beach && (
+                <InfoWindow>
+                  <div>
+                    <div>{beach.NameMobileWeb}</div>
+                    <div>CURRENT CONDITIONS:</div>
+                    <div>WIND:</div>
+                    <div>PRIMARY SWELL:</div>
+                    <div>SECONDARY SWELL:</div>
+                  </div>
+                </InfoWindow>
+              )}
+            </Marker>
           ))
         : ""}
     </GoogleMap>
@@ -96,7 +124,7 @@ const Region = () => {
       </div>
       <div className="regionBody">
         {/* map component */}
-        <MapComponent isMarkerShown onMarkerClick="false" />
+        <MapComponent isMarkerShown />
         <footer className="footer">
           <Footer />
         </footer>
