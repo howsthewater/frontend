@@ -49,15 +49,16 @@ const Region = () => {
   }
   `;
   const { loading, error, data } = useQuery(regionQuery);
-  // if (loading) return "Loading...";
-  // if (error) return `Error! ${error.message}`;
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+  const beachData = data ? data.filter.slice(0, 200) : "";
+
   // console.log(regionInput);
   // console.log(data.filter ? data.filter[0] : "");
-  console.log(data ? data.filter : "");
-  const beachData = data ? data.filter.slice(0, 10) : "";
-  console.log(beachData);
-  // map
+  // console.log(data ? data.filter : "");
+  // console.log(beachData);
 
+  // map
   const MapComponent = compose(
     withProps({
       googleMapURL: process.env.REACT_APP_GOOGLE_API_KEY,
@@ -69,47 +70,24 @@ const Region = () => {
     withGoogleMap
   )(props => (
     <GoogleMap
-      defaultZoom={6}
+      defaultZoom={5}
       defaultCenter={{
         // hardcode for now
         lat: 36.74,
         lng: -119.79
       }}
     >
-      {/* <Marker
-        position={{
-          // hardcode for now
-          lat: 41.99,
-          lng: -124.21
-        }}
-      /> */}
-      {/* {data
-        ? data.filter.map(
-            beach =>
-              props.isMarkerShown && (
-                <Marker
-                  key={Math.random()}
-                  {...console.log(beach.LONGITUDE, beach.LONGITUDE)}
-                  position={{ lat: beach.LATITUDE, lng: beach.LONGITUDE }}
-                />
-              )
-          )
-        : ""} */}
       {beachData
-        ? beachData.map(
-            beach =>
-              props.isMarkerShown && (
-                <Marker
-                  key={Math.random()}
-                  {...console.log(beach.LONGITUDE, beach.LONGITUDE)}
-                  position={{ lat: beach.LATITUDE, lng: beach.LONGITUDE }}
-                />
-              )
-          )
+        ? beachData.map(beach => (
+            <Marker
+              key={Math.random()}
+              // {...console.log(beach.LONGITUDE, beach.LONGITUDE)}
+              position={{ lat: beach.LATITUDE, lng: beach.LONGITUDE }}
+            />
+          ))
         : ""}
     </GoogleMap>
   ));
-  console.log(Marker);
   return (
     <div className="sResultContainer">
       <Header />
@@ -118,12 +96,7 @@ const Region = () => {
       </div>
       <div className="regionBody">
         {/* map component */}
-        <MapComponent
-          isMarkerShown
-          onMarkerClick="false"
-          // latitude="41.99"
-          // longitude="-124.21"
-        />
+        <MapComponent isMarkerShown onMarkerClick="false" />
         <footer className="footer">
           <Footer />
         </footer>
