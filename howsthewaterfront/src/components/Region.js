@@ -62,7 +62,7 @@ const Region = () => {
   const beachData = data ? data.filter.slice(0, 200) : "";
   // console.log(regionInput);
   // console.log(data ? data.filter : "");
-  // console.log(beachData);
+  console.log(beachData);
   const selectMarkerHandler = beach => {
     setSelectedMarker(beach);
     setMapSpecs({
@@ -102,9 +102,11 @@ const Region = () => {
             >
               {selectedMarker === beach && (
                 <InfoWindow>
-                  <div>
-                    <div>{beach.NameMobileWeb}</div>
+                  <div style={{ width: "25rem" }}>
+                    <div>{beach.NameMobileWeb.toUpperCase()}</div>
+                    <br />
                     <div>CURRENT CONDITIONS:</div>
+                    <br />
                     <div>WIND:</div>
                     <div>PRIMARY SWELL:</div>
                     <div>SECONDARY SWELL:</div>

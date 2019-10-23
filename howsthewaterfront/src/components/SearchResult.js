@@ -140,7 +140,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? beachData.WwoAPI.data.weather[0].astronomy[0].sunrise
+                  ? beachData.WwoAPI.data.weather
+                    ? beachData.WwoAPI.data.weather[0].astronomy[0].sunrise
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -149,7 +151,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? beachData.WwoAPI.data.weather[0].astronomy[0].sunset
+                  ? beachData.WwoAPI.data.weather
+                    ? beachData.WwoAPI.data.weather[0].astronomy[0].sunset
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -158,7 +162,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? `${beachData.WwoAPI.data.current_condition[0].temp_F} F`
+                  ? beachData.WwoAPI.data.current_condition
+                    ? `${beachData.WwoAPI.data.current_condition[0].temp_F} F`
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -196,28 +202,30 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? beachData.TideAPI.extremes.filter(extreme => {
-                      for (let k in extreme) {
-                        if (extreme[k] === "low") return true;
-                      }
-                    }).length > 0
-                    ? ` height: ${beachData.TideAPI.extremes
-                        .filter(extreme => {
-                          for (let k in extreme) {
-                            if (extreme[k] === "low") return true;
-                          }
-                        })[0]
-                        .height.substring(
-                          0,
-                          4
-                        )} at: ${beachData.TideAPI.extremes
-                        .filter(extreme => {
-                          for (let k in extreme) {
-                            if (extreme[k] === "low") return true;
-                          }
-                        })[0]
-                        .timestamp.substring(11, 19)}`
-                    : ""
+                  ? beachData.TideAPI.extremes
+                    ? beachData.TideAPI.extremes.filter(extreme => {
+                        for (let k in extreme) {
+                          if (extreme[k] === "low") return true;
+                        }
+                      }).length > 0
+                      ? ` height: ${beachData.TideAPI.extremes
+                          .filter(extreme => {
+                            for (let k in extreme) {
+                              if (extreme[k] === "low") return true;
+                            }
+                          })[0]
+                          .height.substring(
+                            0,
+                            4
+                          )} at: ${beachData.TideAPI.extremes
+                          .filter(extreme => {
+                            for (let k in extreme) {
+                              if (extreme[k] === "low") return true;
+                            }
+                          })[0]
+                          .timestamp.substring(11, 19)}`
+                      : ""
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -226,28 +234,30 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? beachData.TideAPI.extremes.filter(extreme => {
-                      for (let k in extreme) {
-                        if (extreme[k] === "high") return true;
-                      }
-                    }).length > 0
-                    ? ` height: ${beachData.TideAPI.extremes
-                        .filter(extreme => {
-                          for (let k in extreme) {
-                            if (extreme[k] === "high") return true;
-                          }
-                        })[0]
-                        .height.substring(
-                          0,
-                          4
-                        )} at: ${beachData.TideAPI.extremes
-                        .filter(extreme => {
-                          for (let k in extreme) {
-                            if (extreme[k] === "high") return true;
-                          }
-                        })[0]
-                        .timestamp.substring(11, 19)}`
-                    : ""
+                  ? beachData.TideAPI.extremes
+                    ? beachData.TideAPI.extremes.filter(extreme => {
+                        for (let k in extreme) {
+                          if (extreme[k] === "high") return true;
+                        }
+                      }).length > 0
+                      ? ` height: ${beachData.TideAPI.extremes
+                          .filter(extreme => {
+                            for (let k in extreme) {
+                              if (extreme[k] === "high") return true;
+                            }
+                          })[0]
+                          .height.substring(
+                            0,
+                            4
+                          )} at: ${beachData.TideAPI.extremes
+                          .filter(extreme => {
+                            for (let k in extreme) {
+                              if (extreme[k] === "high") return true;
+                            }
+                          })[0]
+                          .timestamp.substring(11, 19)}`
+                      : ""
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -256,7 +266,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? `${beachData.WwoAPI.data.weather[0].hourly[0].windspeedMiles} miles`
+                  ? beachData.WwoAPI.data.weather
+                    ? `${beachData.WwoAPI.data.weather[0].hourly[0].windspeedMiles} miles`
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -265,7 +277,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText sElement">
                 {data.filter
-                  ? beachData.WwoAPI.data.weather[0].hourly[0].winddir16Point
+                  ? beachData.WwoAPI.data.weather
+                    ? beachData.WwoAPI.data.weather[0].hourly[0].winddir16Point
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -274,7 +288,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? beachData.StormAPI.hours[0].swellHeight[0].value
+                  ? beachData.StormAPI.hours
+                    ? beachData.StormAPI.hours[0].swellHeight[0].value
+                    : "Null"
                   : ""}
               </h1>
             </div>
@@ -283,7 +299,9 @@ const SearchResult = () => {
               <h1 className="sElement">-</h1>
               <h1 className="sText">
                 {data.filter
-                  ? beachData.StormAPI.hours[0].waterTemperature[0].value
+                  ? beachData.StormAPI.hours
+                    ? beachData.StormAPI.hours[0].waterTemperature[0].value
+                    : "Null"
                   : ""}
               </h1>
             </div>
