@@ -107,9 +107,22 @@ const Region = () => {
                     <br />
                     <div>CURRENT CONDITIONS:</div>
                     <br />
-                    <div>WIND:</div>
-                    <div>PRIMARY SWELL:</div>
-                    <div>SECONDARY SWELL:</div>
+                    <div>
+                      WIND:
+                      {beach.WwoAPI.data.weather
+                        ? beach.WwoAPI.data.weather.hourly.windspeedMiles +
+                          " " +
+                          beach.WwoAPI.data.weather.hourly.winddir16Point
+                        : "Null"}
+                    </div>
+                    <div>
+                      SWELL-HEIGHT:
+                      {beach.StormAPI.hours
+                        ? beach.StormAPI.hours.swellHeight.value
+                        : "Null"}
+                    </div>
+                    <br />
+                    <div>VIEW SURF REPORT</div>
                   </div>
                 </InfoWindow>
               )}
