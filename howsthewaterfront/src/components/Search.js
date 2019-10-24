@@ -72,7 +72,7 @@ const Search = props => {
         : setBeaches(beaches);
     }
   };
-  console.log(data);
+  // console.log(data);
   const toggleAdvancedSearch = () => {
     if (advancedSearch) {
       setAdvancedSearch(false);
@@ -102,7 +102,7 @@ const Search = props => {
     setBeaches([]);
   };
   const advancedSearchChangeHandler = e => {
-    console.log(e.target);
+    // console.log(e.target);
     const { name } = e.target;
     let value = "";
     values[name] ? (value = false) : (value = true);

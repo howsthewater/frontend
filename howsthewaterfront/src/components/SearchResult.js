@@ -42,8 +42,10 @@ const SearchResult = props => {
 
   // Gets the favorite beach from the logged in user
   let favoriteBeach = "";
+  let favoriteBeachList = [];
   if (loggedInUser) {
     favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+    favoriteBeachList = favoriteBeach.split(",");
   }
 
   // Sets the value of isFavoriteBeach is true if the beach name from local storage
@@ -53,7 +55,10 @@ const SearchResult = props => {
 
   useEffect(() => {
     console.log(`USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`);
-    initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
+    //initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
+    initialValueOfFavoriteBeach = favoriteBeachList.includes(beachName)
+      ? true
+      : false;
     setIsFavoriteBeach(initialValueOfFavoriteBeach);
   }, [initialValueOfFavoriteBeach, beachName]);
   console.log(
@@ -131,10 +136,24 @@ const SearchResult = props => {
   // Mutation query for adding a favorite beach to the user
   const cognitoUser = loggedInUser ? JSON.parse(loggedInUser).cognitoUser : "";
 
+  const addBeachName = beachName => {
+    favoriteBeachList.pop(beachName);
+    return favoriteBeachList.toString();
+  };
+
+  const removeBeachName = beachName => {
+    favoriteBeachList = favoriteBeachList.filter(name => {
+      return name !== beachName;
+    });
+    return favoriteBeachList.toString();
+  };
+
   const addFavoriteBeachQuery = gql`
 mutation{
   updateUser(cognitoUserId: "${cognitoUser}", ${
-    !isFavoriteBeach ? 'favoriteBeach:"' + beachName + '"' : 'favoriteBeach:""'
+    !isFavoriteBeach
+      ? 'favoriteBeach:"' + addBeachName(beachName) + '"'
+      : 'favoriteBeach:"' + removeBeachName(beachName) + '"'
   } ){
     fullName
     email
@@ -154,9 +173,9 @@ mutation{
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
-  console.log(
-    ":: SEARCH RESULT :: BEACH DATA IS ::" + JSON.stringify(beachData)
-  );
+  // console.log(
+  //   ":: SEARCH RESULT :: BEACH DATA IS ::" + JSON.stringify(beachData)
+  // );
 
   // Function to toggle favorite beach. When its chosen and not chosen
   const toggleFavoriteBeach = async () => {
@@ -164,8 +183,8 @@ mutation{
       if (isFavoriteBeach) {
         setIsFavoriteBeach(false);
         let updatedUser = await updateUser();
-        updatedUser.data.update = {
-          ...updatedUser.data.update,
+        updatedUser.data.updateUser = {
+          ...updatedUser.data.updateUser,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
         };
         console.log(
@@ -175,18 +194,18 @@ mutation{
         );
         console.log(
           `SEARCH-RESULT::TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
-            updatedUser.data.update
+            updatedUser.data.updateUser
           )}`
         );
         localStorage.setItem(
           "htwUser",
-          JSON.stringify(updatedUser.data.update)
+          JSON.stringify(updatedUser.data.updateUser)
         );
       } else {
         setIsFavoriteBeach(true);
         let updatedUser = await updateUser();
-        updatedUser.data.update = {
-          ...updatedUser.data.update,
+        updatedUser.data.updateUser = {
+          ...updatedUser.data.updateUser,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
         };
         console.log(
@@ -201,7 +220,7 @@ mutation{
         );
         localStorage.setItem(
           "htwUser",
-          JSON.stringify(updatedUser.data.update)
+          JSON.stringify(updatedUser.data.updateUser)
         );
       }
     } catch (error) {
