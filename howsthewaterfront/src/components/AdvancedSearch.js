@@ -16,7 +16,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-const AdvancedSearch = () => {
+const AdvancedSearch = beach => {
+  const [values, setValues] = useState({
+    textInput: ""
+  });
   const advBeachesParams = localStorage.getItem("advBeachesParams");
   const [skipValue, setSkipValue] = useState(0);
   const beachesQuery = gql`
@@ -96,6 +99,12 @@ const AdvancedSearch = () => {
     }
     console.log(direction);
   };
+
+  const beachNameClick = e => {
+    localStorage.setItem("beachName", e.target.text);
+    beach.history.push("/searchresult");
+  };
+
   console.log(skipValue);
 
   const { loading, error, data } = useQuery(beachesQuery);
@@ -130,9 +139,9 @@ const AdvancedSearch = () => {
           {data.filter
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
-                  <div className="beach-spot beach-data">
+                  <a onClick={beachNameClick} className="beach-spot beach-data">
                     {beach.NameMobileWeb}
-                  </div>
+                  </a>
                   <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">
                     <img

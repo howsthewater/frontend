@@ -52,6 +52,7 @@ const Search = props => {
   //
   const searchInputHandler = e => {
     const { name, value } = e.target;
+    console.log(name + " " + value);
     setValues({ ...values, [name]: value });
     if (e.target.name === "textInput") {
       setPickedBeach(e.target.value);
