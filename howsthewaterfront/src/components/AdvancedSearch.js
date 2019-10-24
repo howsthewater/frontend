@@ -41,6 +41,11 @@ const AdvancedSearch = () => {
             ? 'EZ4STROLLERS:{EQ:"Yes"}'
             : ""
         }
+        ${
+          JSON.parse(advBeachesParams).REGION
+            ? 'REGION:{EQ:"' + JSON.parse(advBeachesParams).REGION + '"}'
+            : ""
+        }
        },
        pagination: {limit: 10, skip: ${skipValue}}
        ) {
@@ -225,8 +230,13 @@ const AdvancedSearch = () => {
                       ? beach.WwoAPI.data.weather[0].hourly[0].winddir16Point
                       : "Not-Available"}{" "}
                     | Swell Height:{" "}
-                    {beach.StormAPI.hours[0].swellHeight[0].value} | Temp:{" "}
-                    {beach.StormAPI.hours[0].waterTemperature[0].value}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].swellHeight[0].value
+                      : "Not-Available"}{" "}
+                    | Temp:{" "}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].waterTemperature[0].value
+                      : "Not-Available"}
                   </div>
                 </div>
               ))

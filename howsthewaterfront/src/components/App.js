@@ -6,6 +6,7 @@ import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
 import AdvancedSearch from "./AdvancedSearch";
+import Region from "./Region";
 import ChangePasswordConfirmation from "./ChangePasswordConfirmation";
 import ForgotPassword from "./ForgotPassword";
 import ForgotPasswordVerification from "./ForgotPasswordVerification";
@@ -243,6 +244,7 @@ class App extends React.Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
+        <Route exact path="/region" component={Region} />
         <Route exact path="/forgotPassword" component={ForgotPassword} />
         <Route
           exact

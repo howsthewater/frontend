@@ -52,6 +52,9 @@
   margin-top: 3.6rem;
   border-radius: 3px;
 }
+.regionSearchContainer {
+  border-bottom: 1px dashed #2d728f;
+}
 .searchResultText {
   font-size: 1.2rem;
   color: #5b9279;
@@ -61,7 +64,8 @@
   font-weight: 500;
   cursor: pointer;
   border-bottom: 0.5px solid #eee;
-  z-index: 30;
+  position: relative;
+  z-index: 1;
 }
 .aSearchToggleButton {
   cursor: pointer;
