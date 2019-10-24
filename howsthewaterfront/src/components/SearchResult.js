@@ -201,6 +201,14 @@ mutation{
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
+  let isChartDataSetValid = false;
+  if (beachData) {
+    if (beachData.StormAPI) {
+      if (beachData.StormAPI.hours) {
+        isChartDataSetValid = true;
+      }
+    }
+  }
   // console.log(
   //   ":: SEARCH RESULT :: BEACH DATA IS ::" + JSON.stringify(beachData)
   // );
@@ -337,29 +345,31 @@ mutation{
 
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
-          <div className="graphSection">
-            {viewWindSpeed && (
-              <>
-                <button className="graphToggleText" onClick={toggleWindSpeed}>
-                  View Swell Height forecast
-                </button>
-                <div className="graph">
-                  <ChartWindSpeed dataSet={beachData.StormAPI.hours} />
-                </div>
-              </>
-            )}
+          {isChartDataSetValid && (
+            <div className="graphSection">
+              {viewWindSpeed && (
+                <>
+                  <button className="graphToggleText" onClick={toggleWindSpeed}>
+                    View Swell Height forecast
+                  </button>
+                  <div className="graph">
+                    <ChartWindSpeed dataSet={beachData.StormAPI.hours} />
+                  </div>
+                </>
+              )}
 
-            {!viewWindSpeed && (
-              <>
-                <button className="graphToggleText" onClick={toggleWindSpeed}>
-                  View Wind Speed forecast
-                </button>
-                <div className="graph">
-                  <ChartSwellHeight dataSet={beachData.StormAPI.hours} />
-                </div>
-              </>
-            )}
-          </div>
+              {!viewWindSpeed && (
+                <>
+                  <button className="graphToggleText" onClick={toggleWindSpeed}>
+                    View Wind Speed forecast
+                  </button>
+                  <div className="graph">
+                    <ChartSwellHeight dataSet={beachData.StormAPI.hours} />
+                  </div>
+                </>
+              )}
+            </div>
+          )}
           {/* TOP RIGHT SECTION */}
           {/* RIGHT SECTION */}
           <div className="rightSection">
