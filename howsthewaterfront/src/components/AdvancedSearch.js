@@ -16,7 +16,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-const AdvancedSearch = () => {
+const AdvancedSearch = beach => {
+  const [values, setValues] = useState({
+    textInput: ""
+  });
   const advBeachesParams = localStorage.getItem("advBeachesParams");
   const [skipValue, setSkipValue] = useState(0);
   const beachesQuery = gql`
@@ -92,46 +95,17 @@ const AdvancedSearch = () => {
     console.log(direction);
   };
 
-  const [beaches, setBeaches] = useState([]);
-  const { loading, error, data } = useQuery(beachesQuery);
   const [pickedBeach, setPickedBeach] = useState("");
 
   const beachNameClick = e => {
-    localStorage.setItem("beachName", e);
-    props.history.push("/searchresult");
+    setValues({
+      ...values,
+      textInput: e.target
+    });
+    setPickedBeach(e);
+    localStorage.setItem("beachName", pickedBeach);
+    beach.history.push("/searchresult");
   };
-
-  // const searchSubmit = e => {
-  //   e.preventDefault();
-  //   if (!advancedSearch) {
-  //     let beachNameList = data.locations.map(
-  //       locations => locations.NameMobileWeb
-  //     );
-  //     if (beachNameList.includes(pickedBeach)) {
-  //       localStorage.setItem("beachName", pickedBeach);
-  //       props.history.push("/searchresult");
-  //       console.log("included");
-  //     } else {
-  //       alert("cannot find beach name");
-  //       console.log("not included");
-  //     }
-  //   } else {
-  //     let advBeachesParams = {
-  //       RESTROOMS: values.restrooms,
-  //       PARKING: values.parking,
-  //       DSABLDACSS: values.disabled,
-  //       PCNC_AREA: values.picnicArea,
-  //       VOLLEYBALL: values.volleyBall,
-  //       DOG_FRIENDLY: values.dogFriendly,
-  //       EZ4STROLLERS: values.kidFriendly
-  //     };
-  //     localStorage.setItem(
-  //       "advBeachesParams",
-  //       JSON.stringify(advBeachesParams)
-  //     );
-  //     props.history.push("/advancedsearch");
-  //   }
-  // };
 
   console.log(skipValue);
 
@@ -168,7 +142,7 @@ const AdvancedSearch = () => {
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
                   <div
-                    onClick={this.beachNameClick}
+                    onClick={beachNameClick}
                     className="beach-spot beach-data"
                   >
                     {beach.NameMobileWeb}
