@@ -118,6 +118,10 @@ const SearchResult = props => {
             waterTemperature {
               value
             }
+            windSpeed{
+              value
+            }
+            time
           }
         }
       }
@@ -150,7 +154,6 @@ mutation{
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
-  console.log(data.filter ? data.filter[0] : "");
 
   // Function to toggle favorite beach. When its chosen and not chosen
   const toggleFavoriteBeach = async () => {
@@ -284,7 +287,7 @@ mutation{
                   View Swell Height forecast
                 </button>
                 <div className="graph">
-                  <ChartWindSpeed />
+                  <ChartWindSpeed dataSet={beachData.StormAPI.hours} />
                 </div>
               </>
             )}
@@ -295,7 +298,7 @@ mutation{
                   View Wind Speed forecast
                 </button>
                 <div className="graph">
-                  <ChartSwellHeight />
+                  <ChartSwellHeight dataSet={beachData.StormAPI.hours} />
                 </div>
               </>
             )}

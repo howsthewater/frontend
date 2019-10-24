@@ -1,28 +1,29 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-const ChartSwellHeight = () => {
+const ChartSwellHeight = props => {
   // const swellHeightForecastQuery = (Enter the gql query here);
+  const dataSet = props.dataSet;
 
-  // TEMPORARY DATA FOR CHARTS
-  let swellHeightForecastLabel = [
-    "10/1",
-    "10/2",
-    "10/3",
-    "10/4",
-    "10/5",
-    "10/6",
-    "10/7",
-    "10/8",
-    "10/9",
-    "10/10"
-  ];
-  let swellHeightForecastData = [20, 30, 24, 12, 36, 10, 23, 19, 34, 50];
+  let swellHeightForecastLabel = [];
+  dataSet.forEach(set => {
+    var labelTime = new Date(set.time)
+      .getHours()
+      .toString()
+      .concat(":00");
+    swellHeightForecastLabel.push(labelTime);
+  });
+
+  let swellHeightForecastData = [];
+  dataSet.forEach(set => {
+    swellHeightForecastData.push(set.swellHeight[0].value);
+  });
+
   let chartData = {
     labels: swellHeightForecastLabel,
     datasets: [
       {
-        label: "Swell Height Forecast",
+        label: "Swell Height (meters)",
         data: swellHeightForecastData,
         fill: false,
         borderWidth: 1,

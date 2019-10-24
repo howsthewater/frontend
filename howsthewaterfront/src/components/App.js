@@ -21,6 +21,7 @@ import { useQuery } from "@apollo/react-hooks";
 const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 });
+
 /*
  * Class component: App
  *
