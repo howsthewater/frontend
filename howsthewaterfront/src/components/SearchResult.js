@@ -341,7 +341,9 @@ mutation{
           {!isChartDataSetValid && (
             <div className="graphSection">
               <div className="graph">
-                Currently, there is no data to render the graph
+                <div className="graph-error">
+                  Currently, there is no data to render the graph
+                </div>
               </div>
             </div>
           )}
