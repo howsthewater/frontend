@@ -73,7 +73,7 @@ const Search = props => {
         : setBeaches(beaches);
     }
   };
-  console.log(data);
+  // console.log(data);
   const toggleAdvancedSearch = () => {
     if (advancedSearch) {
       setAdvancedSearch(false);
@@ -103,7 +103,7 @@ const Search = props => {
     setBeaches([]);
   };
   const advancedSearchChangeHandler = e => {
-    console.log(e.target);
+    // console.log(e.target);
     const { name } = e.target;
     let value = "";
     values[name] ? (value = false) : (value = true);
@@ -158,7 +158,7 @@ const Search = props => {
   };
 
   // console.log(advancedSearch);
-  console.log(values);
+  // console.log(values);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -205,7 +205,7 @@ const Search = props => {
         >
           {regionSearch.map(region => (
             <p
-              className="searchResultText"
+              className="searchResultText searchResultRegion"
               onClick={() => {
                 regionSubmit(region);
               }}

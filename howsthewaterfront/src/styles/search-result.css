@@ -90,6 +90,17 @@
   width: 100%;
 }
 
+.graph-error {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2d728f;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
 .graphToggleText {
   text-decoration: underline;
   border: 0;
@@ -141,7 +152,7 @@
 }
 
 .bottomSection .beach-info {
-  width: 28%;
+  width: 30%;
   /* height: 28vh; */
   display: flex;
   flex-direction: column;

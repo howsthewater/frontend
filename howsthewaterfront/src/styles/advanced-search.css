@@ -81,11 +81,19 @@
   font-weight: 700;
   text-align: left;
   padding-left: 2rem;
-  color: #1bc0c3;
+  color: #2d728f;
+}
+
+.beachNameLink {
+  border-bottom: 1px solid #2d728f;
+}
+
+.beachNameLink:hover {
+  border-bottom: 1px solid #00bfbf;
 }
 
 .beach-spot:hover {
-  color: #00ffe6;
+  color: #00bfbf;
   cursor: pointer;
 }
 
@@ -179,7 +187,7 @@
 }
 
 .paginate-buttons {
-  margin: 5rem 0;
+  margin: 2rem 5rem 0 5rem;
   display: flex;
 }
 

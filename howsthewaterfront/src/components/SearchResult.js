@@ -42,18 +42,34 @@ const SearchResult = props => {
 
   // Gets the favorite beach from the logged in user
   let favoriteBeach = "";
+  // let favoriteBeachList = [];
   if (loggedInUser) {
     favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+    console.log(`SEARCH-RESULT:: FAVORITE BEACH IS ${favoriteBeach}`);
+    // favoriteBeachList = favoriteBeach.split(",");
   }
 
   // Sets the value of isFavoriteBeach is true if the beach name from local storage
   // and the favorite beach of the user matches
-  let initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
-  const [isFavoriteBeach, setIsFavoriteBeach] = useState(false);
+  if (!favoriteBeach) {
+    favoriteBeach = "";
+  }
+  let initialValueOfFavoriteBeach = favoriteBeach.includes(beachName)
+    ? true
+    : false;
+  const [isFavoriteBeach, setIsFavoriteBeach] = useState(
+    initialValueOfFavoriteBeach
+  );
 
   useEffect(() => {
-    console.log(`USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`);
-    initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
+    console.log(
+      `SEARCH-RESULT:: USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`
+    );
+    console.log(`SEARCH-RESULT:: USE EFFECT :: BEACH NAME IS ${beachName}`);
+    initialValueOfFavoriteBeach = favoriteBeach.includes(beachName)
+      ? true
+      : false;
+
     setIsFavoriteBeach(initialValueOfFavoriteBeach);
   }, [initialValueOfFavoriteBeach, beachName]);
   console.log(
@@ -133,8 +149,10 @@ const SearchResult = props => {
 
   const addFavoriteBeachQuery = gql`
 mutation{
-  update(cognitoUserId: "${cognitoUser}", ${
-    !isFavoriteBeach ? 'favoriteBeach:"' + beachName + '"' : 'favoriteBeach:""'
+  updateUser(cognitoUserId: "${cognitoUser}", ${
+    !isFavoriteBeach
+      ? 'favoriteBeach:"' + favoriteBeach.concat(beachName) + '"'
+      : 'favoriteBeach:"' + favoriteBeach.replace(beachName, "") + '"'
   } ){
     fullName
     email
@@ -153,16 +171,36 @@ mutation{
   const [updateUser] = useMutation(addFavoriteBeachQuery);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+  console.log(
+    `SEARCH-RESULT:: BEACH DATA IS ${JSON.stringify(data.filter[0])}`
+  );
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
+  let isChartDataSetValid = false;
+  if (beachData) {
+    if (beachData.StormAPI) {
+      if (beachData.StormAPI.hours) {
+        isChartDataSetValid = true;
+      }
+    }
+  }
+  // console.log(
+  //   ":: SEARCH RESULT :: BEACH DATA IS ::" + JSON.stringify(beachData)
+  // );
 
   // Function to toggle favorite beach. When its chosen and not chosen
   const toggleFavoriteBeach = async () => {
     try {
       if (isFavoriteBeach) {
+        console.log(`SEARCH-RESULT:: IS FAVORITE BEACH IS TRUE`);
         setIsFavoriteBeach(false);
         let updatedUser = await updateUser();
-        updatedUser.data.update = {
-          ...updatedUser.data.update,
+        console.log(
+          `SEARCH-RESULT::TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER (FIRST) IS ${JSON.stringify(
+            updatedUser.data.updateUser
+          )}`
+        );
+        updatedUser.data.updateUser = {
+          ...updatedUser.data.updateUser,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
         };
         console.log(
@@ -172,18 +210,19 @@ mutation{
         );
         console.log(
           `SEARCH-RESULT::TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
-            updatedUser.data.update
+            updatedUser.data.updateUser
           )}`
         );
         localStorage.setItem(
           "htwUser",
-          JSON.stringify(updatedUser.data.update)
+          JSON.stringify(updatedUser.data.updateUser)
         );
       } else {
+        console.log(`SEARCH-RESULT:: IS FAVORITE BEACH IS FALSE`);
         setIsFavoriteBeach(true);
         let updatedUser = await updateUser();
-        updatedUser.data.update = {
-          ...updatedUser.data.update,
+        updatedUser.data.updateUser = {
+          ...updatedUser.data.updateUser,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
         };
         console.log(
@@ -198,7 +237,7 @@ mutation{
         );
         localStorage.setItem(
           "htwUser",
-          JSON.stringify(updatedUser.data.update)
+          JSON.stringify(updatedUser.data.updateUser)
         );
       }
     } catch (error) {
@@ -280,29 +319,40 @@ mutation{
 
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
-          <div className="graphSection">
-            {viewWindSpeed && (
-              <>
-                <button className="graphToggleText" onClick={toggleWindSpeed}>
-                  View Swell Height forecast
-                </button>
-                <div className="graph">
-                  <ChartWindSpeed dataSet={beachData.StormAPI.hours} />
-                </div>
-              </>
-            )}
+          {isChartDataSetValid && (
+            <div className="graphSection">
+              {viewWindSpeed && (
+                <>
+                  <button className="graphToggleText" onClick={toggleWindSpeed}>
+                    View Swell Height forecast
+                  </button>
+                  <div className="graph">
+                    <ChartWindSpeed dataSet={beachData.StormAPI.hours} />
+                  </div>
+                </>
+              )}
 
-            {!viewWindSpeed && (
-              <>
-                <button className="graphToggleText" onClick={toggleWindSpeed}>
-                  View Wind Speed forecast
-                </button>
-                <div className="graph">
-                  <ChartSwellHeight dataSet={beachData.StormAPI.hours} />
+              {!viewWindSpeed && (
+                <>
+                  <button className="graphToggleText" onClick={toggleWindSpeed}>
+                    View Wind Speed forecast
+                  </button>
+                  <div className="graph">
+                    <ChartSwellHeight dataSet={beachData.StormAPI.hours} />
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+          {!isChartDataSetValid && (
+            <div className="graphSection">
+              <div className="graph">
+                <div className="graph-error">
+                  Currently, there is no data to render the graph
                 </div>
-              </>
-            )}
-          </div>
+              </div>
+            </div>
+          )}
           {/* TOP RIGHT SECTION */}
           {/* RIGHT SECTION */}
           <div className="rightSection">

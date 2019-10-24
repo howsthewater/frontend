@@ -44,11 +44,6 @@ const AdvancedSearch = beach => {
             ? 'EZ4STROLLERS:{EQ:"Yes"}'
             : ""
         }
-        ${
-          JSON.parse(advBeachesParams).REGION
-            ? 'REGION:{EQ:"' + JSON.parse(advBeachesParams).REGION + '"}'
-            : ""
-        }
        },
        pagination: {limit: 10, skip: ${skipValue}}
        ) {
@@ -108,7 +103,7 @@ const AdvancedSearch = beach => {
   console.log(skipValue);
 
   const { loading, error, data } = useQuery(beachesQuery);
-  console.log(data ? data.filter : "");
+  console.log("ADVANCED-SEARCH:: DATA IS " + JSON.stringify(data));
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -241,11 +236,11 @@ const AdvancedSearch = beach => {
                     | Swell Height:{" "}
                     {beach.StormAPI.hours
                       ? beach.StormAPI.hours[0].swellHeight[0].value
-                      : "Not-Available"}{" "}
+                      : "null"}{" "}
                     | Temp:{" "}
                     {beach.StormAPI.hours
                       ? beach.StormAPI.hours[0].waterTemperature[0].value
-                      : "Not-Available"}
+                      : "null"}
                   </div>
                 </div>
               ))

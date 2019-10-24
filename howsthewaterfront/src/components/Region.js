@@ -110,9 +110,11 @@ const Region = () => {
                     <div>
                       WIND:
                       {beach.WwoAPI.data.weather
-                        ? beach.WwoAPI.data.weather.hourly.windspeedMiles +
-                          " " +
-                          beach.WwoAPI.data.weather.hourly.winddir16Point
+                        ? beach.WwoAPI.data.weather.hourly
+                          ? beach.WwoAPI.data.weather.hourly.windspeedMiles +
+                            " " +
+                            beach.WwoAPI.data.weather.hourly.winddir16Point
+                          : "Null"
                         : "Null"}
                     </div>
                     <div>
