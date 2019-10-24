@@ -135,7 +135,7 @@ const AdvancedSearch = beach => {
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
                   <a onClick={beachNameClick} className="beach-spot beach-data">
-                    <span className="beachNameLink">{beach.NameMobileWeb}</span>
+                    {beach.NameMobileWeb}
                   </a>
                   <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">

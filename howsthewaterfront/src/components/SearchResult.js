@@ -51,6 +51,9 @@ const SearchResult = props => {
 
   // Sets the value of isFavoriteBeach is true if the beach name from local storage
   // and the favorite beach of the user matches
+  if (!favoriteBeach) {
+    favoriteBeach = "";
+  }
   let initialValueOfFavoriteBeach = favoriteBeach.includes(beachName)
     ? true
     : false;
@@ -168,6 +171,9 @@ mutation{
   const [updateUser] = useMutation(addFavoriteBeachQuery);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+  console.log(
+    `SEARCH-RESULT:: BEACH DATA IS ${JSON.stringify(data.filter[0])}`
+  );
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
   let isChartDataSetValid = false;
   if (beachData) {

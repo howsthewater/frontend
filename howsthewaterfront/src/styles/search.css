@@ -113,6 +113,10 @@
   outline: none;
 }
 
+.advancedRegionSelect::-ms-expand {
+  display: none;
+}
+
 /* Animation effect for appear*/
 @keyframes appear {
   0% {
