@@ -103,7 +103,7 @@ const AdvancedSearch = beach => {
   console.log(skipValue);
 
   const { loading, error, data } = useQuery(beachesQuery);
-  console.log(data ? data.filter : "");
+  console.log("ADVANCED-SEARCH:: DATA IS " + JSON.stringify(data));
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -234,8 +234,13 @@ const AdvancedSearch = beach => {
                       ? beach.WwoAPI.data.weather[0].hourly[0].winddir16Point
                       : "Not-Available"}{" "}
                     | Swell Height:{" "}
-                    {beach.StormAPI.hours[0].swellHeight[0].value} | Temp:{" "}
-                    {beach.StormAPI.hours[0].waterTemperature[0].value}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].swellHeight[0].value
+                      : "null"}{" "}
+                    | Temp:{" "}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].waterTemperature[0].value
+                      : "null"}
                   </div>
                 </div>
               ))
