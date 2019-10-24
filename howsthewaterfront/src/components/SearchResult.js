@@ -338,6 +338,13 @@ mutation{
               )}
             </div>
           )}
+          {!isChartDataSetValid && (
+            <div className="graphSection">
+              <div className="graph">
+                Currently, there is no data to render the graph
+              </div>
+            </div>
+          )}
           {/* TOP RIGHT SECTION */}
           {/* RIGHT SECTION */}
           <div className="rightSection">
