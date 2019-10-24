@@ -14,8 +14,6 @@ function ForgotPassword(props) {
 
   // This function handles the change password
   const handleForgotPassword = async () => {
-    console.log("------WITHIN HANDLE FORGOT PASSWORD--------");
-
     try {
       await Auth.forgotPassword(values.email);
 

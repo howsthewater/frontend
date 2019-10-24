@@ -91,6 +91,7 @@ class App extends React.Component {
                         regionInput
                         beachInput
                         persona
+                        favoriteBeach
                       }
                     }
                   `
@@ -113,7 +114,7 @@ class App extends React.Component {
                     );
                     // SETTING THE USER IN THE GLOBAL STATE
                     this.props.setUserData({
-                      name: userFromDB.fullName,
+                      fullName: userFromDB.fullName,
                       email: userFromDB.email,
                       username: userFromDB.cognitoUserId,
                       cognitoUser: userFromDB.cognitoUserId,
@@ -122,7 +123,8 @@ class App extends React.Component {
                         longitude: longitude
                       },
                       homeBeach: userFromDB.homeBeach,
-                      homeBeachName: userFromDB.homeBeachName
+                      homeBeachName: userFromDB.homeBeachName,
+                      favoriteBeach: userFromDB.favoriteBeach
                     });
                     if (localStorage.getItem("beachName")) {
                       this.props.history.push("/home");
@@ -147,6 +149,7 @@ class App extends React.Component {
                             email
                             homeBeach
                             homeBeachName
+                            favoriteBeach
                           }
                         }
                       
@@ -162,7 +165,7 @@ class App extends React.Component {
                         );
                         // SETTING THE USER IN THE GLOBAL STATE
                         this.props.setUserData({
-                          name: userFromDB.fullName,
+                          fullName: userFromDB.fullName,
                           email: userFromDB.email,
                           username: userFromDB.cognitoUserId,
                           cognitoUser: userFromDB.cognitoUserId,
@@ -171,7 +174,8 @@ class App extends React.Component {
                             longitude: longitude
                           },
                           homeBeach: userFromDB.homeBeach,
-                          homeBeachName: userFromDB.homeBeachName
+                          homeBeachName: userFromDB.homeBeachName,
+                          favoriteBeach: userFromDB.favoriteBeach
                         });
                         if (localStorage.getItem("beachName")) {
                           this.props.history.push("/home");

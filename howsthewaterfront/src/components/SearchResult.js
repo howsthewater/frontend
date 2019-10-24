@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -10,16 +10,20 @@ import strollerIcon from "../assets/icons8-stroller-50.png";
 import dogIcon from "../assets/icons8-dog-paw-64.png";
 import volleyIcon from "../assets/icons8-volleyball-player-50.png";
 import picnicIcon from "../assets/icons8-picnic-table-50.png";
+import heartUnselected from "../assets/heart-unselected.jpg";
+import heartSelected from "../assets/heart-selected.jpg";
 import { withRouter } from "react-router-dom";
 import "../styles/search-result.css";
 import { gql } from "apollo-boost";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/react-hooks";
 import ChartWindSpeed from "../components/charts/ChartWindSpeed";
 import ChartSwellHeight from "../components/charts/ChartSwellHeight";
 
-const SearchResult = () => {
+const SearchResult = props => {
+  // This variable is to set the toggle for wind speed and swell height
   const [viewWindSpeed, setViewWindSpeed] = useState(true);
 
+  // This function is to toggle between wind-speed and swell-height
   const toggleWindSpeed = () => {
     if (viewWindSpeed) {
       setViewWindSpeed(false);
@@ -32,6 +36,34 @@ const SearchResult = () => {
   if (!beachName) {
     beachName = "Coastal Trail (Marin County)";
   }
+
+  // Checks to see if the user is logged in. The favorite feature is only for logged in users
+  let loggedInUser = localStorage.getItem("htwUser");
+
+  // Gets the favorite beach from the logged in user
+  let favoriteBeach = "";
+  if (loggedInUser) {
+    favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
+  }
+
+  // Sets the value of isFavoriteBeach is true if the beach name from local storage
+  // and the favorite beach of the user matches
+  let initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
+  const [isFavoriteBeach, setIsFavoriteBeach] = useState(false);
+
+  useEffect(() => {
+    console.log(`USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`);
+    initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
+    setIsFavoriteBeach(initialValueOfFavoriteBeach);
+  }, [initialValueOfFavoriteBeach, beachName]);
+  console.log(
+    `SEARCH-RESULT: FAVORITE BEACH FROM LOCAL STORAGE IS ${favoriteBeach}`
+  );
+  console.log(`SEARCH-RESULT: BEACH NAME FROM LOCAL STORAGE IS ${beachName}`);
+  console.log(
+    `SEARCH-RESULT: INITIAL VALUE OF FAVORITE BEACH IS ${initialValueOfFavoriteBeach}`
+  );
+  console.log(`SEARCH-RESULT: IS FAVORITE BEACH IS  ${isFavoriteBeach}`);
 
   const beachQuery = gql`
     {
@@ -91,12 +123,85 @@ const SearchResult = () => {
       }
     }
   `;
+
+  // Mutation query for adding a favorite beach to the user
+  const cognitoUser = loggedInUser ? JSON.parse(loggedInUser).cognitoUser : "";
+
+  const addFavoriteBeachQuery = gql`
+mutation{
+  update(cognitoUserId: "${cognitoUser}", ${
+    !isFavoriteBeach ? 'favoriteBeach:"' + beachName + '"' : 'favoriteBeach:""'
+  } ){
+    fullName
+    email
+    homeBeach
+    homeBeachName
+    longitude
+    latitude
+    phoneInput
+    favoriteBeach
+  }
+}`;
+
   const { loading, error, data } = useQuery(beachQuery);
+
+  // updateUser is the function to be called to update the favorite beach of a user
+  const [updateUser] = useMutation(addFavoriteBeachQuery);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
   console.log(data.filter ? data.filter[0] : "");
 
+  // Function to toggle favorite beach. When its chosen and not chosen
+  const toggleFavoriteBeach = async () => {
+    try {
+      if (isFavoriteBeach) {
+        setIsFavoriteBeach(false);
+        let updatedUser = await updateUser();
+        updatedUser.data.update = {
+          ...updatedUser.data.update,
+          cognitoUser: JSON.parse(loggedInUser).cognitoUser
+        };
+        console.log(
+          `SEARCH-RESULT::COGNITO USER ID : ${
+            JSON.parse(loggedInUser).cognitoUser
+          }`
+        );
+        console.log(
+          `SEARCH-RESULT::TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER IS ${JSON.stringify(
+            updatedUser.data.update
+          )}`
+        );
+        localStorage.setItem(
+          "htwUser",
+          JSON.stringify(updatedUser.data.update)
+        );
+      } else {
+        setIsFavoriteBeach(true);
+        let updatedUser = await updateUser();
+        updatedUser.data.update = {
+          ...updatedUser.data.update,
+          cognitoUser: JSON.parse(loggedInUser).cognitoUser
+        };
+        console.log(
+          `SEARCH-RESULT:: COGNITO USER ID : ${
+            JSON.parse(loggedInUser).cognitoUser
+          }`
+        );
+        console.log(
+          `SEARCH-RESULT:: TOGGLE FAVORITE BEACH SELECTED: UPDATED USER IS ${JSON.stringify(
+            updatedUser.data
+          )}`
+        );
+        localStorage.setItem(
+          "htwUser",
+          JSON.stringify(updatedUser.data.update)
+        );
+      }
+    } catch (error) {
+      console.log(`SEARCH-RESULT:: ERROR WHILE UPDATING USER IS ${error}`);
+    }
+  };
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -172,28 +277,29 @@ const SearchResult = () => {
 
           {/* TOP GRAPH SECTION */}
           {/* GRAPH SECTION */}
-          {viewWindSpeed && (
-            <div className="graphSection">
-              <button className="graphToggleText" onClick={toggleWindSpeed}>
-                View Swell Height forecast
-              </button>
-              <div className="graph">
-                <ChartWindSpeed />
-              </div>
-            </div>
-          )}
+          <div className="graphSection">
+            {viewWindSpeed && (
+              <>
+                <button className="graphToggleText" onClick={toggleWindSpeed}>
+                  View Swell Height forecast
+                </button>
+                <div className="graph">
+                  <ChartWindSpeed />
+                </div>
+              </>
+            )}
 
-          {!viewWindSpeed && (
-            <div className="graphSection" onClick={toggleWindSpeed}>
-              <button className="graphToggleText">
-                View Wind Speed forecast
-              </button>
-              <div className="graph">
-                <ChartSwellHeight />
-              </div>
-            </div>
-          )}
-
+            {!viewWindSpeed && (
+              <>
+                <button className="graphToggleText" onClick={toggleWindSpeed}>
+                  View Wind Speed forecast
+                </button>
+                <div className="graph">
+                  <ChartSwellHeight />
+                </div>
+              </>
+            )}
+          </div>
           {/* TOP RIGHT SECTION */}
           {/* RIGHT SECTION */}
           <div className="rightSection">
@@ -309,8 +415,22 @@ const SearchResult = () => {
         </div>
 
         {/* BOTTOM SECTION */}
-
+        {console.log(isFavoriteBeach)}
         <div className="bottomSection">
+          {!isFavoriteBeach && loggedInUser && (
+            <div>
+              <button className="heartBtn" onClick={toggleFavoriteBeach}>
+                <img className="heartImg" src={heartUnselected} />
+              </button>
+            </div>
+          )}
+          {isFavoriteBeach && loggedInUser && (
+            <div>
+              <button className="heartBtn" onClick={toggleFavoriteBeach}>
+                <img className="heartImg" src={heartSelected} />
+              </button>
+            </div>
+          )}
           <div className="beach-info">
             <span>
               <h2>Beach Name:</h2>
@@ -329,7 +449,7 @@ const SearchResult = () => {
               <p>{data.filter ? beachData.DescriptionMobileWeb : ""}</p>
             </span>
             <span>
-              <div className="amenitiesText">Amenities:</div>
+              <h2>Amenities:</h2>
               <div className="iconsSection">
                 <img
                   className="iconsSearchResult"
