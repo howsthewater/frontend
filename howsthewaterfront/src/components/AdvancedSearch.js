@@ -16,7 +16,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-const AdvancedSearch = () => {
+const AdvancedSearch = beach => {
+  const [values, setValues] = useState({
+    textInput: ""
+  });
   const advBeachesParams = localStorage.getItem("advBeachesParams");
   const [skipValue, setSkipValue] = useState(0);
   const beachesQuery = gql`
@@ -39,11 +42,6 @@ const AdvancedSearch = () => {
         ${
           JSON.parse(advBeachesParams).EZ4STROLLERS
             ? 'EZ4STROLLERS:{EQ:"Yes"}'
-            : ""
-        }
-        ${
-          JSON.parse(advBeachesParams).REGION
-            ? 'REGION:{EQ:"' + JSON.parse(advBeachesParams).REGION + '"}'
             : ""
         }
        },
@@ -96,6 +94,12 @@ const AdvancedSearch = () => {
     }
     console.log(direction);
   };
+
+  const beachNameClick = e => {
+    localStorage.setItem("beachName", e.target.text);
+    beach.history.push("/searchresult");
+  };
+
   console.log(skipValue);
 
   const { loading, error, data } = useQuery(beachesQuery);
@@ -130,9 +134,9 @@ const AdvancedSearch = () => {
           {data.filter
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
-                  <div className="beach-spot beach-data">
-                    {beach.NameMobileWeb}
-                  </div>
+                  <a onClick={beachNameClick} className="beach-spot beach-data">
+                    <span className="beachNameLink">{beach.NameMobileWeb}</span>
+                  </a>
                   <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">
                     <img
@@ -230,13 +234,8 @@ const AdvancedSearch = () => {
                       ? beach.WwoAPI.data.weather[0].hourly[0].winddir16Point
                       : "Not-Available"}{" "}
                     | Swell Height:{" "}
-                    {beach.StormAPI.hours
-                      ? beach.StormAPI.hours[0].swellHeight[0].value
-                      : "Not-Available"}{" "}
-                    | Temp:{" "}
-                    {beach.StormAPI.hours
-                      ? beach.StormAPI.hours[0].waterTemperature[0].value
-                      : "Not-Available"}
+                    {beach.StormAPI.hours[0].swellHeight[0].value} | Temp:{" "}
+                    {beach.StormAPI.hours[0].waterTemperature[0].value}
                   </div>
                 </div>
               ))
