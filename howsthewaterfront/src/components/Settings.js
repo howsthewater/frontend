@@ -79,7 +79,7 @@ const Settings = () => {
   // mutation query on submit update
   const mutationQuery = gql`
     mutation{
-      update(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
+      updateUser(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
       ${values.fullname ? "fullName: " + '"' + values.fullname + '"' : ""},
       ${
         formValues.regionInput
