@@ -157,7 +157,7 @@ const Search = props => {
   };
 
   // console.log(advancedSearch);
-  console.log(values);
+  // console.log(values);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>

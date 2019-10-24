@@ -42,23 +42,31 @@ const SearchResult = props => {
 
   // Gets the favorite beach from the logged in user
   let favoriteBeach = "";
-  let favoriteBeachList = [];
+  // let favoriteBeachList = [];
   if (loggedInUser) {
     favoriteBeach = JSON.parse(loggedInUser).favoriteBeach;
-    favoriteBeachList = favoriteBeach.split(",");
+    console.log(`SEARCH-RESULT:: FAVORITE BEACH IS ${favoriteBeach}`);
+    // favoriteBeachList = favoriteBeach.split(",");
   }
 
   // Sets the value of isFavoriteBeach is true if the beach name from local storage
   // and the favorite beach of the user matches
-  let initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
-  const [isFavoriteBeach, setIsFavoriteBeach] = useState(false);
+  let initialValueOfFavoriteBeach = favoriteBeach.includes(beachName)
+    ? true
+    : false;
+  const [isFavoriteBeach, setIsFavoriteBeach] = useState(
+    initialValueOfFavoriteBeach
+  );
 
   useEffect(() => {
-    console.log(`USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`);
-    //initialValueOfFavoriteBeach = favoriteBeach === beachName ? true : false;
-    initialValueOfFavoriteBeach = favoriteBeachList.includes(beachName)
+    console.log(
+      `SEARCH-RESULT:: USE EFFECT INVOKED ${initialValueOfFavoriteBeach}`
+    );
+    console.log(`SEARCH-RESULT:: USE EFFECT :: BEACH NAME IS ${beachName}`);
+    initialValueOfFavoriteBeach = favoriteBeach.includes(beachName)
       ? true
       : false;
+
     setIsFavoriteBeach(initialValueOfFavoriteBeach);
   }, [initialValueOfFavoriteBeach, beachName]);
   console.log(
@@ -136,24 +144,44 @@ const SearchResult = props => {
   // Mutation query for adding a favorite beach to the user
   const cognitoUser = loggedInUser ? JSON.parse(loggedInUser).cognitoUser : "";
 
-  const addBeachName = beachName => {
-    favoriteBeachList.pop(beachName);
-    return favoriteBeachList.toString();
-  };
+  // const addBeachName = beachName => {
+  //   console.log(
+  //     `SEARCH-RESULT:: ADD BEACH NAME :: START :: ${favoriteBeachList}`
+  //   );
+  //   if (!favoriteBeachList.includes(beachName)) {
+  //     favoriteBeachList.push(beachName);
+  //   } else {
+  //     console.log(
+  //       `SEARCH-RESULT:: ADD BEACH NAME :: BEACH NAME ALREADY EXISTS IN LIST`
+  //     );
+  //   }
+  //   console.log(
+  //     `SEARCH-RESULT:: ADD BEACH NAME :: FAVORITE BEACH STRING IS :: ${favoriteBeachList.toString()}`
+  //   );
+  //   return favoriteBeachList.toString();
+  // };
 
-  const removeBeachName = beachName => {
-    favoriteBeachList = favoriteBeachList.filter(name => {
-      return name !== beachName;
-    });
-    return favoriteBeachList.toString();
-  };
+  // const removeBeachName = beachName => {
+  //   console.log(
+  //     `SEARCH-RESULT:: REMOVE BEACH NAME :: START :: ${favoriteBeachList}`
+  //   );
+  //   favoriteBeachList = favoriteBeachList.filter(name => {
+  //     return name !== beachName;
+  //   });
+  //   console.log(
+  //     `SEARCH-RESULT:: REMOVE BEACH NAME :: FAVORITE BEACH STRING IS :: ${favoriteBeachList.toString()}`
+  //   );
+  //   return favoriteBeachList.toString();
+  // };
 
+  // const addedBeachList = addBeachName(beachName);
+  // const removedBeachList = removeBeachName(beachName);
   const addFavoriteBeachQuery = gql`
 mutation{
   updateUser(cognitoUserId: "${cognitoUser}", ${
     !isFavoriteBeach
-      ? 'favoriteBeach:"' + addBeachName(beachName) + '"'
-      : 'favoriteBeach:"' + removeBeachName(beachName) + '"'
+      ? 'favoriteBeach:"' + favoriteBeach.concat(beachName) + '"'
+      : 'favoriteBeach:"' + favoriteBeach.replace(beachName, "") + '"'
   } ){
     fullName
     email
@@ -181,8 +209,14 @@ mutation{
   const toggleFavoriteBeach = async () => {
     try {
       if (isFavoriteBeach) {
+        console.log(`SEARCH-RESULT:: IS FAVORITE BEACH IS TRUE`);
         setIsFavoriteBeach(false);
         let updatedUser = await updateUser();
+        console.log(
+          `SEARCH-RESULT::TOGGLE FAVORITE BEACH UNSELECTED : UPDATED USER (FIRST) IS ${JSON.stringify(
+            updatedUser.data.updateUser
+          )}`
+        );
         updatedUser.data.updateUser = {
           ...updatedUser.data.updateUser,
           cognitoUser: JSON.parse(loggedInUser).cognitoUser
@@ -202,6 +236,7 @@ mutation{
           JSON.stringify(updatedUser.data.updateUser)
         );
       } else {
+        console.log(`SEARCH-RESULT:: IS FAVORITE BEACH IS FALSE`);
         setIsFavoriteBeach(true);
         let updatedUser = await updateUser();
         updatedUser.data.updateUser = {
