@@ -144,38 +144,6 @@ const SearchResult = props => {
   // Mutation query for adding a favorite beach to the user
   const cognitoUser = loggedInUser ? JSON.parse(loggedInUser).cognitoUser : "";
 
-  // const addBeachName = beachName => {
-  //   console.log(
-  //     `SEARCH-RESULT:: ADD BEACH NAME :: START :: ${favoriteBeachList}`
-  //   );
-  //   if (!favoriteBeachList.includes(beachName)) {
-  //     favoriteBeachList.push(beachName);
-  //   } else {
-  //     console.log(
-  //       `SEARCH-RESULT:: ADD BEACH NAME :: BEACH NAME ALREADY EXISTS IN LIST`
-  //     );
-  //   }
-  //   console.log(
-  //     `SEARCH-RESULT:: ADD BEACH NAME :: FAVORITE BEACH STRING IS :: ${favoriteBeachList.toString()}`
-  //   );
-  //   return favoriteBeachList.toString();
-  // };
-
-  // const removeBeachName = beachName => {
-  //   console.log(
-  //     `SEARCH-RESULT:: REMOVE BEACH NAME :: START :: ${favoriteBeachList}`
-  //   );
-  //   favoriteBeachList = favoriteBeachList.filter(name => {
-  //     return name !== beachName;
-  //   });
-  //   console.log(
-  //     `SEARCH-RESULT:: REMOVE BEACH NAME :: FAVORITE BEACH STRING IS :: ${favoriteBeachList.toString()}`
-  //   );
-  //   return favoriteBeachList.toString();
-  // };
-
-  // const addedBeachList = addBeachName(beachName);
-  // const removedBeachList = removeBeachName(beachName);
   const addFavoriteBeachQuery = gql`
 mutation{
   updateUser(cognitoUserId: "${cognitoUser}", ${
