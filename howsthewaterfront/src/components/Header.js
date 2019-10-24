@@ -54,6 +54,7 @@ class Header extends React.Component {
             <input type="checkbox" id="toggle" />
 
             <nav className="menu">
+              <a href="/viewFavorites">View Favorites</a>
               {amplifySignInWithHostedUI === "false" && (
                 <a href="/changePassword">Change Password</a>
               )}
