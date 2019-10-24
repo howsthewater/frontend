@@ -133,7 +133,7 @@ const SearchResult = props => {
 
   const addFavoriteBeachQuery = gql`
 mutation{
-  update(cognitoUserId: "${cognitoUser}", ${
+  updateUser(cognitoUserId: "${cognitoUser}", ${
     !isFavoriteBeach ? 'favoriteBeach:"' + beachName + '"' : 'favoriteBeach:""'
   } ){
     fullName
@@ -154,6 +154,9 @@ mutation{
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   let beachData = JSON.parse(JSON.stringify(data.filter[0]));
+  console.log(
+    ":: SEARCH RESULT :: BEACH DATA IS ::" + JSON.stringify(beachData)
+  );
 
   // Function to toggle favorite beach. When its chosen and not chosen
   const toggleFavoriteBeach = async () => {
