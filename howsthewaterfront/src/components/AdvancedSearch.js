@@ -95,15 +95,8 @@ const AdvancedSearch = beach => {
     console.log(direction);
   };
 
-  const [pickedBeach, setPickedBeach] = useState("");
-
   const beachNameClick = e => {
-    setValues({
-      ...values,
-      textInput: e.target
-    });
-    setPickedBeach(e);
-    localStorage.setItem("beachName", pickedBeach);
+    localStorage.setItem("beachName", e.target.text);
     beach.history.push("/searchresult");
   };
 
@@ -141,12 +134,9 @@ const AdvancedSearch = beach => {
           {data.filter
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
-                  <div
-                    onClick={beachNameClick}
-                    className="beach-spot beach-data"
-                  >
+                  <a onClick={beachNameClick} className="beach-spot beach-data">
                     {beach.NameMobileWeb}
-                  </div>
+                  </a>
                   <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">
                     <img
