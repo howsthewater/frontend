@@ -204,7 +204,7 @@ const Search = props => {
         >
           {regionSearch.map(region => (
             <p
-              className="searchResultText"
+              className="searchResultText searchResultRegion"
               onClick={() => {
                 regionSubmit(region);
               }}
