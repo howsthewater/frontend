@@ -6,6 +6,7 @@ import LandingForm from "./Landing";
 import SignUpForm from "./SignUp";
 import SearchResultForm from "./SearchResult";
 import AdvancedSearch from "./AdvancedSearch";
+import Region from "./Region";
 import ChangePasswordConfirmation from "./ChangePasswordConfirmation";
 import ForgotPassword from "./ForgotPassword";
 import ForgotPasswordVerification from "./ForgotPasswordVerification";
@@ -20,6 +21,11 @@ import { useQuery } from "@apollo/react-hooks";
 const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 });
+
+// const client = new ApolloClient({
+//   uri: "http://localhost:4444/graphql"
+// });
+
 /*
  * Class component: App
  *
@@ -90,6 +96,7 @@ class App extends React.Component {
                         regionInput
                         beachInput
                         persona
+                        favoriteBeach
                       }
                     }
                   `
@@ -112,7 +119,7 @@ class App extends React.Component {
                     );
                     // SETTING THE USER IN THE GLOBAL STATE
                     this.props.setUserData({
-                      name: userFromDB.fullName,
+                      fullName: userFromDB.fullName,
                       email: userFromDB.email,
                       username: userFromDB.cognitoUserId,
                       cognitoUser: userFromDB.cognitoUserId,
@@ -121,7 +128,8 @@ class App extends React.Component {
                         longitude: longitude
                       },
                       homeBeach: userFromDB.homeBeach,
-                      homeBeachName: userFromDB.homeBeachName
+                      homeBeachName: userFromDB.homeBeachName,
+                      favoriteBeach: userFromDB.favoriteBeach
                     });
                     if (localStorage.getItem("beachName")) {
                       this.props.history.push("/home");
@@ -146,6 +154,7 @@ class App extends React.Component {
                             email
                             homeBeach
                             homeBeachName
+                            favoriteBeach
                           }
                         }
                       
@@ -161,7 +170,7 @@ class App extends React.Component {
                         );
                         // SETTING THE USER IN THE GLOBAL STATE
                         this.props.setUserData({
-                          name: userFromDB.fullName,
+                          fullName: userFromDB.fullName,
                           email: userFromDB.email,
                           username: userFromDB.cognitoUserId,
                           cognitoUser: userFromDB.cognitoUserId,
@@ -170,7 +179,8 @@ class App extends React.Component {
                             longitude: longitude
                           },
                           homeBeach: userFromDB.homeBeach,
-                          homeBeachName: userFromDB.homeBeachName
+                          homeBeachName: userFromDB.homeBeachName,
+                          favoriteBeach: userFromDB.favoriteBeach
                         });
                         if (localStorage.getItem("beachName")) {
                           this.props.history.push("/home");
@@ -243,6 +253,7 @@ class App extends React.Component {
         <Route exact path="/signup" component={SignUpForm} />
         <Route exact path="/searchresult" component={SearchResultForm} />
         <Route exact path="/advancedsearch" component={AdvancedSearch} />
+        <Route exact path="/region" component={Region} />
         <Route exact path="/forgotPassword" component={ForgotPassword} />
         <Route
           exact

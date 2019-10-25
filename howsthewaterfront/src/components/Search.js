@@ -35,8 +35,15 @@ const Search = props => {
     kidFriendly: false,
     dogFriendly: false,
     volleyBall: false,
-    picnicArea: false
+    picnicArea: false,
+    REGION: ""
   });
+  // region search hard coded
+  const regionSearch = [
+    "Northern California",
+    "Central California",
+    "Southern California"
+  ];
   const [advancedSearch, setAdvancedSearch] = useState(false);
   // beach values
   const [beaches, setBeaches] = useState([]);
@@ -45,6 +52,7 @@ const Search = props => {
   //
   const searchInputHandler = e => {
     const { name, value } = e.target;
+    console.log(name + " " + value);
     setValues({ ...values, [name]: value });
     if (e.target.name === "textInput") {
       setPickedBeach(e.target.value);
@@ -65,7 +73,7 @@ const Search = props => {
         : setBeaches(beaches);
     }
   };
-  console.log(data);
+  // console.log(data);
   const toggleAdvancedSearch = () => {
     if (advancedSearch) {
       setAdvancedSearch(false);
@@ -92,8 +100,10 @@ const Search = props => {
       textInput: beachName
     });
     setPickedBeach(beachName);
+    setBeaches([]);
   };
   const advancedSearchChangeHandler = e => {
+    // console.log(e.target);
     const { name } = e.target;
     let value = "";
     values[name] ? (value = false) : (value = true);
@@ -121,7 +131,8 @@ const Search = props => {
         PCNC_AREA: values.picnicArea,
         VOLLEYBALL: values.volleyBall,
         DOG_FRIENDLY: values.dogFriendly,
-        EZ4STROLLERS: values.kidFriendly
+        EZ4STROLLERS: values.kidFriendly,
+        REGION: values.REGION
       };
       localStorage.setItem(
         "advBeachesParams",
@@ -130,8 +141,24 @@ const Search = props => {
       props.history.push("/advancedsearch");
     }
   };
+  // region submit for the basic search, when region is clicked, redirect to map component
+  const regionSubmit = region => {
+    console.log(region);
+    // assign to localStorage, push to separate component,
+    // that mounts region data onto the map w/ bubbles,
+    // for the different beaches
+    localStorage.setItem("regionFilter", region);
+    setValues({ ...values, textInput: "" });
+    setBeaches([]);
+    props.history.push("/region");
+  };
+  const advancedRegionHandler = e => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
 
-  console.log(advancedSearch);
+  // console.log(advancedSearch);
+  // console.log(values);
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -166,6 +193,28 @@ const Search = props => {
         </button>
       </form>
       <div className="searchResultsContainer">
+        <div
+          className="regionSearchContainer"
+          style={
+            values.textInput.length === 0
+              ? { display: "None" }
+              : beaches.length === 0
+              ? { display: "None" }
+              : { display: "block" }
+          }
+        >
+          {regionSearch.map(region => (
+            <p
+              className="searchResultText searchResultRegion"
+              onClick={() => {
+                regionSubmit(region);
+              }}
+              key={Math.random()}
+            >
+              {region}
+            </p>
+          ))}
+        </div>
         {beaches.map(beach => (
           <p
             className="searchResultText"
@@ -186,6 +235,19 @@ const Search = props => {
           className="advancedSearchForm"
           style={{ display: !advancedSearch ? "none" : "" }}
         >
+          {/* work on dropdown for advanced search region */}
+          <select
+            className="advancedRegionSelect"
+            name="REGION"
+            onChange={advancedRegionHandler}
+          >
+            <option value="">None</option>
+            {regionSearch.map((region, index) => (
+              <option value={region} key={index}>
+                {region}
+              </option>
+            ))}
+          </select>
           <label className="checkboxLabel">
             <input
               className="checkboxInput"

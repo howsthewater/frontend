@@ -5,7 +5,7 @@
 }
 
 .bodySection {
-  width: 150rem;
+  width: 120rem;
   height: 73vh;
   position: absolute;
   top: 195px;
@@ -17,7 +17,7 @@
   align-items: center;
   margin-bottom: 3rem;
   margin-top: 3rem;
-  height: 210px;
+  /* height: 210px; */
 }
 .leftSection {
   display: flex;
@@ -90,6 +90,17 @@
   width: 100%;
 }
 
+.graph-error {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2d728f;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
 .graphToggleText {
   text-decoration: underline;
   border: 0;
@@ -102,29 +113,30 @@
   color: #00bfbf;
 }
 
-.amenitiesText {
+/* .amenitiesText {
   font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
   color: #215c74;
   font-weight: 800;
   margin: 0;
-}
+} */
 .iconsSection {
   display: flex;
-  width: 30rem;
+  width: 45rem;
   /* justify-content: space-around; */
   /* Adding this so that the icons are arranged from the beginning.  */
   justify-content: flex-start;
+  align-items: flex-start;
 }
 .iconsSearchResult {
   height: 2rem;
   margin: 0.5rem;
 }
 
-.iconsSearchResult:first-child {
+/* .iconsSearchResult:first-child {
   margin-left: 5rem;
-}
+} */
 
 .bottomSection {
   font-family: Ubuntu;
@@ -141,17 +153,29 @@
 
 .bottomSection .beach-info {
   width: 30%;
-  height: 28vh;
+  /* height: 28vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-left: 2rem;
+  margin-left: 1rem;
   margin-right: 4rem;
 }
 
+.heartImg {
+  width: 3rem;
+  margin: 0;
+  padding: 5px 0 0 10px;
+}
+
+.heartBtn {
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
 .bottomSection .map {
-  width: 31.7%;
+  width: 30%;
   height: 25vh;
   margin-bottom: 3rem;
 }
@@ -192,13 +216,14 @@
   color: #215c74;
   letter-spacing: 0.1em;
   margin: 0 0.5rem 0 0;
-  width: 15rem;
+  width: 25rem;
 }
 
 .bottomSection .beach-info span p {
   font-size: 1.4rem;
   color: #215c74;
-  width: 50rem;
+  width: 45rem;
+  margin-left: 0.5rem;
 }
 
 .footerDiv {
@@ -207,25 +232,64 @@
 
 @media (max-width: 992px) {
   .topSection {
-    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    width: 100%;
   }
 
-  .graphSection {
-    display: none;
+  /* .topSection :nth-child(1) {
+    order: 1;
   }
 
-  .leftSection {
-    margin: 5% 0 0 0;
-    width: 45%;
+  .topSection :nth-child(2) {
+    order: 2;
   }
 
-  .rightSection {
-    margin: 5% 0 0 0;
-    width: 45%;
+  .topSection :nth-child(3) {
+    order: 1;
+  } */
+
+  .topSection .leftSection {
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .subSectionDiv {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sHeader {
+    width: 10rem;
+  }
+
+  .sText {
+    width: 20rem;
+  }
+
+  .topSection .graphSection {
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .topSection .rightSection {
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
   }
 
   .bottomSection {
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 2rem;
   }
 
@@ -242,7 +306,7 @@
   }
 
   .bottomSection .map {
-    width: 60%;
+    width: 80%;
     margin: auto;
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -255,31 +319,32 @@
   }
 
   .bottomSection .beach-info {
-    width: 100%;
-    flex-direction: column;
-    margin-bottom: 0.5rem;
+    width: 80%;
+    margin: 0 0 0.5rem 0;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 0 0 2rem 0;
   }
 
   .bottomSection .beach-info span {
-    width: 65%;
-    margin: auto;
+    width: 100%;
     flex-direction: row-reverse;
   }
 
   .bottomSection .beach-info span .iconsSection {
-    width: 77.5%;
+    width: 45rem;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .topSection {
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
   }
-  /* .firstDiv {
-    display: none;
-  } */
 
   .leftSection {
     width: 80%;
@@ -290,10 +355,8 @@
     padding: 0;
     width: 80%;
   }
-}
+} */
 
-@media (max-width: 575px) {
-  .graphSection {
-    display: none;
-  }
-}
+/* @media (max-width: 575px) {
+
+} */
