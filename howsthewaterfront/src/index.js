@@ -18,6 +18,10 @@ const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 });
 
+// const client = new ApolloClient({
+//   uri: "http://localhost:4444/graphql"
+// });
+
 /*
  * Configuration properties for AWS Cognito User Pool - used in authentication
  * The environment variables have been set in each environment separately - Feature, staging & production

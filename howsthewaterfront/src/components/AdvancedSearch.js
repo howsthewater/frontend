@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -16,8 +16,12 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-const AdvancedSearch = () => {
+const AdvancedSearch = beach => {
+  const [values, setValues] = useState({
+    textInput: ""
+  });
   const advBeachesParams = localStorage.getItem("advBeachesParams");
+  const [skipValue, setSkipValue] = useState(0);
   const beachesQuery = gql`
     {
       filter(filter: { 
@@ -41,7 +45,7 @@ const AdvancedSearch = () => {
             : ""
         }
        },
-       pagination: {limit: 10}
+       pagination: {limit: 10, skip: ${skipValue}}
        ) {
         NameMobileWeb
         REGION
@@ -77,7 +81,29 @@ const AdvancedSearch = () => {
       }
     }
   `;
+  const paginationHandler = direction => {
+    console.log(this);
+    if (skipValue === 0 && direction === "left") {
+      alert(`Can't go left here`);
+    } else if (direction === "left") {
+      setSkipValue(skipValue - 10);
+    } else if (data.filter.length < 10 && direction === "right") {
+      alert(`Can't go right here`);
+    } else if (direction === "right") {
+      setSkipValue(skipValue + 10);
+    }
+    console.log(direction);
+  };
+
+  const beachNameClick = e => {
+    localStorage.setItem("beachName", e.target.text);
+    beach.history.push("/searchresult");
+  };
+
+  console.log(skipValue);
+
   const { loading, error, data } = useQuery(beachesQuery);
+  console.log("ADVANCED-SEARCH:: DATA IS " + JSON.stringify(data));
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -108,9 +134,9 @@ const AdvancedSearch = () => {
           {data.filter
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
-                  <div className="beach-spot beach-data">
+                  <a onClick={beachNameClick} className="beach-spot beach-data">
                     {beach.NameMobileWeb}
-                  </div>
+                  </a>
                   <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">
                     <img
@@ -191,7 +217,7 @@ const AdvancedSearch = () => {
                       alt="vyIcon"
                       style={
                         beach
-                          ? beach.toilet === "Yes"
+                          ? beach.VOLLEYBALL === "Yes"
                             ? { display: "block", filter: "none" }
                             : { display: "none" }
                           : { display: "none" }
@@ -200,15 +226,36 @@ const AdvancedSearch = () => {
                   </div>
                   <div className="beach-currentinfo beach-data">
                     Wind Speed:{" "}
-                    {beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles} |
-                    Wind Direction:{" "}
-                    {beach.WwoAPI.data.weather[0].hourly[0].winddir16Point} |
-                    Swell Height: {beach.StormAPI.hours[0].swellHeight[0].value}{" "}
-                    | Temp: {beach.StormAPI.hours[0].waterTemperature[0].value}
+                    {beach.WwoAPI.data.weather
+                      ? beach.WwoAPI.data.weather[0].hourly[0].windspeedMiles
+                      : "Not-Available"}{" "}
+                    | Wind Direction:{" "}
+                    {beach.WwoAPI.data.weather
+                      ? beach.WwoAPI.data.weather[0].hourly[0].winddir16Point
+                      : "Not-Available"}{" "}
+                    | Swell Height:{" "}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].swellHeight[0].value
+                      : "null"}{" "}
+                    | Temp:{" "}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].waterTemperature[0].value
+                      : "null"}
                   </div>
                 </div>
               ))
             : ""}
+          <div className="paginate-buttons">
+            <button
+              className="previous"
+              onClick={() => paginationHandler("left")}
+            >
+              Prev
+            </button>
+            <button className="next" onClick={() => paginationHandler("right")}>
+              Next
+            </button>
+          </div>
         </div>
         {/* FOOTER SECTION */}
         <footer className="footer">
