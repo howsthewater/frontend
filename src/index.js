@@ -12,7 +12,9 @@ import Amplify from "aws-amplify";
 import { BrowserRouter as Router } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
+import * as serviceWorker from "./serviceWorker";
 require("dotenv").config();
+
 
 const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
@@ -77,3 +79,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+serviceWorker.register();
