@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/landing.css";
 import "../styles/utility.css";
 import "../styles/font_styles.css";
-import logo from "../assets/Logo - htw.png";
+import logo from "../assets/Logohtw.png";
 import logoWords from "../assets/Logo - htw - words.png";
 import aboutPicture1 from "../assets/about-pic-1.jpg";
 import aboutPicture2 from "../assets/about-pic-2.jpg";
@@ -140,10 +140,17 @@ const Landing = props => {
             {/* FEATURES CARD - CORE */}
             <div className="features-box">
               <i className="features-box__icon icon-basic-target"></i>
-              <h3 className="heading-teritiary">Core</h3>
+              <h3 className="heading-teritiary">
+                Core
+                <br></br> <br></br>
+                <h5>Core Account Benefits:</h5>
+              </h3>
               <p className="features-box-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+                <ul>
+                  <li>Access to Live and Accurate Weather Forecasts</li>
+                  <br></br>
+                  <li>Search for Regional Surf Spots</li>
+                </ul>
               </p>
               <button
                 className="signup-button features-btn"
@@ -156,10 +163,24 @@ const Landing = props => {
             {/* FEATURES CARD - LOGIN */}
             <div className="features-box">
               <i className="features-box__icon icon-basic-link"></i>
-              <h3 className="heading-teritiary">Login</h3>
+              <h3 className="heading-teritiary">
+                Login
+                <br></br> <br></br>
+                <h5> Includes All The Core Account Benefits And: </h5>
+              </h3>
               <p className="features-box-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+                <ul>
+                  <li>Quickly Favorite Preferred Surf Spots</li>
+                  <br></br>
+                  <li>
+                    Access Ratings and Reviews for Over 1,500 California Surf
+                    Spots
+                  </li>
+                  <br></br>
+                  <li>
+                    Access Curated 10 Day Surf, Wind &amp; Weather Forecasts
+                  </li>
+                </ul>
               </p>
               <button
                 className="signup-button features-btn"
@@ -172,10 +193,20 @@ const Landing = props => {
             {/* FEATURES CARD - PREMIUM */}
             <div className="features-box">
               <i className="features-box__icon icon-basic-gear"></i>
-              <h3 className="heading-teritiary">Premium</h3>
+              <h3 className="heading-teritiary">
+                Premium
+                <br></br> <br></br>
+                <h5> Includes All The Core &amp; Login Benefits, Plus: </h5>
+              </h3>
               <p className="features-box-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam provident, sed quibusdam non accusantium optio ipsa.
+                <ul>
+                  <li>
+                    Connect with other Surfers about Secret Surf Spots via Our
+                    Social Platform
+                  </li>
+                  <br></br>
+                  <li>Request to Add a New Surf Spot to the Community</li>
+                </ul>
               </p>
               <button
                 className="signup-button features-btn"

@@ -3,7 +3,7 @@ import { logout } from "../actions";
 import { connect } from "react-redux";
 import { Auth } from "aws-amplify";
 import { withRouter } from "react-router-dom";
-import logo from "../assets/Logo - htw.png";
+import logo from "../assets/Logohtw.png";
 import logoWords from "../assets/Logo - htw - words.png";
 
 class Header extends React.Component {

@@ -45,6 +45,8 @@
 .popup-right {
   width: 66.666667%;
   padding: 20px;
+  overflow: scroll;
+  height: 675px;
 }
 
 /* Styling the pop-up images */
