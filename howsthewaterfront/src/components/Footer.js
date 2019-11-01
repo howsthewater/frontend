@@ -84,6 +84,7 @@ const CopyrightFooter = () => {
               className="popup-img"
             />
           </div>
+          {/* this is for all the changes below */}
           <div className="popup-right">
             <a href="#section-about" className="popup-close">
               &times;
