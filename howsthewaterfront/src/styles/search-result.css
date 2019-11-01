@@ -14,8 +14,10 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 3rem;
   margin-top: 3rem;
+  /* height: 210px; */
 }
 .leftSection {
   display: flex;
@@ -24,6 +26,12 @@
 }
 .graphSection {
   width: 30%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .rightSection {
   display: flex;
@@ -78,32 +86,57 @@
 
 .graph {
   background: hsla(180, 100%, 37%, 0.6);
-  height: 100%;
+  height: 80%;
+  width: 100%;
 }
 
-.amenitiesText {
-  font-size: 1.6rem;
+.graph-error {
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2d728f;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.graphToggleText {
+  text-decoration: underline;
+  border: 0;
+  padding-bottom: 1rem;
+  cursor: pointer;
+  color: #2d728f;
+}
+
+.graphToggleText:hover {
+  color: #00bfbf;
+}
+
+/* .amenitiesText {
+  font-size: 1.4rem;
   line-height: 1.8rem;
   letter-spacing: 0.1rem;
-  color: #2d728f;
+  color: #215c74;
   font-weight: 800;
   margin: 0;
-}
+} */
 .iconsSection {
   display: flex;
-  width: 30rem;
+  width: 45rem;
   /* justify-content: space-around; */
   /* Adding this so that the icons are arranged from the beginning.  */
   justify-content: flex-start;
+  align-items: flex-start;
 }
 .iconsSearchResult {
   height: 2rem;
   margin: 0.5rem;
 }
 
-.iconsSearchResult:first-child {
+/* .iconsSearchResult:first-child {
   margin-left: 5rem;
-}
+} */
 
 .bottomSection {
   font-family: Ubuntu;
@@ -119,21 +152,47 @@
 }
 
 .bottomSection .beach-info {
-  width: 50%;
-  height: 28vh;
+  width: 30%;
+  /* height: 28vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-left: 2rem;
-  margin-right: 7rem;
+  margin-left: 1rem;
+  margin-right: 4rem;
+}
+
+.heartImg {
+  width: 3rem;
+  margin: 0;
+  padding: 5px 0 0 10px;
+}
+
+.heartBtn {
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.bottomSection .map {
+  width: 30%;
+  height: 25vh;
+  margin-bottom: 3rem;
+}
+
+.bottomSection .map .gm-style-mtc {
+  display: none;
+}
+
+.bottomSection .map .gmnoprint {
+  display: none;
 }
 
 .bottomSection .beach-pics {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  width: 40%;
+  width: 30%;
   margin-left: 2rem;
 }
 
@@ -157,13 +216,14 @@
   color: #215c74;
   letter-spacing: 0.1em;
   margin: 0 0.5rem 0 0;
-  width: 15rem;
+  width: 25rem;
 }
 
 .bottomSection .beach-info span p {
   font-size: 1.4rem;
   color: #215c74;
-  width: 50rem;
+  width: 45rem;
+  margin-left: 0.5rem;
 }
 
 .footerDiv {
@@ -172,52 +232,119 @@
 
 @media (max-width: 992px) {
   .topSection {
-    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    width: 100%;
   }
 
-  .graphSection {
-    display: none;
+  /* .topSection :nth-child(1) {
+    order: 1;
   }
 
-  .leftSection {
-    margin: 5% 0 0 0;
-    width: 45%;
+  .topSection :nth-child(2) {
+    order: 2;
   }
 
-  .rightSection {
-    margin: 5% 0 0 0;
-    width: 45%;
+  .topSection :nth-child(3) {
+    order: 1;
+  } */
+
+  .topSection .leftSection {
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .subSectionDiv {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sHeader {
+    width: 10rem;
+  }
+
+  .sText {
+    width: 20rem;
+  }
+
+  .topSection .graphSection {
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+
+  .topSection .rightSection {
+    margin: auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
   }
 
   .bottomSection {
     flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 2rem;
   }
 
+  .bottomSection :nth-child(1) {
+    order: 3;
+  }
+
+  .bottomSection :nth-child(2) {
+    order: 1;
+  }
+
+  .bottomSection :nth-child(3) {
+    order: 2;
+  }
+
+  .bottomSection .map {
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
   .bottomSection .beach-pics {
-    margin: 0 0 0 0;
-    width: 100%;
+    margin: auto;
+    width: 80%;
     height: auto;
   }
 
   .bottomSection .beach-info {
-    width: 100%;
+    width: 80%;
+    margin: 0 0 0.5rem 0;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 0 0 2rem 0;
   }
 
   .bottomSection .beach-info span {
-    margin: 2% 0 0 0;
+    width: 100%;
+    flex-direction: row-reverse;
+  }
+
+  .bottomSection .beach-info span .iconsSection {
+    width: 45rem;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .topSection {
     flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: center;
   }
-  /* .firstDiv {
-    display: none;
-  } */
 
   .leftSection {
     width: 80%;
@@ -228,10 +355,8 @@
     padding: 0;
     width: 80%;
   }
-}
+} */
 
-@media (max-width: 575px) {
-  .graphSection {
-    display: none;
-  }
-}
+/* @media (max-width: 575px) {
+
+} */

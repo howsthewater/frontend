@@ -16,7 +16,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 import "../styles/advanced-search.css";
 
-const AdvancedSearch = () => {
+const AdvancedSearch = beach => {
+  const [values, setValues] = useState({
+    textInput: ""
+  });
   const advBeachesParams = localStorage.getItem("advBeachesParams");
   const [skipValue, setSkipValue] = useState(0);
   const beachesQuery = gql`
@@ -91,10 +94,16 @@ const AdvancedSearch = () => {
     }
     console.log(direction);
   };
+
+  const beachNameClick = e => {
+    localStorage.setItem("beachName", e.target.text);
+    beach.history.push("/searchresult");
+  };
+
   console.log(skipValue);
 
   const { loading, error, data } = useQuery(beachesQuery);
-  console.log(data ? data.filter : "");
+  console.log("ADVANCED-SEARCH:: DATA IS " + JSON.stringify(data));
   return loading ? (
     <div className="loadingDiv">
       <h1 className="loadingText">Please wait... getting beaches</h1>
@@ -125,9 +134,9 @@ const AdvancedSearch = () => {
           {data.filter
             ? data.filter.map(beach => (
                 <div className="rowContainer" key={Math.random()}>
-                  <div className="beach-spot beach-data">
+                  <a onClick={beachNameClick} className="beach-spot beach-data">
                     {beach.NameMobileWeb}
-                  </div>
+                  </a>
                   <div className="beach-region beach-data">{beach.REGION}</div>
                   <div className="beach-amenities beach-data">
                     <img
@@ -225,8 +234,13 @@ const AdvancedSearch = () => {
                       ? beach.WwoAPI.data.weather[0].hourly[0].winddir16Point
                       : "Not-Available"}{" "}
                     | Swell Height:{" "}
-                    {beach.StormAPI.hours[0].swellHeight[0].value} | Temp:{" "}
-                    {beach.StormAPI.hours[0].waterTemperature[0].value}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].swellHeight[0].value
+                      : "null"}{" "}
+                    | Temp:{" "}
+                    {beach.StormAPI.hours
+                      ? beach.StormAPI.hours[0].waterTemperature[0].value
+                      : "null"}
                   </div>
                 </div>
               ))
