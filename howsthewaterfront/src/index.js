@@ -18,6 +18,7 @@ const client = new ApolloClient({
   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 });
 
+// This is for testing purpose only.
 // const client = new ApolloClient({
 //   uri: "http://localhost:4444/graphql"
 // });
