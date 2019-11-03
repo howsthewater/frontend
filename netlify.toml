@@ -1,4 +1,0 @@
-[build]
-    base="howsthewaterfront/"
-    publish ="howsthewaterfront/build"
-    command="npm run build"
