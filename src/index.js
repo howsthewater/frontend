@@ -12,6 +12,7 @@ import Amplify from "aws-amplify";
 import { BrowserRouter as Router } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
+import 'worker-loader?name=./sw.js!./sw.js';
 require("dotenv").config();
 
 const client = new ApolloClient({
@@ -67,7 +68,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
-import 'worker-loader?name=./sw.js!./sw.js';
+
 
 ReactDOM.render(
   <Provider store={store}>
