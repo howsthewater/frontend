@@ -67,6 +67,8 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
+import 'worker-loader?name=./sw.js!./sw.js';
+
 ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
@@ -77,3 +79,9 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').then(registration => {
+    console.log('Registered');
+  })
+}
