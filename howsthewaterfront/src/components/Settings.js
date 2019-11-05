@@ -112,7 +112,7 @@ const Settings = () => {
   });
 
   // selected beach input
-  const [beaches, setBeaches] = useState([]);
+  let [beaches, setBeaches] = useState([]);
 
   // search input handler
   const searchInputHandler = e => {
@@ -138,6 +138,7 @@ const Settings = () => {
   // set beach handler
   const pickedBeachHandler = beachName => {
     setBeachName(beachName);
+    setBeaches([]);
   };
 
   const submitUpdate = () => {
