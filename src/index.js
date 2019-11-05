@@ -67,13 +67,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, logger))
 );
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').then(registration => {
-    console.log('Registered');
-  })
-}
-
-
 
 ReactDOM.render(
   <Provider store={store}>
@@ -86,3 +79,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+serviceWorker.register('sw.js').then(registration => {
+  console.log('Registered');
+})
