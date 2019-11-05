@@ -313,9 +313,10 @@ const Settings = () => {
               value={beachName}
               placeholder="Choose beach region first"
             />
-            <div>
+            <div className="filterDiv">
               {beaches.map(beach => (
                 <p
+                  className="filterSpot"
                   onClick={() => {
                     pickedBeachHandler(beach.NameMobileWeb);
                   }}
