@@ -204,32 +204,11 @@ const Settings = () => {
             </p>
           </div>
           <form noValidate className="settingsForm" onSubmit={handleSubmit}>
+            <label className="inputLabel">Full Name*:</label>
+
             <label className="inputLabel">
-              Full Name*:
               {data.filterUser ? ` ${data.filterUser[0].fullName}` : ""}
             </label>
-            <input
-              className="inputField"
-              id="nInput"
-              name="fullname"
-              type="text"
-              onChange={handleChange}
-              value={values.fullname}
-              // value={
-              //   values.fullname.length > 0
-              //     ? values.fullname
-              //     : data.filterUser
-              //     ? data.filterUser[0].fullName
-              //     : ""
-              // }
-              placeholder="Name Input..."
-              // placeholder={
-              //   data.filterUser ? data.filterUser[0].fullName : "Name Input..."
-              // }
-            />
-            {errors.fullname && (
-              <div className="error-settings">{errors.fullname}</div>
-            )}
             {/* currently no mobile number field avail in schema */}
             <label className="inputLabel">
               Mobile Number:
