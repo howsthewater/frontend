@@ -12,7 +12,7 @@ import Amplify from "aws-amplify";
 import { BrowserRouter as Router } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import * as serviceWorker from './sw';
+import * as serviceWorker from './serviceWorker';
 require("dotenv").config();
 
 const client = new ApolloClient({
@@ -69,6 +69,8 @@ const store = createStore(
 );
 
 
+serviceWorker.register();
+
 ReactDOM.render(
   <Provider store={store}>
     <ApolloProvider client={client}>
@@ -80,6 +82,3 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-serviceWorker.register().then(registration => {
-  console.log('Registered');
-})
