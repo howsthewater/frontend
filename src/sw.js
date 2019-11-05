@@ -4,14 +4,14 @@ const counts = {
     fetches: 0
 };
 
-self.addEventListener('install', () => {
+window.self.addEventListener('install', () => {
     console.log('install', ++counts.installs);
 });
 
-self.addEventListener('activate', () => {
+window.self.addEventListener('activate', () => {
     console.log('activate', ++counts.activations);
 });
 
-self.addEventListener('fetch', () => {
+window.self.addEventListener('fetch', () => {
     console.log('fetches', ++counts.fetches);
 });
