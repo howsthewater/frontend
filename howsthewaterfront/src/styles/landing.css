@@ -399,7 +399,6 @@ header nav a {
   border-radius: 3px;
   padding: 3rem 9rem;
   border-radius: 5px;
-  transform: skewX(-12deg);
 }
 
 /* Fold4: Testimonials - section - Figure element styling - circle for each testimonial image */
@@ -417,9 +416,9 @@ header nav a {
 }
 
 /* Fold4: Testimonials - section - Text content styling */
-.testimonial-text {
+/* .testimonial-text {
   transform: skewX(12deg);
-}
+} */
 
 /* Fold4: Testimonials - section - Image styling */
 .testimonial-img {
@@ -667,9 +666,9 @@ header nav a {
     padding-top: 3rem;
   }
 
-  .section-testimonials {
+  /* .section-testimonials {
     display: none;
-  }
+  } */
 }
 
 /* Break point for really small phones*/
@@ -679,8 +678,8 @@ header nav a {
     padding-top: 3rem;
   }
 
-  .section-testimonials {
+  /* .section-testimonials {
     height: 140vh;
     display: none;
-  }
+  } */
 }
