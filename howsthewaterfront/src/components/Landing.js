@@ -303,21 +303,72 @@ const Landing = props => {
             <a href="#section-about" className="popup-close">
               &times;
             </a>
-            <div className="popup-text">
-              <h2 className="heading-secondary">Our team</h2>
+            <div className="aboutContainer">
+              <div className="popup-text">
+                <h2 className="heading-secondary">Our team</h2>
 
-              <h3 className="heading-teritiary">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </h3>
-              <p className="paragraph">
-                Sint velit reprehenderit quidem possimus enim, cum dolorum
-                tempore id ipsam eveniet delectus, quasi blanditiis. Quas aut
-                quo quos earum eligendi ab? Lorem ipsum dolor, sit amet
-                consectetur adipisicing elit. Eius, earum, dolore dolorem
-                tempora nam necessitatibus ratione, iusto fugit animi omnis non?
-                Id, voluptatum blanditiis. Itaque veniam suscipit quod ducimus
-                rerum.
-              </p>
+                <h3 className="heading-teritiary"> How's The Water Team</h3>
+                <p className="paragraph">
+                  {/* <div className="aboutContainer"> */}
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
+                    alt="James Bieber Potrait"
+                    class="jamesPic"
+                  ></img>
+                  <p className="jamesText">James Bieber: Front-End Developer</p>
+
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
+                    alt="Jonathan Daly Potrait"
+                    class="dalyPic"
+                  ></img>
+                  <p className="dalyText">
+                    Jonathan Daly : Front-End Developer
+                  </p>
+
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UDN3G71EC-4fac0715b668-512"
+                    alt="Robert Harrison Potrait"
+                    class="robertPic"
+                  ></img>
+                  <p className="robertText">
+                    Robert Harrison : Back-End Developer
+                  </p>
+
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
+                    alt="Jordan Hicks Potrait"
+                    class="jordanPic"
+                  ></img>
+                  <p className="jordanText">Jordan Hicks: Back-End Developer</p>
+
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UAE5JH98R-181380245105-512"
+                    alt="Jeffrey Kang Potrait"
+                    class="jeffreyPic"
+                  ></img>
+                  <p className="jeffreyText">Jeffrey Kang: Team Lead</p>
+
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UGQ08RRB9-a107057feea5-512"
+                    alt="Gayathri Ramakrishnan Potrait"
+                    class="gayathriPic"
+                  ></img>
+                  <p className="gayathriText">
+                    Gayathri Ramakrishnan: Front-End Developer
+                  </p>
+
+                  <img
+                    src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
+                    alt="Anthony Stachowitz Potrait"
+                    class="anthonyPic"
+                  ></img>
+                  <p className="anthonyText">
+                    Anthony Stachowitz: Back-End Developer
+                  </p>
+                  {/* </div> /* containter div */}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -325,5 +376,5 @@ const Landing = props => {
     </>
   );
 };
-//this for test
+
 export default Landing;

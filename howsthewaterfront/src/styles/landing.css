@@ -208,6 +208,130 @@ header nav a {
   width: 35%;
 }
 
+.aboutContainer {
+  display:flex;
+  align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.jordanPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.jamesPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.dalyPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.robertPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.gayathriPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.anthonyPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.jeffreyPic {
+  border-radius: 50%;
+  max-width: 100%;
+    height: auto;
+    width: 30%;
+    padding: 9px;
+}
+
+.jamesText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+.dalyText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+.robertText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+.jordanText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+.gayathriText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+.anthonyText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+.jeffreyText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5b9279;
+  margin-top: 2%;
+}
+
+
+
+
+
+
 /* H3 - Common H3 across the landing page */
 .heading-teritiary {
   font-size: 1.6rem;
