@@ -199,16 +199,6 @@ const Landing = props => {
           </div>
           <div className="section-testimonials-content">
             <div className="testimonial">
-              <figure className="testimonial-circle">
-                <img
-                  src={testimonial1}
-                  alt="woman"
-                  className="testimonial-img"
-                />
-                <figcaption className="testimonial-caption">
-                  Elizabeth Warren
-                </figcaption>
-              </figure>
               <div className="testimonial-text">
                 <h3 className="heading-teritiary">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -222,16 +212,6 @@ const Landing = props => {
               </div>
             </div>
             <div className="testimonial">
-              <figure className="testimonial-circle">
-                <img
-                  src={testimonial2}
-                  alt="woman"
-                  className="testimonial-img"
-                />
-                <figcaption className="testimonial-caption">
-                  Eric Crane
-                </figcaption>
-              </figure>
               <div className="testimonial-text">
                 <h3 className="heading-teritiary">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
