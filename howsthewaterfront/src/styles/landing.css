@@ -215,116 +215,56 @@ header nav a {
   width: 100%;
 }
 
-.jordanPic {
+.memberPic {
   border-radius: 50%;
-  max-width: 100%;
   height: auto;
-  width: 30%;
-  padding: 9px;
+  width: 40%;
 }
 
-.jamesPic {
+.memberPic-top {
   border-radius: 50%;
-  max-width: 100%;
+
   height: auto;
-  width: 30%;
-  padding: 9px;
+  width: 15%;
 }
 
-.dalyPic {
-  border-radius: 50%;
-  max-width: 100%;
-  height: auto;
-  width: 30%;
-  padding: 9px;
-}
-
-.robertPic {
-  border-radius: 50%;
-  max-width: 100%;
-  height: auto;
-  width: 30%;
-  padding: 9px;
-}
-
-.gayathriPic {
-  border-radius: 50%;
-  max-width: 100%;
-  height: auto;
-  width: 30%;
-  padding: 9px;
-}
-
-.anthonyPic {
-  border-radius: 50%;
-  max-width: 100%;
-  height: auto;
-  width: 30%;
-  padding: 9px;
-}
-
-.jeffreyPic {
-  border-radius: 50%;
-  max-width: 100%;
-  height: auto;
-  width: 30%;
-  padding: 9px;
-}
-
-.jamesText {
-  font-size: 1.6rem;
+.memberText-title {
+  font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: #5b9279;
-  margin-top: 2%;
+  margin: 15% 0;
 }
 
-.dalyText {
-  font-size: 1.6rem;
+.memberText {
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #5b9279;
-  margin-top: 2%;
+  color: #00bfbf;
+  margin: 5% 0 0 0;
+  padding: 0;
+  text-align: center;
 }
 
-.robertText {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #5b9279;
-  margin-top: 2%;
+.member-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.jordanText {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #5b9279;
-  margin-top: 2%;
+.member-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.gayathriText {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #5b9279;
-  margin-top: 2%;
-}
-
-.anthonyText {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #5b9279;
-  margin-top: 2%;
-}
-
-.jeffreyText {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #5b9279;
-  margin-top: 2%;
+.members {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* H3 - Common H3 across the landing page */
