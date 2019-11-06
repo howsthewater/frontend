@@ -302,6 +302,15 @@ const Landing = props => {
                         Front-End Developers
                       </div>
                     </div>
+
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
+                        alt="James Bieber Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">James Bieber</div>
+                    </div>
                     <div className="members">
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
@@ -317,14 +326,6 @@ const Landing = props => {
                         class="memberPic"
                       ></img>
                       <div className="memberText">Gayathri Ramakrishnan</div>
-                    </div>
-                    <div className="members">
-                      <img
-                        src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
-                        alt="James Bieber Potrait"
-                        class="memberPic"
-                      ></img>
-                      <div className="memberText">James Bieber</div>
                     </div>
                   </div>
 
@@ -344,19 +345,20 @@ const Landing = props => {
                     </div>
                     <div className="members">
                       <img
-                        src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
-                        alt="Anthony Stachowitz Potrait"
-                        class="memberPic"
-                      ></img>
-                      <p className="memberText">Anthony Stachowitz</p>
-                    </div>
-                    <div className="members">
-                      <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
                         alt="Jordan Hicks Potrait"
                         class="memberPic"
                       ></img>
                       <p className="memberText">Jordan Hicks</p>
+                    </div>
+
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
+                        alt="Anthony Stachowitz Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Anthony Stachowitz</p>
                     </div>
                   </div>
                 </div>
