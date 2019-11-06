@@ -277,7 +277,7 @@ const Landing = props => {
           </a>
           <div className="aboutContainer">
             <div className="popup-text">
-              <h2 className="heading-secondary">
+              <h2 className="heading-secondary center-align">
                 How's the water - team members
               </h2>
 

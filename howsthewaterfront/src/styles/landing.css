@@ -289,6 +289,10 @@ header nav a {
   align-items: center;
 }
 
+.center-align {
+  padding-left: 25%;
+}
+
 /* H3 - Common H3 across the landing page */
 .heading-teritiary {
   font-size: 1.6rem;
