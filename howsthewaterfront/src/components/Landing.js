@@ -143,7 +143,7 @@ const Landing = props => {
               <h3 className="heading-teritiary">
                 Core
                 <br></br> <br></br>
-                <h5>Core Account Benefits:</h5>
+                <p className="card-sub-heading">Core Account Benefits:</p>
               </h3>
               <p className="features-box-text">
                 <p>
@@ -164,23 +164,18 @@ const Landing = props => {
             <div className="features-box">
               <i className="features-box__icon icon-basic-link"></i>
               <h3 className="heading-teritiary">
-                Login
-                <br></br> <br></br>
-                <h5> Includes All The Core Account Benefits And: </h5>
+                Login <br></br>
+                <br></br>
+                <p className="card-sub-heading">
+                  Includes all the core account benefits +
+                </p>
               </h3>
               <p className="features-box-text">
-                <ul>
-                  <li>Quickly Favorite Preferred Surf Spots</li>
-                  <br></br>
-                  <li>
-                    Access Ratings and Reviews for Over 1,500 California Surf
-                    Spots
-                  </li>
-                  <br></br>
-                  <li>
-                    Access Curated 10 Day Surf, Wind &amp; Weather Forecasts
-                  </li>
-                </ul>
+                <p>&raquo;&nbsp;Favorite a Surf Spots </p>
+                <br></br>
+                <p>
+                  &raquo;&nbsp;Access Curated 10 Day Surf &amp; Wind Forecasts
+                </p>
               </p>
               <button
                 className="signup-button features-btn"
@@ -196,16 +191,14 @@ const Landing = props => {
               <h3 className="heading-teritiary">
                 Premium
                 <br></br> <br></br>
-                <h5> Includes All The Core &amp; Login Benefits, Plus: </h5>
+                <p className="card-sub-heading">
+                  Includes all the Login Benefits +
+                </p>
               </h3>
               <p className="features-box-text">
-                <ul>
-                  <li>
-                    Connect with other Surfers about Secret Surf Spots via Our
-                    Social Platform
-                  </li>
-                  <li>Request to Add a New Surf Spot to the Community</li>
-                </ul>
+                <p>&raquo;&nbsp;Connect with other Surfers </p>
+                <br></br>
+                <p>&raquo;&nbsp;Add a New Surf Spot, ratings & reviews </p>
               </p>
               <button
                 className="signup-button features-btn"

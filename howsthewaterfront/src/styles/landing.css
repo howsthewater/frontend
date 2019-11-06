@@ -483,6 +483,14 @@ header nav a {
   text-align: justify;
   margin: 3rem 0 3.5rem 0;
   line-height: 20px;
+  font-size: 1.25rem;
+}
+
+.card-sub-heading {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: none;
 }
 
 /* Fold3: This might not be in use */
