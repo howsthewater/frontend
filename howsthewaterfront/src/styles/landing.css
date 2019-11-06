@@ -209,66 +209,66 @@ header nav a {
 }
 
 .aboutContainer {
-  display:flex;
+  display: flex;
   align-items: center;
-    flex-direction: column;
-    width: 100%;
+  flex-direction: column;
+  width: 100%;
 }
 
 .jordanPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .jamesPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .dalyPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .robertPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .gayathriPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .anthonyPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .jeffreyPic {
   border-radius: 50%;
   max-width: 100%;
-    height: auto;
-    width: 30%;
-    padding: 9px;
+  height: auto;
+  width: 30%;
+  padding: 9px;
 }
 
 .jamesText {
@@ -326,11 +326,6 @@ header nav a {
   color: #5b9279;
   margin-top: 2%;
 }
-
-
-
-
-
 
 /* H3 - Common H3 across the landing page */
 .heading-teritiary {
@@ -487,7 +482,6 @@ header nav a {
 .features-box-text {
   text-align: justify;
   margin: 3rem 0 3.5rem 0;
-  letter-spacing: 1px;
   line-height: 20px;
 }
 

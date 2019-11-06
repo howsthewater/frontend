@@ -146,11 +146,11 @@ const Landing = props => {
                 <h5>Core Account Benefits:</h5>
               </h3>
               <p className="features-box-text">
-                <ul>
-                  <li>Access to Live and Accurate Weather Forecasts</li>
-                  <br></br>
-                  <li>Search for Regional Surf Spots</li>
-                </ul>
+                <p>
+                  &raquo;&nbsp;Access to Live and Accurate Weather Forecasts
+                </p>
+                <p>&nbsp;</p>
+                <p>&raquo;&nbsp;Search for Regional Surf Spots </p>
               </p>
               <button
                 className="signup-button features-btn"
@@ -204,7 +204,6 @@ const Landing = props => {
                     Connect with other Surfers about Secret Surf Spots via Our
                     Social Platform
                   </li>
-                  <br></br>
                   <li>Request to Add a New Surf Spot to the Community</li>
                 </ul>
               </p>
