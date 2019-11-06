@@ -259,7 +259,7 @@ const Landing = props => {
       {/* STATIC POPUP SECTION FOR ABOUT */}
       <div className="popup" id="popup-about">
         <div className="popup-content">
-          <div className="popup-left">
+          {/* <div className="popup-left">
             <img
               src={aboutPicture3}
               alt="A person relaxing"
@@ -270,101 +270,103 @@ const Landing = props => {
               alt="A person surfing"
               className="popup-img"
             />
-          </div>
-          <div className="popup-right">
-            <a href="#section-about" className="popup-close">
-              &times;
-            </a>
-            <div className="aboutContainer">
-              <div className="popup-text">
-                <h2 className="heading-secondary">
-                  How's the water - team members
-                </h2>
+          </div> */}
+          {/* <div className="popup-right"> */}
+          <a href="#section-about" className="popup-close">
+            &times;
+          </a>
+          <div className="aboutContainer">
+            <div className="popup-text">
+              <h2 className="heading-secondary">
+                How's the water - team members
+              </h2>
 
-                <p className="paragraph">
-                  <div className="member-container">
-                    <div className="member-section">
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UAE5JH98R-181380245105-512"
-                          alt="Jeffrey Kang Potrait"
-                          class="memberPic-top"
-                        ></img>
-                        <div className="memberText">
-                          Jeffrey Kang: Team Lead
-                        </div>
-                      </div>
-                    </div>
-                    <div className="member-section">
-                      <div className="memberText-title">
-                        Front-End Developers
-                      </div>
-                    </div>
-                    <div className="member-section">
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
-                          alt="Jonathan Daly Potrait"
-                          class="memberPic"
-                        ></img>
-                        <div className="memberText">Jonathan Daly</div>
-                      </div>
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UGQ08RRB9-a107057feea5-512"
-                          alt="Gayathri Ramakrishnan Potrait"
-                          class="memberPic"
-                        ></img>
-                        <div className="memberText">Gayathri Ramakrishnan</div>
-                      </div>
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
-                          alt="James Bieber Potrait"
-                          class="memberPic"
-                        ></img>
-                        <div className="memberText">James Bieber</div>
-                      </div>
-                    </div>
-                    <div className="member-section">
-                      <div className="memberText-title">
-                        Back-end Developers
-                      </div>
-                    </div>
-                    <div className="member-section">
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UDN3G71EC-4fac0715b668-512"
-                          alt="Robert Harrison Potrait"
-                          class="memberPic"
-                        ></img>
-                        <p className="memberText">Robert Harrison</p>
-                      </div>
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
-                          alt="Anthony Stachowitz Potrait"
-                          class="memberPic"
-                        ></img>
-                        <p className="memberText">Anthony Stachowitz</p>
-                      </div>
-                      <div className="members">
-                        <img
-                          src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
-                          alt="Jordan Hicks Potrait"
-                          class="memberPic"
-                        ></img>
-                        <p className="memberText">Jordan Hicks</p>
+              <p className="paragraph">
+                <div className="member-container">
+                  <div className="member-section">
+                    <div className="members-top">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UAE5JH98R-181380245105-512"
+                        alt="Jeffrey Kang Potrait"
+                        class="memberPic-top"
+                      ></img>
+                      <div className="memberText-top">
+                        Jeffrey Kang: Team Lead
                       </div>
                     </div>
                   </div>
 
-                  {/* </div> /* containter div */}
-                </p>
-              </div>
+                  <div className="member-section">
+                    <div className="members">
+                      <div className="memberText-title">
+                        Front-End Developers
+                      </div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
+                        alt="Jonathan Daly Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">Jonathan Daly</div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UGQ08RRB9-a107057feea5-512"
+                        alt="Gayathri Ramakrishnan Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">Gayathri Ramakrishnan</div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
+                        alt="James Bieber Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">James Bieber</div>
+                    </div>
+                  </div>
+
+                  <div className="member-section">
+                    <div className="members">
+                      <div className="memberText-title">
+                        Back-end Developers
+                      </div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UDN3G71EC-4fac0715b668-512"
+                        alt="Robert Harrison Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Robert Harrison</p>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
+                        alt="Anthony Stachowitz Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Anthony Stachowitz</p>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
+                        alt="Jordan Hicks Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Jordan Hicks</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* </div> /* containter div */}
+              </p>
             </div>
           </div>
         </div>
+        {/* </div> */}
       </div>
     </>
   );

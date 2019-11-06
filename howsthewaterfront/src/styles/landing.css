@@ -218,7 +218,7 @@ header nav a {
 .memberPic {
   border-radius: 50%;
   height: auto;
-  width: 40%;
+  width: 30%;
 }
 
 .memberPic-top {
@@ -234,7 +234,11 @@ header nav a {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #5b9279;
-  margin: 15% 0;
+
+  padding-left: 10%;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .memberText {
@@ -245,6 +249,17 @@ header nav a {
   margin: 5% 0 0 0;
   padding: 0;
   text-align: center;
+}
+
+.memberText-top {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00bfbf;
+  margin: 0;
+  padding-left: 10px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .member-container {
@@ -258,11 +273,18 @@ header nav a {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 30px;
 }
 
 .members {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.members-top {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
