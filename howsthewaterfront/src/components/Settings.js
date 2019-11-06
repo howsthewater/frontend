@@ -112,7 +112,7 @@ const Settings = () => {
   });
 
   // selected beach input
-  const [beaches, setBeaches] = useState([]);
+  let [beaches, setBeaches] = useState([]);
 
   // search input handler
   const searchInputHandler = e => {
@@ -138,6 +138,7 @@ const Settings = () => {
   // set beach handler
   const pickedBeachHandler = beachName => {
     setBeachName(beachName);
+    setBeaches([]);
   };
 
   const submitUpdate = () => {
@@ -212,7 +213,10 @@ const Settings = () => {
             {/* currently no mobile number field avail in schema */}
             <label className="inputLabel">
               Mobile Number:
-              {data.filterUser ? ` ${data.filterUser[0].phoneInput}` : ""}
+              {data.filterUser[0].phoneInput !== null
+                ? `${data.filterUser[0].phoneInput}`
+                : ""}
+              {/* {data.filterUser ? ` ${data.filterUser[0].phoneInput}` : ""} */}
             </label>
             <input
               className="inputField"
@@ -240,7 +244,9 @@ const Settings = () => {
             <label className="inputLabel">
               Base beach Region/ region in California*:
               <br />
-              {data.filterUser ? `  ${data.filterUser[0].regionInput}` : ""}
+              {data.filterUser[0].regionInput !== null
+                ? `${data.filterUser[0].regionInput}`
+                : ""}
             </label>
             <select
               className="selectField"
@@ -264,7 +270,9 @@ const Settings = () => {
             <label className="inputLabel">
               Base beach spot/ surf spot in California*:
               <br />
-              {data.filterUser ? ` ${data.filterUser[0].beachInput}` : ""}
+              {data.filterUser[0].regionInput !== null
+                ? `${data.filterUser[0].regionInput}`
+                : ""}
             </label>
             {/* <select
               className="selectField"
@@ -285,9 +293,10 @@ const Settings = () => {
               value={beachName}
               placeholder="Choose beach region first"
             />
-            <div>
+            <div className="filterDiv">
               {beaches.map(beach => (
                 <p
+                  className="filterSpot"
                   onClick={() => {
                     pickedBeachHandler(beach.NameMobileWeb);
                   }}
@@ -300,7 +309,9 @@ const Settings = () => {
             {/* currently no persona field avail in schema */}
             <label className="inputLabel">
               Choose your persona*:
-              {data.filterUser ? ` ${data.filterUser[0].persona}` : ""}
+              {data.filterUser[0].persona !== null
+                ? `${data.filterUser[0].phoneInput}`
+                : ""}
             </label>
             <select
               className="selectField"

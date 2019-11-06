@@ -149,6 +149,26 @@
   width: 100%;
   margin-left: 4.5rem;
 }
+
+.filterDiv {
+  width: 90%;
+}
+
+.filterSpot {
+  width: 100%;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 1% 1% 1% 1%;
+  background-color: #215c74;
+}
+
+.filterSpot:hover {
+  background-color: white;
+  color: #215c74;
+}
+
 @media (max-width: 768px) {
   .buttonsDiv {
     margin: 1rem 0 0 0;
