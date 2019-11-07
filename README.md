@@ -8,33 +8,15 @@ Please refer to the Project Vision Document for the features and other technical
 
 # **Team Members**
 
-Name: Jeffrey Kang
-Role: Team Lead
-[@jeff](https://github.com/jeffyjkang)
-
-Name: Jonathan Daly
-Role: Frontend Developer
-[@jonathandly](https://github.com/jonathandly)
-
-Name: Gayathri Ramakrishnan
-Role: Frontend Developer
-[@G3Ram](https://github.com/G3Ram)
-
-Name: James Bieber
-Role: Frontend Developer
-[@jamesbieber](https://github.com/jamesbieber)
-
-Name: Jordan Hicks
-Role: Backend Developer
-[@jordan](https://github.com/jthicks91)
-
-Name: Anthony Stachowitz
-Role: Backend Developer
-[@Anthony](https://github.com/stackBlock)
-
-Name: Robert Harrison
-Role: Backend Developer
-[@Robert](https://github.com/focused220)
+| name                  | Role               | Github Link                                    |
+| --------------------- | ------------------ | ---------------------------------------------- |
+| Jeffrey Kang          | Team Lead          | [@jeff](https://github.com/jeffyjkang)         |
+| Jonathan Daly         | Frontend Developer | [@jonathandly](https://github.com/jonathandly) |
+| Gayathri Ramakrishnan | Frontend Developer | [[@G3Ram](https://github.com/G3Ram)            |
+| James Bieber          | Frontend Developer | [@jamesbieber](https://github.com/jamesbieber) |
+| Jordan Hicks          | Backend Developer  | [@jordan](https://github.com/jthicks91)        |
+| Anthony Stachowitz    | Backend Developer  | [@Anthony](https://github.com/stackBlock)      |
+| Robert Harrison       | Backend Developer  | [@Robert](https://github.com/focused220)       |
 
 # **Deployed frontend**
 
