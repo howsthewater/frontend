@@ -35,3 +35,14 @@ Role: Backend Developer
 - https://howsthewaterfeature.netlify.com/ (Feature)
 - https://howsthewaterstaging.netlify.com/ (Staging)
 - https://howsthewaters.com/ (Production)
+
+# **Technologies**
+
+### Production & Development
+
+- [React](https://reactjs.org/docs/getting-started.html): 'Frontend UI framework'
+- [Redux](https://redux.js.org/): 'Framework for state management'
+- [AWS-Amplify](https://docs.aws.amazon.com/amplify/): 'Connecting to cognito user pool - Authentication for hosted UI & custom'
+- [Apollo](https://www.apollographql.com/docs/): 'GraphQL server - to connect to backend'
+- [Chartjs](https://www.chartjs.org/docs/latest/): 'Charts displaying wind speed and swell height'
+- [Googlemaps](https://developers.google.com/maps/documentation): 'Map displaying the location of a beach and all the beaches in a region'
