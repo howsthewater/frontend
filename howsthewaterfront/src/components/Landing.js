@@ -224,13 +224,14 @@ const Landing = props => {
             <div className="testimonial">
               <div className="testimonial-text">
                 <h3 className="heading-teritiary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Passionate about surfing!!
                 </h3>
                 <p className="paragraph">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
-                  Quia vero aliquid, non asperiores, veniam dolor accusamus
-                  suscipit soluta quas quos, maiores eius qui.
+                  How's the water, helps you find the right surfing spot on any
+                  given day. As a surfer, you can get real time weather and surf
+                  information such as an hourly forecast, wind speed and swell
+                  heights. Let us help you plan and enjoy your next surfing
+                  adventure!
                 </p>
               </div>
             </div>
