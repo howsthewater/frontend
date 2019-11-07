@@ -85,28 +85,28 @@ const Landing = props => {
           <div className="about-content">
             {/* ABOUT TEXT CONTENT - LEFT */}
             <div className="about-text-content">
-              <h3 className="heading-teritiary">
-                at augue eget arcu dictum varius duis at consectetur lorem
-              </h3>
+              <h3 className="heading-teritiary">Passionate about surfing!!</h3>
               <p className="paragraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-                non odio euismod lacinia at quis. Nisl condimentum id venenatis
-                a.
+                How's the water, helps you find the right surfing spot on any
+                given day. As a surfer, you can get real time weather and surf
+                information such as an hourly forecast, wind speed and swell
+                heights. Let us help you plan and enjoy your next surfing
+                adventure!
               </p>
 
               <h3 className="heading-teritiary">
-                at augue eget arcu dictum varius duis at consectetur lorem
+                Planning for a day out at the beach, with your family!
               </h3>
               <p className="paragraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-                non odio euismod lacinia at quis. Nisl condimentum id venenatis
-                a. Porta lorem mollis aliquam ut porttitor leo a diam
-                sollicitudin.
+                How's the water, has many search filters which will help you
+                choose the beach based on the amenities that is the best fit for
+                your family. Whether you are looking for beaches with restrooms,
+                restaurants, swimming pools or volleyball courts, we have it all
+                covered within our platform, helping you find the right beach
+                for a great outing.
               </p>
               <a href="#popup-about" className="btn-text">
-                Learn more &rarr;
+                Our team &rarr;
               </a>
             </div>
 
@@ -223,26 +223,21 @@ const Landing = props => {
           <div className="section-testimonials-content">
             <div className="testimonial">
               <div className="testimonial-text">
-                <h3 className="heading-teritiary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </h3>
+                <h3 className="heading-teritiary">Quick and snappy platform</h3>
                 <p className="paragraph">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
-                  Quia vero aliquid, non asperiores, veniam dolor accusamus
-                  suscipit soluta quas quos, maiores eius qui.
+                  "Very happy to have a website with live and accurate surf
+                  information in one place -anonymous"
                 </p>
               </div>
             </div>
             <div className="testimonial">
               <div className="testimonial-text">
                 <h3 className="heading-teritiary">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Mobile friendly and easy to use
                 </h3>
                 <p className="paragraph">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Voluptate deserunt libero voluptatem, nemo molestiae officiis?
-                  Quia vero aliquid.
+                  "Wind speed and swell height forecast on the go helps me
+                  choose the right surfing spot -anonymous"
                 </p>
               </div>
             </div>
