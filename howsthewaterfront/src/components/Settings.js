@@ -79,7 +79,7 @@ const Settings = () => {
   // mutation query on submit update
   const mutationQuery = gql`
     mutation{
-      update(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
+      updateUser(cognitoUserId: "${JSON.parse(currentUser).cognitoUser}",
       ${values.fullname ? "fullName: " + '"' + values.fullname + '"' : ""},
       ${
         formValues.regionInput
@@ -110,6 +110,8 @@ const Settings = () => {
   const beachData = useQuery(beachQuery, {
     skip: !formValues.regionInput
   });
+
+  console.log("data", data);
 
   // selected beach input
   let [beaches, setBeaches] = useState([]);
@@ -270,8 +272,8 @@ const Settings = () => {
             <label className="inputLabel">
               Base beach spot/ surf spot in California*:
               <br />
-              {data.filterUser[0].regionInput !== null
-                ? `${data.filterUser[0].regionInput}`
+              {data.filterUser[0].beachInput !== null
+                ? `${data.filterUser[0].beachInput}`
                 : ""}
             </label>
             {/* <select
@@ -310,7 +312,7 @@ const Settings = () => {
             <label className="inputLabel">
               Choose your persona*:
               {data.filterUser[0].persona !== null
-                ? `${data.filterUser[0].phoneInput}`
+                ? `${data.filterUser[0].persona}`
                 : ""}
             </label>
             <select
