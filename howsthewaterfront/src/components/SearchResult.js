@@ -151,7 +151,7 @@ const SearchResult = props => {
 mutation{
   updateUser(cognitoUserId: "${cognitoUser}", ${
     !isFavoriteBeach
-      ? 'favoriteBeach:"' + favoriteBeach.concat(beachName) + '"'
+      ? 'favoriteBeach:",' + favoriteBeach.concat(beachName) + ',"'
       : 'favoriteBeach:"' + favoriteBeach.replace(beachName, "") + '"'
   } ){
     fullName

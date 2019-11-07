@@ -208,6 +208,91 @@ header nav a {
   width: 35%;
 }
 
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.memberPic {
+  border-radius: 50%;
+  height: auto;
+  width: 30%;
+}
+
+.memberPic-top {
+  border-radius: 50%;
+
+  height: auto;
+  width: 15%;
+}
+
+.memberText-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #5b9279;
+
+  padding-left: 10%;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.memberText {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00bfbf;
+  margin: 5% 0 0 0;
+  padding: 0;
+  text-align: center;
+}
+
+.memberText-top {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #00bfbf;
+  margin: 0;
+  padding-left: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.member-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.members {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.members-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-align {
+  padding-left: 25%;
+}
+
 /* H3 - Common H3 across the landing page */
 .heading-teritiary {
   font-size: 1.6rem;
@@ -363,8 +448,15 @@ header nav a {
 .features-box-text {
   text-align: justify;
   margin: 3rem 0 3.5rem 0;
-  letter-spacing: 1px;
   line-height: 20px;
+  font-size: 1.25rem;
+}
+
+.card-sub-heading {
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: none;
 }
 
 /* Fold3: This might not be in use */
@@ -399,7 +491,6 @@ header nav a {
   border-radius: 3px;
   padding: 3rem 9rem;
   border-radius: 5px;
-  transform: skewX(-12deg);
 }
 
 /* Fold4: Testimonials - section - Figure element styling - circle for each testimonial image */
@@ -417,9 +508,9 @@ header nav a {
 }
 
 /* Fold4: Testimonials - section - Text content styling */
-.testimonial-text {
+/* .testimonial-text {
   transform: skewX(12deg);
-}
+} */
 
 /* Fold4: Testimonials - section - Image styling */
 .testimonial-img {
@@ -667,9 +758,9 @@ header nav a {
     padding-top: 3rem;
   }
 
-  .section-testimonials {
+  /* .section-testimonials {
     display: none;
-  }
+  } */
 }
 
 /* Break point for really small phones*/
@@ -679,8 +770,8 @@ header nav a {
     padding-top: 3rem;
   }
 
-  .section-testimonials {
+  /* .section-testimonials {
     height: 140vh;
     display: none;
-  }
+  } */
 }
