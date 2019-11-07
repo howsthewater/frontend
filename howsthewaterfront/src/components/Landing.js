@@ -145,13 +145,13 @@ const Landing = props => {
                 <br></br> <br></br>
                 <p className="card-sub-heading">Core Account Benefits:</p>
               </h3>
-              <p className="features-box-text">
+              <div className="features-box-text">
                 <p>
                   &raquo;&nbsp;Access to Live and Accurate Weather Forecasts
                 </p>
                 <p>&nbsp;</p>
                 <p>&raquo;&nbsp;Search for Regional Surf Spots </p>
-              </p>
+              </div>
               <button
                 className="signup-button features-btn"
                 onClick={() => props.history.push("/signup")}
@@ -170,13 +170,13 @@ const Landing = props => {
                   Includes all the core account benefits +
                 </p>
               </h3>
-              <p className="features-box-text">
+              <div className="features-box-text">
                 <p>&raquo;&nbsp;Favorite a Surf Spots </p>
                 <br></br>
                 <p>
                   &raquo;&nbsp;Access Curated 10 Day Surf &amp; Wind Forecasts
                 </p>
-              </p>
+              </div>
               <button
                 className="signup-button features-btn"
                 onClick={() => props.history.push("/signup")}
@@ -195,11 +195,11 @@ const Landing = props => {
                   Includes all the Login Benefits +
                 </p>
               </h3>
-              <p className="features-box-text">
+              <div className="features-box-text">
                 <p>&raquo;&nbsp;Connect with other Surfers </p>
                 <br></br>
                 <p>&raquo;&nbsp;Add a New Surf Spot, ratings & reviews </p>
-              </p>
+              </div>
               <button
                 className="signup-button features-btn"
                 onClick={() => props.history.push("/signup")}
@@ -276,14 +276,14 @@ const Landing = props => {
                 How's the water - team members
               </h2>
 
-              <p className="paragraph">
+              <div className="paragraph">
                 <div className="member-container">
                   <div className="member-section">
                     <div className="members-top">
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UAE5JH98R-181380245105-512"
                         alt="Jeffrey Kang Potrait"
-                        class="memberPic-top"
+                        className="memberPic-top"
                       ></img>
                       <div className="memberText-top">
                         Jeffrey Kang: Team Lead
@@ -302,7 +302,7 @@ const Landing = props => {
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
                         alt="James Bieber Potrait"
-                        class="memberPic"
+                        className="memberPic"
                       ></img>
                       <div className="memberText">James Bieber</div>
                     </div>
@@ -310,7 +310,7 @@ const Landing = props => {
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
                         alt="Jonathan Daly Potrait"
-                        class="memberPic"
+                        className="memberPic"
                       ></img>
                       <div className="memberText">Jonathan Daly</div>
                     </div>
@@ -318,7 +318,7 @@ const Landing = props => {
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UGQ08RRB9-a107057feea5-512"
                         alt="Gayathri Ramakrishnan Potrait"
-                        class="memberPic"
+                        className="memberPic"
                       ></img>
                       <div className="memberText">Gayathri Ramakrishnan</div>
                     </div>
@@ -334,7 +334,7 @@ const Landing = props => {
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UDN3G71EC-4fac0715b668-512"
                         alt="Robert Harrison Potrait"
-                        class="memberPic"
+                        className="memberPic"
                       ></img>
                       <p className="memberText">Robert Harrison</p>
                     </div>
@@ -342,7 +342,7 @@ const Landing = props => {
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
                         alt="Jordan Hicks Potrait"
-                        class="memberPic"
+                        className="memberPic"
                       ></img>
                       <p className="memberText">Jordan Hicks</p>
                     </div>
@@ -351,7 +351,7 @@ const Landing = props => {
                       <img
                         src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
                         alt="Anthony Stachowitz Potrait"
-                        class="memberPic"
+                        className="memberPic"
                       ></img>
                       <p className="memberText">Anthony Stachowitz</p>
                     </div>
@@ -359,7 +359,7 @@ const Landing = props => {
                 </div>
 
                 {/* </div> /* containter div */}
-              </p>
+              </div>
             </div>
           </div>
         </div>
