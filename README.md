@@ -12,7 +12,7 @@ Please refer to the Project Vision Document for the features and other technical
 | --------------------- | ------------------ | ---------------------------------------------- |
 | Jeffrey Kang          | Team Lead          | [@jeff](https://github.com/jeffyjkang)         |
 | Jonathan Daly         | Frontend Developer | [@jonathandly](https://github.com/jonathandly) |
-| Gayathri Ramakrishnan | Frontend Developer | [[@G3Ram](https://github.com/G3Ram)            |
+| Gayathri Ramakrishnan | Frontend Developer | [@G3Ram](https://github.com/G3Ram)             |
 | James Bieber          | Frontend Developer | [@jamesbieber](https://github.com/jamesbieber) |
 | Jordan Hicks          | Backend Developer  | [@jordan](https://github.com/jthicks91)        |
 | Anthony Stachowitz    | Backend Developer  | [@Anthony](https://github.com/stackBlock)      |
