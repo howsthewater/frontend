@@ -18,13 +18,13 @@ import { gql } from "apollo-boost";
 import ApolloClient from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-const client = new ApolloClient({
-  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
-});
-
 // const client = new ApolloClient({
-//   uri: "http://localhost:4444/graphql"
+//   uri: "https://howsthewaterfeature.herokuapp.com/graphql"
 // });
+
+const client = new ApolloClient({
+  uri: "http://localhost:4444/graphql"
+});
 
 /*
  * Class component: App
