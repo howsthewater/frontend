@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
 import Footer from "./Footer";
-import { withRouter } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import "../styles/region.css";
 import { compose, withProps } from "recompose";
 import {
@@ -15,7 +15,7 @@ import {
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-const Region = () => {
+const Region = props => {
   const [selectedMarker, setSelectedMarker] = useState("");
   const [mapSpecs, setMapSpecs] = useState({
     // default
@@ -72,6 +72,11 @@ const Region = () => {
       lng: beach.LONGITUDE
     });
   };
+  // redirect to search result page
+  const submitReportView = beachName => {
+    localStorage.setItem("beachName", beachName);
+    props.history.push("/searchresult");
+  };
   // map
   const MapComponent = compose(
     withProps({
@@ -124,7 +129,12 @@ const Region = () => {
                         : "Null"}
                     </div>
                     <br />
-                    <div>VIEW SURF REPORT</div>
+                    {/* <div>VIEW SURF REPORT</div> */}
+                    <NavLink
+                      onClick={() => submitReportView(beach.NameMobileWeb)}
+                    >
+                      VIEW SURF REPORT
+                    </NavLink>
                   </div>
                 </InfoWindow>
               )}
