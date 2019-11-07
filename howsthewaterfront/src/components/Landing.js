@@ -143,14 +143,14 @@ const Landing = props => {
               <h3 className="heading-teritiary">
                 Core
                 <br></br> <br></br>
-                <h5>Core Account Benefits:</h5>
+                <p className="card-sub-heading">Core Account Benefits:</p>
               </h3>
               <p className="features-box-text">
-                <ul>
-                  <li>Access to Live and Accurate Weather Forecasts</li>
-                  <br></br>
-                  <li>Search for Regional Surf Spots</li>
-                </ul>
+                <p>
+                  &raquo;&nbsp;Access to Live and Accurate Weather Forecasts
+                </p>
+                <p>&nbsp;</p>
+                <p>&raquo;&nbsp;Search for Regional Surf Spots </p>
               </p>
               <button
                 className="signup-button features-btn"
@@ -164,23 +164,18 @@ const Landing = props => {
             <div className="features-box">
               <i className="features-box__icon icon-basic-link"></i>
               <h3 className="heading-teritiary">
-                Login
-                <br></br> <br></br>
-                <h5> Includes All The Core Account Benefits And: </h5>
+                Login <br></br>
+                <br></br>
+                <p className="card-sub-heading">
+                  Includes all the core account benefits +
+                </p>
               </h3>
               <p className="features-box-text">
-                <ul>
-                  <li>Quickly Favorite Preferred Surf Spots</li>
-                  <br></br>
-                  <li>
-                    Access Ratings and Reviews for Over 1,500 California Surf
-                    Spots
-                  </li>
-                  <br></br>
-                  <li>
-                    Access Curated 10 Day Surf, Wind &amp; Weather Forecasts
-                  </li>
-                </ul>
+                <p>&raquo;&nbsp;Favorite a Surf Spots </p>
+                <br></br>
+                <p>
+                  &raquo;&nbsp;Access Curated 10 Day Surf &amp; Wind Forecasts
+                </p>
               </p>
               <button
                 className="signup-button features-btn"
@@ -196,17 +191,14 @@ const Landing = props => {
               <h3 className="heading-teritiary">
                 Premium
                 <br></br> <br></br>
-                <h5> Includes All The Core &amp; Login Benefits, Plus: </h5>
+                <p className="card-sub-heading">
+                  Includes all the Login Benefits +
+                </p>
               </h3>
               <p className="features-box-text">
-                <ul>
-                  <li>
-                    Connect with other Surfers about Secret Surf Spots via Our
-                    Social Platform
-                  </li>
-                  <br></br>
-                  <li>Request to Add a New Surf Spot to the Community</li>
-                </ul>
+                <p>&raquo;&nbsp;Connect with other Surfers </p>
+                <br></br>
+                <p>&raquo;&nbsp;Add a New Surf Spot, ratings & reviews </p>
               </p>
               <button
                 className="signup-button features-btn"
@@ -267,7 +259,7 @@ const Landing = props => {
       {/* STATIC POPUP SECTION FOR ABOUT */}
       <div className="popup" id="popup-about">
         <div className="popup-content">
-          <div className="popup-left">
+          {/* <div className="popup-left">
             <img
               src={aboutPicture3}
               alt="A person relaxing"
@@ -278,80 +270,105 @@ const Landing = props => {
               alt="A person surfing"
               className="popup-img"
             />
-          </div>
-          <div className="popup-right">
-            <a href="#section-about" className="popup-close">
-              &times;
-            </a>
-            <div className="aboutContainer">
-              <div className="popup-text">
-                <h2 className="heading-secondary">Our team</h2>
+          </div> */}
+          {/* <div className="popup-right"> */}
+          <a href="#section-about" className="popup-close">
+            &times;
+          </a>
+          <div className="aboutContainer">
+            <div className="popup-text">
+              <h2 className="heading-secondary center-align">
+                How's the water - team members
+              </h2>
 
-                <h3 className="heading-teritiary"> How's The Water Team</h3>
-                <p className="paragraph">
-                  {/* <div className="aboutContainer"> */}
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
-                    alt="James Bieber Potrait"
-                    class="jamesPic"
-                  ></img>
-                  <p className="jamesText">James Bieber: Front-End Developer</p>
+              <p className="paragraph">
+                <div className="member-container">
+                  <div className="member-section">
+                    <div className="members-top">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UAE5JH98R-181380245105-512"
+                        alt="Jeffrey Kang Potrait"
+                        class="memberPic-top"
+                      ></img>
+                      <div className="memberText-top">
+                        Jeffrey Kang: Team Lead
+                      </div>
+                    </div>
+                  </div>
 
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
-                    alt="Jonathan Daly Potrait"
-                    class="dalyPic"
-                  ></img>
-                  <p className="dalyText">
-                    Jonathan Daly : Front-End Developer
-                  </p>
+                  <div className="member-section">
+                    <div className="members">
+                      <div className="memberText-title">
+                        Front-End Developers
+                      </div>
+                    </div>
 
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UDN3G71EC-4fac0715b668-512"
-                    alt="Robert Harrison Potrait"
-                    class="robertPic"
-                  ></img>
-                  <p className="robertText">
-                    Robert Harrison : Back-End Developer
-                  </p>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UE5JUSANS-b48a245fd209-512"
+                        alt="James Bieber Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">James Bieber</div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UDAGYK3GC-0d354ce80f2d-512"
+                        alt="Jonathan Daly Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">Jonathan Daly</div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UGQ08RRB9-a107057feea5-512"
+                        alt="Gayathri Ramakrishnan Potrait"
+                        class="memberPic"
+                      ></img>
+                      <div className="memberText">Gayathri Ramakrishnan</div>
+                    </div>
+                  </div>
 
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
-                    alt="Jordan Hicks Potrait"
-                    class="jordanPic"
-                  ></img>
-                  <p className="jordanText">Jordan Hicks: Back-End Developer</p>
+                  <div className="member-section">
+                    <div className="members">
+                      <div className="memberText-title">
+                        Back-end Developers
+                      </div>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UDN3G71EC-4fac0715b668-512"
+                        alt="Robert Harrison Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Robert Harrison</p>
+                    </div>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UCPDAU2F6-00eedafe64dc-512"
+                        alt="Jordan Hicks Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Jordan Hicks</p>
+                    </div>
 
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UAE5JH98R-181380245105-512"
-                    alt="Jeffrey Kang Potrait"
-                    class="jeffreyPic"
-                  ></img>
-                  <p className="jeffreyText">Jeffrey Kang: Team Lead</p>
+                    <div className="members">
+                      <img
+                        src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
+                        alt="Anthony Stachowitz Potrait"
+                        class="memberPic"
+                      ></img>
+                      <p className="memberText">Anthony Stachowitz</p>
+                    </div>
+                  </div>
+                </div>
 
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UGQ08RRB9-a107057feea5-512"
-                    alt="Gayathri Ramakrishnan Potrait"
-                    class="gayathriPic"
-                  ></img>
-                  <p className="gayathriText">
-                    Gayathri Ramakrishnan: Front-End Developer
-                  </p>
-
-                  <img
-                    src="https://ca.slack-edge.com/T4JUEB3ME-UGDF8SM99-1421fd3bfe91-512"
-                    alt="Anthony Stachowitz Potrait"
-                    class="anthonyPic"
-                  ></img>
-                  <p className="anthonyText">
-                    Anthony Stachowitz: Back-End Developer
-                  </p>
-                  {/* </div> /* containter div */}
-                </p>
-              </div>
+                {/* </div> /* containter div */}
+              </p>
             </div>
           </div>
         </div>
+        {/* </div> */}
       </div>
     </>
   );
