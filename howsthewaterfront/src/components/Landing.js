@@ -106,7 +106,7 @@ const Landing = props => {
                 for a great outing.
               </p>
               <a href="#popup-about" className="btn-text">
-                Learn more &rarr;
+                Our team &rarr;
               </a>
             </div>
 
@@ -223,30 +223,21 @@ const Landing = props => {
           <div className="section-testimonials-content">
             <div className="testimonial">
               <div className="testimonial-text">
-                <h3 className="heading-teritiary">
-                  Passionate about surfing!!
-                </h3>
+                <h3 className="heading-teritiary">Quick and snappy platform</h3>
                 <p className="paragraph">
-                  How's the water, helps you find the right surfing spot on any
-                  given day. As a surfer, you can get real time weather and surf
-                  information such as an hourly forecast, wind speed and swell
-                  heights. Let us help you plan and enjoy your next surfing
-                  adventure!
+                  "Very happy to have a website with live and accurate surf
+                  information in one place -anonymous"
                 </p>
               </div>
             </div>
             <div className="testimonial">
               <div className="testimonial-text">
                 <h3 className="heading-teritiary">
-                  Planning for a day out at the beach, with your family!
+                  Mobile friendly and easy to use
                 </h3>
                 <p className="paragraph">
-                  How's the water, has many search filters which will help you
-                  choose the beach based on the amenities that is the best fit
-                  for your family. Whether you are looking for beaches with
-                  restrooms, restaurants, swimming pools or volleyball courts,
-                  we have it all covered within our platform, helping you find
-                  the right beach for a great outing.
+                  "Wind speed and swell height forecast on the go helps me
+                  choose the right surfing spot -anonymous"
                 </p>
               </div>
             </div>
