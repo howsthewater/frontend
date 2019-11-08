@@ -91,7 +91,7 @@ const CopyrightFooter = () => {
             </a>
             <div className="popup-text">
               <h2 className="heading-secondary">Terms & Conditions</h2>
-              <p className="paragraph">
+              <div className="paragraph">
                 These terms and conditions (&quot;Terms&quot;,
                 &quot;Agreement&quot;) are an agreement between Website Operator
                 (&quot;Website Operator&quot;, &quot;us&quot;, &quot;we&quot; or
@@ -315,9 +315,9 @@ const CopyrightFooter = () => {
                   us.
                 </p>
                 <p>This document was last updated on October 24, 2019</p>
-              </p>
+              </div>
               <h2 className="heading-secondary">Privacy Policy</h2>
-              <p className="paragraph">
+              <div className="paragraph">
                 <p>
                   This privacy policy (&quot;Policy&quot;) describes how Website
                   Operator (&quot;Website Operator&quot;, &quot;we&quot;,
@@ -654,9 +654,9 @@ const CopyrightFooter = () => {
                   <br></br>
                 </p>
                 <p>This document was last updated on October 24, 2019.</p>
-              </p>
+              </div>
               <h2 className="heading-secondary">Legal Statement</h2>
-              <p className="paragraph">
+              <div className="paragraph">
                 <p>
                   This disclaimer (&quot;Disclaimer&quot;,
                   &quot;Agreement&quot;) is an agreement between Website
@@ -783,7 +783,7 @@ const CopyrightFooter = () => {
                 </p>
                 <br></br> <br></br>
                 <p>This document was last updated on October 24, 2019.</p>
-              </p>
+              </div>
             </div>
           </div>
         </div>

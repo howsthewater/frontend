@@ -15,7 +15,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 require("dotenv").config();
 
 const client = new ApolloClient({
-  uri: "https://howsthewaterfeature.herokuapp.com/graphql"
+  uri: "https://howsthewaterproduction.herokuapp.com/graphql"
 });
 
 //This is for testing purpose only.
