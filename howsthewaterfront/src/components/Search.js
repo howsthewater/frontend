@@ -176,7 +176,7 @@ const Search = props => {
           type="text"
           onChange={searchInputHandler}
           value={values.textInput}
-          placeholder="Seach by beach name"
+          placeholder="Search by beach name"
           // style={{ width: advancedSearch ? "100%" : "90%" }}
           style={{
             display: !advancedSearch ? "" : "none",
