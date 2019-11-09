@@ -86,7 +86,7 @@ const Settings = () => {
           ? "regionInput: " + '"' + formValues.regionInput + '"'
           : ""
       },
-      ${beachName ? "beachInput: " + '"' + beachName + '"' : ""},
+      ${beachName ? "homeBeachName: " + '"' + beachName + '"' : ""},
       ${
         formValues.surferInput
           ? "persona: " + '"' + formValues.surferInput + '"'
@@ -98,7 +98,7 @@ const Settings = () => {
         fullName
         phoneInput
         regionInput
-        beachInput
+        homeBeachName
         persona
       }
     }
@@ -272,8 +272,8 @@ const Settings = () => {
             <label className="inputLabel">
               Base beach spot/ surf spot in California*:
               <br />
-              {data.filterUser[0].beachInput !== null
-                ? `${data.filterUser[0].beachInput}`
+              {data.filterUser[0].homeBeachName !== null
+                ? `${data.filterUser[0].homeBeachName}`
                 : ""}
             </label>
             {/* <select
